@@ -1,0 +1,78 @@
+/* === 세부 페이지 본문 콘텐츠 === */
+
+.article-intro {
+  margin-bottom: 28px;
+  padding: 24px;
+  background: #F8FAFC;
+  border-radius: 12px;
+  border-left: 4px solid var(--primary);
+}
+
+.article-intro p { font-size: 16px; color: #334155; line-height: 1.8; }
+
+.article-symptoms { margin-bottom: 28px; }
+
+.article-symptoms h3, .article-process h3, .article-strengths h3 {
+  font-size: 21px; font-weight: 800; color: #1E293B;
+  margin-bottom: 14px; padding-bottom: 10px; border-bottom: 2px solid #E2E8F0;
+}
+
+.article-symptoms ul {
+  list-style: none; padding: 0;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 8px;
+}
+
+.article-symptoms li {
+  display: flex; align-items: flex-start; gap: 8px;
+  font-size: 15px; color: #475569; line-height: 1.6;
+  padding: 10px 14px; background: #FFFFFF;
+  border: 1px solid #E8E8E8; border-radius: 10px;
+  transition: border-color 0.2s;
+}
+
+.article-symptoms li:hover { border-color: var(--primary-light); }
+
+.article-symptoms li::before {
+  content: ''; width: 7px; height: 7px;
+  background: var(--primary); border-radius: 50%;
+  flex-shrink: 0; margin-top: 6px;
+}
+
+.article-process { margin-bottom: 28px; }
+.process-steps { display: flex; flex-direction: column; }
+
+.process-step {
+  display: flex; align-items: flex-start; gap: 16px; padding: 14px 0;
+}
+.process-step:not(:last-child) { border-bottom: 1px dashed #E2E8F0; }
+
+.step-num {
+  width: 32px; height: 32px;
+  background: linear-gradient(135deg, var(--primary), var(--primary-light));
+  color: #FFFFFF; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 15px; font-weight: 800; flex-shrink: 0;
+}
+
+.process-step p { font-size: 15px; color: #475569; line-height: 1.7; padding-top: 5px; }
+
+.article-strengths { margin-bottom: 28px; }
+.strength-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+
+.strength-item {
+  display: flex; align-items: center; gap: 10px;
+  padding: 14px 16px; background: linear-gradient(135deg, #F5F0F8, #EDE9FE);
+  border-radius: 10px; font-size: 15px; font-weight: 600; color: #1E293B;
+  transition: transform 0.2s;
+}
+.strength-item:hover { transform: translateY(-2px); }
+.strength-item svg { color: var(--primary); flex-shrink: 0; }
+
+@media (max-width: 768px) {
+  .article-intro { padding: 20px 16px; }
+  .article-intro p { font-size: 15px; }
+  .article-symptoms ul { grid-template-columns: 1fr; }
+  .article-symptoms h3, .article-process h3, .article-strengths h3 { font-size: 19px; }
+  .strength-grid { grid-template-columns: 1fr; }
+  .strength-item { font-size: 14px; padding: 12px 14px; }
+}

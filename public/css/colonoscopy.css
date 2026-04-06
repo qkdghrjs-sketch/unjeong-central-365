@@ -1,0 +1,184 @@
+/* === 내시경 상세 페이지 공통 === */
+
+.col-detail { padding: 40px 0 32px; }
+.col-detail h2 { font-size: 23px; font-weight: 900; color: #1E293B; margin-bottom: 14px; line-height: 1.4; }
+.col-detail h2 span { color: #378ADD; }
+.col-detail h3 { font-size: 19px; font-weight: 800; color: #1E293B; margin-bottom: 8px; }
+
+.col-intro, .col-symptoms, .col-diseases, .col-reasons, .col-cycle,
+.col-comfort, .col-before, .col-after, .col-prevent { margin-bottom: 28px; }
+
+.col-intro { display: flex; gap: 28px; align-items: center; padding-bottom: 28px; border-bottom: 1px solid #E2E8F0; }
+.col-intro-img { flex-shrink: 0; width: 260px; border-radius: 12px; overflow: hidden; }
+.col-intro-img img { width: 100%; height: 200px; object-fit: cover; }
+.col-intro-text h2 { margin-bottom: 10px; }
+.col-intro-text p { font-size: 16px; color: #475569; line-height: 1.8; }
+
+.col-symptoms { background: #F8FAFC; border-radius: 14px; padding: 24px; }
+.col-symptoms h2 { margin-bottom: 12px; }
+.col-check-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 12px; }
+.col-check { display: flex; align-items: center; gap: 7px; font-size: 15px; color: #334155; padding: 9px 12px; background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 8px; cursor: default; }
+.col-check-box { width: 16px; height: 16px; border: 2px solid #378ADD; border-radius: 3px; flex-shrink: 0; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpolyline points='3 8 6.5 11.5 13 5' stroke='%23378ADD' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3C/svg%3E") center/10px no-repeat; }
+.col-symptoms-note { margin-top: 10px; }
+.col-symptoms-note p { font-size: 13px; color: #94A3B8; font-style: italic; line-height: 1.6; margin-bottom: 2px; }
+
+.col-diseases h2 { margin-bottom: 12px; }
+.col-disease-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+.col-disease-card { background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 10px; padding: 18px; transition: transform 0.2s, box-shadow 0.2s; }
+.col-disease-card:hover { transform: translateY(-2px); box-shadow: 0 4px 14px rgba(55,138,221,0.08); }
+.col-disease-card h4 { font-size: 17px; font-weight: 800; color: #378ADD; margin-bottom: 5px; }
+.col-disease-card p { font-size: 15px; color: #64748B; line-height: 1.6; }
+
+.col-reason-list { list-style: none; counter-reset: reason; padding: 0; margin: 0; }
+.col-reason-list li { counter-increment: reason; display: flex; gap: 12px; font-size: 16px; color: #475569; line-height: 1.7; margin-bottom: 12px; align-items: flex-start; }
+.col-reason-list li::before { content: counter(reason); width: 28px; height: 28px; background: #378ADD; color: #FFFFFF; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 800; flex-shrink: 0; margin-top: 1px; }
+.col-reason-list li:last-child { margin-bottom: 0; }
+.col-reason-list li strong { color: #1E293B; }
+.col-chart-wrap { background: #F8FAFC; border-radius: 12px; padding: 24px; margin-top: 20px; }
+.col-chart-wrap h3 { font-size: 18px; font-weight: 800; color: #1E293B; text-align: center; margin-bottom: 2px; }
+.col-chart-source { font-size: 13px; color: #94A3B8; text-align: center; margin-bottom: 14px; }
+
+.col-cycle, .col-comfort { background: #F0F7FF; border-radius: 14px; padding: 24px; }
+.col-cycle h2, .col-comfort h2 { margin-bottom: 14px; }
+.cycle-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+.cycle-card { background: #FFFFFF; border: 1px solid #BFDBFE; border-radius: 12px; padding: 20px 16px; text-align: center; }
+.cycle-card-highlight { background: #378ADD; border-color: #378ADD; color: #FFFFFF; }
+.cycle-card-who { font-size: 14px; font-weight: 700; color: #378ADD; margin-bottom: 4px; }
+.cycle-card-highlight .cycle-card-who { color: rgba(255,255,255,0.65); }
+.cycle-card-period { font-size: 24px; font-weight: 900; color: #1E293B; margin-bottom: 8px; }
+.cycle-card-highlight .cycle-card-period { color: #FFFFFF; }
+.cycle-card p { font-size: 14px; color: #64748B; line-height: 1.55; margin: 0; }
+.cycle-card-highlight p { color: rgba(255,255,255,0.75); }
+
+.col-before h2 { margin-bottom: 16px; }
+.col-step-badge { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; background: #378ADD; color: #FFFFFF; border-radius: 50%; font-size: 15px; font-weight: 800; margin-bottom: 6px; margin-top: 18px; }
+.col-step-badge:first-of-type { margin-top: 0; }
+.col-step-sub { font-size: 15px; color: #64748B; margin-bottom: 12px; }
+.col-step-label { font-size: 15px; font-weight: 700; color: #378ADD; margin-bottom: 12px; }
+.col-food-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 12px; }
+.col-food-card { border-radius: 10px; padding: 20px; }
+.col-food-card h4 { font-size: 16px; font-weight: 800; margin-bottom: 10px; }
+.col-food-card ul { list-style: none; padding: 0; }
+.col-food-card li { font-size: 15px; line-height: 1.7; padding: 2px 0 2px 14px; position: relative; }
+.col-food-card li::before { content: '•'; position: absolute; left: 0; }
+.col-food-avoid { background: #1E293B; color: #FFFFFF; }
+.col-food-avoid h4 { color: #FFFFFF; }
+.col-food-avoid li { color: rgba(255,255,255,0.85); }
+.col-food-ok { background: #EFF6FF; border: 1px solid #BFDBFE; }
+.col-food-ok h4 { color: #1E40AF; }
+.col-food-ok li { color: #334155; }
+.col-food-note p { font-size: 14px; color: #64748B; line-height: 1.6; }
+.col-bullet-list { list-style: none; padding: 0; }
+.col-bullet-list > li { font-size: 16px; color: #475569; line-height: 1.7; margin-bottom: 8px; padding-left: 14px; position: relative; }
+.col-bullet-list > li::before { content: '•'; position: absolute; left: 0; color: #378ADD; font-weight: 700; }
+.col-bullet-list > li:last-child { margin-bottom: 0; }
+.col-bullet-list > li strong { color: #1E293B; }
+.col-bullet-list ul { list-style: none; padding: 0; margin-top: 4px; }
+.col-bullet-list ul li { font-size: 15px; color: #64748B; padding-left: 14px; margin-bottom: 2px; position: relative; }
+.col-bullet-list ul li::before { content: '-'; position: absolute; left: 0; color: #94A3B8; }
+
+.col-stool-guide { display: flex; align-items: center; justify-content: center; gap: 16px; padding: 20px; background: #F8FAFC; border-radius: 10px; margin: 14px 0 20px; }
+.col-stool { text-align: center; }
+.col-stool-img { width: 64px; height: 64px; border-radius: 50%; overflow: hidden; margin: 0 auto 6px; border: 2px solid #E2E8F0; }
+.col-stool-img img { width: 100%; height: 100%; object-fit: cover; }
+.col-stool-status { font-size: 13px; font-weight: 700; padding: 3px 8px; border-radius: 12px; display: inline-block; }
+.col-stool-bad-label { background: #FEE2E2; color: #DC2626; }
+.col-stool-mid-label { background: #FEF3C7; color: #D97706; }
+.col-stool-good-label { background: #D1FAE5; color: #059669; }
+.col-stool-arrow { font-size: 18px; color: #CBD5E1; }
+
+.col-after { background: #FFF7ED; border-radius: 14px; padding: 24px; }
+.col-after h2 { margin-bottom: 4px; }
+.col-after-sub { font-size: 14px; color: #94A3B8; margin-bottom: 14px; font-style: italic; }
+
+.col-prevent { background: #F8FAFC; border-radius: 14px; padding: 24px; }
+.col-prevent h2 { margin-bottom: 14px; }
+.col-prevent-row { display: flex; gap: 10px; flex-wrap: wrap; }
+.col-prev-item { flex: 1; min-width: 140px; background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 10px; padding: 18px 14px; text-align: center; transition: transform 0.2s; }
+.col-prev-item:hover { transform: translateY(-2px); }
+.col-prev-num { width: 28px; height: 28px; background: #378ADD; color: #FFFFFF; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 15px; font-weight: 800; margin: 0 auto 8px; }
+.col-prev-item strong { display: block; font-size: 15px; font-weight: 800; color: #1E293B; margin-bottom: 2px; }
+.col-prev-item p { font-size: 13px; color: #94A3B8; margin: 0; }
+
+/* ========== 일반 진료과정 + 특징 (공통 세부페이지) ========== */
+.gen-process { margin-bottom: 28px; }
+.gen-process h2 { font-size: 23px; font-weight: 900; color: #1E293B; margin-bottom: 14px; }
+.gen-process-steps { background: #F8FAFC; border-radius: 14px; padding: 20px 24px; max-width: 640px; }
+.gen-step { display: flex; align-items: flex-start; gap: 14px; padding: 10px 0; }
+.gen-step:not(:last-child) { border-bottom: 1px dashed #E2E8F0; }
+.gen-step-num { width: 26px; height: 26px; background: var(--primary, #6B2D8B); color: #FFFFFF; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 800; flex-shrink: 0; margin-top: 1px; }
+.gen-step p { font-size: 15px; color: #475569; line-height: 1.6; margin: 0; }
+
+.gen-strengths { margin-bottom: 28px; }
+.gen-strengths h2 { font-size: 23px; font-weight: 900; color: #1E293B; margin-bottom: 14px; }
+.gen-str-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.gen-str-item { display: flex; align-items: center; gap: 10px; padding: 14px 18px; background: #F5F0F8; border-radius: 10px; font-size: 15px; font-weight: 600; color: #1E293B; transition: transform 0.2s; }
+.gen-str-item:hover { transform: translateY(-2px); }
+.gen-str-item svg { color: var(--primary, #6B2D8B); flex-shrink: 0; }
+
+@media (max-width: 768px) {
+  .gen-str-grid { grid-template-columns: 1fr; }
+  .gen-step p { font-size: 14px; }
+}
+
+/* ========== 내시경 특별함 3카드 ========== */
+.endo-why-special { background: #F0F4FA; padding: 44px 0; }
+.ews-header { text-align: center; margin-bottom: 28px; }
+.ews-label { display: block; font-size: 13px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: #94A3B8; margin-bottom: 6px; }
+.ews-header h2 { font-size: 26px; font-weight: 900; color: #1E293B; line-height: 1.4; }
+.ews-header h2 span { color: #378ADD; }
+.ews-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-bottom: 24px; }
+.ews-card { background: #FFFFFF; border-radius: 16px; overflow: hidden; border: 1px solid #E2E8F0; transition: transform 0.3s, box-shadow 0.3s; }
+.ews-card:hover { transform: translateY(-4px); box-shadow: 0 8px 28px rgba(55,138,221,0.1); }
+.ews-card-top { position: relative; height: 160px; display: flex; align-items: center; justify-content: center; padding: 18px; }
+.ews-card-blue { background: linear-gradient(135deg, #2563EB, #3B82F6); }
+.ews-card-navy { background: linear-gradient(135deg, #1E293B, #334155); }
+.ews-card-green { background: linear-gradient(135deg, #059669, #10B981); }
+.ews-card-badge { position: absolute; top: 12px; left: 12px; width: 26px; height: 26px; background: rgba(255,255,255,0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 800; color: #FFFFFF; }
+.ews-card-img { max-height: 110px; width: auto; }
+.ews-card-img-full { max-height: none; width: 100%; height: 100%; object-fit: cover; position: absolute; inset: 0; filter: none; }
+.ews-ai-visual { display: flex; align-items: center; justify-content: center; width: 100%; }
+.ews-ai-img-row { display: flex; align-items: center; gap: 10px; }
+.ews-ai-thumb { width: 72px; height: 72px; border-radius: 8px; overflow: hidden; border: 2px solid rgba(255,255,255,0.2); }
+.ews-ai-thumb img { width: 100%; height: 100%; object-fit: cover; }
+.ews-ai-glow { border-color: #ffd84d; position: relative; }
+.ews-ai-glow span { position: absolute; bottom: -6px; right: -4px; background: #ffd84d; color: #1E293B; font-size: 11px; font-weight: 700; padding: 1px 5px; border-radius: 4px; }
+.ews-ai-arrow { color: rgba(255,255,255,0.4); font-size: 18px; font-weight: 700; }
+.ews-card-body { padding: 20px 18px; }
+.ews-card-body h3 { font-size: 19px; font-weight: 900; color: #1E293B; margin-bottom: 3px; }
+.ews-card-sub { font-size: 14px; color: #94A3B8; margin-bottom: 12px; }
+.ews-card-list { list-style: none; padding: 0; }
+.ews-card-list li { font-size: 15px; color: #475569; line-height: 1.5; padding: 3px 0 3px 18px; position: relative; }
+.ews-card-list li::before { content: ''; position: absolute; left: 0; top: 8px; width: 12px; height: 12px; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpolyline points='3 8 6.5 11.5 13 5' stroke='%23378ADD' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3C/svg%3E") center/contain no-repeat; }
+.ews-badges { display: flex; justify-content: center; flex-wrap: wrap; gap: 6px; }
+.ews-b { background: #FFFFFF; border: 1px solid #E2E8F0; padding: 7px 16px; border-radius: 50px; font-size: 14px; color: #475569; }
+.ews-b strong { color: #378ADD; font-weight: 700; }
+
+/* ========== 반응형 ========== */
+@media (max-width: 768px) {
+  .col-detail { padding: 28px 0 20px; }
+  .col-intro { flex-direction: column; gap: 16px; padding-bottom: 20px; }
+  .col-intro-img { width: 100%; }
+  .col-check-grid { grid-template-columns: 1fr 1fr; gap: 6px; }
+  .col-check { font-size: 14px; padding: 8px 10px; }
+  .col-disease-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
+  .col-food-grid { grid-template-columns: 1fr; }
+  .col-symptoms, .col-cycle, .col-comfort, .col-after, .col-prevent { padding: 20px 16px; }
+  .col-reason-list li { font-size: 15px; gap: 10px; }
+  .col-prevent-row { gap: 6px; }
+  .col-prev-item { min-width: 120px; padding: 14px 10px; }
+  .cycle-cards { grid-template-columns: 1fr; gap: 8px; }
+  .ews-cards { grid-template-columns: 1fr; max-width: 340px; margin: 0 auto 20px; }
+  .ews-card-top { height: 140px; }
+  .ews-header h2 { font-size: 22px; }
+  .col-stool-img { width: 52px; height: 52px; }
+  .col-stool-guide { gap: 12px; padding: 16px 12px; }
+  .col-intro, .col-symptoms, .col-diseases, .col-reasons, .col-cycle,
+  .col-comfort, .col-before, .col-after, .col-prevent { margin-bottom: 20px; }
+}
+
+@media (max-width: 480px) {
+  .col-check-grid { grid-template-columns: 1fr; }
+  .col-disease-grid { grid-template-columns: 1fr; }
+  .col-prev-item { min-width: 100%; }
+}

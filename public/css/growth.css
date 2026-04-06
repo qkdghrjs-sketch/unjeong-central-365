@@ -1,0 +1,77 @@
+/* === 성장클리닉 전용 === */
+
+/* 통계 가로 배치 */
+.gr-stat-row { display: flex; gap: 14px; margin-top: 18px; }
+.gr-stat { flex: 1; background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 12px; padding: 18px 16px; text-align: center; }
+.gr-stat-num { display: block; font-size: 22px; font-weight: 900; margin-bottom: 4px; }
+.gr-stat-label { font-size: 13px; color: #64748B; }
+
+@media (max-width: 480px) {
+  .gr-stat-row { flex-direction: column; }
+}
+
+/* 진료 흐름 타임라인 */
+.gr-flow { margin-bottom: 28px; }
+.gr-flow h2 { font-size: 23px; font-weight: 900; color: #1E293B; margin-bottom: 16px; }
+.gr-flow-list { position: relative; padding-left: 24px; }
+.gr-flow-list::before { content: ''; position: absolute; left: 7px; top: 8px; bottom: 8px; width: 2px; background: #E2E8F0; }
+.gr-flow-item { display: flex; align-items: flex-start; gap: 16px; padding: 12px 0; position: relative; }
+.gr-flow-dot { width: 16px; height: 16px; border-radius: 50%; flex-shrink: 0; position: relative; z-index: 1; margin-left: -24px; margin-top: 4px; }
+.gr-flow-body { flex: 1; }
+.gr-flow-body strong { font-size: 16px; color: #1E293B; display: block; margin-bottom: 2px; }
+.gr-flow-body p { font-size: 14px; color: #64748B; line-height: 1.6; margin: 0; }
+
+/* 성장 요소 비율 바 */
+.gr-factors { margin-bottom: 28px; }
+.gr-factors h2 { font-size: 23px; font-weight: 900; color: #1E293B; margin-bottom: 16px; }
+.gr-factor-bar { display: flex; border-radius: 10px; overflow: hidden; height: 36px; margin-bottom: 18px; }
+.gr-bar-item { display: flex; align-items: center; justify-content: center; }
+.gr-bar-item span { font-size: 12px; font-weight: 700; color: #FFFFFF; white-space: nowrap; }
+.gr-factor-cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+.gr-factor-card { background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 10px; padding: 18px; }
+.gr-factor-card strong { font-size: 15px; color: #1E293B; display: block; margin-bottom: 6px; }
+.gr-factor-card p { font-size: 14px; color: #64748B; line-height: 1.7; margin: 0; }
+.gr-factor-cards .gr-factor-card:last-child { grid-column: 1 / -1; }
+
+/* 성별 카드 */
+.gr-timeline-gender { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.gr-gender-card { background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 12px; padding: 20px; }
+.gr-gender-card h4 { font-size: 17px; font-weight: 800; margin-bottom: 10px; }
+.gr-gender-card ul { list-style: none; padding: 0; }
+.gr-gender-card li { font-size: 14px; color: #475569; line-height: 1.7; padding: 3px 0 3px 14px; position: relative; }
+.gr-gender-card li::before { content: '•'; position: absolute; left: 0; color: #94A3B8; }
+
+/* 영양소 카드 */
+.gr-nutrient-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.gr-nutrient-card { background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 12px; padding: 20px; }
+.gr-nutrient-card h4 { font-size: 18px; font-weight: 800; margin-bottom: 10px; }
+.gr-n-role { font-size: 15px; color: #1E293B; font-weight: 600; margin-bottom: 8px; }
+.gr-n-food { font-size: 14px; color: #64748B; line-height: 1.6; margin-bottom: 6px; }
+.gr-n-dose { font-size: 14px; color: #378ADD; font-weight: 700; }
+
+/* 방해 음식 */
+.gr-bad-foods { margin-bottom: 28px; }
+.gr-bad-foods h2 { font-size: 23px; font-weight: 900; color: #1E293B; margin-bottom: 16px; }
+
+/* 연령별 식단 */
+.gr-diet { margin-bottom: 28px; }
+.gr-diet h2 { font-size: 23px; font-weight: 900; color: #1E293B; margin-bottom: 16px; }
+
+@media (max-width: 768px) {
+  .gr-nutrient-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 480px) {
+  .gr-nutrient-grid { grid-template-columns: 1fr; }
+}
+
+/* FAQ */
+.gr-faq { margin-bottom: 28px; }
+.gr-faq h2 { font-size: 23px; font-weight: 900; color: #1E293B; margin-bottom: 16px; }
+
+/* 반응형 */
+@media (max-width: 768px) {
+  .gr-factor-cards { grid-template-columns: 1fr; }
+  .gr-timeline-gender { grid-template-columns: 1fr; }
+  .gr-factor-bar { height: 28px; }
+  .gr-bar-item span { font-size: 10px; }
+}

@@ -1,0 +1,252 @@
+/* === Mega Navigation Header === */
+
+/* 메가 메뉴 네비 */
+.nav-mega {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  height: 48px;
+  position: relative;
+}
+
+.nav-menu-item {
+  position: relative;
+}
+
+.nav-menu-link {
+  display: block;
+  padding: 12px 18px;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text);
+  transition: color 0.2s;
+  position: relative;
+}
+
+.nav-menu-link::after {
+  content: '';
+  position: absolute;
+  bottom: 4px;
+  left: 18px;
+  right: 18px;
+  height: 2px;
+  background: var(--menu-color);
+  transform: scaleX(0);
+  transition: transform 0.25s ease;
+}
+
+.nav-menu-item:hover .nav-menu-link,
+.nav-menu-item.active .nav-menu-link {
+  color: var(--menu-color);
+}
+
+.nav-menu-item.active .nav-menu-link::after,
+.nav-menu-item:hover .nav-menu-link::after {
+  transform: scaleX(1);
+}
+
+/* 드롭다운 */
+.dropdown {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-8px);
+  min-width: 200px;
+  background: #FFFFFF;
+  border-radius: 14px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.12), 0 2px 8px rgba(0,0,0,0.06);
+  padding: 8px 0;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.15s ease, transform 0.15s ease, visibility 0.15s;
+  z-index: 100;
+}
+
+.nav-menu-item:hover .dropdown {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateX(-50%) translateY(0);
+}
+
+.dropdown-item {
+  display: block;
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text);
+  border-left: 2px solid transparent;
+  transition: all 0.15s;
+  margin: 0 8px;
+  border-radius: 8px;
+}
+
+.dropdown-item:hover {
+  background: #F8F8FA;
+  color: var(--item-color);
+  border-left-color: var(--item-color);
+  padding-left: 24px;
+}
+
+/* 카카오 버튼 (네비 내) */
+.nav-mega .nav-kakao {
+  margin-left: 12px;
+}
+
+/* === 모바일 드로어 === */
+.mobile-drawer-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+  z-index: 1100;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.25s, visibility 0.25s;
+}
+
+.mobile-drawer-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.mobile-drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 320px;
+  max-width: 85vw;
+  background: #FFFFFF;
+  z-index: 1200;
+  transform: translateX(100%);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+.mobile-drawer.active {
+  transform: translateX(0);
+}
+
+.drawer-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 24px;
+  border-bottom: 1px solid #E8E8E8;
+}
+
+.drawer-logo {
+  height: 36px;
+}
+
+.drawer-close {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  color: var(--text);
+}
+
+.drawer-body {
+  padding: 12px 0;
+  flex: 1;
+}
+
+.drawer-group {
+  border-bottom: 1px solid #F1F1F1;
+}
+
+.drawer-group-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text);
+  transition: color 0.2s;
+}
+
+.drawer-group-btn:hover,
+.drawer-group.open .drawer-group-btn {
+  color: var(--menu-color);
+}
+
+.drawer-group-btn svg {
+  transition: transform 0.3s;
+  flex-shrink: 0;
+}
+
+.drawer-group.open .drawer-group-btn svg {
+  transform: rotate(180deg);
+}
+
+.drawer-sub {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+  background: #FAFAFA;
+}
+
+.drawer-group.open .drawer-sub {
+  max-height: 500px;
+}
+
+.drawer-sub a {
+  display: block;
+  padding: 12px 24px 12px 40px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-light);
+  transition: color 0.15s, background 0.15s;
+}
+
+.drawer-sub a:hover {
+  color: var(--primary);
+  background: #F0F0F0;
+}
+
+.drawer-kakao {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px 24px;
+  padding: 14px;
+  background: #FEE500;
+  color: #3C1E1E;
+  border-radius: 12px;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+/* === 반응형 === */
+@media (min-width: 769px) {
+  .mobile-drawer,
+  .mobile-drawer-overlay {
+    display: none !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .header-nav-wrap {
+    display: none !important;
+  }
+
+  .mobile-menu-btn {
+    display: flex !important;
+  }
+
+  /* 헤더 탑 레이아웃 조정 */
+  .header-top {
+    justify-content: space-between !important;
+  }
+}

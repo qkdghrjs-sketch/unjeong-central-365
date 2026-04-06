@@ -1,0 +1,204 @@
+/* === 건강검진센터 전용 === */
+
+/* 인트로 좌우 분할 */
+.ck-intro-split { display: flex; gap: 32px; align-items: flex-start; padding-bottom: 28px; border-bottom: 1px solid #E2E8F0; margin-bottom: 28px; }
+.ck-intro-left { flex: 1; }
+.ck-intro-left h2 { font-size: 23px; font-weight: 900; color: #1E293B; margin-bottom: 12px; }
+.ck-intro-left p { font-size: 16px; color: #475569; line-height: 1.8; }
+.ck-intro-right { flex-shrink: 0; width: 220px; display: flex; flex-direction: column; gap: 10px; }
+
+.ck-mini-card { display: flex; align-items: center; gap: 10px; padding: 12px 14px; background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 10px; font-size: 15px; font-weight: 600; color: #1E293B; }
+.ck-mini-icon { width: 36px; height: 36px; border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.ck-ic-blue { background: #EFF6FF; color: #3B82F6; }
+.ck-ic-green { background: #ECFDF5; color: #10B981; }
+.ck-ic-amber { background: #FFFBEB; color: #F59E0B; }
+
+/* 검진 항목 그리드 */
+.ck-items { margin-bottom: 28px; }
+.ck-items h2 { font-size: 23px; font-weight: 900; color: #1E293B; margin-bottom: 16px; }
+.ck-items-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.ck-item-card { background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 12px; overflow: hidden; }
+.ck-item-header { padding: 14px 18px; font-size: 16px; color: #FFFFFF; }
+.ck-item-header strong { font-weight: 800; }
+.ck-bg-blue { background: #378ADD; }
+.ck-bg-red { background: #EF4444; }
+.ck-bg-purple { background: #8B5CF6; }
+.ck-bg-teal { background: #14B8A6; }
+.ck-bg-amber { background: #F59E0B; }
+.ck-bg-green { background: #10B981; }
+.ck-item-card ul { list-style: none; padding: 16px 18px; margin: 0; }
+.ck-item-card li { font-size: 14px; color: #475569; line-height: 1.6; padding: 3px 0 3px 14px; position: relative; }
+.ck-item-card li::before { content: '·'; position: absolute; left: 0; color: #94A3B8; font-weight: 700; }
+
+/* 검진 타임라인 */
+.ck-timeline { background: #F8FAFC; border-radius: 14px; padding: 24px; max-width: 600px; }
+.ck-step { display: flex; align-items: flex-start; gap: 14px; padding: 12px 0; border-bottom: 1px dashed #E2E8F0; }
+.ck-step:last-child { border-bottom: none; }
+.ck-step-num { width: 28px; height: 28px; background: #1D9E75; color: #FFFFFF; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 800; flex-shrink: 0; }
+.ck-step-body { flex: 1; }
+.ck-step-body strong { font-size: 15px; color: #1E293B; display: block; margin-bottom: 2px; }
+.ck-step-body p { font-size: 14px; color: #64748B; line-height: 1.5; margin: 0; }
+.ck-time { display: inline-block; font-size: 13px; font-weight: 600; color: #1D9E75; margin-top: 4px; }
+
+/* 주의사항 */
+.ck-prep { margin-bottom: 28px; }
+.ck-prep h2 { font-size: 23px; font-weight: 900; color: #1E293B; margin-bottom: 16px; }
+.ck-prep-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 14px; }
+.ck-prep-card { border-radius: 12px; padding: 22px 20px; }
+.ck-prep-card h4 { font-size: 17px; font-weight: 800; margin-bottom: 12px; }
+.ck-prep-card ul { list-style: none; padding: 0; }
+.ck-prep-card li { font-size: 14px; line-height: 1.7; padding: 3px 0 3px 14px; position: relative; }
+.ck-prep-card li::before { content: '•'; position: absolute; left: 0; font-weight: 700; }
+.ck-prep-night { background: #FFFBEB; }
+.ck-prep-night h4 { color: #92400E; }
+.ck-prep-night li::before { color: #F59E0B; }
+.ck-prep-day { background: #EFF6FF; }
+.ck-prep-day h4 { color: #1E40AF; }
+.ck-prep-day li::before { color: #3B82F6; }
+.ck-warn { background: #FEF3C7; border: 1px solid #FDE68A; border-radius: 10px; padding: 14px 20px; font-size: 15px; color: #92400E; text-align: center; }
+
+/* 결과 관리 카드 */
+.ck-result { margin-bottom: 28px; }
+.ck-result h2 { font-size: 23px; font-weight: 900; color: #1E293B; margin-bottom: 16px; }
+.ck-result-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.ck-result-card { border-radius: 12px; padding: 22px 20px; }
+.ck-result-card h4 { font-size: 17px; font-weight: 800; margin-bottom: 10px; }
+.ck-result-card p { font-size: 14px; line-height: 1.7; }
+.ck-res-green { background: #ECFDF5; } .ck-res-green h4 { color: #065F46; }
+.ck-res-amber { background: #FFFBEB; } .ck-res-amber h4 { color: #92400E; }
+.ck-res-red { background: #FEF2F2; } .ck-res-red h4 { color: #991B1B; }
+
+/* === 5대암 === */
+.ck-cancer-hero { background: linear-gradient(135deg, #1E293B, #334155); padding: 48px 0; }
+.ck-stat-row { display: flex; justify-content: center; gap: 32px; flex-wrap: wrap; }
+.ck-stat { text-align: center; }
+.ck-stat-num { display: block; font-size: 32px; font-weight: 900; color: #60A5FA; }
+.ck-stat-label { font-size: 14px; color: rgba(255,255,255,0.6); }
+
+.ck-cancer-list { margin-bottom: 28px; }
+.ck-cancer-list h2 { font-size: 23px; font-weight: 900; color: #1E293B; margin-bottom: 16px; }
+.ck-cancer-card { background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 12px; margin-bottom: 12px; overflow: hidden; }
+.ck-cc-header { padding: 16px 20px; display: flex; align-items: center; justify-content: space-between; border-left: 4px solid; }
+.ck-cc-header h3 { font-size: 18px; font-weight: 800; color: #1E293B; }
+.ck-cc-badge { padding: 5px 14px; border-radius: 50px; font-size: 13px; font-weight: 700; color: #FFFFFF; }
+.ck-cc-body { padding: 16px 20px; border-top: 1px solid #F1F5F9; }
+.ck-cc-body p { font-size: 15px; color: #475569; line-height: 1.7; margin-bottom: 8px; }
+.ck-cc-body ul { list-style: none; padding: 0; }
+.ck-cc-body li { font-size: 14px; color: #64748B; line-height: 1.6; padding: 2px 0 2px 14px; position: relative; }
+.ck-cc-body li::before { content: '•'; position: absolute; left: 0; color: #94A3B8; }
+
+/* 생존율 테이블 */
+.ck-survival { margin-bottom: 28px; }
+.ck-survival h2 { font-size: 23px; font-weight: 900; color: #1E293B; margin-bottom: 16px; }
+.ck-survival-table { overflow-x: auto; }
+.ck-survival-table table { width: 100%; border-collapse: collapse; font-size: 15px; }
+.ck-survival-table th, .ck-survival-table td { padding: 12px 16px; text-align: center; border: 1px solid #E2E8F0; }
+.ck-survival-table th { background: #F8FAFC; font-weight: 700; color: #1E293B; }
+.ck-survival-table td { color: #475569; }
+.ck-s-green { background: #ECFDF5 !important; color: #065F46 !important; font-weight: 700; }
+.ck-s-red { background: #FEF2F2 !important; color: #991B1B !important; font-weight: 700; }
+
+.ck-target { margin-bottom: 28px; background: #F0F7FF; border-radius: 14px; padding: 28px; }
+.ck-target h2 { font-size: 23px; font-weight: 900; color: #1E293B; margin-bottom: 12px; }
+
+/* === 초음파 인트로 === */
+.ck-us-intro { margin-bottom: 28px; padding-bottom: 28px; border-bottom: 1px solid #E2E8F0; }
+.ck-us-intro h2 { font-size: 23px; font-weight: 900; color: #1E293B; margin-bottom: 12px; }
+.ck-us-intro p { font-size: 16px; color: #475569; line-height: 1.8; margin-bottom: 18px; }
+.ck-us-badges { display: flex; gap: 10px; flex-wrap: wrap; }
+.ck-us-badge { display: inline-flex; align-items: center; gap: 8px; padding: 10px 18px; border-radius: 10px; font-size: 14px; font-weight: 600; color: #1E293B; }
+.ck-us-badge span { white-space: nowrap; }
+
+/* === 초음파 === */
+.ck-us-types { margin-bottom: 28px; }
+.ck-us-types h2 { font-size: 23px; font-weight: 900; color: #1E293B; margin-bottom: 16px; }
+.ck-us-card { background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 12px; margin-bottom: 12px; overflow: hidden; }
+.ck-us-header { padding: 16px 20px; display: flex; align-items: center; justify-content: space-between; border-left: 4px solid; }
+.ck-us-header h3 { font-size: 18px; font-weight: 800; color: #1E293B; }
+.ck-us-time { font-size: 13px; color: #94A3B8; }
+.ck-us-body { padding: 16px 20px; border-top: 1px solid #F1F5F9; }
+.ck-us-body p { font-size: 15px; color: #475569; line-height: 1.7; margin-bottom: 8px; }
+.ck-us-diseases { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+.ck-us-diseases span { background: #F1F5F9; border: 1px solid #E2E8F0; padding: 5px 12px; border-radius: 6px; font-size: 13px; color: #475569; }
+
+/* IMT 가이드 */
+.ck-imt-guide { display: flex; gap: 10px; margin-top: 12px; }
+.ck-imt { flex: 1; padding: 12px; border-radius: 10px; text-align: center; }
+.ck-imt strong { display: block; font-size: 14px; margin-bottom: 3px; }
+.ck-imt span { font-size: 13px; }
+.ck-imt-ok { background: #ECFDF5; color: #065F46; }
+.ck-imt-warn { background: #FFFBEB; color: #92400E; }
+.ck-imt-danger { background: #FEF2F2; color: #991B1B; }
+
+/* 준비사항 테이블 */
+.ck-prep-table { margin-bottom: 28px; }
+.ck-prep-table h2 { font-size: 23px; font-weight: 900; color: #1E293B; margin-bottom: 16px; }
+.ck-table-wrap { overflow-x: auto; }
+.ck-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+.ck-table th, .ck-table td { padding: 12px 16px; text-align: left; border: 1px solid #E2E8F0; }
+.ck-table th { background: #F8FAFC; font-weight: 700; color: #1E293B; }
+.ck-table td { color: #475569; }
+
+/* 이런 분께 필요 */
+.ck-us-need { margin-bottom: 28px; background: #1E293B; border-radius: 14px; padding: 32px; }
+.ck-us-need h2 { font-size: 23px; font-weight: 900; color: #FFFFFF; margin-bottom: 18px; }
+.ck-us-need-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.ck-us-need-card { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 20px; }
+.ck-us-need-card strong { display: block; font-size: 16px; font-weight: 800; color: #FFFFFF; margin-bottom: 6px; }
+.ck-us-need-card p { font-size: 14px; color: rgba(255,255,255,0.6); line-height: 1.6; margin: 0; }
+
+/* === 소아 알레르기 증상 카드 === */
+.allergy-symptoms { margin-bottom: 28px; }
+.allergy-symptoms h2 { font-size: 23px; font-weight: 900; color: #1E293B; margin-bottom: 16px; }
+.allergy-sym-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.allergy-sym-card { background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 14px; padding: 22px 18px; text-align: center; transition: transform 0.2s; }
+.allergy-sym-card:hover { transform: translateY(-3px); }
+.allergy-sym-emoji { font-size: 32px; margin-bottom: 10px; }
+.allergy-sym-card strong { display: block; font-size: 16px; color: #1E293B; margin-bottom: 6px; }
+.allergy-sym-card p { font-size: 14px; color: #64748B; line-height: 1.6; margin: 0; }
+.allergy-sym-wide { grid-column: 1 / -1; }
+
+/* 알레르기 행진 */
+.allergy-march { margin-bottom: 28px; }
+.allergy-march h2 { font-size: 23px; font-weight: 900; color: #1E293B; margin-bottom: 8px; }
+.allergy-march-flow { display: flex; align-items: center; justify-content: center; gap: 14px; }
+.allergy-march-step { flex: 1; max-width: 240px; border: 1px solid; border-radius: 14px; padding: 20px 16px; text-align: center; }
+.allergy-march-step strong { display: block; font-size: 14px; margin-bottom: 6px; }
+.allergy-march-step p { font-size: 15px; font-weight: 700; color: #1E293B; margin: 0; }
+.allergy-march-arrow { font-size: 22px; color: #CBD5E1; font-weight: 700; flex-shrink: 0; }
+
+@media (max-width: 768px) {
+  .allergy-sym-grid { grid-template-columns: 1fr 1fr; }
+  .allergy-march-flow { flex-direction: column; }
+  .allergy-march-arrow { transform: rotate(90deg); }
+}
+@media (max-width: 480px) {
+  .allergy-sym-grid { grid-template-columns: 1fr; }
+  .allergy-sym-wide { grid-column: auto; }
+}
+
+/* === 예방접종 카드 === */
+.vac-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+.vac-card { display: flex; align-items: center; gap: 14px; background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 12px; padding: 16px 18px; transition: transform 0.2s, box-shadow 0.2s; }
+.vac-card:hover { transform: translateY(-2px); box-shadow: 0 4px 14px rgba(0,0,0,0.06); }
+.vac-badge { padding: 6px 14px; border-radius: 8px; font-size: 13px; font-weight: 800; white-space: nowrap; flex-shrink: 0; }
+.vac-info { flex: 1; }
+.vac-info strong { display: block; font-size: 15px; color: #1E293B; margin-bottom: 2px; }
+.vac-info p { font-size: 13px; color: #64748B; line-height: 1.5; margin: 0; }
+
+/* 반응형 */
+@media (max-width: 768px) {
+  .ck-intro-split { flex-direction: column; gap: 20px; }
+  .ck-intro-right { width: 100%; flex-direction: row; flex-wrap: wrap; }
+  .ck-items-grid { grid-template-columns: 1fr 1fr; }
+  .ck-prep-grid { grid-template-columns: 1fr; }
+  .ck-result-grid { grid-template-columns: 1fr; }
+  .ck-stat-row { gap: 20px; }
+  .ck-imt-guide { flex-direction: column; }
+  .ck-us-need-grid { grid-template-columns: 1fr; }
+  .vac-grid { grid-template-columns: 1fr; }
+  .ck-us-need { padding: 24px 18px; }
+}
+@media (max-width: 480px) {
+  .ck-items-grid { grid-template-columns: 1fr; }
+}

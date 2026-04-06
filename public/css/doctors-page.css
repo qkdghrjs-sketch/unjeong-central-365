@@ -1,0 +1,106 @@
+/* === 의료진 소개 페이지 === */
+.doctors-page-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+  margin-bottom: 56px;
+}
+
+.doctor-page-card {
+  background: #FFFFFF;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 2px 20px rgba(0,0,0,0.06);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.doctor-page-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 32px rgba(107,45,139,0.12);
+}
+
+.doctor-page-photo {
+  height: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.doctor-page-photo span {
+  color: rgba(255,255,255,0.5);
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.doctor-page-info {
+  padding: 32px 28px;
+}
+
+.doctor-page-tag {
+  display: inline-block;
+  background: #F5F0F8;
+  color: #6B2D8B;
+  padding: 5px 14px;
+  border-radius: 50px;
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 14px;
+}
+
+.doctor-page-info h2 {
+  font-size: 28px;
+  font-weight: 900;
+  color: #1A1A2E;
+  margin-bottom: 20px;
+}
+
+.doctor-page-info h2 small {
+  font-size: 18px;
+  font-weight: 500;
+  color: #888;
+  margin-left: 6px;
+}
+
+.doctor-page-career {
+  list-style: none;
+  padding: 0;
+}
+
+.doctor-page-career li {
+  font-size: 14px;
+  color: #666;
+  padding: 5px 0;
+  padding-left: 18px;
+  position: relative;
+  line-height: 1.6;
+}
+
+.doctor-page-career li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 13px;
+  width: 6px;
+  height: 6px;
+  background: #9B59B6;
+  border-radius: 50%;
+}
+
+@media (max-width: 768px) {
+  .doctors-page-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .doctor-page-photo {
+    height: 160px;
+  }
+
+  .doctor-page-info {
+    padding: 24px 20px;
+  }
+
+  .doctor-page-info h2 {
+    font-size: 24px;
+  }
+}

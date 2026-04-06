@@ -1,0 +1,52 @@
+/* === 위내시경 전용 스타일 === */
+
+/* 2x4 촬영 그리드 */
+.gastro-grid-8 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 6px;
+  height: 100%;
+}
+
+.gastro-thumb {
+  background: #E2E8F0;
+  border-radius: 8px;
+  min-height: 70px;
+  position: relative;
+}
+
+.gastro-thumb::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 8px;
+  border: 1px dashed #CBD5E1;
+}
+
+/* 질환 카드 이미지 placeholder */
+.gastro-disease-img {
+  height: 100px;
+  background: #E2E8F0;
+  border-radius: 10px;
+  margin-bottom: 14px;
+  position: relative;
+}
+
+.gastro-disease-img::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 10px;
+  border: 1px dashed #CBD5E1;
+}
+
+/* 반응형 */
+@media (max-width: 768px) {
+  .gastro-grid-8 {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 4px;
+  }
+  .gastro-thumb {
+    min-height: 50px;
+  }
+}

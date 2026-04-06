@@ -1,0 +1,12 @@
+{
+  "name": "unjeong-central-365",
+  "version": "1.0.0",
+  "description": "운정센트럴365의원 홈페이지",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}

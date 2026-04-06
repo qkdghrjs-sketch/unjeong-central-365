@@ -1,0 +1,78 @@
+/* === 오시는 길 페이지 === */
+.directions-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: start;
+  margin-bottom: 40px;
+}
+
+.directions-address h2 {
+  font-size: 26px;
+  font-weight: 900;
+  color: #1E293B;
+  margin-bottom: 8px;
+}
+
+.directions-addr-text {
+  font-size: 16px;
+  color: #64748B;
+  line-height: 1.7;
+  margin-bottom: 28px;
+}
+
+.directions-detail {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 28px;
+}
+
+.directions-item strong {
+  display: block;
+  font-size: 15px;
+  color: #1E293B;
+  margin-bottom: 4px;
+}
+
+.directions-item p {
+  font-size: 14px;
+  color: #64748B;
+}
+
+.directions-cta {
+  padding-top: 24px;
+  border-top: 1px solid #E2E8F0;
+}
+
+.directions-cta h4 {
+  font-size: 16px;
+  font-weight: 700;
+  color: #1E293B;
+  margin-bottom: 14px;
+}
+
+.directions-map {
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+}
+
+.directions-map .root_daum_roughmap {
+  width: 100% !important;
+}
+
+.directions-map .root_daum_roughmap .wrap_map {
+  height: 400px !important;
+}
+
+@media (max-width: 768px) {
+  .directions-content {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .directions-map .root_daum_roughmap .wrap_map {
+    height: 300px !important;
+  }
+}
