@@ -1,11 +1,11 @@
 /* === Page Hero === */
 .page-hero {
   background: linear-gradient(135deg, var(--hero-color) 0%, color-mix(in srgb, var(--hero-color) 70%, #000) 100%);
-  padding: 200px 0 70px;
+  padding: 260px 0 70px;
   text-align: center;
 }
 
-.page-hero-sm { padding: 200px 0 56px; }
+.page-hero-sm { padding: 260px 0 60px; }
 
 .page-hero-inner h1 {
   font-size: 36px; font-weight: 900; color: #FFFFFF;
