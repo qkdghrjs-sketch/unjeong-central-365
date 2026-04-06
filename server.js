@@ -494,17 +494,17 @@ function renderSubPage(cat, child) {
           ${content.symptoms.map(s => '<label class="col-check"><span class="col-check-box"></span>' + s + '</label>').join('')}
         </div>
       </div>
-      <div class="gen-process" data-anim>
+      <div class="gen-simple-list" data-anim>
         <h2>${content.processTitle}</h2>
-        <div class="gen-process-steps">
-          ${content.process.map((p, i) => '<div class="gen-step"><span class="gen-step-num">' + (i+1) + '</span><p>' + p + '</p></div>').join('')}
-        </div>
+        <ul class="gen-bullet">
+          ${content.process.map(p => '<li>' + p + '</li>').join('')}
+        </ul>
       </div>
-      <div class="gen-strengths" data-anim>
+      <div class="gen-simple-list" data-anim>
         <h2>${content.strengthTitle}</h2>
-        <div class="gen-str-grid">
-          ${content.strengths.map(s => '<div class="gen-str-item"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg><span>' + s + '</span></div>').join('')}
-        </div>
+        <ul class="gen-check">
+          ${content.strengths.map(s => '<li>' + s + '</li>').join('')}
+        </ul>
       </div>
     </div></section>` : `
     <section class="col-detail"><div class="page-container">
