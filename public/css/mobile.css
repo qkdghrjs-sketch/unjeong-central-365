@@ -81,12 +81,18 @@
   .qn-kakao-icon { font-size: 18px; }
 
   /* --- 블로그·공지 섹션 --- */
-  .bn-content { padding: 36px 16px; }
-  .bn-grid { grid-template-columns: 1fr; gap: 20px; }
-  .bn-header-title { font-size: 17px; }
-  .bn-header-title span { font-size: 17px; }
-  .bn-item a { padding: 12px 16px; }
-  .bn-item-title { font-size: 14px; }
+  .blog-notice-section { background-attachment: scroll; }
+  .bn-content { padding: 24px 12px; }
+  .bn-grid { grid-template-columns: 1fr; gap: 14px; }
+  .bn-header { margin-bottom: 8px; }
+  .bn-header-title { font-size: 15px; gap: 6px; }
+  .bn-header-title span { font-size: 15px; }
+  .bn-header-title svg { width: 18px; height: 18px; }
+  .bn-more-btn { font-size: 12px; padding: 4px 12px; }
+  .bn-card { border-radius: 10px; }
+  .bn-item a { padding: 10px 14px; }
+  .bn-item-title { font-size: 13px; }
+  .bn-item:nth-child(4) { display: none; }
 
   /* --- 약속(Promise) 섹션 --- */
   .promise-content { padding: 48px 16px; }
