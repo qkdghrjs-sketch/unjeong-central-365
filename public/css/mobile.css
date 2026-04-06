@@ -17,8 +17,34 @@
     overflow-x: hidden !important;
     font-size: 15px;
   }
-  * { max-width: 100%; }
-  .container { padding: 0 16px; box-sizing: border-box; }
+  * { max-width: 100%; box-sizing: border-box; }
+  .container { padding: 0 16px; }
+
+  /* --- 모바일 줄바꿈 최적화 --- */
+  p, li, span, td, th, .sv2-desc, .bn-item-title,
+  .col-intro-text p, .col-bullet-list > li,
+  .col-reason-list li, .col-check,
+  .ck-cc-body p, .ck-us-body p,
+  .why-desc, .promise-card p,
+  .gen-step p, .gen-str-item span,
+  .gr-flow-body p, .gr-factor-card p {
+    word-break: keep-all !important;
+    overflow-wrap: break-word !important;
+    line-height: 1.7 !important;
+  }
+
+  /* 마침표 뒤 줄바꿈 유도 */
+  .col-intro-text p, .why-desc, .ck-us-intro p,
+  .article-intro p, .ck-cc-body p {
+    word-spacing: -0.5px;
+  }
+
+  /* 긴 텍스트 말줄임 방지 — 자연스럽게 줄바꿈 */
+  .bn-item-title {
+    white-space: normal !important;
+    overflow: visible !important;
+    text-overflow: unset !important;
+  }
 
   /* --- 헤더 --- */
   .header { border-bottom: 1px solid #E8E8E8; width: 100% !important; overflow: hidden; }
