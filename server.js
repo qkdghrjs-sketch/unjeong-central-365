@@ -2,7 +2,7 @@ const express = require('express');
 const path = require('path');
 const fs = require('fs');
 const app = express();
-const PORT = 3003;
+const PORT = process.env.PORT || 3003;
 
 const { NAVIGATION } = require('./data/navigation');
 
@@ -28,7 +28,7 @@ function renderHeader(activeCategoryId) {
   <header class="header scrolled" id="header">
     <div class="container header-top">
       <a href="/" class="logo">
-        <span class="logo-text">연세이내과</span>
+        <img src="https://cdn.imweb.me/upload/S20260108b9005a7eb2710/1a1943dcee2ce.png" alt="연세이내과" class="logo-img">
       </a>
       <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="메뉴 열기">
         <span></span><span></span><span></span>
@@ -43,7 +43,7 @@ function renderHeader(activeCategoryId) {
   <div class="mobile-drawer-overlay" id="drawerOverlay"></div>
   <aside class="mobile-drawer" id="mobileDrawer">
     <div class="drawer-header">
-      <span class="drawer-logo logo-text">연세이내과</span>
+      <img src="https://cdn.imweb.me/upload/S20260108b9005a7eb2710/1a1943dcee2ce.png" alt="연세이내과" class="logo-img drawer-logo-img">
       <button class="drawer-close" id="drawerClose" aria-label="메뉴 닫기">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
       </button>
@@ -68,11 +68,13 @@ const FOOTER = `
   <footer class="footer">
     <div class="container">
       <div class="footer-inner">
-        <div class="footer-logo"><span class="logo-text">연세이내과</span></div>
+        <div class="footer-logo"><img src="https://cdn.imweb.me/upload/S20260108b9005a7eb2710/1a1943dcee2ce.png" alt="연세이내과" class="logo-img footer-logo-img"></div>
         <div class="footer-info">
           <p><strong>연세이내과</strong> YONSEI E INTERNAL MEDICINE</p>
-          <p>경기도 고양시 일산서구 중앙로 1388, 2층</p>
-          <p>내과 · 신장내과 · 건강검진센터 · 초음파센터 · 수액클리닉</p>
+          <p>경기도 고양시 일산서구 중앙로 1388</p>
+          <p style="font-size:13px;color:rgba(255,255,255,0.6)">태화프라자 동관 2층</p>
+          <p>혈액투석센터 · 신장클리닉 · 만성질환클리닉 · 수액센터</p>
+          <p style="margin-top:6px;font-size:13px;color:rgba(255,255,255,0.5)">대학병원 교수출신 의료진의 기준을 담다</p>
         </div>
       </div>
       <div class="footer-bottom"><p>&copy; 2026 연세이내과. All rights reserved.</p></div>
@@ -143,23 +145,10 @@ function renderCategoryIndex(cat) {
 
 // === WHY 데이터 ===
 const WHY_DATA = {
-  // === 초음파센터 ===
-  '/ultrasound/abdomen':  { badge:'복부초음파, 왜 연세이내과일까?', overlay:'복부 정밀 초음파', desc:'고해상도 초음파 장비로 간·담낭·췌장·비장·신장을 정밀하게 검사합니다.', features:['고해상도 초음파 장비','전문의 직접 판독','당일 결과 안내','무통·무방사선 검사'] },
-  '/ultrasound/thyroid':  { badge:'갑상선초음파, 왜 연세이내과일까?', overlay:'갑상선 정밀 초음파', desc:'갑상선 결절·낭종·이상을 고해상도 초음파로 조기에 발견합니다.', features:['갑상선 결절 정밀 평가','전문의 직접 판독','세침흡인검사 연계','당일 결과 안내'] },
-  '/ultrasound/cardiac':  { badge:'심장초음파, 왜 연세이내과일까?', overlay:'심장 구조·기능 정밀 평가', desc:'심장초음파로 판막질환, 심부전, 심비대 등을 정확히 진단합니다.', features:['심장 구조·기능 평가','판막질환 정밀 진단','전문의 직접 판독','심전도 병행 검사'] },
-  '/ultrasound/carotid':  { badge:'경동맥초음파, 왜 연세이내과일까?', overlay:'뇌졸중 위험 조기 발견', desc:'경동맥 초음파로 동맥경화와 뇌졸중 위험을 사전에 확인합니다.', features:['뇌졸중 위험 조기 발견','경동맥 협착 정밀 평가','전문의 직접 판독','고혈압 환자 필수 검사'] },
-  '/checkup/general':    { badge:'종합검진, 왜 연세이내과일까?', overlay:'1:1 맞춤형 종합검진', desc:'개인 맞춤형 검진 프로그램으로 정확하고 효율적인 건강검진을 제공합니다.', features:['1:1 맞춤 설계','전문의 직접 판독','당일 결과 안내','대학병원급 장비'] },
-  '/checkup/cancer':     { badge:'5대암검진, 왜 연세이내과일까?', overlay:'국가 5대암 조기발견', desc:'국민건강보험 지정기관으로 5대암을 조기에 발견하고 안전하게 관리합니다.', features:['국가검진 지정기관','소화기내시경 전문의','당일 용종절제 가능','원스톱 진료'] },
-  '/checkup/ultrasound': { badge:'초음파검사, 왜 연세이내과일까?', overlay:'정밀 초음파 검사', desc:'고해상도 초음파 장비로 복부·갑상선·심장 등 정밀 검사를 제공합니다.', features:['고해상도 초음파 장비','전문의 직접 판독','당일 결과 안내','다부위 검사 가능'] },
-  '/checkup/thyroid':    { badge:'갑상선검사, 왜 연세이내과일까?', overlay:'갑상선 전문 검사', desc:'갑상선 초음파·혈액검사·조직검사까지 체계적인 갑상선 검진을 제공합니다.', features:['갑상선 초음파','혈액검사 병행','세침흡인검사 가능','전문의 직접 판독'] },
-  '/checkup/echo':       { badge:'심장초음파, 왜 연세이내과일까?', overlay:'심장 정밀 검사', desc:'심장초음파로 심장 구조와 기능을 정밀하게 평가합니다.', features:['심장초음파 정밀 검사','전문의 직접 판독','당일 결과 안내','심전도 병행 검사'] },
-  '/checkup/carotid':    { badge:'경동맥초음파, 왜 연세이내과일까?', overlay:'뇌졸중 위험 조기 확인', desc:'경동맥 초음파로 뇌졸중·심근경색 위험을 사전에 확인합니다.', features:['뇌졸중 위험 조기 발견','전문의 직접 판독','당일 결과 안내','고혈압 환자 필수 검사'] },
   '/chronic/hypertension':   { badge:'고혈압, 왜 연세이내과일까?', overlay:'고혈압 전문 클리닉', desc:'고혈압은 꾸준한 관리가 치료입니다. 전문의와 함께 체계적으로 관리하세요.', features:['전문의 직접 진료','개인별 맞춤 관리','정기적 모니터링','합병증 예방 관리'] },
   '/chronic/diabetes':       { badge:'당뇨, 왜 연세이내과일까?', overlay:'당뇨 전문 클리닉', desc:'당뇨는 꾸준한 관리가 치료입니다. 전문의와 함께 체계적으로 관리하세요.', features:['전문의 직접 진료','혈당 맞춤 관리','정기적 모니터링','합병증 예방 관리'] },
   '/chronic/hyperlipidemia': { badge:'고지혈증, 왜 연세이내과일까?', overlay:'고지혈증 전문 클리닉', desc:'고지혈증은 꾸준한 관리가 치료입니다. 전문의와 함께 체계적으로 관리하세요.', features:['전문의 직접 진료','개인별 맞춤 관리','정기적 모니터링','합병증 예방 관리'] },
   '/chronic/thyroid':        { badge:'갑상선질환, 왜 연세이내과일까?', overlay:'갑상선 전문 클리닉', desc:'갑상선 기능 이상을 정확히 진단하고 체계적으로 관리합니다.', features:['갑상선 초음파','혈액검사 병행','전문의 직접 진료','정기 추적 관리'] },
-  '/chronic/sleep':          { badge:'수면장애, 왜 연세이내과일까?', overlay:'수면장애 전문 클리닉', desc:'수면장애의 원인을 정확히 파악하고 맞춤 치료를 제공합니다.', features:['수면 원인 정밀 분석','개인 맞춤 치료','전문의 직접 진료','비약물 치료 병행'] },
-  '/chronic/ent':            { badge:'이비인후과, 왜 연세이내과일까?', overlay:'이비인후과 전문 진료', desc:'알레르기비염·만성비염·중이염 등 이비인후과 질환을 전문적으로 치료합니다.', features:['전문의 직접 진료','내시경 검사 가능','알레르기 원인 분석','맞춤 치료 처방'] },
   // === 신장내과센터 ===
   '/nephrology/ckd': { badge:'만성콩팥병, 왜 연세이내과일까?', overlay:'만성콩팥병 전문 클리닉', desc:'신장내과 전문의 2인이 만성콩팥병을 조기에 진단하고 체계적으로 관리합니다.', features:['신장내과 전문의 2인 진료','만성콩팥병 1~5기 단계별 관리','사구체여과율(GFR) 정밀 평가','투석 전 보존적 치료'] },
   '/nephrology/hemodialysis': { badge:'혈액투석, 왜 연세이내과일까?', overlay:'최신 혈액투석 센터', desc:'최신 투석 장비로 안전하고 편안한 혈액투석을 제공합니다.', features:['최신 혈액투석 장비','신장내과 전문의 관리','개인별 맞춤 투석 처방','투석 중 합병증 모니터링'] },
@@ -167,102 +156,12 @@ const WHY_DATA = {
   '/nephrology/proteinuria': { badge:'단백뇨·혈뇨, 왜 연세이내과일까?', overlay:'단백뇨·혈뇨 정밀 진단', desc:'단백뇨와 혈뇨의 원인을 정확히 파악하고 근본적으로 치료합니다.', features:['24시간 단백뇨 정량검사','혈뇨 원인 정밀 분석','신장초음파 병행','신장내과 전문의 직접 진료'] },
   '/nephrology/electrolyte': { badge:'전해질이상, 왜 연세이내과일까?', overlay:'전해질 균형 전문 관리', desc:'나트륨·칼륨·칼슘 등 전해질 불균형을 정확히 진단하고 교정합니다.', features:['전해질 정밀 혈액검사','원인별 맞춤 교정 치료','신장기능 연관 분석','전문의 직접 진료'] },
   '/nephrology/ultrasound': { badge:'신장초음파, 왜 연세이내과일까?', overlay:'신장 정밀 초음파', desc:'고해상도 초음파로 신장의 크기, 구조, 혈류를 정밀하게 평가합니다.', features:['고해상도 초음파 장비','전문의 직접 검사·판독','당일 결과 안내','신장질환 조기 발견'] },
+  // === 수액센터 ===
+  '/iv-therapy/general': { badge:'수액센터, 왜 연세이내과일까?', overlay:'맞춤 수액 치료', desc:'피로회복부터 영양·면역·미백·다이어트까지, 전문의가 직접 처방하는 안전하고 효과적인 맞춤 수액 치료를 제공합니다.', features:['전문의 직접 처방·관리','다양한 수액 메뉴','안전한 정맥주사 관리','쾌적한 수액 공간','당일 예약 가능'] },
 };
 
 // === 세부 페이지 본문 콘텐츠 ===
 const PAGE_CONTENT = {
-  // === 초음파센터 ===
-  '/ultrasound/abdomen': {
-    intro: '복부초음파는 인체에 무해한 음파를 이용해 간·담낭·췌장·비장·신장의 형태와 이상을 실시간으로 확인하는 검사입니다. 방사선 노출 없이 안전하며, 지방간, 담석, 신장결석, 간종양, 췌장낭종 등을 조기에 발견할 수 있습니다.',
-    symptomTitle: '이런 분께 권장합니다',
-    symptoms: ['복부 통증·불편감이 있는 분','건강검진에서 간 수치 이상이 발견된 분','음주 습관이 있거나 지방간이 의심되는 분','가족 중 간암·담낭질환 병력이 있는 분'],
-    processTitle: '검사 과정',
-    process: ['검사 전 8시간 이상 금식','복부에 젤을 바르고 초음파 탐촉자로 검사 (15~20분)','간·담낭·췌장·비장·신장 순서로 정밀 관찰','전문의 직접 판독 후 당일 결과 설명'],
-    strengthTitle: '연세이내과의 특징',
-    strengths: ['고해상도 초음파 장비','전문의 직접 검사·판독','당일 결과 안내','다부위 동시 검사 가능'],
-  },
-  '/ultrasound/thyroid': {
-    intro: '갑상선초음파는 갑상선의 크기, 형태, 결절 유무를 고해상도로 확인하는 검사입니다. 갑상선 결절은 성인의 약 30~50%에서 발견되며, 대부분 양성이지만 일부 악성 가능성이 있어 정기적인 추적이 중요합니다.',
-    symptomTitle: '이런 분께 권장합니다',
-    symptoms: ['목 앞부분에 덩어리가 만져지는 분','갑상선 기능 검사에서 이상이 있는 분','가족 중 갑상선암 병력이 있는 분','갑상선 결절을 추적 관찰 중인 분'],
-    processTitle: '검사 과정',
-    process: ['목 앞부분에 젤을 바르고 초음파 탐촉자로 검사 (10~15분)','갑상선 양쪽 엽 및 협부 정밀 관찰','결절 크기·형태·석회화 여부 평가','필요시 세침흡인검사(FNA) 연계'],
-    strengthTitle: '연세이내과의 특징',
-    strengths: ['고해상도 초음파 장비','전문의 직접 판독','세침흡인검사 연계 가능','정기 추적 관리'],
-  },
-  '/ultrasound/cardiac': {
-    intro: '심장초음파는 초음파를 이용해 심장의 크기, 벽 두께, 판막 기능, 수축력을 실시간으로 평가하는 검사입니다. 심부전, 판막질환, 심비대, 심낭삼출 등을 정확히 진단할 수 있으며 방사선 노출 없이 안전합니다.',
-    symptomTitle: '이런 분께 권장합니다',
-    symptoms: ['가슴 통증·답답함이 있는 분','운동 시 호흡곤란이 있는 분','고혈압이 오래된 분 (심비대 평가)','심장 잡음이 들린다고 한 분'],
-    processTitle: '검사 과정',
-    process: ['왼쪽으로 누워 가슴에 초음파 탐촉자 대기','심장 구조 (4개 방, 판막) 정밀 관찰 (20~30분)','심장 수축·이완 기능 및 혈류 평가','전문의 직접 판독 후 당일 결과 설명'],
-    strengthTitle: '연세이내과의 특징',
-    strengths: ['전문의 직접 검사·판독','심전도 병행 검사','당일 결과 안내','심장질환 조기 발견'],
-  },
-  '/ultrasound/carotid': {
-    intro: '경동맥초음파는 목 양쪽의 경동맥 혈관 상태를 초음파로 확인하는 검사입니다. 경동맥 내막 두께 증가, 플라크(죽상경화), 협착 정도를 평가하여 뇌졸중과 심근경색의 위험도를 사전에 파악할 수 있습니다.',
-    symptomTitle: '이런 분께 권장합니다',
-    symptoms: ['고혈압·당뇨·고지혈증이 있는 분','흡연 습관이 있는 분','가족 중 뇌졸중·심근경색 병력이 있는 분','두통·어지러움이 반복되는 분'],
-    processTitle: '검사 과정',
-    process: ['목 양쪽에 젤을 바르고 초음파 탐촉자로 검사 (15~20분)','경동맥 내막-중막 두께(IMT) 측정','플라크 유무 및 협착 정도 평가','전문의 직접 판독 후 당일 결과 설명'],
-    strengthTitle: '연세이내과의 특징',
-    strengths: ['뇌졸중 위험 조기 발견','전문의 직접 판독','당일 결과 안내','고혈압 환자 필수 검사'],
-  },
-  // === 건강검진센터 ===
-  '/checkup/general': {
-    intro: '종합건강검진은 질환의 조기 발견과 예방을 위해 혈액검사, 소변검사, 영상검사, 내시경 등을 체계적으로 시행하는 검진 프로그램입니다. 국가건강검진, 일반건강검진, 기업검진, 종합검진까지 개인의 나이·성별·가족력에 맞는 1:1 맞춤형 검진을 제공합니다. 질환은 조기에 발견할수록 치료 성공률이 높아집니다.',
-    symptomTitle: '이런 분께 종합검진을 권장합니다',
-    symptoms: ['40세 이상으로 정기 검진이 필요한 분','암·심혈관질환 등 가족력이 있는 분','만성 피로, 체중 변화, 소화불량이 있는 분','직장인 기업 건강검진 대상자','흡연·음주 습관이 있는 분','최근 1~2년간 검진을 받지 않은 분'],
-    processTitle: '종합건강검진 과정',
-    process: ['검진 전 1:1 상담으로 개인별 맞춤 프로그램 설계','기본 검사: 혈액검사(간·신장·혈당·지질·갑상선), 소변검사, 흉부X-ray, 심전도','정밀 검사: 위·대장내시경, 복부초음파, 갑상선초음파, 심장초음파, 경동맥초음파','전문의 직접 판독 후 1:1 결과 상담 및 추적 관리 안내'],
-    strengthTitle: '연세이내과 종합검진의 특징',
-    strengths: ['1:1 맞춤 검진 설계','소화기내시경 전문의 직접 시행','당일 용종절제 원스톱','대학병원급 최신 초음파 장비','당일 결과 안내 가능','추적 관리까지 책임'],
-  },
-  '/checkup/cancer': {
-    intro: '5대암검진은 국민건강보험공단에서 지정한 위암, 대장암, 간암, 유방암, 자궁경부암을 조기에 발견하기 위한 국가암검진 프로그램입니다. 대상자는 무료로 검진받을 수 있으며, 암은 조기 발견 시 생존율이 90% 이상으로 높아지므로 정기 검진이 매우 중요합니다.',
-    symptomTitle: '국가 5대암검진 대상 및 주기',
-    symptoms: ['위암: 40세 이상, 2년마다 위내시경','대장암: 50세 이상, 1년마다 분변잠혈검사 → 양성 시 대장내시경','간암: B·C형 간염, 간경변 등 고위험군 40세 이상, 6개월마다 복부초음파 + 혈액검사','유방암: 40세 이상 여성, 2년마다 유방촬영','자궁경부암: 20세 이상 여성, 2년마다 자궁경부세포검사','국민건강보험공단에서 대상자에게 무료 검진 안내'],
-    processTitle: '5대암검진 과정',
-    process: ['국민건강보험공단 대상자 확인 및 예약','해당 암종별 검사 시행 (내시경, 초음파, 혈액검사 등)','소화기내시경 전문의가 직접 위·대장내시경 시행','전문의 판독 후 결과 안내, 이상 소견 시 정밀검사 연계'],
-    strengthTitle: '연세이내과 5대암검진의 특징',
-    strengths: ['국가검진 지정기관','소화기내시경 전문의 직접 시행','검사 중 용종 발견 시 당일 즉시 절제','수면내시경 가능','복부초음파 전문의 직접 판독','원스톱 진료로 재방문 부담 최소화'],
-  },
-  '/checkup/ultrasound': {
-    intro: '초음파검사는 인체에 무해한 음파를 이용해 장기의 형태, 크기, 혈류 상태를 실시간으로 확인하는 영상 검사입니다. 방사선 노출이 없어 안전하며, 복부(간·담낭·췌장·신장·비장), 갑상선, 심장, 경동맥 등 다양한 부위를 검사할 수 있습니다.',
-    symptomTitle: '이런 분께 초음파검사를 권장합니다',
-    symptoms: ['복부 통증, 더부룩함, 소화불량이 있는 분','목 앞쪽에 혹이 만져지거나 갑상선 이상이 의심되는 분','흉통, 호흡곤란, 심장 두근거림이 있는 분','고혈압·당뇨·고지혈증으로 혈관 상태가 궁금한 분','건강검진에서 간수치·갑상선 수치 이상이 있는 분','암 가족력이 있어 정밀 검사가 필요한 분'],
-    processTitle: '초음파검사 과정',
-    process: ['검사 부위에 젤을 바르고 초음파 탐촉자로 실시간 영상 확인','복부초음파: 간·담낭·췌장·신장·비장 상태 확인 (10~15분)','갑상선초음파: 결절 유무·크기·형태 정밀 확인','심장초음파: 심장 구조·판막·수축력 평가 / 경동맥초음파: 혈관벽 두께·동맥경화 확인','전문의 직접 판독 후 당일 결과 설명'],
-    strengthTitle: '연세이내과 초음파검사의 특징',
-    strengths: ['고해상도 최신 초음파 장비','전문의 직접 검사 및 판독','복부·갑상선·심장·경동맥 다부위 검사 가능','당일 결과 안내','통증 없이 안전한 검사','건강검진과 연계 가능'],
-  },
-  '/checkup/thyroid': {
-    intro: '갑상선검사는 갑상선 초음파, 혈액검사(갑상선 기능검사), 세침흡인검사(FNA)를 통해 갑상선 질환을 정확히 진단합니다. 갑상선 결절은 성인의 약 30~50%에서 발견될 만큼 흔하며, 대부분 양성이지만 일부는 갑상선암일 수 있어 정밀 검사가 필요합니다.',
-    symptomTitle: '이런 분께 갑상선검사를 권장합니다',
-    symptoms: ['목 앞쪽에 혹이 만져지거나 부어 보이는 분','급격한 체중 변화 (증가 또는 감소)','극심한 피로, 무기력, 집중력 저하','심장 두근거림, 손 떨림, 땀이 많은 분','갑상선 질환 가족력이 있는 분','이전 검사에서 갑상선 결절이 발견된 분'],
-    processTitle: '갑상선검사 과정',
-    process: ['갑상선 초음파로 결절 유무·크기·형태·석회화 정밀 확인','혈액검사로 갑상선 호르몬(TSH, Free T4) 수치 확인','K-TIRADS 분류에 따라 세침흡인검사(FNA) 필요 여부 결정','세침흡인검사: 가는 바늘로 결절 세포를 채취하여 암 여부 확인','전문의 결과 상담 및 추적 관리 일정 안내'],
-    strengthTitle: '연세이내과 갑상선검사의 특징',
-    strengths: ['고해상도 갑상선 초음파','혈액검사 동시 시행','세침흡인검사(FNA) 가능','전문의 직접 판독 및 시술','당일 결과 안내 (혈액검사)','정기 추적 관리'],
-  },
-  '/checkup/echo': {
-    intro: '심장초음파는 초음파를 이용해 심장의 크기, 구조, 판막 기능, 심장 수축력, 혈류 방향을 실시간으로 확인하는 검사입니다. 방사선 노출 없이 심장 질환을 정확하게 진단할 수 있으며, 심부전, 판막질환, 심근병증, 심낭질환 등의 조기 발견에 필수적입니다.',
-    symptomTitle: '이런 분께 심장초음파를 권장합니다',
-    symptoms: ['흉통, 가슴 답답함이 있는 분','호흡곤란, 운동 시 숨이 차는 분','심장 두근거림, 불규칙한 맥박','다리·발목 부종이 있는 분','고혈압·당뇨 등 만성질환으로 심장 합병증이 걱정되는 분','심전도 이상 소견이 있는 분','가족 중 심장질환 환자가 있는 분'],
-    processTitle: '심장초음파 검사 과정',
-    process: ['왼쪽으로 누운 상태에서 가슴에 초음파 탐촉자 적용','심장 4개 방(심방·심실)의 크기와 구조 확인','판막 움직임과 혈류 방향 평가 (도플러 초음파)','심장 수축력(박출률, EF) 측정','전문의 직접 판독 후 당일 결과 설명 (약 20~30분)'],
-    strengthTitle: '연세이내과 심장초음파의 특징',
-    strengths: ['최신 심장초음파 장비','전문의 직접 검사 및 판독','심전도 동시 시행 가능','당일 결과 안내','통증 없이 안전한 검사','만성질환 환자 심장 합병증 모니터링'],
-  },
-  '/checkup/carotid': {
-    intro: '경동맥초음파는 목의 경동맥(뇌로 가는 주요 혈관) 벽 두께와 혈류 상태를 초음파로 확인하는 검사입니다. 동맥경화의 진행 정도를 직접 눈으로 확인할 수 있어, 뇌졸중과 심근경색의 위험을 사전에 평가하는 가장 효과적인 검사입니다. 특히 고혈압·당뇨·고지혈증 환자에게 필수적입니다.',
-    symptomTitle: '이런 분께 경동맥초음파를 권장합니다',
-    symptoms: ['고혈압·당뇨·고지혈증이 있는 분','흡연자 또는 비만인 분','뇌졸중·심근경색 가족력이 있는 분','일시적 시력 저하, 팔다리 마비감을 경험한 분','어지러움·두통이 자주 있는 분','50세 이상으로 혈관 건강이 궁금한 분','심장초음파와 함께 종합 혈관 평가를 원하는 분'],
-    processTitle: '경동맥초음파 검사 과정',
-    process: ['목 양쪽에 초음파 탐촉자를 대고 경동맥 확인 (15~20분)','경동맥 내막-중막 두께(IMT) 정밀 측정 — 동맥경화 지표','혈관 내 플라크(죽상경화반) 유무, 크기, 성상 확인','혈관 협착 정도 및 혈류 속도 측정 (도플러)','전문의 직접 판독 후 당일 결과 설명 및 관리 안내'],
-    strengthTitle: '연세이내과 경동맥초음파의 특징',
-    strengths: ['뇌졸중·심근경색 위험 조기 발견','고해상도 초음파 장비','전문의 직접 검사 및 판독','당일 결과 안내','심장초음파와 동시 시행 가능','만성질환 환자 필수 검사'],
-  },
   // === 만성질환클리닉 ===
   '/chronic/hypertension': {
     intro: '고혈압은 혈압이 지속적으로 140/90mmHg 이상인 상태로, 심장·뇌·신장·혈관에 손상을 일으킵니다. 한국 성인 3명 중 1명(약 1,200만 명)이 고혈압 환자이며, 대부분 증상이 없어 "침묵의 살인자"로 불립니다. 방치하면 뇌졸중, 심근경색, 심부전, 신부전으로 이어질 수 있어 정기적인 측정과 꾸준한 관리가 핵심입니다.',
@@ -299,24 +198,6 @@ const PAGE_CONTENT = {
     process: ['갑상선 기능 혈액검사: TSH, Free T4, T3','갑상선 초음파로 결절 유무·크기·형태·석회화 정밀 확인','K-TIRADS 분류에 따라 세침흡인검사(FNA) 결정','항진증: 항갑상선제 처방 / 저하증: 갑상선호르몬 보충','결절: 크기·성상에 따라 추적 관찰 또는 조직검사','정기 혈액검사 + 초음파로 추적 관리'],
     strengthTitle: '연세이내과 갑상선 관리의 특징',
     strengths: ['고해상도 갑상선 초음파','혈액검사 동시 시행','세침흡인검사(FNA) 가능','전문의 직접 판독 및 진료','항진·저하·결절 모두 관리','정기 추적 관리'],
-  },
-  '/chronic/sleep': {
-    intro: '수면장애·불면증은 잠들기 어렵거나, 자주 깨거나, 충분히 자도 개운하지 않은 상태가 한 달 이상 지속되는 질환입니다. 만성 불면은 고혈압 위험 2배, 당뇨 위험 1.5배, 우울증 위험 5배 이상 높이며, 낮 동안의 집중력·판단력 저하로 사고 위험도 증가합니다. 원인을 정확히 파악하고 적극 치료해야 합니다.',
-    symptomTitle: '수면장애 자가진단 체크리스트',
-    symptoms: ['잠들기까지 30분 이상 걸림','한밤중에 2회 이상 깸','새벽에 일찍 깨서 다시 잠들지 못함','자고 일어나도 개운하지 않음','낮 동안 극심한 졸림, 집중력 저하','코골이가 심하고 수면 중 숨이 멈추는 느낌','불안감, 우울감이 수면을 방해','카페인, 알코올, 스마트폰 사용이 잦음'],
-    processTitle: '수면장애 진단 및 치료 과정',
-    process: ['수면 패턴 상세 문진 (수면일지 활용)','수면장애 설문 평가 (ESS, ISI, STOP-BANG)','기저질환 확인: 혈액검사 (갑상선, 빈혈, 혈당)','수면무호흡 의심 시 수면다원검사 연계','약물 치료: 수면제 최소 용량, 단기간 처방 원칙','비약물 치료: 수면 위생 교육, 인지행동치료(CBT-I)'],
-    strengthTitle: '연세이내과 수면장애 관리의 특징',
-    strengths: ['수면 원인 정밀 분석','수면 설문 + 혈액검사 병행','약물 + 비약물 치료 병행','수면 위생 교육','전문의 직접 진료','수면무호흡 검사 연계'],
-  },
-  '/chronic/ent': {
-    intro: '이비인후과 진료는 코(비과), 귀(이과), 목(인후과) 관련 질환을 전문적으로 진단하고 치료합니다. 알레르기비염은 한국 성인의 약 20~30%가 앓고 있으며, 부비동염(축농증)·중이염·편도선염은 소아부터 성인까지 흔하게 발생합니다. 방치하면 만성화되어 삶의 질이 크게 떨어지므로 정확한 진단과 치료가 중요합니다.',
-    symptomTitle: '이비인후과 진료가 필요한 증상',
-    symptoms: ['콧물, 코막힘이 2주 이상 지속','재채기, 코·눈 가려움 (알레르기비염)','누런 콧물, 안면부 통증·압박감 (부비동염)','귀 통증, 이명, 청력 저하','목 통증, 삼킬 때 통증, 목소리 변화','코골이, 수면 중 무호흡','어지러움, 균형감각 이상'],
-    processTitle: '이비인후과 진단 및 치료 과정',
-    process: ['증상 문진 및 이학적 검사 (이경, 비경, 구인두 관찰)','비내시경으로 코·부비동 직접 확인','알레르기 혈액검사 (MAST, 특이 IgE)','청력검사 (필요시)','맞춤 약물 치료: 항히스타민제, 비강스테로이드, 항생제 등','생활 관리 상담: 알레르기 원인 회피법, 코 세척법'],
-    strengthTitle: '연세이내과 이비인후과의 특징',
-    strengths: ['전문의 직접 진료','비내시경 검사 가능','알레르기 원인 혈액검사','맞춤 약물 처방','코 세척법 등 생활 관리 교육','소아·성인 모두 진료 가능'],
   },
   // === 신장내과센터 ===
   '/nephrology/ckd': {
@@ -375,20 +256,37 @@ const PAGE_CONTENT = {
   },
 };
 
-// === 카테고리별 WHY 이미지 ===
-const WHY_IMAGES = {
-  ultrasound: 'https://cdn.imweb.me/upload/S20260108b9005a7eb2710/533d4e7b9f283.jpeg',
-  'iv-therapy': 'https://cdn.imweb.me/upload/S20260108b9005a7eb2710/7b6505bf00064.jpeg',
-  checkup:   'https://cdn.imweb.me/upload/S20260108b9005a7eb2710/7b6505bf00064.jpeg',
-  chronic:   'https://cdn.imweb.me/upload/S20260108b9005a7eb2710/f61502eccdb07.jpeg',
-  nephrology: 'https://cdn.imweb.me/upload/S20260108b9005a7eb2710/f61502eccdb07.jpeg',
-  about:     'https://cdn.imweb.me/upload/S20260108b9005a7eb2710/2a354a078f677.jpeg',
+// === 이미지 ===
+const CDN = 'https://cdn.imweb.me/upload/S20260108b9005a7eb2710/';
+
+// WHY 섹션 대표 이미지 (카테고리 단위 — 같은 카테고리는 동일 사진)
+const WHY_SECTION_IMAGES = {
+  nephrology:   CDN + 'a5716bbbcea1c.png',  // 신장초음파 사진
+  chronic:      CDN + 'cf7d331f24685.png',   // 이비인후과 사진
+  'iv-therapy': CDN + 'a9571802204d5.png',
+  _default:     CDN + '264029ec718d7.png',
+};
+
+// 아티클 인트로 이미지 (페이지별 고유 — 2번째 사진)
+const ARTICLE_IMAGES = {
+  '/nephrology/ckd':               CDN + 'c083a202cc5e6.png',
+  '/nephrology/hemodialysis':      CDN + '17e884a84f100.png',
+  '/nephrology/glomerulonephritis':CDN + '380b6a478edfc.png',
+  '/nephrology/proteinuria':       CDN + '55442e3d65ac5.png',
+  '/nephrology/electrolyte':       CDN + 'a937a93aa9df7.png',
+  '/nephrology/ultrasound':        CDN + 'a5716bbbcea1c.png',
+  '/chronic/hypertension':         CDN + '5156480ce2cce.png',
+  '/chronic/diabetes':             CDN + '34964b2b5715e.png',
+  '/chronic/hyperlipidemia':       CDN + '401187f029c58.png',
+  '/chronic/thyroid':              CDN + '33b1f6b37fd63.png',
+  '/iv-therapy/general':           CDN + 'a9571802204d5.png',
+  _default:                        CDN + '264029ec718d7.png',
 };
 
 // === 세부 페이지 ===
 function renderSubPage(cat, child) {
   const why = WHY_DATA[child.href];
-  const whyImg = WHY_IMAGES[cat.id] || WHY_IMAGES.about;
+  const whyImg = WHY_SECTION_IMAGES[cat.id] || WHY_SECTION_IMAGES._default;
   const whySection = why ? `
   <section class="why-section">
     <div class="page-container">
@@ -414,7 +312,7 @@ function renderSubPage(cat, child) {
 
   // 본문 콘텐츠
   const content = PAGE_CONTENT[child.href];
-  const catImg = WHY_IMAGES[cat.id] || WHY_IMAGES.about;
+  const catImg = ARTICLE_IMAGES[child.href] || ARTICLE_IMAGES._default;
   const articleHtml = content ? `
     <section class="col-detail"><div class="page-container">
       <div class="col-intro" data-anim>
@@ -463,8 +361,7 @@ function renderSubPage(cat, child) {
     <div class="page-container page-narrow">
       <div class="page-cta" data-anim>
         <h3>진료 예약 및 문의</h3>
-        <p class="cta-phone">준비중</p>
-        <p class="cta-notice">전화번호는 개원 시 안내드리겠습니다.</p>
+        <a href="tel:031-922-1570" class="cta-btn">031-922-1570</a>
       </div>
     </div>
   </section>`;
@@ -481,11 +378,9 @@ function renderSubPage(cat, child) {
 function getCategoryDesc(id) {
   const descs = {
     about: '연세이내과를 소개합니다.',
-    ultrasound: '고해상도 초음파로 정밀 검사를 제공합니다.',
     'iv-therapy': '피로회복·영양·면역 맞춤 수액 치료를 제공합니다.',
-    checkup: '체계적인 건강검진 프로그램을 제공합니다.',
     chronic: '꾸준한 관리가 필요한 만성질환을 전문적으로 진료합니다.',
-    nephrology: '신장내과 전문의 2인이 신장질환을 전문적으로 진료합니다.',
+    nephrology: '대학병원 교수출신 신장내과 전문의가 직접 진료합니다.',
   };
   return descs[id] || '';
 }
@@ -531,12 +426,11 @@ app.get('/about/philosophy', (req, res) => {
 // /about/doctors 의료진 소개 전용 페이지
 app.get('/about/doctors', (req, res) => {
   const cat = NAVIGATION.find(n => n.id === 'about');
-  const child = cat.children.find(c => c.href === '/about/doctors');
   const body = `
   <section class="page-hero page-hero-sm" style="--hero-color:${cat.color}">
     <div class="page-hero-inner" data-anim>
       <h1>의료진 소개</h1>
-      <p>풍부한 임상 경험을 갖춘 전문의가 진료합니다.</p>
+      <p>대학병원 교수출신 의료진의 기준을 담다</p>
     </div>
   </section>
   <section class="page-section">
@@ -546,53 +440,126 @@ app.get('/about/doctors', (req, res) => {
         <a href="/about">병원소개</a> <span>›</span>
         <span class="current">의료진 소개</span>
       </div>
-      <!-- 연세대 출신 어필 배너 -->
+
       <div class="doctor-yonsei-banner" data-anim>
         <div class="yonsei-banner-inner">
-          <h3>연세대학교 의과대학 출신 신장내과 전문의 2인</h3>
-          <p>연세대학교 의과대학의 체계적인 수련과 풍부한 임상 경험을 바탕으로<br>신장질환의 정확한 진단과 최적의 치료를 제공합니다.</p>
+          <h3>YONSEI LEE'S MEDICAL CLINIC</h3>
+          <p>소통이 좋은 병원 · 알기 쉽게 설명해주는 병원<br>정확한 검사와 체계적인 시스템으로 환자에 맞는 최적의 치료</p>
         </div>
       </div>
 
-      <div class="doctors-page-grid" data-anim>
-        <div class="doctor-page-card">
-          <div class="doctor-page-photo" style="background:linear-gradient(135deg,#2E86AB,#45A5C4)">
-            <span>대표원장</span>
+      <!-- 이호영 원장 -->
+      <div class="doctor-profile-block" data-anim>
+        <div class="doctor-profile-header">
+          <div class="doctor-profile-photo" style="background:linear-gradient(135deg,#003876,#2E86AB)">
+            <span>院長</span>
           </div>
-          <div class="doctor-page-info">
-            <span class="doctor-page-tag">내과 전문의 · 신장내과 세부전문의</span>
-            <h2>이용규 <small>대표원장</small></h2>
-            <ul class="doctor-page-career">
-              <li>연세대학교 의과대학 졸업</li>
-              <li>연세대학교 세브란스병원 내과 전공의 수료</li>
-              <li>연세대학교 세브란스병원 신장내과 전임의 수료</li>
-              <li>대한신장학회 정회원</li>
-              <li>현) 연세이내과 대표원장</li>
-            </ul>
+          <div class="doctor-profile-title">
+            <span class="doctor-page-tag">내과 전문의 · 신장내과 분과전문의 · 투석 전문의</span>
+            <h2>이호영 <em>Ho Young Lee M.D. PhD.</em></h2>
+            <p class="doctor-profile-pos">연세대학교 의과대학 내과 명예교수 · 연세이내과 원장</p>
           </div>
         </div>
-        <div class="doctor-page-card">
-          <div class="doctor-page-photo" style="background:linear-gradient(135deg,#45A5C4,#6BC0D4)">
-            <span>원장</span>
-          </div>
-          <div class="doctor-page-info">
-            <span class="doctor-page-tag">내과 전문의 · 신장내과 세부전문의</span>
-            <h2><small>원장</small></h2>
+        <div class="doctor-profile-body">
+          <div class="doctor-profile-col">
+            <h4 class="dp-section-title">학력 · 자격</h4>
             <ul class="doctor-page-career">
               <li>연세대학교 의과대학 졸업</li>
-              <li>연세대학교 세브란스병원 내과 전공의 수료</li>
-              <li>연세대학교 세브란스병원 신장내과 전임의 수료</li>
-              <li>연세대학교 의과대학 명예교수</li>
-              <li>대한신장학회 정회원</li>
-              <li>현) 연세이내과 원장</li>
+              <li>연세대학교 대학원 의학석사</li>
+              <li>연세대학교 대학원 의학박사</li>
+              <li>대한내과학회 내과 전문의</li>
+              <li>대한내과학회 신장내과 분과전문의</li>
+              <li>대한신장학회 투석 전문의</li>
+            </ul>
+            <h4 class="dp-section-title" style="margin-top:20px">해외 연수</h4>
+            <ul class="doctor-page-career">
+              <li>미국 뉴욕 Albert Einstein 의과대학 Montefiore Hospital 연구원</li>
+              <li>미국 뉴욕 Cornell 대학 방문교수</li>
+            </ul>
+          </div>
+          <div class="doctor-profile-col">
+            <h4 class="dp-section-title">주요 경력</h4>
+            <ul class="doctor-page-career">
+              <li>연세대학교 의과대학 내과 정교수</li>
+              <li>연세대학교 의과대학 내과 명예교수</li>
+              <li>대한신장학회 이사장</li>
+              <li>2010년 아시아태평양신장학회 조직위원장</li>
+              <li>세브란스병원 신장내과 과장</li>
+              <li>세브란스병원 수련부장</li>
+              <li>세브란스병원 신장병센터 소장</li>
+              <li>연세대학교 신장질환연구소 소장</li>
+              <li>대한혈액투석여과학회 초대 회장</li>
+            </ul>
+          </div>
+          <div class="doctor-profile-col">
+            <h4 class="dp-section-title">학회 활동</h4>
+            <ul class="doctor-page-career">
+              <li>대한내과학회 평의원</li>
+              <li>대한신장학회 평의원</li>
+              <li>대한이식학회 정회원</li>
+              <li>아시아태평양신장학회 평의원</li>
+              <li>국제신장학회 정회원</li>
+              <li>미국신장학회 정회원</li>
+              <li>유럽신장학회 정회원</li>
+              <li>대한민국의학한림원 정회원</li>
             </ul>
           </div>
         </div>
       </div>
+
+      <!-- 이용규 원장 -->
+      <div class="doctor-profile-block" data-anim>
+        <div class="doctor-profile-header">
+          <div class="doctor-profile-photo" style="background:linear-gradient(135deg,#2E86AB,#6BC0D4)">
+            <span>院長</span>
+          </div>
+          <div class="doctor-profile-title">
+            <span class="doctor-page-tag">내과 전문의 · 신장내과 분과전문의 · 투석 전문의</span>
+            <h2>이용규 <em>Yong Kyu Lee M.D.</em></h2>
+            <p class="doctor-profile-pos">연세이내과 대표원장</p>
+          </div>
+        </div>
+        <div class="doctor-profile-body">
+          <div class="doctor-profile-col">
+            <h4 class="dp-section-title">학력 · 자격</h4>
+            <ul class="doctor-page-career">
+              <li>연세대학교 의과대학 졸업</li>
+              <li>연세대학교 대학원 의학 석사</li>
+              <li>대한내과학회 내과 전문의</li>
+              <li>대한내과학회 신장내과 분과전문의</li>
+              <li>대한신장학회 투석 전문의</li>
+            </ul>
+            <h4 class="dp-section-title" style="margin-top:20px">해외 연수</h4>
+            <ul class="doctor-page-career">
+              <li>Harold Simmons Center for Kidney Disease Research and Epidemiology, University of California Irvine, School of Medicine, 방문 교수</li>
+            </ul>
+          </div>
+          <div class="doctor-profile-col">
+            <h4 class="dp-section-title">주요 경력</h4>
+            <ul class="doctor-page-career">
+              <li>세브란스병원 외래 교수</li>
+              <li>국민건강보험 일산병원 교수</li>
+            </ul>
+          </div>
+          <div class="doctor-profile-col">
+            <h4 class="dp-section-title">학회 활동</h4>
+            <ul class="doctor-page-career">
+              <li>대한내과학회 평의원</li>
+              <li>대한신장학회 평의원</li>
+              <li>대한이식학회 정회원</li>
+              <li>대한혈액투석여과학회 정회원</li>
+              <li>국제신장학회 정회원</li>
+              <li>미국신장학회 정회원</li>
+              <li>유럽신장학회 정회원</li>
+              <li>아시아 태평양 신장학회 정회원</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
       <div class="page-cta" data-anim>
         <h3>진료 예약 및 문의</h3>
-        <p class="cta-phone">준비중</p>
-        <p class="cta-notice">전화번호는 개원 시 안내드리겠습니다.</p>
+        <a href="tel:031-922-1570" class="cta-btn">031-922-1570</a>
       </div>
     </div>
   </section>`;
@@ -606,91 +573,8 @@ app.get('/about/doctors', (req, res) => {
   }));
 });
 
-// /about/facility 시설 안내 전용 페이지
-app.get('/about/facility', (req, res) => {
-  const body = `
-  <section class="page-hero page-hero-sm" style="--hero-color:#5F5E5A">
-    <div class="page-hero-inner" data-anim>
-      <h1>시설 안내</h1>
-      <p>최신 장비와 쾌적한 진료 환경을 갖추고 있습니다.</p>
-    </div>
-  </section>
-  <section class="page-section">
-    <div class="page-container">
-      <div class="breadcrumb" data-anim>
-        <a href="/">홈</a> <span>›</span>
-        <a href="/about">병원소개</a> <span>›</span>
-        <span class="current">시설 안내</span>
-      </div>
-
-      <!-- 원내 사진 갤러리 -->
-      <div class="facility-block" data-anim>
-        <h2 class="facility-heading">원내 시설</h2>
-        <p class="facility-desc">연세이내과는 환자분들이 편안하게 진료받을 수 있도록<br>쾌적하고 청결한 환경을 갖추고 있습니다.</p>
-      </div>
-      <div class="facility-grid facility-grid-main" data-anim>
-        <div class="facility-img facility-img-wide">
-          <img src="https://cdn.imweb.me/upload/S20260108b9005a7eb2710/533d4e7b9f283.jpeg" alt="원내 시설 1">
-        </div>
-        <div class="facility-img">
-          <img src="https://cdn.imweb.me/upload/S20260108b9005a7eb2710/2a354a078f677.jpeg" alt="원내 시설 2">
-        </div>
-        <div class="facility-img">
-          <img src="https://cdn.imweb.me/upload/S20260108b9005a7eb2710/049c24abf55ff.jpeg" alt="원내 시설 3">
-        </div>
-        <div class="facility-img">
-          <img src="https://cdn.imweb.me/upload/S20260108b9005a7eb2710/7b6505bf00064.jpeg" alt="원내 시설 4">
-        </div>
-        <div class="facility-img">
-          <img src="https://cdn.imweb.me/upload/S20260108b9005a7eb2710/72eb63d7e5dce.jpeg" alt="원내 시설 5">
-        </div>
-        <div class="facility-img">
-          <img src="https://cdn.imweb.me/upload/S20260108b9005a7eb2710/30ea6416ea891.jpeg" alt="원내 시설 6">
-        </div>
-        <div class="facility-img">
-          <img src="https://cdn.imweb.me/upload/S20260108b9005a7eb2710/3809a7e6a582c.jpeg" alt="원내 시설 7">
-        </div>
-      </div>
-
-      <!-- 상담실 · 수액실 -->
-      <div class="facility-rooms" data-anim>
-        <div class="facility-room-card">
-          <div class="facility-room-img">
-            <img src="https://cdn.imweb.me/upload/S20260108b9005a7eb2710/f61502eccdb07.jpeg" alt="상담실">
-          </div>
-          <div class="facility-room-info">
-            <h3>상담실</h3>
-            <p>프라이버시가 보호되는 독립된 공간에서<br>편안하게 진료 상담을 받으실 수 있습니다.</p>
-          </div>
-        </div>
-        <div class="facility-room-card">
-          <div class="facility-room-img">
-            <img src="https://cdn.imweb.me/upload/S20260108b9005a7eb2710/45190b4121886.jpeg" alt="수액실">
-          </div>
-          <div class="facility-room-info">
-            <h3>수액실</h3>
-            <p>편안한 리클라이너 체어에서<br>수액 치료를 받으실 수 있습니다.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- CTA -->
-      <div class="page-cta" data-anim>
-        <h3>진료 예약 및 문의</h3>
-        <p class="cta-phone">준비중</p>
-        <p class="cta-notice">전화번호는 개원 시 안내드리겠습니다.</p>
-      </div>
-    </div>
-  </section>`;
-
-  res.send(renderPage({
-    title: '시설 안내',
-    activeCategoryId: 'about',
-    bodyContent: body,
-    extraCss: '<link rel="stylesheet" href="/css/pages.css"><link rel="stylesheet" href="/css/facility-page.css">',
-    extraJs: '<script src="/js/page-anim.js"></script>'
-  }));
-});
+// /about/facility → 둘러보기로 리다이렉트
+app.get('/about/facility', (req, res) => res.redirect(301, '/about/gallery'));
 
 // /about/directions 오시는 길 전용 페이지
 app.get('/about/directions', (req, res) => {
@@ -698,7 +582,7 @@ app.get('/about/directions', (req, res) => {
   <section class="page-hero page-hero-sm" style="--hero-color:#5F5E5A">
     <div class="page-hero-inner" data-anim>
       <h1>오시는 길</h1>
-      <p>3호선 대화역 인근</p>
+      <p>3호선 주엽역 인근 · 태화프라자 동관 2층</p>
     </div>
   </section>
   <section class="page-section">
@@ -712,16 +596,27 @@ app.get('/about/directions', (req, res) => {
         <div class="directions-info">
           <div class="directions-address">
             <h2>연세이내과</h2>
-            <p class="directions-addr-text">경기도 고양시 일산서구 중앙로 1388, 2층</p>
+            <p class="directions-addr-text">경기도 고양시 일산서구 중앙로 1388</p>
+            <p class="directions-addr-sub">태화프라자 동관 2층</p>
           </div>
           <div class="directions-detail">
             <div class="directions-item">
               <strong>🚇 지하철</strong>
-              <p>3호선 대화역 인근</p>
+              <p>3호선 주엽역 인근</p>
             </div>
             <div class="directions-item">
               <strong>🅿️ 주차</strong>
-              <p>건물 내 주차 가능</p>
+              <p>태화프라자 주차장 이용 가능</p>
+              <div class="map-btn-group">
+                <a href="https://naver.me/xrcDf71g" target="_blank" rel="noopener" class="map-btn map-btn-naver">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                  네이버지도
+                </a>
+                <a href="https://kko.to/sf0FqVjQ9q" target="_blank" rel="noopener" class="map-btn map-btn-kakao">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                  카카오맵
+                </a>
+              </div>
             </div>
           </div>
           <div class="directions-cta">
@@ -729,7 +624,7 @@ app.get('/about/directions', (req, res) => {
           </div>
         </div>
         <div class="directions-map">
-          <div id="daumRoughmapContainer1775599659401" class="root_daum_roughmap root_daum_roughmap_landing"></div>
+          <div id="daumRoughmapContainer1777532447206" class="root_daum_roughmap root_daum_roughmap_landing"></div>
         </div>
       </div>
     </div>
@@ -740,48 +635,476 @@ app.get('/about/directions', (req, res) => {
     activeCategoryId: 'about',
     bodyContent: body,
     extraCss: '<link rel="stylesheet" href="/css/pages.css"><link rel="stylesheet" href="/css/directions-page.css">',
-    extraJs: '<script src="/js/page-anim.js"></script><script charset="UTF-8" src="https://ssl.daumcdn.net/dmaps/map_js_init/roughmapLoader.js"></script><script charset="UTF-8">new daum.roughmap.Lander({"timestamp":"1775599659401","key":"kczk4raneir","mapWidth":"640","mapHeight":"360"}).render();</script>'
+    extraJs: '<script src="/js/page-anim.js"></script><script charset="UTF-8" src="https://ssl.daumcdn.net/dmaps/map_js_init/roughmapLoader.js"></script><script charset="UTF-8">new daum.roughmap.Lander({"timestamp":"1777532447206","key":"my5vbpm2yac","mapWidth":"640","mapHeight":"360"}).render();</script>'
   }));
 });
 
-// === 건강검진 전용 라우트 헬퍼 ===
-function checkupDetailPage(href, templateFile, extraJs) {
-  const cat = NAVIGATION.find(n => n.id === 'checkup');
-  const child = cat.children.find(c => c.href === href);
-  const why = WHY_DATA[href];
-  const whyImg = WHY_IMAGES[cat.id];
-  const detailHtml = fs.readFileSync(path.join(__dirname, 'templates', templateFile), 'utf8');
+// /nephrology/hemodialysis 전용 라우트 (투석기기 섹션 포함)
+app.get('/nephrology/hemodialysis', (req, res) => {
+  const cat = NAVIGATION.find(n => n.id === 'nephrology');
+  const child = cat.children.find(c => c.href === '/nephrology/hemodialysis');
+  const why = WHY_DATA[child.href];
+  const whyImg = WHY_SECTION_IMAGES['nephrology'];
+  const content = PAGE_CONTENT[child.href];
+  const catImg = ARTICLE_IMAGES[child.href] || ARTICLE_IMAGES._default;
+
+  const whySection = why ? `
+  <section class="why-section">
+    <div class="page-container"><div class="why-grid">
+      <div class="why-image" data-anim>
+        <img src="${whyImg}" alt="${child.label}">
+        <div class="why-image-overlay"><span>${why.overlay}</span></div>
+      </div>
+      <div class="why-content" data-anim>
+        <h2 class="why-title"><em>WHY</em> 연세이내과</h2>
+        <div class="why-badge" style="--badge-color:${cat.color}">${why.badge}</div>
+        <p class="why-desc">${why.desc}</p>
+        <div class="why-divider"></div>
+        <ul class="why-features">${why.features.map(f => '<li><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>' + f + '</li>').join('')}</ul>
+      </div>
+    </div></div>
+  </section>` : '';
+
+  const machineSection = `
+  <section class="dialysis-hl-section dialysis-hl-page">
+    <div class="page-container">
+      <div class="dialysis-hl-inner">
+        <div class="dialysis-hl-img-wrap">
+          <img src="https://5.imimg.com/data5/SELLER/Default/2023/12/369116022/IV/MF/TP/68792294/fresenius-5008-5008s-hemodialysis-machine.jpg" alt="Fresenius 5008S 혈액투석기">
+        </div>
+        <div class="dialysis-hl-content">
+          <span class="dialysis-hl-badge">HEMODIALYSIS EQUIPMENT</span>
+          <h3>혈액투석여과요법(HDF)이 가능한<br>5008S(Basic ONLINEplus) 제품 설치 병원</h3>
+          <p>독일 Fresenius Medical Care의 최신 혈액투석기입니다.<br>
+          일반 혈액투석(HD)보다 중분자량 독소 제거 효과가 뛰어난<br>
+          온라인 혈액투석여과요법(Online-HDF)을 제공하여<br>
+          투석 환자의 생존율과 삶의 질 향상에 기여합니다.</p>
+        </div>
+      </div>
+    </div>
+  </section>`;
+
+  const articleHtml = content ? `
+  <section class="col-detail"><div class="page-container">
+    <div class="col-intro" data-anim>
+      <div class="col-intro-img"><img src="${catImg}" alt="${child.label}"></div>
+      <div class="col-intro-text">
+        <h2>${child.label}</h2>
+        <p>${content.intro.replace(/\. /g, '.<br>')}</p>
+      </div>
+    </div>
+    <div class="col-symptoms" data-anim>
+      <h2>${content.symptomTitle}</h2>
+      <div class="col-check-grid" style="grid-template-columns:repeat(2,1fr)">
+        ${content.symptoms.map(s => '<label class="col-check"><span class="col-check-box"></span>' + s + '</label>').join('')}
+      </div>
+    </div>
+    <div class="gen-simple-list" data-anim>
+      <h2>${content.processTitle}</h2>
+      <ul class="gen-bullet">${content.process.map(p => '<li>' + p + '</li>').join('')}</ul>
+    </div>
+    <div class="gen-simple-list" data-anim>
+      <h2>${content.strengthTitle}</h2>
+      <ul class="gen-check">${content.strengths.map(s => '<li>' + s + '</li>').join('')}</ul>
+    </div>
+  </div></section>` : '';
+
   const body = `
   <section class="page-hero page-hero-sm" style="--hero-color:${cat.color}">
-    <div class="page-hero-inner" data-anim><h1>${child.label}</h1><p>${child.desc}</p></div>
-  </section>
-  <section class="why-section"><div class="page-container"><div class="why-grid">
-    <div class="why-image" data-anim><img src="${whyImg}" alt="${child.label}"><div class="why-image-overlay"><span>${why.overlay}</span></div></div>
-    <div class="why-content" data-anim>
-      <h2 class="why-title"><em>WHY</em> 연세이내과</h2>
-      <div class="why-badge" style="--badge-color:${cat.color}">${why.badge}</div>
-      <p class="why-desc">${why.desc}</p>
-      <div class="why-divider"></div>
-      <ul class="why-features">${why.features.map(f => '<li><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>' + f + '</li>').join('')}</ul>
+    <div class="page-hero-inner" data-anim>
+      <h1>${child.label}</h1>
+      <p>${child.desc}</p>
     </div>
-  </div></div></section>
-  ${detailHtml}
+  </section>
+  ${whySection}
+  ${machineSection}
+  ${articleHtml}
   <section class="page-section"><div class="page-container page-narrow">
-    <div class="page-cta" data-anim><h3>진료 예약 및 문의</h3><p class="cta-phone">준비중</p><p class="cta-notice">전화번호는 개원 시 안내드리겠습니다.</p></div>
+    <div class="page-cta" data-anim>
+      <h3>진료 예약 및 문의</h3>
+      <a href="tel:031-922-1570" class="cta-btn">031-922-1570</a>
+    </div>
   </div></section>`;
-  return renderPage({
-    title: child.label, activeCategoryId: 'checkup', bodyContent: body,
-    extraCss: '<link rel="stylesheet" href="/css/pages.css"><link rel="stylesheet" href="/css/why-section.css"><link rel="stylesheet" href="/css/colonoscopy.css"><link rel="stylesheet" href="/css/checkup.css">',
-    extraJs: '<script src="/js/page-anim.js"></script>' + (extraJs || '')
-  });
-}
 
-app.get('/checkup/general', (req, res) => res.send(checkupDetailPage('/checkup/general', 'checkup-general.html')));
-app.get('/checkup/cancer', (req, res) => res.send(checkupDetailPage('/checkup/cancer', 'checkup-cancer.html', '<script src="https://cdn.jsdelivr.net/npm/chart.js@4"></script><script src="/js/cancer-chart.js"></script>')));
-app.get('/checkup/ultrasound', (req, res) => res.send(checkupDetailPage('/checkup/ultrasound', 'checkup-ultrasound.html')));
+  res.send(renderPage({
+    title: child.label,
+    activeCategoryId: 'nephrology',
+    bodyContent: body,
+    extraCss: '<link rel="stylesheet" href="/css/pages.css"><link rel="stylesheet" href="/css/why-section.css"><link rel="stylesheet" href="/css/article.css">',
+    extraJs: '<script src="/js/page-anim.js"></script>'
+  }));
+});
+
+// /about/hours 진료시간 (실시간 오늘 표시)
+app.get('/about/hours', (req, res) => {
+  const cat = NAVIGATION.find(n => n.id === 'about');
+
+  const body = `
+  <section class="page-hero page-hero-sm" style="--hero-color:${cat.color}">
+    <div class="page-hero-inner" data-anim>
+      <h1>진료시간</h1>
+      <p>평일·토요일·공휴일 진료 안내</p>
+    </div>
+  </section>
+  <section class="page-section">
+    <div class="page-container page-narrow">
+
+      <div class="breadcrumb" data-anim>
+        <a href="/">홈</a> <span>›</span>
+        <a href="/about">병원소개</a> <span>›</span>
+        <span class="current">진료시간</span>
+      </div>
+
+      <!-- 실시간 상태 배너 -->
+      <div class="hours-status-wrap" data-anim>
+        <div class="hours-status-badge" id="hoursStatusBadge">
+          <span class="hours-status-dot" id="hoursStatusDot"></span>
+          <span id="hoursStatusText">확인 중...</span>
+        </div>
+        <p class="hours-status-sub" id="hoursStatusSub"></p>
+      </div>
+
+      <!-- 진료시간표 -->
+      <div class="hours-table" data-anim>
+        <div class="hours-row" id="row-weekday">
+          <div class="hours-day-wrap">
+            <span class="hours-day">월요일 – 금요일</span>
+            <span class="hours-today-tag" id="tag-weekday"></span>
+          </div>
+          <div class="hours-time-wrap">
+            <span class="hours-time">09:00 – 18:00</span>
+          </div>
+        </div>
+        <div class="hours-row" id="row-sat">
+          <div class="hours-day-wrap">
+            <span class="hours-day">토요일</span>
+            <span class="hours-today-tag" id="tag-sat"></span>
+          </div>
+          <div class="hours-time-wrap">
+            <span class="hours-time">09:00 – 13:00</span>
+          </div>
+        </div>
+        <div class="hours-row hours-row-closed" id="row-closed">
+          <div class="hours-day-wrap">
+            <span class="hours-day">일요일 · 공휴일</span>
+            <span class="hours-today-tag" id="tag-closed"></span>
+          </div>
+          <div class="hours-time-wrap">
+            <span class="hours-time hours-time-closed">휴진</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hours-notice" data-anim>
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+        공휴일에는 진료를 하지 않습니다. 점심시간 없이 진료합니다.
+      </div>
+
+      <div class="page-cta" data-anim>
+        <h3>진료 예약 및 문의</h3>
+        <a href="tel:031-922-1570" class="cta-btn">031-922-1570</a>
+      </div>
+    </div>
+  </section>`;
+
+  const hoursJs = `
+  <script>
+  (function() {
+    const HOLIDAYS = [
+      '2025-01-01','2025-01-28','2025-01-29','2025-01-30',
+      '2025-03-01','2025-05-05','2025-05-06','2025-06-06',
+      '2025-08-15','2025-10-03','2025-10-05','2025-10-06','2025-10-07','2025-10-08',
+      '2025-10-09','2025-12-25',
+      '2026-01-01','2026-01-27','2026-01-28','2026-01-29',
+      '2026-02-28','2026-03-01','2026-05-05','2026-05-24','2026-05-25',
+      '2026-06-06','2026-08-15','2026-09-24','2026-09-25','2026-09-26',
+      '2026-10-03','2026-10-05','2026-10-09','2026-12-25'
+    ];
+    const pad = n => String(n).padStart(2,'0');
+    const now = new Date();
+    const ymd = now.getFullYear()+'-'+pad(now.getMonth()+1)+'-'+pad(now.getDate());
+    const day = now.getDay(); // 0=일, 1=월, ..., 6=토
+    const h = now.getHours(), m = now.getMinutes();
+    const isHoliday = HOLIDAYS.includes(ymd);
+    const isSun = day === 0;
+    const isSat = day === 6;
+
+    let rowId, tagId, isOpen = false;
+
+    if (isHoliday || isSun) {
+      rowId = 'row-closed'; tagId = 'tag-closed';
+    } else if (isSat) {
+      rowId = 'row-sat'; tagId = 'tag-sat';
+      isOpen = (h > 9 || (h === 9 && m >= 0)) && h < 13;
+    } else {
+      rowId = 'row-weekday'; tagId = 'tag-weekday';
+      isOpen = (h > 9 || (h === 9 && m >= 0)) && h < 18;
+    }
+
+    // 오늘 행 강조
+    const row = document.getElementById(rowId);
+    if (row) row.classList.add('hours-row-today');
+    const tag = document.getElementById(tagId);
+    if (tag) { tag.textContent = '오늘'; tag.style.display = 'inline-block'; }
+
+    // 상태 배너
+    const badge = document.getElementById('hoursStatusBadge');
+    const dot = document.getElementById('hoursStatusDot');
+    const txt = document.getElementById('hoursStatusText');
+    const sub = document.getElementById('hoursStatusSub');
+
+    const DAY_KO = ['일','월','화','수','목','금','토'];
+    const timeStr = pad(h)+':'+pad(m);
+    sub.textContent = DAY_KO[day]+'요일 · 현재 '+timeStr+(isHoliday?' · 공휴일':'');
+
+    if (isOpen) {
+      badge.classList.add('hours-status-open');
+      dot.style.background = '#22c55e';
+      txt.textContent = '지금 진료 중';
+    } else {
+      badge.classList.add('hours-status-closed');
+      dot.style.background = '#ef4444';
+      txt.textContent = '현재 휴진';
+    }
+  })();
+  </script>`;
+
+  res.send(renderPage({
+    title: '진료시간',
+    activeCategoryId: 'about',
+    bodyContent: body,
+    extraCss: '<link rel="stylesheet" href="/css/pages.css">',
+    extraJs: '<script src="/js/page-anim.js"></script>' + hoursJs
+  }));
+});
+
+// /iv-therapy/general 수액센터 통합 페이지
+app.get('/iv-therapy/general', (req, res) => {
+  const cat = NAVIGATION.find(n => n.id === 'iv-therapy');
+  const child = { label: '수액센터', href: '/iv-therapy/general', desc: '피로회복·영양·면역 맞춤 수액 치료를 제공합니다.' };
+  const why = WHY_DATA['/iv-therapy/general'];
+  const whyImg = WHY_SECTION_IMAGES['iv-therapy'];
+
+  const whySection = `
+  <section class="why-section">
+    <div class="page-container"><div class="why-grid">
+      <div class="why-image" data-anim>
+        <img src="${whyImg}" alt="수액센터">
+        <div class="why-image-overlay"><span>${why.overlay}</span></div>
+      </div>
+      <div class="why-content" data-anim>
+        <h2 class="why-title"><em>WHY</em> 연세이내과</h2>
+        <div class="why-badge" style="--badge-color:${cat.color}">${why.badge}</div>
+        <p class="why-desc">${why.desc}</p>
+        <div class="why-divider"></div>
+        <ul class="why-features">${why.features.map(f => '<li><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>' + f + '</li>').join('')}</ul>
+      </div>
+    </div></div>
+  </section>`;
+
+  const IV_ITEMS = [
+    {
+      id: 'general', label: '피로회복수액', color: '#C0763A',
+      icon: '<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg>',
+      desc: '만성피로·에너지 고갈에 효과적인 수액으로 활기를 되찾습니다.',
+      components: ['고농도 비타민B군', '마그네슘', '아연', '글루타치온'],
+    },
+    {
+      id: 'nutrition', label: '영양수액', color: '#4A7C59',
+      icon: '<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2a10 10 0 1 0 0 20A10 10 0 0 0 12 2z"/><path d="M12 6v6l4 2"/></svg>',
+      desc: '부족한 비타민과 미네랄을 빠르게 보충하는 영양 공급 수액입니다.',
+      components: ['비타민A·C·E 복합', '미네랄 복합체', '아미노산', '셀레늄'],
+    },
+    {
+      id: 'immune', label: '면역수액', color: '#1B4965',
+      icon: '<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>',
+      desc: '면역력 강화와 잦은 감기·피로감 개선에 도움을 드리는 수액입니다.',
+      components: ['고용량 비타민C', '아연', '셀레늄', '비타민D'],
+    },
+    {
+      id: 'whitening', label: '미백수액', color: '#7B5EA7',
+      icon: '<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>',
+      desc: '글루타치온으로 피부 톤을 밝히고 강력한 항산화 효과를 제공합니다.',
+      components: ['글루타치온', '고농도 비타민C', '알파리포산', '비오틴'],
+    },
+    {
+      id: 'diet', label: '다이어트수액', color: '#C0543A',
+      icon: '<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg>',
+      desc: 'L-카르니틴으로 지방 연소를 보조하고 대사를 활성화합니다.',
+      components: ['L-카르니틴', '비타민B군', '마그네슘', '크롬'],
+    },
+  ];
+
+  const ivCards = IV_ITEMS.map(item => `
+    <div class="iv-card" id="${item.id}" data-anim>
+      <div class="iv-card-top" style="background:${item.color}">
+        <div class="iv-card-icon">${item.icon}</div>
+        <h3>${item.label}</h3>
+      </div>
+      <div class="iv-card-body">
+        <p class="iv-card-desc">${item.desc}</p>
+        <div class="iv-card-comp-label">주요 성분</div>
+        <ul class="iv-card-comp">
+          ${item.components.map(c => `<li>${c}</li>`).join('')}
+        </ul>
+      </div>
+    </div>`).join('');
+
+  const menuSection = `
+  <section class="col-detail">
+    <div class="page-container">
+      <div class="iv-section-header" data-anim>
+        <h2>수액 프로그램 안내</h2>
+        <p>개인의 상태와 목적에 맞게 전문의가 직접 처방합니다</p>
+      </div>
+      <div class="iv-grid">${ivCards}</div>
+    </div>
+  </section>`;
+
+  const ctaSection = `
+  <section class="page-section"><div class="page-container page-narrow">
+    <div class="page-cta" data-anim>
+      <h3>진료 예약 및 문의</h3>
+      <a href="tel:031-922-1570" class="cta-btn">031-922-1570</a>
+    </div>
+  </div></section>`;
+
+  const body = `
+  <section class="page-hero page-hero-sm" style="--hero-color:${cat.color}">
+    <div class="page-hero-inner" data-anim>
+      <h1>수액센터</h1>
+      <p>피로회복·영양·면역·미백·다이어트 맞춤 수액 치료</p>
+    </div>
+  </section>
+  ${whySection}
+  ${menuSection}
+  ${ctaSection}`;
+
+  res.send(renderPage({
+    title: '수액센터',
+    activeCategoryId: 'iv-therapy',
+    bodyContent: body,
+    extraCss: '<link rel="stylesheet" href="/css/pages.css"><link rel="stylesheet" href="/css/why-section.css"><link rel="stylesheet" href="/css/article.css">',
+    extraJs: '<script src="/js/page-anim.js"></script>'
+  }));
+});
+
+// /about/gallery 둘러보기 갤러리 페이지
+app.get('/about/gallery', (req, res) => {
+  const GALLERY_IMGS = [
+    { src: 'https://cdn.imweb.me/upload/S20260108b9005a7eb2710/c083a202cc5e6.png', alt: '원내 시설 1' },
+    { src: 'https://cdn.imweb.me/upload/S20260108b9005a7eb2710/a9571802204d5.png', alt: '원내 시설 2' },
+    { src: 'https://cdn.imweb.me/upload/S20260108b9005a7eb2710/5156480ce2cce.png', alt: '원내 시설 3' },
+    { src: 'https://cdn.imweb.me/upload/S20260108b9005a7eb2710/264029ec718d7.png', alt: '원내 시설 4' },
+    { src: 'https://cdn.imweb.me/upload/S20260108b9005a7eb2710/a4892fa561eaf.png', alt: '원내 시설 5' },
+    { src: 'https://cdn.imweb.me/upload/S20260108b9005a7eb2710/a5716bbbcea1c.png', alt: '원내 시설 6' },
+    { src: 'https://cdn.imweb.me/upload/S20260108b9005a7eb2710/65bcf1a1fb398.png', alt: '원내 시설 7' },
+    { src: 'https://cdn.imweb.me/upload/S20260108b9005a7eb2710/17e884a84f100.png', alt: '원내 시설 8' },
+    { src: 'https://cdn.imweb.me/upload/S20260108b9005a7eb2710/380b6a478edfc.png', alt: '원내 시설 9' },
+    { src: 'https://cdn.imweb.me/upload/S20260108b9005a7eb2710/55442e3d65ac5.png', alt: '원내 시설 10' },
+    { src: 'https://cdn.imweb.me/upload/S20260108b9005a7eb2710/34964b2b5715e.png', alt: '원내 시설 11' },
+    { src: 'https://cdn.imweb.me/upload/S20260108b9005a7eb2710/401187f029c58.png', alt: '원내 시설 12' },
+    { src: 'https://cdn.imweb.me/upload/S20260108b9005a7eb2710/33b1f6b37fd63.png', alt: '원내 시설 13' },
+    { src: 'https://cdn.imweb.me/upload/S20260108b9005a7eb2710/08f4445e31b17.png', alt: '원내 시설 14' },
+    { src: 'https://cdn.imweb.me/upload/S20260108b9005a7eb2710/a937a93aa9df7.png', alt: '원내 시설 15' },
+    { src: 'https://cdn.imweb.me/upload/S20260108b9005a7eb2710/cf7d331f24685.png', alt: '원내 시설 16' },
+  ];
+  const gridItems = GALLERY_IMGS.map((img, i) => `
+    <div class="gallery-item" data-anim data-delay="${i % 4}">
+      <div class="gallery-img-wrap">
+        <img src="${img.src}" alt="${img.alt}" loading="lazy">
+        <div class="gallery-overlay">
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg>
+        </div>
+      </div>
+    </div>`).join('');
+
+  const body = `
+  <section class="page-hero page-hero-sm" style="--hero-color:#5F5E5A">
+    <div class="page-hero-inner" data-anim>
+      <h1>둘러보기</h1>
+      <p>연세이내과 원내 시설을 사진으로 만나보세요</p>
+    </div>
+  </section>
+  <section class="page-section">
+    <div class="page-container">
+      <div class="breadcrumb" data-anim>
+        <a href="/">홈</a> <span>›</span>
+        <a href="/about">병원소개</a> <span>›</span>
+        <span class="current">둘러보기</span>
+      </div>
+      <div class="gallery-intro" data-anim>
+        <h2>원내 시설 갤러리</h2>
+        <p>대학병원 교수출신 의료진의 기준을 담은 공간에서<br>편안하고 체계적인 진료를 경험하세요.</p>
+      </div>
+      <div class="gallery-grid">${gridItems}</div>
+
+      <!-- 라이트박스 -->
+      <div class="lightbox" id="lightbox">
+        <button class="lightbox-close" id="lightboxClose">
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+        </button>
+        <button class="lightbox-prev" id="lightboxPrev">&#10094;</button>
+        <div class="lightbox-img-wrap">
+          <img id="lightboxImg" src="" alt="">
+        </div>
+        <button class="lightbox-next" id="lightboxNext">&#10095;</button>
+        <div class="lightbox-counter"><span id="lightboxCurrent">1</span> / ${GALLERY_IMGS.length}</div>
+      </div>
+    </div>
+  </section>`;
+
+  const lightboxJs = `
+  <script>
+    const imgs = ${JSON.stringify(GALLERY_IMGS.map(i => i.src))};
+    let cur = 0;
+    const lb = document.getElementById('lightbox');
+    const lbImg = document.getElementById('lightboxImg');
+    const lbCur = document.getElementById('lightboxCurrent');
+
+    function openLightbox(idx) {
+      cur = idx;
+      lbImg.src = imgs[cur];
+      lbCur.textContent = cur + 1;
+      lb.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeLightbox() {
+      lb.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+    function moveLightbox(dir) {
+      cur = (cur + dir + imgs.length) % imgs.length;
+      lbImg.src = imgs[cur];
+      lbCur.textContent = cur + 1;
+    }
+
+    document.querySelectorAll('.gallery-item').forEach((el, i) => {
+      el.addEventListener('click', () => openLightbox(i));
+    });
+    document.getElementById('lightboxClose').addEventListener('click', closeLightbox);
+    document.getElementById('lightboxPrev').addEventListener('click', () => moveLightbox(-1));
+    document.getElementById('lightboxNext').addEventListener('click', () => moveLightbox(1));
+    lb.addEventListener('click', e => { if (e.target === lb) closeLightbox(); });
+    document.addEventListener('keydown', e => {
+      if (!lb.classList.contains('active')) return;
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowLeft') moveLightbox(-1);
+      if (e.key === 'ArrowRight') moveLightbox(1);
+    });
+  </script>`;
+
+  res.send(renderPage({
+    title: '둘러보기',
+    activeCategoryId: 'about',
+    bodyContent: body,
+    extraCss: '<link rel="stylesheet" href="/css/pages.css"><link rel="stylesheet" href="/css/gallery.css">',
+    extraJs: '<script src="/js/page-anim.js"></script>' + lightboxJs
+  }));
+});
 
 // 카테고리 인덱스 → 첫 번째 세부페이지로 리다이렉트
-const CAT_BASE = { about:'/about', checkup:'/checkup', chronic:'/chronic', nephrology:'/nephrology', ultrasound:'/ultrasound', 'iv-therapy':'/iv-therapy' };
+const CAT_BASE = { about:'/about', chronic:'/chronic', nephrology:'/nephrology', 'iv-therapy':'/iv-therapy' };
 NAVIGATION.forEach(cat => {
   const basePath = CAT_BASE[cat.id];
   if (basePath && basePath !== cat.href) {
@@ -792,10 +1115,14 @@ NAVIGATION.forEach(cat => {
   cat.children.forEach(child => {
     if (child.href === '/about/philosophy') return;
     if (child.href === '/about/doctors') return;
-    if (child.href === '/about/facility') return;
+    if (child.href === '/about/hours') return;
     if (child.href === '/about/directions') return;
-    if (child.href === '/checkup/general') return;
-    if (child.href === '/checkup/cancer') return;
+    if (child.href === '/about/gallery') return;
+    if (child.href === '/nephrology/hemodialysis') return;
+    if (child.href.startsWith('/iv-therapy/')) {
+      app.get(child.href, (req, res) => res.redirect(301, '/iv-therapy/general'));
+      return;
+    }
     app.get(child.href, (req, res) => {
       res.send(renderSubPage(cat, child));
     });
