@@ -331,6 +331,76 @@
   line-height:1.85 !important;letter-spacing:-.035em !important;
 }
 
+
+/* ── 히어로 : 사진이 함께 있는 형태 ── */
+#eumSub .eum_hero.eum_img .eum_wrap{
+  display:grid !important;grid-template-columns:minmax(0,1fr) minmax(0,.66fr) !important;
+  gap:60px !important;align-items:center !important;
+}
+#eumSub .eum_himg{
+  border-radius:var(--eum-r) !important;overflow:hidden !important;
+  aspect-ratio:4/3 !important;background:var(--eum-teal2) !important;
+}
+#eumSub .eum_himg img{width:100% !important;height:100% !important;object-fit:cover !important;}
+
+/* ── 소개 (사진 + 글) ── */
+#eumSub .eum_intro{
+  display:grid !important;grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr) !important;
+  gap:56px !important;align-items:center !important;
+}
+#eumSub .eum_introimg{
+  border-radius:var(--eum-r) !important;overflow:hidden !important;
+  aspect-ratio:4/3 !important;background:var(--eum-line2) !important;
+}
+#eumSub .eum_introimg img{width:100% !important;height:100% !important;object-fit:cover !important;}
+#eumSub .eum_intro h2{
+  display:block !important;font-size:clamp(24px,3vw,34px) !important;font-weight:800 !important;
+  color:var(--eum-teal) !important;letter-spacing:-.045em !important;line-height:1.42 !important;
+}
+#eumSub .eum_intro .eum_en{
+  display:block !important;margin-top:12px !important;font-size:12px !important;font-weight:700 !important;
+  letter-spacing:.16em !important;color:var(--eum-mint) !important;
+}
+#eumSub .eum_intro p{
+  display:block !important;margin-top:20px !important;font-size:15.5px !important;
+  line-height:1.95 !important;color:var(--eum-body) !important;letter-spacing:-.035em !important;
+}
+
+/* ── 증상 그룹 ── */
+#eumSub .eum_cat{display:flex !important;align-items:center !important;gap:12px !important;margin-bottom:20px !important;}
+#eumSub .eum_cat .eum_cline{display:block !important;width:26px !important;height:2px !important;background:var(--eum-teal) !important;flex:none !important;}
+#eumSub .eum_cat b{font-size:14px !important;font-weight:800 !important;color:var(--eum-teal) !important;letter-spacing:-.03em !important;}
+#eumSub .eum_cat.eum_c2 .eum_cline{background:var(--eum-mint) !important;}
+#eumSub .eum_cat.eum_c2 b{color:var(--eum-mint-d) !important;}
+#eumSub .eum_symps{display:grid !important;grid-template-columns:repeat(auto-fit,minmax(240px,1fr)) !important;gap:14px !important;}
+#eumSub .eum_symps + .eum_cat{margin-top:48px !important;}
+#eumSub .eum_symp{padding:30px 26px !important;border:1px solid var(--eum-line) !important;border-radius:var(--eum-r) !important;background:#fff !important;}
+#eumSub .eum_symp i{font-style:normal !important;font-size:11px !important;font-weight:700 !important;letter-spacing:.12em !important;color:var(--eum-mint) !important;}
+#eumSub .eum_symp b{display:block !important;margin-top:13px !important;font-size:18px !important;font-weight:800 !important;color:var(--eum-teal) !important;letter-spacing:-.04em !important;line-height:1.45 !important;}
+#eumSub .eum_symp span{display:block !important;margin-top:9px !important;font-size:14px !important;color:var(--eum-body) !important;line-height:1.8 !important;letter-spacing:-.035em !important;}
+
+/* ── 치료 카드 ── */
+#eumSub .eum_trts{display:grid !important;grid-template-columns:repeat(auto-fit,minmax(300px,1fr)) !important;gap:20px !important;}
+#eumSub .eum_trt{
+  position:relative !important;overflow:hidden !important;
+  padding:38px 32px 32px !important;border:1px solid var(--eum-line) !important;
+  border-radius:var(--eum-r) !important;background:#fff !important;
+}
+#eumSub .eum_trt::before{content:'' !important;position:absolute !important;left:0 !important;top:0 !important;width:100% !important;height:3px !important;background:var(--eum-mint) !important;}
+#eumSub .eum_trt .eum_tno{display:block !important;font-size:11px !important;font-weight:700 !important;letter-spacing:.12em !important;color:var(--eum-mint) !important;}
+#eumSub .eum_trt h3{display:block !important;margin:14px 0 20px !important;font-size:19px !important;font-weight:800 !important;color:var(--eum-teal) !important;letter-spacing:-.04em !important;line-height:1.5 !important;}
+#eumSub .eum_trt .eum_ti{display:flex !important;gap:11px !important;padding:9px 0 !important;font-size:14.5px !important;color:var(--eum-body) !important;line-height:1.8 !important;letter-spacing:-.035em !important;}
+#eumSub .eum_trt .eum_pt{display:block !important;width:5px !important;height:5px !important;border-radius:50% !important;background:var(--eum-mint) !important;margin-top:10px !important;flex:none !important;}
+#eumSub .eum_trt strong{color:var(--eum-teal) !important;font-weight:800 !important;}
+
+/* ── 요약 박스 ── */
+#eumSub .eum_sum{background:var(--eum-teal) !important;color:#fff !important;border-radius:var(--eum-r) !important;padding:46px 44px !important;}
+#eumSub .eum_sum .eum_sumt{display:flex !important;align-items:center !important;gap:11px !important;font-size:19px !important;font-weight:800 !important;letter-spacing:-.04em !important;margin-bottom:24px !important;color:#fff !important;}
+#eumSub .eum_sum .eum_sumt svg{width:21px !important;height:21px !important;color:var(--eum-mint) !important;flex:none !important;}
+#eumSub .eum_sum .eum_sumi{display:flex !important;gap:12px !important;padding:14px 0 !important;border-top:1px solid rgba(255,255,255,.13) !important;font-size:15px !important;line-height:1.85 !important;color:rgba(255,255,255,.82) !important;letter-spacing:-.035em !important;}
+#eumSub .eum_sum .eum_sumi svg{width:17px !important;height:17px !important;color:var(--eum-mint) !important;flex:none !important;margin-top:6px !important;}
+#eumSub .eum_sum strong{color:#fff !important;font-weight:800 !important;}
+
 /* ── 반응형 ── */
 @media (max-width:1180px){
   #eumSub{--eum-pad:26px;}
@@ -360,7 +430,21 @@
   #eumSub .eum_feat{grid-template-columns:1fr !important;gap:14px !important;padding:28px 0 !important;}
   #eumSub .eum_feat .eum_fno{font-size:38px !important;}
   #eumSub .eum_feat h3{font-size:18.5px !important;}
+
+  #eumSub .eum_hero.eum_img .eum_wrap{grid-template-columns:1fr !important;gap:30px !important;}
+  #eumSub .eum_intro{grid-template-columns:1fr !important;gap:28px !important;}
+  #eumSub .eum_symps{grid-template-columns:1fr !important;}
+  #eumSub .eum_symps + .eum_cat{margin-top:34px !important;}
+  #eumSub .eum_trts{grid-template-columns:1fr !important;}
+  #eumSub .eum_trt{padding:30px 24px 26px !important;}
+  #eumSub .eum_sum{padding:32px 24px !important;}
 }
+
+@media (max-width:1024px){
+  #eumSub .eum_hero.eum_img .eum_wrap{grid-template-columns:1fr !important;gap:36px !important;}
+  #eumSub .eum_intro{grid-template-columns:1fr !important;gap:34px !important;}
+}
+
 </style>
 
 
