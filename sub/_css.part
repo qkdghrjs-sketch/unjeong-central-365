@@ -256,6 +256,70 @@
 #eumSub .eum_cbtn.eum_g:hover{background:rgba(255,255,255,.12) !important;border-color:rgba(255,255,255,.6) !important;transform:translateY(-2px) !important;}
 #eumSub .eum_cbtn svg{width:15px !important;height:15px !important;flex:none !important;}
 
+
+/* ── 인용 박스 (병원 철학) ── */
+#eumSub .eum_quote{
+  background:#fff !important;border:1px solid var(--eum-line) !important;border-radius:var(--eum-r) !important;
+  padding:60px 48px !important;text-align:center !important;
+}
+#eumSub .eum_qtext{
+  display:block !important;font-size:clamp(20px,2.6vw,30px) !important;font-weight:800 !important;
+  color:var(--eum-teal) !important;line-height:1.62 !important;letter-spacing:-.045em !important;
+}
+#eumSub .eum_qtext strong{color:var(--eum-mint-d) !important;font-weight:800 !important;}
+#eumSub .eum_qsub{
+  display:block !important;margin-top:26px !important;font-size:15.5px !important;
+  color:var(--eum-body) !important;line-height:1.92 !important;letter-spacing:-.035em !important;
+}
+
+/* ── 특징 목록 (번호 + 제목 + 설명) ── */
+#eumSub .eum_feats{border-top:1px solid var(--eum-line) !important;}
+#eumSub .eum_feat{
+  display:grid !important;grid-template-columns:112px minmax(0,1fr) !important;gap:34px !important;
+  padding:38px 0 !important;border-bottom:1px solid var(--eum-line) !important;
+}
+#eumSub .eum_feat .eum_fno{
+  display:block !important;font-size:48px !important;font-weight:900 !important;line-height:1 !important;
+  color:#F0F7F6 !important;-webkit-text-stroke:1.5px var(--eum-mint) !important;letter-spacing:-.02em !important;
+}
+#eumSub .eum_feat h3{
+  display:block !important;font-size:21px !important;font-weight:800 !important;color:var(--eum-teal) !important;
+  letter-spacing:-.045em !important;line-height:1.55 !important;margin-bottom:14px !important;
+}
+#eumSub .eum_feat p{
+  display:block !important;font-size:15.5px !important;color:var(--eum-body) !important;
+  line-height:1.92 !important;letter-spacing:-.035em !important;
+}
+
+/* ── 답변 안의 목록 · 표 · 강조 박스 ── */
+#eumSub .eum_ain ul,#eumSub .eum_ain ol{margin:12px 0 !important;padding-left:20px !important;}
+#eumSub .eum_ain li{
+  list-style:disc !important;margin:0 0 7px !important;padding:0 !important;
+  font-size:15px !important;line-height:1.9 !important;color:var(--eum-body) !important;letter-spacing:-.035em !important;
+}
+#eumSub .eum_ain ol li{list-style:decimal !important;}
+#eumSub .eum_ain li::before,#eumSub .eum_ain li::after{display:none !important;content:none !important;}
+#eumSub .eum_ain strong{font-weight:800 !important;color:var(--eum-teal) !important;}
+#eumSub .eum_atable{overflow-x:auto !important;-webkit-overflow-scrolling:touch !important;margin:16px 0 !important;border:1px solid var(--eum-line) !important;border-radius:var(--eum-r) !important;}
+#eumSub .eum_ain table{min-width:420px !important;}
+#eumSub .eum_ain th{
+  background:var(--eum-paper2) !important;padding:13px 15px !important;
+  font-size:13px !important;font-weight:700 !important;color:var(--eum-teal) !important;
+  text-align:left !important;border-bottom:1px solid var(--eum-line) !important;white-space:nowrap !important;
+}
+#eumSub .eum_ain td{
+  padding:13px 15px !important;font-size:14px !important;color:var(--eum-body) !important;
+  border-bottom:1px solid var(--eum-line2) !important;line-height:1.8 !important;letter-spacing:-.035em !important;vertical-align:top !important;
+}
+#eumSub .eum_ain td:first-child{font-weight:700 !important;color:var(--eum-teal) !important;white-space:nowrap !important;}
+#eumSub .eum_ain tr:last-child td{border-bottom:0 !important;}
+#eumSub .eum_note{
+  margin:16px 0 4px !important;padding:17px 19px !important;border-radius:var(--eum-r) !important;
+  background:var(--eum-mint-l) !important;border-left:3px solid var(--eum-mint) !important;
+  font-size:14.5px !important;color:var(--eum-teal) !important;font-weight:600 !important;
+  line-height:1.85 !important;letter-spacing:-.035em !important;
+}
+
 /* ── 반응형 ── */
 @media (max-width:1180px){
   #eumSub{--eum-pad:26px;}
@@ -280,5 +344,10 @@
   #eumSub .eum_cta{padding:72px 0 !important;}
   #eumSub .eum_cbtns{flex-direction:column !important;}
   #eumSub .eum_cbtn{width:100% !important;}
+
+  #eumSub .eum_quote{padding:38px 22px !important;}
+  #eumSub .eum_feat{grid-template-columns:1fr !important;gap:14px !important;padding:28px 0 !important;}
+  #eumSub .eum_feat .eum_fno{font-size:38px !important;}
+  #eumSub .eum_feat h3{font-size:18.5px !important;}
 }
 </style>

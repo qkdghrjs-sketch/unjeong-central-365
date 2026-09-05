@@ -17,11 +17,30 @@ CSS = read('sub/_css.part')
 JS  = read('sub/_js.part')
 
 # (번호, 슬러그, 한글명, 브라우저 탭 제목, 설명)
-PAGES = [
-    ('13', 'night-dialysis', '야간투석',
-     '야간투석 | 이움내과의원',
-     '고양시 덕양구 야간 혈액투석. 이움내과의원은 월·수·금 저녁 6시부터 밤 10시 30분까지 야간투석을 운영합니다. 화정역 도보 5분, 퇴근 후 투석받고 귀가하실 수 있습니다.'),
+#  sub/body-<번호>-<슬러그>.part 파일이 있는 페이지만 만들어집니다.
+ALL_PAGES = [
+ ('01','about','병원소개','병원소개 | 이움내과의원',''),
+ ('02','doctors','의료진 소개','의료진 소개 | 이움내과의원',''),
+ ('03','location','진료시간 · 오시는 길','진료시간 · 오시는 길 | 이움내과의원',''),
+ ('04','areas','일산 · 고양 오시는 길','일산 · 고양 오시는 길 | 이움내과의원',''),
+ ('05','tour','둘러보기','둘러보기 | 이움내과의원',''),
+ ('06','internal-medicine','일반 내과 진료','일반 내과 진료 | 이움내과의원',''),
+ ('07','chronic-care','일차의료 만성질환관리','일차의료 만성질환관리 | 이움내과의원',''),
+ ('08','diabetes','당뇨','당뇨 | 이움내과의원',''),
+ ('09','hypertension','고혈압','고혈압 | 이움내과의원',''),
+ ('10','dyslipidemia','고지혈증','고지혈증 | 이움내과의원',''),
+ ('11','dialysis-center','인공신장센터 안내','인공신장센터 안내 | 이움내과의원',
+  '이움내과의원 인공신장센터. 독일 FMC 5008S 30대로 온라인 혈액투석여과(HDF)를 시행하며, 건강보험심사평가원 혈액투석 적정성평가 1등급·대한신장학회 우수 인공신장실 인증기관입니다.'),
+ ('12','hemodialysis','혈액투석','혈액투석 | 이움내과의원',''),
+ ('13','night-dialysis','야간투석','야간투석 | 이움내과의원',
+  '고양시 덕양구 야간 혈액투석. 이움내과의원은 월·수·금 저녁 6시부터 밤 10시 30분까지 야간투석을 운영합니다. 화정역 도보 5분, 퇴근 후 투석받고 귀가하실 수 있습니다.'),
+ ('14','iv-therapy','영양수액','영양수액 | 이움내과의원',''),
+ ('15','obesity','비만','비만 | 이움내과의원',''),
+ ('16','vaccination','예방접종','예방접종 | 이움내과의원',''),
+ ('17','faq','자주 묻는 질문','자주 묻는 질문 | 이움내과의원',''),
+ ('18','fees','비급여진료비','비급여진료비 | 이움내과의원',''),
 ]
+PAGES = [p for p in ALL_PAGES if os.path.isfile('sub/body-%s-%s.part' % (p[0], p[1]))]
 
 IMWEB_HEAD = (
 "<!-- ══════════════════════════════════════════════════════════════\n"
@@ -83,18 +102,9 @@ for no, slug, kor, title, desc in PAGES:
     made.append((kor, slug, os.path.getsize(p1), os.path.getsize(p2)))
 
 # 미리보기 목록 페이지
-ALL = [('13','night-dialysis','야간투석')]
-DONE = {p[1] for p in PAGES}
-TODO = [
- ('01','about','병원소개'),('02','doctors','의료진 소개'),('03','location','진료시간 · 오시는 길'),
- ('04','areas','일산 · 고양 오시는 길'),('05','tour','둘러보기'),('06','internal-medicine','일반 내과 진료'),
- ('07','chronic-care','일차의료 만성질환관리'),('08','diabetes','당뇨'),('09','hypertension','고혈압'),
- ('10','dyslipidemia','고지혈증'),('11','dialysis-center','인공신장센터 안내'),('12','hemodialysis','혈액투석'),
- ('13','night-dialysis','야간투석'),('14','iv-therapy','영양수액'),('15','obesity','비만'),
- ('16','vaccination','예방접종'),('17','faq','자주 묻는 질문'),('18','fees','비급여진료비'),
-]
+DONE = set(p[1] for p in PAGES)
 rows = []
-for no, slug, kor in TODO:
+for no, slug, kor, _t, _d in ALL_PAGES:
     if slug in DONE:
         rows.append('<a class="row done" href="./%s.html"><b>%s</b><span>%s</span><i>완성</i></a>' % (slug, no, kor))
     else:
