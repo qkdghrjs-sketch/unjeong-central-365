@@ -36,6 +36,7 @@
 #eumHd a{text-decoration:none !important;color:inherit !important;}
 #eumHd button{font:inherit !important;color:inherit !important;background:none !important;border:0 !important;margin:0 !important;padding:0 !important;cursor:pointer !important;}
 #eumHd svg{display:block !important;}
+#eumHd img{max-width:none !important;display:block !important;}
 
 #eumHd .eum_wrap{
   max-width:var(--eum-maxw) !important; margin:0 auto !important;
@@ -58,11 +59,29 @@
 #eumHd.eum_solid:not(.eum_open) .eum_bar{box-shadow:0 1px 0 var(--eum-line) !important;}
 #eumHd .eum_bar .eum_wrap{display:flex !important;align-items:center !important;gap:24px !important;}
 
-#eumHd .eum_logo{display:flex !important;flex-direction:column !important;line-height:1 !important;flex:none !important;}
+/* 로고 : 심볼(이미지) + 워드마크(텍스트)
+   ─ 원본 로고가 세로형이라, 위쪽 심볼 부분만 잘라 씁니다.
+     (아래 width/left/top 숫자는 잘라낼 위치라 임의로 바꾸지 마세요) */
+#eumHd .eum_logo{display:flex !important;flex-direction:row !important;align-items:center !important;gap:11px !important;line-height:1 !important;flex:none !important;}
+#eumHd .eum_mark{
+  display:block !important;position:relative !important;flex:none !important;
+  width:40px !important;height:31px !important;overflow:hidden !important;
+}
+#eumHd .eum_mark img{
+  position:absolute !important;width:105px !important;height:auto !important;
+  left:-32px !important;top:-21px !important;
+  filter:brightness(0) invert(1) !important;   /* 어두운 배경 위에서는 흰색 실루엣 */
+  transition:filter .3s var(--eum-ease) !important;
+}
+#eumHd.eum_solid .eum_mark img,#eumHd.eum_open .eum_mark img{filter:none !important;}
+#eumHd.eum_mo .eum_mark img{filter:brightness(0) invert(1) !important;}
+#eumHd .eum_wm{display:flex !important;flex-direction:column !important;line-height:1 !important;}
 #eumHd .eum_logo b{font-size:22px !important;font-weight:800 !important;letter-spacing:-.045em !important;color:#fff !important;transition:color .3s var(--eum-ease) !important;}
 #eumHd .eum_logo small{font-size:9.5px !important;font-weight:700 !important;letter-spacing:.2em !important;color:rgba(255,255,255,.55) !important;margin-top:6px !important;transition:color .3s var(--eum-ease) !important;}
 #eumHd.eum_solid .eum_logo b,#eumHd.eum_open .eum_logo b{color:var(--eum-teal) !important;}
 #eumHd.eum_solid .eum_logo small,#eumHd.eum_open .eum_logo small{color:var(--eum-mint) !important;}
+#eumHd.eum_mo .eum_logo b{color:#fff !important;}
+#eumHd.eum_mo .eum_logo small{color:var(--eum-mint) !important;}
 
 #eumHd .eum_gnb{display:flex !important;gap:2px !important;margin-left:auto !important;}
 #eumHd .eum_gnb > li > a{
@@ -179,7 +198,10 @@
 @media (max-width:860px){
   #eumHd{--eum-pad:20px;--eum-h:64px;}
   #eumHd.eum_solid .eum_bar{height:60px !important;}
+  #eumHd .eum_logo{gap:9px !important;}
   #eumHd .eum_logo b{font-size:19px !important;}
+  #eumHd .eum_mark{width:34px !important;height:26px !important;}
+  #eumHd .eum_mark img{width:89px !important;left:-27px !important;top:-18px !important;}
 }
 </style>
 
@@ -187,8 +209,11 @@
   <header class="eum_bar">
     <div class="eum_wrap">
       <a class="eum_logo" href="https://yium.kr/">
-        <b>이움내과의원</b>
-        <small>YIUM INTERNAL MEDICINE</small>
+        <span class="eum_mark"><img src="https://cdn.imweb.me/upload/S20260108b9005a7eb2710/9f85a9eebaa26.png" alt="이움내과의원 로고"></span>
+        <span class="eum_wm">
+          <b>이움내과의원</b>
+          <small>YIUM INTERNAL MEDICINE</small>
+        </span>
       </a>
 
       <nav aria-label="주요 메뉴">

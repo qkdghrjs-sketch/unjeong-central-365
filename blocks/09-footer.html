@@ -32,6 +32,11 @@
 
 #eumFt .eum_wrap{max-width:var(--eum-maxw) !important;margin:0 auto !important;padding:0 var(--eum-pad) !important;width:100% !important;}
 #eumFt .eum_top{display:flex !important;justify-content:space-between !important;gap:40px !important;flex-wrap:wrap !important;padding-bottom:38px !important;border-bottom:1px solid var(--eum-line) !important;}
+#eumFt img{max-width:none !important;display:block !important;}
+/* 로고 : 원본 세로형 로고에서 여백을 잘라내 씁니다
+   (width/left/top 숫자는 잘라낼 위치라 임의로 바꾸지 마세요) */
+#eumFt .eum_flogo{display:block !important;position:relative !important;width:118px !important;height:104px !important;overflow:hidden !important;margin-bottom:16px !important;}
+#eumFt .eum_flogo img{position:absolute !important;width:175px !important;height:auto !important;left:-28px !important;top:-35px !important;}
 #eumFt .eum_logo b{display:block !important;font-size:21px !important;font-weight:800 !important;color:var(--eum-teal) !important;letter-spacing:-.045em !important;}
 #eumFt .eum_logo small{display:block !important;font-size:9.5px !important;font-weight:700 !important;letter-spacing:.2em !important;color:var(--eum-mint) !important;margin-top:8px !important;}
 #eumFt .eum_nav{display:flex !important;flex-wrap:wrap !important;gap:12px 28px !important;}
@@ -72,6 +77,7 @@
   <div class="eum_wrap">
     <div class="eum_top">
       <div class="eum_logo">
+        <span class="eum_flogo"><img src="https://cdn.imweb.me/upload/S20260108b9005a7eb2710/9f85a9eebaa26.png" alt="이움내과의원 로고"></span>
         <b>이움내과의원</b>
         <small>YIUM INTERNAL MEDICINE</small>
       </div>
