@@ -1,0 +1,106 @@
+<div id="eumSub">
+
+  <!-- ═══════════ 서브 히어로 ═══════════ -->
+  <section class="eum_hero">
+    <div class="eum_wrap">
+      <span class="eum_eyebrow eum_rv"><span class="eum_bar"></span>NON-COVERAGE · 비급여 진료비용 안내</span>
+      <h1 class="eum_h1 eum_rv eum_d1">비급여 진료비용<br><em>안내</em></h1>
+      <p class="eum_hsub eum_rv eum_d2">의료법 제45조에 따라 비급여 진료비용을 투명하게 안내드립니다.<br>궁금하신 항목은 검색창을 통해 빠르게 찾아보실 수 있습니다.</p>
+    </div>
+  </section>
+
+  <!-- ═══════════ 비급여 진료비용 ═══════════ -->
+  <section class="eum_sec">
+    <div class="eum_narrow">
+
+      <div class="eum_rv" style="margin-bottom:44px">
+        <span class="eum_upd">2026년 기준 비용</span>
+        <div class="eum_notebox">
+          <p>본 페이지는 의료법 제45조 제1항·제2항 및 시행규칙 제42조의 2에 의하여 비급여 진료비용을 고지하기 위한 화면입니다.</p>
+          <p>비급여 진료비용은 단일 개별 항목의 1회 비용이며, 진료 과정의 처방량에 따라 달라질 수 있습니다.</p>
+          <p><strong>※ 급여기준에 해당되는 경우 비용이 더 저렴해질 수 있습니다.</strong></p>
+        </div>
+      </div>
+
+      <div class="eum_search eum_rv eum_d1">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+        <input type="text" placeholder="항목 이름으로 검색해 보세요 (예: 독감, 진단서)" aria-label="비급여 항목 검색">
+      </div>
+
+      <div class="eum_rv eum_d2">
+        <div class="eum_fcat">
+          <b>수액주사치료<i>9개 항목</i></b>
+          <div class="eum_frow"><span class="eum_fname">마이어스 칵테일</span><span class="eum_fprice">140,000원</span></div>
+          <div class="eum_frow"><span class="eum_fname">콤비플렉스 리피드페리</span><span class="eum_fprice">100,000원</span></div>
+          <div class="eum_frow"><span class="eum_fname">닥터라민</span><span class="eum_fprice">60,000원</span></div>
+          <div class="eum_frow"><span class="eum_fname">태반주사</span><span class="eum_fprice">30,000원</span></div>
+          <div class="eum_frow"><span class="eum_fname">마늘주사</span><span class="eum_fprice">40,000원</span></div>
+          <div class="eum_frow"><span class="eum_fname">비타민 D 주사</span><span class="eum_fprice">30,000원</span></div>
+          <div class="eum_frow"><span class="eum_fname">멀티블루</span><span class="eum_fprice">80,000원</span></div>
+          <div class="eum_frow"><span class="eum_fname">비치라이트주사</span><span class="eum_fprice">30,000원</span></div>
+          <div class="eum_frow"><span class="eum_fname">면역주사 (싸이모신알파)</span><span class="eum_fprice">60,000원</span></div>
+        </div>
+        <div class="eum_fcat">
+          <b>예방접종료<i>11개 항목</i></b>
+          <div class="eum_frow"><span class="eum_fname">가다실 4가 (자궁경부암)</span><span class="eum_fprice">160,000원</span></div>
+          <div class="eum_frow"><span class="eum_fname">가다실 9가 (자궁경부암)</span><span class="eum_fprice">200,000원</span></div>
+          <div class="eum_frow"><span class="eum_fname">프리베나 (폐렴구균)</span><span class="eum_fprice">130,000원</span></div>
+          <div class="eum_frow"><span class="eum_fname">프로디악스-23 (폐렴구균)</span><span class="eum_fprice">45,000원</span></div>
+          <div class="eum_frow"><span class="eum_fname">캡박시브 (폐렴구균)</span><span class="eum_fprice">180,000원</span></div>
+          <div class="eum_frow"><span class="eum_fname">유박스비주 (B형간염)</span><span class="eum_fprice">회당</span></div>
+          <div class="eum_frow"><span class="eum_fname">하브릭스 바이알주 (A형간염)</span><span class="eum_fprice">회당</span></div>
+          <div class="eum_frow"><span class="eum_fname">독감 — 지씨플루 / 보령플루 (인플루엔자)</span><span class="eum_fprice">35,000원</span></div>
+          <div class="eum_frow"><span class="eum_fname">싱그릭스 (대상포진)</span><span class="eum_fprice">회당</span></div>
+          <div class="eum_frow"><span class="eum_fname">스카이조스터 (대상포진)</span><span class="eum_fprice">180,000원</span></div>
+          <div class="eum_frow"><span class="eum_fname">조스타박스 (대상포진)</span><span class="eum_fprice">200,000원</span></div>
+        </div>
+        <div class="eum_fcat">
+          <b>초음파검사료<i>3개 항목</i></b>
+          <div class="eum_frow"><span class="eum_fname">두개외 혈관도플러 초음파 — 경동맥</span><span class="eum_fprice">45,000원</span></div>
+          <div class="eum_frow"><span class="eum_fname">사지혈관 도플러 초음파 — 동정맥루 혈류 및 협착</span><span class="eum_fprice">30,000원</span></div>
+          <div class="eum_frow"><span class="eum_fname">복부초음파</span><span class="eum_fprice">50,000원</span></div>
+        </div>
+        <div class="eum_fcat">
+          <b>제증명 수수료<i>16개 항목</i></b>
+          <div class="eum_frow"><span class="eum_fname">일반 진단서</span><span class="eum_fprice">20,000원</span></div>
+          <div class="eum_frow"><span class="eum_fname">건강진단서</span><span class="eum_fprice">20,000원</span></div>
+          <div class="eum_frow"><span class="eum_fname">근로능력평가용 진단서</span><span class="eum_fprice">10,000원</span></div>
+          <div class="eum_frow"><span class="eum_fname">병무용 진단서</span><span class="eum_fprice">20,000원</span></div>
+          <div class="eum_frow"><span class="eum_fname">국민연금 장애 진단서</span><span class="eum_fprice">15,000원</span></div>
+          <div class="eum_frow"><span class="eum_fname">영문 진단서</span><span class="eum_fprice">20,000원</span></div>
+          <div class="eum_frow"><span class="eum_fname">통원확인서</span><span class="eum_fprice">3,000원</span></div>
+          <div class="eum_frow"><span class="eum_fname">진료확인서</span><span class="eum_fprice">3,000원</span></div>
+          <div class="eum_frow"><span class="eum_fname">채용신체검사서 (공무원)</span><span class="eum_fprice">40,000원</span></div>
+          <div class="eum_frow"><span class="eum_fname">채용신체검사서 (일반)</span><span class="eum_fprice">30,000원</span></div>
+          <div class="eum_frow"><span class="eum_fname">진료기록 사본 (1~5매)</span><span class="eum_fprice">장당</span></div>
+          <div class="eum_frow"><span class="eum_fname">진료기록 사본 (6매 이상)</span><span class="eum_fprice">장당</span></div>
+          <div class="eum_frow"><span class="eum_fname">제증명서 사본</span><span class="eum_fprice">1,000원</span></div>
+          <div class="eum_frow"><span class="eum_fname">진료기록 영상 (CD)</span><span class="eum_fprice">10,000원</span></div>
+          <div class="eum_frow"><span class="eum_fname">장애인 증명서</span><span class="eum_fprice">1,000원</span></div>
+          <div class="eum_frow"><span class="eum_fname">장애 정도 심사용 진단서</span><span class="eum_fprice">15,000원</span></div>
+        </div>
+        <div class="eum_fnone">찾으시는 항목이 없습니다. 다른 이름으로 검색해 보세요.</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════ CTA ═══════════ -->
+  <section class="eum_cta">
+    <div class="eum_wrap">
+      <span class="eum_ctitle eum_rv">비용이 궁금하시면<br>편하게 문의해 주세요</span>
+      <span class="eum_csub eum_rv eum_d1">진료 내용과 처방량에 따라 실제 비용은 달라질 수 있습니다.<br>진료 전 상담을 통해 안내해 드립니다.</span>
+      <div class="eum_cbtns eum_rv eum_d2">
+        <a class="eum_cbtn eum_p" href="tel:031-979-0875">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.13.96.36 1.9.7 2.8a2 2 0 0 1-.45 2.11L8.1 9.9a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.9z"/></svg>
+          대표번호 031-979-0875
+        </a>
+        <a class="eum_cbtn eum_g" href="https://yium.kr/location">
+          진료시간 · 오시는 길
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</div>

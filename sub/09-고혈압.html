@@ -432,6 +432,77 @@
 
 #eumSub .eum_cnote{display:block !important;margin-top:30px !important;font-size:13px !important;color:rgba(255,255,255,.52) !important;line-height:1.9 !important;letter-spacing:-.03em !important;}
 
+
+/* ── 히어로 아래 정보 카드 ── */
+#eumSub .eum_hcards{display:grid !important;grid-template-columns:repeat(auto-fit,minmax(228px,1fr)) !important;gap:12px !important;margin-top:44px !important;}
+#eumSub .eum_hcard{
+  display:flex !important;align-items:center !important;gap:14px !important;
+  padding:22px !important;border-radius:var(--eum-r) !important;
+  background:rgba(255,255,255,.06) !important;border:1px solid rgba(255,255,255,.14) !important;
+}
+#eumSub .eum_hcard .eum_hi2{
+  display:flex !important;width:38px !important;height:38px !important;border-radius:10px !important;
+  background:rgba(54,184,165,.16) !important;align-items:center !important;justify-content:center !important;flex:none !important;
+}
+#eumSub .eum_hcard .eum_hi2 svg{width:18px !important;height:18px !important;color:var(--eum-mint) !important;}
+#eumSub .eum_hcard.eum_t .eum_hi2{background:var(--eum-mint) !important;}
+#eumSub .eum_hcard.eum_t .eum_hi2 svg{color:#fff !important;}
+#eumSub .eum_hcard b{display:block !important;font-size:10.5px !important;font-weight:700 !important;letter-spacing:.14em !important;color:var(--eum-mint) !important;margin-bottom:6px !important;}
+#eumSub .eum_hcard .eum_hv{display:block !important;font-size:14.5px !important;font-weight:700 !important;color:#fff !important;letter-spacing:-.035em !important;line-height:1.55 !important;}
+#eumSub .eum_hcard em{
+  font-style:normal !important;display:inline-flex !important;align-items:center !important;height:22px !important;
+  padding:0 9px !important;border-radius:999px !important;background:var(--eum-mint) !important;color:#fff !important;
+  font-size:10.5px !important;font-weight:700 !important;margin-left:7px !important;
+}
+
+/* ── 사진 갤러리 ── */
+#eumSub .eum_photos{display:grid !important;grid-template-columns:repeat(auto-fit,minmax(300px,1fr)) !important;gap:20px !important;}
+#eumSub .eum_photo{border-radius:var(--eum-r) !important;overflow:hidden !important;background:var(--eum-line2) !important;border:1px solid var(--eum-line) !important;}
+#eumSub .eum_photo img{width:100% !important;aspect-ratio:4/3 !important;object-fit:cover !important;transition:transform .7s var(--eum-ease) !important;}
+#eumSub .eum_photo:hover img{transform:scale(1.04) !important;}
+#eumSub .eum_photo figcaption{display:block !important;padding:16px 18px !important;font-size:14px !important;font-weight:700 !important;color:var(--eum-teal) !important;letter-spacing:-.035em !important;background:#fff !important;}
+
+
+/* ── 안내 박스 ── */
+#eumSub .eum_notebox{
+  border:1px solid var(--eum-line) !important;border-left:3px solid var(--eum-mint) !important;
+  border-radius:var(--eum-r) !important;background:var(--eum-paper2) !important;padding:26px 28px !important;
+}
+#eumSub .eum_notebox p{display:block !important;font-size:14.5px !important;line-height:1.9 !important;color:var(--eum-body) !important;letter-spacing:-.035em !important;}
+#eumSub .eum_notebox p + p{margin-top:10px !important;}
+#eumSub .eum_notebox strong{font-weight:800 !important;color:var(--eum-teal) !important;}
+#eumSub .eum_upd{display:inline-flex !important;align-items:center !important;height:32px !important;padding:0 15px !important;border-radius:999px !important;background:var(--eum-teal) !important;color:#fff !important;font-size:12.5px !important;font-weight:700 !important;letter-spacing:-.03em !important;margin-bottom:18px !important;}
+
+/* ── 비급여 진료비 표 ── */
+#eumSub .eum_search{position:relative !important;margin-bottom:34px !important;}
+#eumSub .eum_search input{
+  width:100% !important;height:56px !important;padding:0 20px 0 50px !important;
+  border:1px solid var(--eum-line) !important;border-radius:var(--eum-r) !important;background:#fff !important;
+  font-size:15px !important;color:var(--eum-teal) !important;letter-spacing:-.035em !important;
+  font-family:inherit !important;outline:none !important;
+  transition:border-color .25s var(--eum-ease) !important;
+}
+#eumSub .eum_search input:focus{border-color:var(--eum-mint) !important;}
+#eumSub .eum_search input::placeholder{color:var(--eum-gray) !important;}
+#eumSub .eum_search svg{position:absolute !important;left:19px !important;top:19px !important;width:18px !important;height:18px !important;color:var(--eum-gray) !important;}
+#eumSub .eum_fcat{margin-bottom:34px !important;}
+#eumSub .eum_fcat > b{
+  display:flex !important;align-items:center !important;gap:11px !important;
+  font-size:17px !important;font-weight:800 !important;color:var(--eum-teal) !important;
+  letter-spacing:-.04em !important;padding-bottom:14px !important;
+  border-bottom:1.5px solid var(--eum-teal) !important;
+}
+#eumSub .eum_fcat > b i{font-style:normal !important;margin-left:auto !important;font-size:12px !important;font-weight:700 !important;color:var(--eum-gray) !important;}
+#eumSub .eum_frow{
+  display:flex !important;align-items:center !important;gap:16px !important;
+  padding:16px 6px !important;border-bottom:1px solid var(--eum-line) !important;
+}
+#eumSub .eum_frow:hover{background:var(--eum-paper2) !important;}
+#eumSub .eum_fname{flex:1 !important;font-size:15px !important;font-weight:600 !important;color:var(--eum-teal) !important;letter-spacing:-.035em !important;line-height:1.65 !important;}
+#eumSub .eum_fprice{font-size:15.5px !important;font-weight:800 !important;color:var(--eum-mint-d) !important;letter-spacing:-.03em !important;white-space:nowrap !important;}
+#eumSub .eum_fnone{display:none !important;padding:44px 0 !important;text-align:center !important;font-size:15px !important;color:var(--eum-gray) !important;}
+#eumSub .eum_fnone.eum_on{display:block !important;}
+
 /* ── 반응형 ── */
 @media (max-width:1180px){
   #eumSub{--eum-pad:26px;}
@@ -472,6 +543,14 @@
 
   #eumSub .eum_split{grid-template-columns:1fr !important;gap:30px !important;}
   #eumSub .eum_sidecard,#eumSub .eum_darkcard{padding:26px 22px !important;}
+
+  #eumSub .eum_hcards{grid-template-columns:1fr !important;margin-top:30px !important;}
+  #eumSub .eum_photos{grid-template-columns:1fr !important;gap:14px !important;}
+
+  #eumSub .eum_notebox{padding:22px 20px !important;}
+  #eumSub .eum_frow{gap:12px !important;padding:14px 2px !important;}
+  #eumSub .eum_fname{font-size:14.5px !important;}
+  #eumSub .eum_fprice{font-size:14.5px !important;}
 }
 
 @media (max-width:1024px){
@@ -722,6 +801,31 @@
       }
     });
   });
+
+
+  /* ── 비급여 진료비 검색 ── */
+  var fs = root.querySelector('.eum_search input');
+  if (fs) {
+    var rows = root.querySelectorAll('.eum_frow');
+    var cats = root.querySelectorAll('.eum_fcat');
+    var none = root.querySelector('.eum_fnone');
+    fs.addEventListener('input', function () {
+      var q = fs.value.trim().toLowerCase();
+      var hit = 0;
+      Array.prototype.forEach.call(rows, function (r) {
+        var show = !q || (r.textContent || '').toLowerCase().indexOf(q) > -1;
+        r.style.display = show ? '' : 'none';
+        if (show) hit++;
+      });
+      Array.prototype.forEach.call(cats, function (c) {
+        var any = Array.prototype.some.call(c.querySelectorAll('.eum_frow'), function (r) {
+          return r.style.display !== 'none';
+        });
+        c.style.display = any ? '' : 'none';
+      });
+      if (none) none.classList[hit === 0 ? 'add' : 'remove']('eum_on');
+    });
+  }
 
   /* 글자 크기가 바뀌어도 열린 답변 높이가 맞도록 */
   window.addEventListener('resize', function () {

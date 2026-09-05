@@ -50,6 +50,31 @@
     });
   });
 
+
+  /* ── 비급여 진료비 검색 ── */
+  var fs = root.querySelector('.eum_search input');
+  if (fs) {
+    var rows = root.querySelectorAll('.eum_frow');
+    var cats = root.querySelectorAll('.eum_fcat');
+    var none = root.querySelector('.eum_fnone');
+    fs.addEventListener('input', function () {
+      var q = fs.value.trim().toLowerCase();
+      var hit = 0;
+      Array.prototype.forEach.call(rows, function (r) {
+        var show = !q || (r.textContent || '').toLowerCase().indexOf(q) > -1;
+        r.style.display = show ? '' : 'none';
+        if (show) hit++;
+      });
+      Array.prototype.forEach.call(cats, function (c) {
+        var any = Array.prototype.some.call(c.querySelectorAll('.eum_frow'), function (r) {
+          return r.style.display !== 'none';
+        });
+        c.style.display = any ? '' : 'none';
+      });
+      if (none) none.classList[hit === 0 ? 'add' : 'remove']('eum_on');
+    });
+  }
+
   /* 글자 크기가 바뀌어도 열린 답변 높이가 맞도록 */
   window.addEventListener('resize', function () {
     Array.prototype.forEach.call(root.querySelectorAll('.eum_item.eum_open .eum_abox'), function (box) {

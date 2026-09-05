@@ -1,0 +1,46 @@
+<div id="eumSub">
+
+  <!-- ═══════════ 서브 히어로 ═══════════ -->
+  <section class="eum_hero">
+    <div class="eum_wrap">
+      <span class="eum_eyebrow eum_rv"><span class="eum_bar"></span>LOCATION &amp; HOURS · 오시는 길</span>
+      <h1 class="eum_h1 eum_rv eum_d1">언제든지 편하게<br><em>이움내과</em>를<br>찾아오세요</h1>
+      <p class="eum_hsub eum_rv eum_d2">경기 고양시 덕양구에 위치한 이움내과는<br>야간투석 운영으로 직장인도 편하게 방문하실 수 있습니다.</p>
+      <div class="eum_hcards eum_rv eum_d3">
+        <div class="eum_hcard">
+          <span class="eum_hi2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
+          <span><b>주소</b><span class="eum_hv">경기도 고양시 덕양구 백양로 51 네이버타운 3층 301호, 305호</span></span>
+        </div>
+        <div class="eum_hcard">
+          <span class="eum_hi2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.13.96.36 1.9.7 2.8a2 2 0 0 1-.45 2.11L8.1 9.9a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.9z"/></svg></span>
+          <span><b>대표전화</b><span class="eum_hv">031-979-0875</span></span>
+        </div>
+        <div class="eum_hcard eum_t">
+          <span class="eum_hi2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>
+          <span><b>야간투석</b><span class="eum_hv">월·수·금 ~ 오후 10:30<em>야간운영</em></span></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ※ 진료시간표와 지도는 아래에 08-location.html 블록을 넣어 주세요 -->
+
+  <!-- ═══════════ CTA ═══════════ -->
+  <section class="eum_cta">
+    <div class="eum_wrap">
+      <span class="eum_ctitle eum_rv">찾아오시는 길이 헷갈리시면<br>전화 주세요</span>
+      <span class="eum_csub eum_rv eum_d1">지하철 3호선 화정역 1번 출구에서 백양로 방향 도보 5분,<br>네이버타운 지하 주차장(80면 이상) 무료 이용 가능합니다.</span>
+      <div class="eum_cbtns eum_rv eum_d2">
+        <a class="eum_cbtn eum_p" href="tel:031-979-0875">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.13.96.36 1.9.7 2.8a2 2 0 0 1-.45 2.11L8.1 9.9a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.9z"/></svg>
+          대표번호 031-979-0875
+        </a>
+        <a class="eum_cbtn eum_g" href="https://naver.me/FioxDV8Q" target="_blank" rel="noopener">
+          네이버 지도로 열기
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</div>
