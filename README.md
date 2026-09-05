@@ -22,6 +22,7 @@
 | 7 | `blocks/07-notice.html` | 공지사항 · 의학정보 | 글 4개는 직접 갱신 |
 | 8 | `blocks/08-location.html` | 진료시간 · 오시는 길 | |
 | 9 | `blocks/09-footer.html` | 푸터 + 모바일 하단 버튼 | **선택** |
+| 10 | `blocks/10-floating.html` | 플로팅 퀵메뉴 (우측 하단) | 모바일은 자동 숨김 |
 
 `index.html` 은 위 블록들을 이어 붙인 **미리보기 전용** 파일입니다.
 아임웹에는 넣지 마세요. (`sh build.sh` 로 다시 만들어집니다.)

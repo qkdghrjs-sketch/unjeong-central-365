@@ -1,0 +1,182 @@
+<!-- ══════════════════════════════════════════════════════════════
+     [이움내과] 10. 플로팅 퀵메뉴 (우측 하단 고정)  (아임웹 코드 위젯용)
+     ─────────────────────────────────────────────────────────────
+     ※ 페이지 어디에 넣어도 화면 우측 하단에 고정됩니다.
+        모바일에서는 하단 고정 버튼(09번 블록)과 겹치므로 자동으로 숨겨집니다.
+     ══════════════════════════════════════════════════════════════ -->
+<style>
+@import url('https://cdn.jsdelivr.net/gh/sun-typeface/suit@2/fonts/variable/woff2/SUIT-Variable.css');
+
+#eumQm{
+  --eum-teal:#0C2D37; --eum-teal2:#12414F;
+  --eum-mint:#36B8A5; --eum-mint-d:#2A9B8B; --eum-mint-l:#E9F7F4;
+  --eum-body:#3F565F; --eum-gray:#7A8E96; --eum-line:#E4EBED; --eum-paper2:#F6F9F9;
+  --eum-ease:cubic-bezier(.16,1,.3,1);
+
+  position:fixed !important;
+  right:26px !important; bottom:28px !important;
+  z-index:8500 !important;
+  display:flex !important; flex-direction:column !important; align-items:flex-end !important;
+  gap:10px !important; margin:0 !important; padding:0 !important;
+  width:auto !important; max-width:none !important;
+  box-sizing:border-box !important; line-height:1.6 !important;
+}
+#eumQm,#eumQm *{
+  box-sizing:border-box !important; margin:0 !important; padding:0 !important;
+  font-family:'SUIT Variable','SUIT',-apple-system,BlinkMacSystemFont,'Pretendard','Apple SD Gothic Neo',sans-serif !important;
+  word-break:keep-all !important;
+}
+#eumQm a{text-decoration:none !important;color:inherit !important;}
+#eumQm button{font:inherit !important;color:inherit !important;background:none !important;border:0 !important;cursor:pointer !important;}
+#eumQm svg{display:block !important;}
+
+/* ── 패널 ── */
+#eumQm .eum_panel{
+  width:158px !important;
+  background:rgba(255,255,255,.94) !important;
+  -webkit-backdrop-filter:blur(16px) saturate(180%);backdrop-filter:blur(16px) saturate(180%);
+  border:1px solid var(--eum-line) !important;
+  border-radius:14px !important;
+  padding:8px !important;
+  display:flex !important;flex-direction:column !important;gap:6px !important;
+  box-shadow:0 18px 40px -12px rgba(12,45,55,.22) !important;
+}
+#eumQm .eum_items{
+  display:flex !important;flex-direction:column !important;gap:5px !important;
+  max-height:0 !important;opacity:0 !important;overflow:hidden !important;
+  transition:max-height .38s var(--eum-ease),opacity .3s var(--eum-ease),margin .38s var(--eum-ease) !important;
+}
+#eumQm .eum_panel.eum_on .eum_items{max-height:300px !important;opacity:1 !important;margin-bottom:3px !important;}
+
+/* ── 항목 ── */
+#eumQm .eum_it{
+  display:flex !important;align-items:center !important;gap:10px !important;
+  padding:9px 10px !important;border-radius:9px !important;
+  background:var(--eum-paper2) !important;border:1px solid transparent !important;
+  color:var(--eum-teal) !important;
+  transition:background .22s var(--eum-ease),border-color .22s var(--eum-ease),transform .22s var(--eum-ease) !important;
+}
+#eumQm .eum_it span{font-size:13px !important;font-weight:700 !important;letter-spacing:-.035em !important;line-height:1 !important;}
+#eumQm .eum_ico{
+  display:flex !important;width:30px !important;height:30px !important;flex:none !important;
+  border-radius:8px !important;background:#fff !important;border:1px solid var(--eum-line) !important;
+  align-items:center !important;justify-content:center !important;color:var(--eum-teal) !important;
+  transition:background .22s var(--eum-ease),border-color .22s var(--eum-ease),color .22s var(--eum-ease) !important;
+}
+#eumQm .eum_ico svg{width:15px !important;height:15px !important;stroke:currentColor !important;fill:none !important;stroke-width:2 !important;stroke-linecap:round !important;stroke-linejoin:round !important;}
+#eumQm .eum_ico.eum_fill svg{stroke:none !important;fill:currentColor !important;}
+
+#eumQm .eum_it:hover{background:var(--eum-mint-l) !important;border-color:rgba(54,184,165,.35) !important;transform:translateX(-2px) !important;}
+#eumQm .eum_it:hover .eum_ico{background:var(--eum-mint) !important;border-color:var(--eum-mint) !important;color:#fff !important;}
+
+#eumQm .eum_it.eum_nv:hover{background:#F0FDF4 !important;border-color:#BBF7D0 !important;}
+#eumQm .eum_it.eum_nv:hover .eum_ico{background:#03C75A !important;border-color:#03C75A !important;color:#fff !important;}
+#eumQm .eum_it.eum_nv:hover span{color:#02843C !important;}
+
+#eumQm .eum_it.eum_dn:hover{background:#FFF4EF !important;border-color:#FFD3C0 !important;}
+#eumQm .eum_it.eum_dn:hover .eum_ico{background:#FF6B35 !important;border-color:#FF6B35 !important;color:#fff !important;}
+#eumQm .eum_it.eum_dn:hover span{color:#D6470F !important;}
+
+/* ── 토글 ── */
+#eumQm .eum_toggle{
+  display:flex !important;width:100% !important;height:40px !important;border-radius:9px !important;
+  background:var(--eum-teal) !important;color:#fff !important;
+  align-items:center !important;justify-content:center !important;gap:7px !important;
+  transition:background .22s var(--eum-ease) !important;
+}
+#eumQm .eum_toggle:hover{background:var(--eum-mint) !important;}
+#eumQm .eum_toggle b{font-size:12.5px !important;font-weight:800 !important;letter-spacing:-.02em !important;}
+#eumQm .eum_toggle svg{width:14px !important;height:14px !important;stroke:currentColor !important;fill:none !important;stroke-width:2.4 !important;transition:transform .3s var(--eum-ease) !important;}
+#eumQm .eum_panel.eum_on .eum_toggle svg{transform:rotate(180deg) !important;}
+
+/* ── TOP 버튼 ── */
+#eumQm .eum_top{
+  display:flex !important;width:42px !important;height:42px !important;border-radius:12px !important;
+  background:rgba(255,255,255,.94) !important;
+  -webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);
+  border:1px solid var(--eum-line) !important;color:var(--eum-gray) !important;
+  align-items:center !important;justify-content:center !important;
+  box-shadow:0 10px 22px -10px rgba(12,45,55,.3) !important;
+  opacity:0 !important;visibility:hidden !important;transform:translateY(8px) !important;
+  transition:opacity .25s var(--eum-ease),visibility .25s,transform .25s var(--eum-ease),color .25s var(--eum-ease),border-color .25s var(--eum-ease) !important;
+}
+#eumQm .eum_top.eum_show{opacity:1 !important;visibility:visible !important;transform:none !important;}
+#eumQm .eum_top:hover{color:var(--eum-mint) !important;border-color:var(--eum-mint) !important;background:#fff !important;}
+#eumQm .eum_top svg{width:19px !important;height:19px !important;stroke:currentColor !important;fill:none !important;stroke-width:2.2 !important;stroke-linecap:round !important;stroke-linejoin:round !important;}
+
+/* 모바일 : 하단 고정 버튼과 겹치므로 숨김 */
+@media (max-width:860px){
+  #eumQm{display:none !important;}
+}
+</style>
+
+<div id="eumQm">
+  <div class="eum_panel eum_on">
+    <div class="eum_items">
+
+      <a class="eum_it" href="https://naver.me/FioxDV8Q" target="_blank" rel="noopener">
+        <span class="eum_ico"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
+        <span>오시는 길</span>
+      </a>
+
+      <a class="eum_it" href="tel:031-979-0875">
+        <span class="eum_ico"><svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.13.96.36 1.9.7 2.8a2 2 0 0 1-.45 2.11L8.1 9.9a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.9z"/></svg></span>
+        <span>전화 문의</span>
+      </a>
+
+      <a class="eum_it eum_nv" href="https://m.booking.naver.com/booking/16/bizes/1656667?theme=place&amp;entry=pll&amp;lang=ko&amp;area=pll" target="_blank" rel="noopener">
+        <span class="eum_ico eum_fill"><svg viewBox="0 0 24 24"><path d="M13.53 12.53L7.5 3H3v18h6.47V11.47L15.5 21H20V3h-6.47z"/></svg></span>
+        <span>네이버 예약</span>
+      </a>
+
+      <a class="eum_it eum_dn" href="https://doctornow.co.kr/doctors/GEBKL8" target="_blank" rel="noopener">
+        <span class="eum_ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v8M8 12h8"/></svg></span>
+        <span>닥터나우</span>
+      </a>
+
+      <a class="eum_it eum_nv" href="https://blog.naver.com/medchk" target="_blank" rel="noopener">
+        <span class="eum_ico eum_fill"><svg viewBox="0 0 24 24"><path d="M16.27 4.3v6.52L7.74 4.3H3v15.4h4.72v-6.52l8.53 6.52H21V4.3z"/></svg></span>
+        <span>블로그</span>
+      </a>
+
+    </div>
+
+    <button class="eum_toggle" type="button" aria-label="빠른 메뉴 접기/펼치기" aria-expanded="true">
+      <b>빠른 메뉴</b>
+      <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+    </button>
+  </div>
+
+  <button class="eum_top" type="button" aria-label="페이지 맨 위로 이동">
+    <svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg>
+  </button>
+</div>
+
+<script>
+(function () {
+  var root = document.getElementById('eumQm');
+  if (!root || root.dataset.eumReady) return;
+  root.dataset.eumReady = '1';
+
+  var panel  = root.querySelector('.eum_panel');
+  var toggle = root.querySelector('.eum_toggle');
+  var top    = root.querySelector('.eum_top');
+
+  toggle.addEventListener('click', function () {
+    var on = panel.classList.toggle('eum_on');
+    toggle.setAttribute('aria-expanded', on ? 'true' : 'false');
+  });
+
+  top.addEventListener('click', function () {
+    try { window.scrollTo({ top: 0, behavior: 'smooth' }); }
+    catch (e) { window.scrollTo(0, 0); }
+  });
+
+  function onScroll() {
+    if (window.pageYOffset > 250) top.classList.add('eum_show');
+    else top.classList.remove('eum_show');
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+})();
+</script>

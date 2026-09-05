@@ -4,7 +4,7 @@ set -e
 cd "$(dirname "$0")"
 {
   cat blocks/_head.part
-  for f in blocks/0*.html; do
+  for f in blocks/[0-9][0-9]-*.html; do
     printf '\n\n'
     cat "$f"
   done

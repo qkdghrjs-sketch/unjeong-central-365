@@ -15,7 +15,7 @@
   --eum-body:#3F565F; --eum-gray:#7A8E96; --eum-line:#E4EBED;
   --eum-ease:cubic-bezier(.16,1,.3,1);
   line-height:1.85 !important;
-  --eum-maxw:1240px; --eum-pad:32px; --eum-h:84px;
+  --eum-maxw:1400px; --eum-pad:32px; --eum-h:84px;
 
   position:fixed !important;
   top:0 !important; left:0 !important; right:0 !important;
@@ -95,20 +95,36 @@
 #eumHd.eum_open .eum_gnb > li > a:hover,
 #eumHd.eum_open .eum_gnb > li.eum_hot > a{background:var(--eum-mint-l) !important;color:var(--eum-teal) !important;}
 
-#eumHd .eum_act{display:flex !important;align-items:center !important;gap:14px !important;flex:none !important;}
-#eumHd .eum_tel{display:flex !important;flex-direction:column !important;line-height:1.25 !important;text-align:right !important;}
-#eumHd .eum_tel span{font-size:9.5px !important;font-weight:700 !important;letter-spacing:.14em !important;color:var(--eum-mint) !important;}
-#eumHd .eum_tel b{font-size:17px !important;font-weight:800 !important;letter-spacing:-.03em !important;color:#fff !important;transition:color .3s var(--eum-ease) !important;}
-#eumHd.eum_solid .eum_tel b,#eumHd.eum_open .eum_tel b{color:var(--eum-teal) !important;}
-#eumHd .eum_book{
-  display:inline-flex !important;align-items:center !important;justify-content:center !important;
-  height:42px !important;padding:0 20px !important;border-radius:999px !important;
-  background:var(--eum-mint) !important;color:#fff !important;
-  font-size:13.5px !important;font-weight:700 !important;
-  box-shadow:0 10px 26px -12px rgba(54,184,165,.8) !important;
-  transition:background .3s var(--eum-ease) !important;
+/* ── 우측 버튼 4종 (블로그 / 네이버 예약 / 닥터나우 / 전화) ── */
+#eumHd .eum_act{display:flex !important;align-items:center !important;gap:7px !important;flex:none !important;}
+#eumHd .eum_btn{
+  display:inline-flex !important;align-items:center !important;justify-content:center !important;gap:6px !important;
+  height:40px !important;padding:0 14px !important;border-radius:999px !important;
+  font-size:12.5px !important;font-weight:700 !important;letter-spacing:-.035em !important;white-space:nowrap !important;
+  transition:background .25s var(--eum-ease),border-color .25s var(--eum-ease),color .25s var(--eum-ease),transform .25s var(--eum-ease),box-shadow .25s var(--eum-ease) !important;
 }
-#eumHd .eum_book:hover{background:var(--eum-mint-d) !important;}
+#eumHd .eum_btn svg{width:13px !important;height:13px !important;flex:none !important;}
+#eumHd .eum_btn:hover{transform:translateY(-2px) !important;}
+
+/* 블로그 — 보조 버튼(선) */
+#eumHd .eum_bBlog{border:1px solid rgba(255,255,255,.3) !important;color:#fff !important;background:transparent !important;}
+#eumHd .eum_bBlog:hover{background:#03C75A !important;border-color:#03C75A !important;color:#fff !important;box-shadow:0 8px 18px -8px rgba(3,199,90,.8) !important;}
+#eumHd.eum_solid .eum_bBlog,#eumHd.eum_open .eum_bBlog{border-color:var(--eum-line) !important;color:var(--eum-body) !important;}
+#eumHd.eum_solid .eum_bBlog:hover,#eumHd.eum_open .eum_bBlog:hover{color:#fff !important;}
+
+/* 네이버 예약 */
+#eumHd .eum_bNaver{background:#03C75A !important;color:#fff !important;}
+#eumHd .eum_bNaver:hover{background:#02B150 !important;box-shadow:0 8px 18px -8px rgba(3,199,90,.85) !important;}
+
+/* 닥터나우 */
+#eumHd .eum_bDn{background:#FF6B35 !important;color:#fff !important;}
+#eumHd .eum_bDn:hover{background:#F05A22 !important;box-shadow:0 8px 18px -8px rgba(255,107,53,.85) !important;}
+
+/* 전화 — 어두운 배경에선 민트, 흰 헤더에선 딥틸 */
+#eumHd .eum_bTel{background:var(--eum-mint) !important;color:#fff !important;padding:0 16px !important;font-size:13px !important;}
+#eumHd .eum_bTel:hover{background:var(--eum-mint-d) !important;box-shadow:0 8px 20px -8px rgba(54,184,165,.9) !important;}
+#eumHd.eum_solid .eum_bTel,#eumHd.eum_open .eum_bTel{background:var(--eum-teal) !important;}
+#eumHd.eum_solid .eum_bTel:hover,#eumHd.eum_open .eum_bTel:hover{background:var(--eum-mint) !important;}
 
 /* ── 전체메뉴 패널 ── */
 #eumHd .eum_mega{
@@ -175,18 +191,32 @@
   font-size:15px !important;font-weight:500 !important;color:rgba(255,255,255,.72) !important;letter-spacing:-.035em !important;
 }
 #eumHd .eum_mc a:last-child{padding-bottom:18px !important;}
-#eumHd .eum_mtel{margin-top:34px !important;display:flex !important;gap:10px !important;}
+#eumHd .eum_mtel{margin-top:34px !important;display:grid !important;grid-template-columns:1fr 1fr !important;gap:9px !important;}
 #eumHd .eum_mtel a{
-  flex:1 !important;display:inline-flex !important;align-items:center !important;justify-content:center !important;
-  height:54px !important;border-radius:999px !important;font-size:14.5px !important;font-weight:700 !important;
+  display:inline-flex !important;align-items:center !important;justify-content:center !important;gap:7px !important;
+  height:52px !important;border-radius:10px !important;
+  font-size:14px !important;font-weight:700 !important;letter-spacing:-.035em !important;
 }
-#eumHd .eum_mtel .eum_g{border:1px solid rgba(255,255,255,.32) !important;color:#fff !important;}
+#eumHd .eum_mtel a svg{width:14px !important;height:14px !important;flex:none !important;}
 #eumHd .eum_mtel .eum_p{background:var(--eum-mint) !important;color:#fff !important;}
+#eumHd .eum_mtel .eum_n{background:#03C75A !important;color:#fff !important;}
+#eumHd .eum_mtel .eum_dn{background:#FF6B35 !important;color:#fff !important;}
+#eumHd .eum_mtel .eum_g{border:1px solid rgba(255,255,255,.32) !important;color:#fff !important;}
 
 /* ── 반응형 ── */
-@media (max-width:1180px){
+/* 폭이 줄면 보조 버튼부터 차례로 감춥니다 (필수 = 네이버 예약 · 전화) */
+@media (max-width:1399px){
   #eumHd{--eum-pad:26px;}
+  #eumHd .eum_bBlog{display:none !important;}
   #eumHd .eum_gnb > li > a{padding:10px 11px !important;font-size:14.5px !important;}
+}
+@media (max-width:1240px){
+  #eumHd .eum_bDn{display:none !important;}
+  #eumHd .eum_gnb > li > a{padding:10px 9px !important;font-size:14px !important;}
+  #eumHd .eum_bar .eum_wrap{gap:16px !important;}
+  #eumHd .eum_btn{height:38px !important;padding:0 12px !important;font-size:12px !important;}
+}
+@media (max-width:1180px){
   #eumHd .eum_mcols{gap:8px 12px !important;}
   #eumHd .eum_mcol > b{font-size:13.5px !important;}
   #eumHd .eum_mcol a{font-size:12.5px !important;}
@@ -229,8 +259,22 @@
       </nav>
 
       <div class="eum_act">
-        <a class="eum_tel" href="tel:031-979-0875"><span>대표번호</span><b>031-979-0875</b></a>
-        <a class="eum_book" href="https://m.booking.naver.com/booking/16/bizes/1656667?theme=place&amp;entry=pll&amp;lang=ko&amp;area=pll" target="_blank" rel="noopener">예약하기</a>
+        <a class="eum_btn eum_bBlog" href="https://blog.naver.com/medchk" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.27 4.3v6.52L7.74 4.3H3v15.4h4.72v-6.52l8.53 6.52H21V4.3z"/></svg>
+          블로그
+        </a>
+        <a class="eum_btn eum_bNaver" href="https://m.booking.naver.com/booking/16/bizes/1656667?theme=place&amp;entry=pll&amp;lang=ko&amp;area=pll" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.53 12.53L7.5 3H3v18h6.47V11.47L15.5 21H20V3h-6.47z"/></svg>
+          네이버 예약
+        </a>
+        <a class="eum_btn eum_bDn" href="https://doctornow.co.kr/doctors/GEBKL8" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 8v8M8 12h8"/></svg>
+          닥터나우
+        </a>
+        <a class="eum_btn eum_bTel" href="tel:031-979-0875">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.13.96.36 1.9.7 2.8a2 2 0 0 1-.45 2.11L8.1 9.9a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.9z"/></svg>
+          031-979-0875
+        </a>
       </div>
 
       <button class="eum_burger" type="button" aria-label="메뉴 열기" aria-expanded="false"><i></i><i></i><i></i></button>
@@ -338,8 +382,10 @@
       </div>
     </div>
     <div class="eum_mtel">
-      <a class="eum_g" href="tel:031-979-0875">전화 상담</a>
-      <a class="eum_p" href="https://m.booking.naver.com/booking/16/bizes/1656667?theme=place&amp;entry=pll&amp;lang=ko&amp;area=pll" target="_blank" rel="noopener">예약하기</a>
+      <a class="eum_p" href="tel:031-979-0875"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.13.96.36 1.9.7 2.8a2 2 0 0 1-.45 2.11L8.1 9.9a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.9z"/></svg>전화 상담</a>
+      <a class="eum_n" href="https://m.booking.naver.com/booking/16/bizes/1656667?theme=place&amp;entry=pll&amp;lang=ko&amp;area=pll" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.53 12.53L7.5 3H3v18h6.47V11.47L15.5 21H20V3h-6.47z"/></svg>네이버 예약</a>
+      <a class="eum_dn" href="https://doctornow.co.kr/doctors/GEBKL8" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 8v8M8 12h8"/></svg>닥터나우</a>
+      <a class="eum_g" href="https://blog.naver.com/medchk" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.27 4.3v6.52L7.74 4.3H3v15.4h4.72v-6.52l8.53 6.52H21V4.3z"/></svg>블로그</a>
     </div>
   </div>
 </div>

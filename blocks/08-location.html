@@ -9,7 +9,7 @@
   --eum-body:#3F565F; --eum-gray:#7A8E96; --eum-line:#E4EBED; --eum-line2:#F0F4F5; --eum-paper2:#F6F9F9;
   --eum-ease:cubic-bezier(.16,1,.3,1);
   line-height:1.85 !important;
-  --eum-maxw:1240px; --eum-pad:32px; --eum-r:6px;
+  --eum-maxw:1400px; --eum-pad:32px; --eum-r:6px;
 
   display:block !important; position:relative !important;
   float:none !important; clear:both !important;
@@ -54,14 +54,14 @@
 #eumLoc .eum_badge svg{width:14px !important;height:14px !important;color:var(--eum-mint) !important;flex:none !important;}
 
 #eumLoc .eum_main{display:grid !important;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr) !important;gap:22px !important;}
-#eumLoc .eum_map{border-radius:var(--eum-r) !important;overflow:hidden !important;border:1px solid var(--eum-line) !important;min-height:460px !important;background:var(--eum-paper2) !important;}
-#eumLoc .eum_map iframe{width:100% !important;height:100% !important;min-height:460px !important;filter:grayscale(.15) !important;}
-#eumLoc .eum_side{display:flex !important;flex-direction:column !important;gap:14px !important;}
-#eumLoc .eum_card{background:var(--eum-teal) !important;color:#fff !important;border-radius:var(--eum-r) !important;padding:32px 28px 30px !important;}
+#eumLoc .eum_map{border-radius:var(--eum-r) !important;overflow:hidden !important;border:1px solid var(--eum-line) !important;min-height:372px !important;background:var(--eum-paper2) !important;}
+#eumLoc .eum_map iframe{width:100% !important;height:100% !important;min-height:372px !important;filter:grayscale(.15) !important;}
+#eumLoc .eum_side{display:flex !important;flex-direction:column !important;gap:12px !important;}
+#eumLoc .eum_card{background:var(--eum-teal) !important;color:#fff !important;border-radius:var(--eum-r) !important;padding:28px 26px 26px !important;flex:1 1 auto !important;display:flex !important;flex-direction:column !important;justify-content:space-between !important;}
 #eumLoc .eum_card .eum_k{display:block !important;font-size:10.5px !important;font-weight:700 !important;letter-spacing:.15em !important;color:var(--eum-mint) !important;margin-bottom:12px !important;}
 #eumLoc .eum_addr{display:block !important;font-size:19px !important;font-weight:800 !important;letter-spacing:-.045em !important;line-height:1.66 !important;}
 #eumLoc .eum_sub{display:block !important;margin-top:8px !important;font-size:14px !important;color:rgba(255,255,255,.68) !important;letter-spacing:-.035em !important;}
-#eumLoc .eum_apps{display:grid !important;grid-template-columns:repeat(3,1fr) !important;gap:8px !important;margin-top:28px !important;}
+#eumLoc .eum_apps{display:grid !important;grid-template-columns:repeat(3,1fr) !important;gap:8px !important;margin-top:24px !important;}
 #eumLoc .eum_app{
   display:flex !important;align-items:center !important;justify-content:center !important;gap:7px !important;
   height:46px !important;border-radius:var(--eum-r) !important;
@@ -74,15 +74,16 @@
 #eumLoc .eum_icN{background:#03C75A !important;color:#fff !important;}
 #eumLoc .eum_icK{background:#FEE500 !important;color:#3C1E1E !important;}
 #eumLoc .eum_icT{background:#2C6BF0 !important;color:#fff !important;}
-#eumLoc .eum_tels{display:grid !important;grid-template-columns:1fr 1fr !important;gap:14px !important;flex:1 !important;}
+#eumLoc .eum_tels{display:grid !important;grid-template-columns:1fr 1fr !important;gap:12px !important;flex:0 0 auto !important;}
 #eumLoc .eum_tel{
-  border:1px solid var(--eum-line) !important;border-radius:var(--eum-r) !important;padding:22px 20px !important;
-  display:flex !important;flex-direction:column !important;justify-content:center !important;gap:5px !important;
+  border:1px solid var(--eum-line) !important;border-radius:var(--eum-r) !important;padding:15px 18px !important;
+  display:flex !important;flex-direction:column !important;justify-content:center !important;gap:3px !important;
+  line-height:1.35 !important;
   transition:border-color .3s var(--eum-ease),background .3s var(--eum-ease) !important;
 }
 #eumLoc .eum_tel:hover{border-color:var(--eum-mint) !important;background:var(--eum-mint-l) !important;}
-#eumLoc .eum_tel .eum_k{font-size:10.5px !important;font-weight:700 !important;letter-spacing:.13em !important;color:var(--eum-mint-d) !important;}
-#eumLoc .eum_tel .eum_v{font-size:20px !important;font-weight:800 !important;letter-spacing:-.04em !important;color:var(--eum-teal) !important;}
+#eumLoc .eum_tel .eum_k{font-size:10px !important;font-weight:700 !important;letter-spacing:.13em !important;color:var(--eum-mint-d) !important;line-height:1.4 !important;}
+#eumLoc .eum_tel .eum_v{font-size:18.5px !important;font-weight:800 !important;letter-spacing:-.04em !important;color:var(--eum-teal) !important;line-height:1.3 !important;}
 
 #eumLoc .eum_hours{display:grid !important;grid-template-columns:3fr 2fr !important;gap:22px !important;margin-top:28px !important;}
 #eumLoc .eum_hg{border:1px solid var(--eum-line) !important;border-radius:var(--eum-r) !important;padding:28px 24px 26px !important;}
@@ -105,7 +106,7 @@
 @media (max-width:1180px){#eumLoc{--eum-pad:26px;}}
 @media (max-width:1024px){
   #eumLoc .eum_main{grid-template-columns:1fr !important;}
-  #eumLoc .eum_map,#eumLoc .eum_map iframe{min-height:340px !important;}
+  #eumLoc .eum_map,#eumLoc .eum_map iframe{min-height:300px !important;}
   #eumLoc .eum_hours{grid-template-columns:1fr !important;}
   #eumLoc .eum_head{flex-direction:column !important;align-items:flex-start !important;}
   #eumLoc .eum_badges{justify-content:flex-start !important;max-width:none !important;}
@@ -115,8 +116,8 @@
   #eumLoc .eum_card{padding:24px 22px !important;}
   #eumLoc .eum_addr{font-size:17.5px !important;}
   #eumLoc .eum_tels{gap:10px !important;}
-  #eumLoc .eum_tel{padding:18px 16px !important;}
-  #eumLoc .eum_tel .eum_v{font-size:17px !important;}
+  #eumLoc .eum_tel{padding:14px 14px !important;}
+  #eumLoc .eum_tel .eum_v{font-size:16px !important;}
   #eumLoc .eum_hcards{grid-template-columns:1fr !important;}
   #eumLoc .eum_notes{flex-direction:column !important;gap:6px !important;}
 }
