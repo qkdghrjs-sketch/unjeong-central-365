@@ -4,7 +4,7 @@ import io, re, glob, os
 os.chdir(os.path.dirname(os.path.abspath(__file__)))
 OK = re.compile(r'[\x00-\x7F\uAC00-\uD7A3\u3131-\u318E\u4E00-\u9FFF'
                 r'\u00b7\u00b1\u00b2\u2013\u2014\u2018\u2019\u201c\u201d\u2026'
-                r'\u203b\u2192\u2103\u2460-\u2473\u2500-\u257F\s]')
+                r'\u203b\u2192\u2103\u2160-\u217F\u260E\u2460-\u2473\u2500-\u257F\s]')
 bad = False
 for f in sorted(glob.glob('sub/body-*.part')):
     s = io.open(f, encoding='utf-8').read()
