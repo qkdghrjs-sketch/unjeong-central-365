@@ -1,0 +1,226 @@
+<!-- ══════════════════════════════════════════════════════════════
+     이움내과 메인페이지 — 아임웹 [진료시간/오시는길] 섹션에 붙여넣는 코드
+     ─────────────────────────────────────────────────────────────
+     아임웹 편집기 > 해당 섹션의 코드 위젯 > 위젯 설정 > 코드
+     기존 내용을 전부 지우고 이 파일 내용을 통째로 붙여넣으세요.
+     포함된 블록 : 08-location.html
+     ══════════════════════════════════════════════════════════════ -->
+
+<!-- ══════════════════════════════════════════════════════════════
+     [이움내과] 08. 진료시간 · 오시는 길  (아임웹 코드 위젯용)
+     ══════════════════════════════════════════════════════════════ -->
+<style>
+@import url('https://cdn.jsdelivr.net/gh/sun-typeface/suit@2/fonts/variable/woff2/SUIT-Variable.css');
+
+#eumLoc{
+  --eum-teal:#0C2D37; --eum-mint:#36B8A5; --eum-mint-d:#2A9B8B; --eum-mint-l:#E9F7F4;
+  --eum-body:#3F565F; --eum-gray:#7A8E96; --eum-line:#E4EBED; --eum-line2:#F0F4F5; --eum-paper2:#F6F9F9;
+  --eum-ease:cubic-bezier(.16,1,.3,1);
+  line-height:1.85 !important;
+  --eum-maxw:1400px; --eum-pad:32px; --eum-r:6px;
+
+  display:block !important; position:relative !important;
+  float:none !important; clear:both !important;
+  width:100% !important; max-width:100% !important;
+  margin:0 !important; padding:150px 0 162px !important;
+  background:#fff !important; overflow:visible !important;
+  box-sizing:border-box !important; z-index:auto !important;
+}
+#eumLoc,#eumLoc *,#eumLoc *::before,#eumLoc *::after{
+  box-sizing:border-box !important;
+  font-family:'SUIT Variable','SUIT',-apple-system,BlinkMacSystemFont,'Pretendard','Apple SD Gothic Neo',sans-serif !important;
+  word-break:keep-all !important;
+}
+#eumLoc ul,#eumLoc li{list-style:none !important;margin:0 !important;padding:0 !important;background-image:none !important;}
+#eumLoc li::before,#eumLoc li::after{display:none !important;content:none !important;}
+#eumLoc p,#eumLoc h2,#eumLoc h3,#eumLoc span,#eumLoc a,#eumLoc div,#eumLoc small{margin:0 !important;padding:0 !important;}
+#eumLoc a{text-decoration:none !important;color:inherit !important;}
+#eumLoc svg{display:inline-block !important;}
+#eumLoc iframe{display:block !important;border:0 !important;margin:0 !important;padding:0 !important;}
+
+#eumLoc .eum_wrap{max-width:var(--eum-maxw) !important;margin:0 auto !important;padding:0 var(--eum-pad) !important;width:100% !important;}
+
+#eumLoc .eum_rv{opacity:0 !important;transform:translateY(26px) !important;transition:opacity .9s var(--eum-ease),transform .9s var(--eum-ease) !important;}
+#eumLoc .eum_rv.eum_in{opacity:1 !important;transform:none !important;}
+#eumLoc .eum_d1{transition-delay:.08s !important;}
+#eumLoc .eum_d2{transition-delay:.16s !important;}
+#eumLoc .eum_d3{transition-delay:.24s !important;}
+
+#eumLoc .eum_head{display:flex !important;align-items:flex-end !important;justify-content:space-between !important;gap:40px !important;margin-bottom:56px !important;flex-wrap:wrap !important;}
+#eumLoc .eum_eyebrow{display:flex !important;align-items:center !important;gap:12px !important;font-size:12px !important;font-weight:700 !important;letter-spacing:.18em !important;color:var(--eum-mint) !important;}
+#eumLoc .eum_eyebrow .eum_num{color:var(--eum-gray) !important;letter-spacing:.1em !important;}
+#eumLoc .eum_eyebrow .eum_bar{display:block !important;width:26px !important;height:1px !important;background:var(--eum-mint) !important;flex:none !important;}
+#eumLoc .eum_h2{display:block !important;margin:22px 0 20px !important;font-size:clamp(28px,4vw,46px) !important;font-weight:800 !important;line-height:1.42 !important;letter-spacing:-.035em !important;color:var(--eum-teal) !important;}
+#eumLoc .eum_lead{display:block !important;font-size:clamp(15px,1.6vw,17.5px) !important;line-height:1.92 !important;color:var(--eum-body) !important;font-weight:400 !important;}
+#eumLoc .eum_badges{display:flex !important;flex-wrap:wrap !important;gap:8px !important;max-width:560px !important;justify-content:flex-end !important;}
+#eumLoc .eum_badge{
+  display:inline-flex !important;align-items:center !important;gap:7px !important;
+  height:34px !important;padding:0 14px !important;border-radius:999px !important;
+  background:var(--eum-paper2) !important;font-size:12.5px !important;font-weight:700 !important;
+  color:var(--eum-teal) !important;letter-spacing:-.035em !important;
+}
+#eumLoc .eum_badge svg{width:14px !important;height:14px !important;color:var(--eum-mint) !important;flex:none !important;}
+
+#eumLoc .eum_main{display:grid !important;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr) !important;gap:22px !important;}
+#eumLoc .eum_map{border-radius:var(--eum-r) !important;overflow:hidden !important;border:1px solid var(--eum-line) !important;min-height:372px !important;background:var(--eum-paper2) !important;}
+#eumLoc .eum_map iframe{width:100% !important;height:100% !important;min-height:372px !important;filter:grayscale(.15) !important;}
+#eumLoc .eum_side{display:flex !important;flex-direction:column !important;gap:12px !important;}
+#eumLoc .eum_card{background:var(--eum-teal) !important;color:#fff !important;border-radius:var(--eum-r) !important;padding:28px 26px 26px !important;flex:1 1 auto !important;display:flex !important;flex-direction:column !important;justify-content:space-between !important;}
+#eumLoc .eum_card .eum_k{display:block !important;font-size:10.5px !important;font-weight:700 !important;letter-spacing:.15em !important;color:var(--eum-mint) !important;margin-bottom:12px !important;}
+#eumLoc .eum_addr{display:block !important;font-size:19px !important;font-weight:800 !important;letter-spacing:-.045em !important;line-height:1.66 !important;}
+#eumLoc .eum_sub{display:block !important;margin-top:8px !important;font-size:14px !important;color:rgba(255,255,255,.68) !important;letter-spacing:-.035em !important;}
+#eumLoc .eum_apps{display:grid !important;grid-template-columns:repeat(3,1fr) !important;gap:8px !important;margin-top:24px !important;}
+#eumLoc .eum_app{
+  display:flex !important;align-items:center !important;justify-content:center !important;gap:7px !important;
+  height:46px !important;border-radius:var(--eum-r) !important;
+  background:rgba(255,255,255,.09) !important;border:1px solid rgba(255,255,255,.18) !important;
+  font-size:13px !important;font-weight:700 !important;color:#fff !important;letter-spacing:-.03em !important;
+  transition:background .3s var(--eum-ease) !important;
+}
+#eumLoc .eum_app:hover{background:rgba(255,255,255,.2) !important;}
+#eumLoc .eum_ic{display:flex !important;width:20px !important;height:20px !important;border-radius:5px !important;align-items:center !important;justify-content:center !important;font-size:10.5px !important;font-weight:800 !important;flex:none !important;}
+#eumLoc .eum_icN{background:#03C75A !important;color:#fff !important;}
+#eumLoc .eum_icK{background:#FEE500 !important;color:#3C1E1E !important;}
+#eumLoc .eum_icT{background:#2C6BF0 !important;color:#fff !important;}
+#eumLoc .eum_tels{display:grid !important;grid-template-columns:1fr 1fr !important;gap:12px !important;flex:0 0 auto !important;}
+#eumLoc .eum_tel{
+  border:1px solid var(--eum-line) !important;border-radius:var(--eum-r) !important;padding:15px 18px !important;
+  display:flex !important;flex-direction:column !important;justify-content:center !important;gap:3px !important;
+  line-height:1.35 !important;
+  transition:border-color .3s var(--eum-ease),background .3s var(--eum-ease) !important;
+}
+#eumLoc .eum_tel:hover{border-color:var(--eum-mint) !important;background:var(--eum-mint-l) !important;}
+#eumLoc .eum_tel .eum_k{font-size:10px !important;font-weight:700 !important;letter-spacing:.13em !important;color:var(--eum-mint-d) !important;line-height:1.4 !important;}
+#eumLoc .eum_tel .eum_v{font-size:18.5px !important;font-weight:800 !important;letter-spacing:-.04em !important;color:var(--eum-teal) !important;line-height:1.3 !important;}
+
+#eumLoc .eum_hours{display:grid !important;grid-template-columns:3fr 2fr !important;gap:22px !important;margin-top:28px !important;}
+#eumLoc .eum_hg{border:1px solid var(--eum-line) !important;border-radius:var(--eum-r) !important;padding:28px 24px 26px !important;}
+#eumLoc .eum_hg.eum_b{background:var(--eum-mint-l) !important;border-color:rgba(54,184,165,.28) !important;}
+#eumLoc .eum_hh{display:flex !important;align-items:center !important;gap:9px !important;font-size:14px !important;font-weight:800 !important;color:var(--eum-teal) !important;letter-spacing:-.035em !important;margin-bottom:20px !important;}
+#eumLoc .eum_hh .eum_dot{display:block !important;width:7px !important;height:7px !important;border-radius:50% !important;flex:none !important;background:var(--eum-teal) !important;}
+#eumLoc .eum_hg.eum_b .eum_hh .eum_dot{background:var(--eum-mint) !important;}
+#eumLoc .eum_hcards{display:grid !important;gap:10px !important;grid-template-columns:repeat(auto-fit,minmax(132px,1fr)) !important;}
+#eumLoc .eum_hc{background:#fff !important;border:1px solid var(--eum-line2) !important;border-radius:var(--eum-r) !important;padding:18px 18px 20px !important;}
+#eumLoc .eum_hc .eum_d{display:block !important;font-size:12px !important;font-weight:700 !important;color:var(--eum-mint-d) !important;letter-spacing:-.02em !important;}
+#eumLoc .eum_hc .eum_t{display:block !important;margin-top:6px !important;font-size:17px !important;font-weight:800 !important;color:var(--eum-teal) !important;letter-spacing:-.045em !important;}
+#eumLoc .eum_hc.eum_night{background:var(--eum-teal) !important;border-color:var(--eum-teal) !important;}
+#eumLoc .eum_hc.eum_night .eum_d{color:var(--eum-mint) !important;}
+#eumLoc .eum_hc.eum_night .eum_t{color:#fff !important;}
+#eumLoc .eum_bd{display:inline-flex !important;align-items:center !important;height:22px !important;margin-top:9px !important;padding:0 9px !important;border-radius:999px !important;background:var(--eum-mint) !important;color:#fff !important;font-size:10.5px !important;font-weight:700 !important;letter-spacing:-.02em !important;}
+
+#eumLoc .eum_notes{margin-top:20px !important;display:flex !important;flex-wrap:wrap !important;gap:6px 24px !important;}
+#eumLoc .eum_notes li{font-size:13px !important;color:var(--eum-gray) !important;letter-spacing:-.03em !important;}
+
+@media (max-width:1180px){#eumLoc{--eum-pad:26px;}}
+@media (max-width:1024px){
+  #eumLoc .eum_main{grid-template-columns:1fr !important;}
+  #eumLoc .eum_map,#eumLoc .eum_map iframe{min-height:300px !important;}
+  #eumLoc .eum_hours{grid-template-columns:1fr !important;}
+  #eumLoc .eum_head{flex-direction:column !important;align-items:flex-start !important;}
+  #eumLoc .eum_badges{justify-content:flex-start !important;max-width:none !important;}
+}
+@media (max-width:860px){
+  #eumLoc{--eum-pad:20px;padding:100px 0 108px !important;}
+  #eumLoc .eum_card{padding:24px 22px !important;}
+  #eumLoc .eum_addr{font-size:17.5px !important;}
+  #eumLoc .eum_tels{gap:10px !important;}
+  #eumLoc .eum_tel{padding:14px 14px !important;}
+  #eumLoc .eum_tel .eum_v{font-size:16px !important;}
+  #eumLoc .eum_hcards{grid-template-columns:1fr !important;}
+  #eumLoc .eum_notes{flex-direction:column !important;gap:6px !important;}
+}
+@media (max-width:420px){#eumLoc .eum_apps{grid-template-columns:1fr !important;}}
+</style>
+
+<div id="eumLoc">
+  <div class="eum_wrap">
+
+    <div class="eum_head">
+      <div>
+        <span class="eum_eyebrow eum_rv"><span class="eum_num">06</span><span class="eum_bar"></span>VISIT US</span>
+        <h2 class="eum_h2 eum_rv eum_d1">진료시간 ·<br>오시는 길</h2>
+        <p class="eum_lead eum_rv eum_d2">화정역에서 걸어서 3분, 쉽게 찾고 편하게 오실 수 있도록 안내드립니다.</p>
+      </div>
+      <div class="eum_badges eum_rv eum_d2">
+        <span class="eum_badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>심평원 혈액투석 적정성평가 1등급</span>
+        <span class="eum_badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>대한신장학회 인공신장실 인증기관</span>
+        <span class="eum_badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>국가예방접종 지원사업 지정</span>
+        <span class="eum_badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>국가보훈부 위탁 의료기관</span>
+      </div>
+    </div>
+
+    <div class="eum_main eum_rv eum_d1">
+      <div class="eum_map">
+        <iframe title="이움내과의원 위치" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+          src="https://maps.google.com/maps?q=%EA%B2%BD%EA%B8%B0%EB%8F%84%20%EA%B3%A0%EC%96%91%EC%8B%9C%20%EB%8D%95%EC%96%91%EA%B5%AC%20%EB%B0%B1%EC%96%91%EB%A1%9C%2051&amp;z=17&amp;hl=ko&amp;output=embed"></iframe>
+      </div>
+
+      <div class="eum_side">
+        <div class="eum_card">
+          <span class="eum_k">ADDRESS</span>
+          <span class="eum_addr">경기도 고양시 덕양구 백양로 51</span>
+          <span class="eum_sub">네이버타운 3층 301호, 305호 · 화정역 도보 3분</span>
+          <div class="eum_apps">
+            <a class="eum_app" href="https://map.naver.com/v5/search/%EC%9D%B4%EC%9B%80%EB%82%B4%EA%B3%BC" target="_blank" rel="noopener"><span class="eum_ic eum_icN">N</span>네이버</a>
+            <a class="eum_app" href="https://map.kakao.com/?q=%EC%9D%B4%EC%9B%80%EB%82%B4%EA%B3%BC" target="_blank" rel="noopener"><span class="eum_ic eum_icK">K</span>카카오</a>
+            <a class="eum_app" href="https://tmap.life/a6c0db62" target="_blank" rel="noopener"><span class="eum_ic eum_icT">T</span>TMAP</a>
+          </div>
+        </div>
+
+        <div class="eum_tels">
+          <a class="eum_tel" href="tel:031-979-0875"><span class="eum_k">대표번호</span><span class="eum_v">031-979-0875</span></a>
+          <a class="eum_tel" href="tel:031-979-0873"><span class="eum_k">인공신장센터</span><span class="eum_v">031-979-0873</span></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="eum_hours eum_rv eum_d2">
+      <div class="eum_hg eum_a">
+        <div class="eum_hh"><span class="eum_dot"></span>외래 진료시간</div>
+        <div class="eum_hcards">
+          <div class="eum_hc"><span class="eum_d">평일</span><span class="eum_t">09:00 – 18:00</span></div>
+          <div class="eum_hc"><span class="eum_d">목요일 · 토요일</span><span class="eum_t">09:00 – 12:30</span></div>
+          <div class="eum_hc"><span class="eum_d">점심시간</span><span class="eum_t">12:30 – 14:00</span></div>
+        </div>
+      </div>
+      <div class="eum_hg eum_b">
+        <div class="eum_hh"><span class="eum_dot"></span>투석실 운영시간</div>
+        <div class="eum_hcards">
+          <div class="eum_hc eum_night">
+            <span class="eum_d">월 · 수 · 금요일</span>
+            <span class="eum_t">06:30 – 22:30</span>
+            <span class="eum_bd">야간투석 운영</span>
+          </div>
+          <div class="eum_hc"><span class="eum_d">화 · 목 · 토요일</span><span class="eum_t">06:30 – 17:00</span></div>
+        </div>
+      </div>
+    </div>
+
+    <ul class="eum_notes eum_rv eum_d3">
+      <li>ㆍ일요일 및 공휴일은 휴진입니다.</li>
+      <li>ㆍ월·수·금 야간투석(~22:30)으로 직장인도 투석 가능합니다.</li>
+      <li>ㆍ진료 시간은 사정에 따라 변경될 수 있습니다.</li>
+    </ul>
+
+  </div>
+</div>
+
+<script>
+(function () {
+  var root = document.getElementById('eumLoc');
+  if (!root || root.dataset.eumReady) return;
+  root.dataset.eumReady = '1';
+
+  var els = root.querySelectorAll('.eum_rv');
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || !window.IntersectionObserver) {
+    Array.prototype.forEach.call(els, function (el) { el.classList.add('eum_in'); });
+    return;
+  }
+  var obs = new IntersectionObserver(function (es) {
+    es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('eum_in'); obs.unobserve(e.target); } });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  Array.prototype.forEach.call(els, function (el) { obs.observe(el); });
+})();
+</script>
+
+
