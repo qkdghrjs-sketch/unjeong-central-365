@@ -1060,7 +1060,7 @@ body{margin:0;padding:0;background:#fff;overflow-x:hidden;}
   width:300px !important;height:206px !important;
   border-radius:var(--eum-r) !important;overflow:hidden !important;
   pointer-events:none !important;z-index:60 !important;
-  opacity:0 !important;
+  opacity:0 !important;transform:translate(-50%,-50%) scale(.92) !important;
   box-shadow:0 28px 60px -20px rgba(12,45,55,.45) !important;
   transition:opacity .3s var(--eum-ease) !important;
   will-change:transform !important;
@@ -1247,12 +1247,19 @@ body{margin:0;padding:0;background:#fff;overflow-x:hidden;}
 
   var tx = 0, ty = 0, cx = 0, cy = 0, active = false, raf = null;
 
+  function place() {
+    peek.style.setProperty(
+      'transform',
+      'translate(' + Math.round(cx) + 'px,' + Math.round(cy) + 'px) translate(-50%,-50%) scale(' + (active ? 1 : 0.92) + ')',
+      'important'
+    );
+  }
+
   function paint() {
     /* 커서 쪽으로 조금씩 좁혀가며 부드럽게 따라옵니다 */
     cx += (tx - cx) * 0.14;
     cy += (ty - cy) * 0.14;
-    peek.style.transform =
-      'translate(' + Math.round(cx) + 'px,' + Math.round(cy) + 'px) translate(-50%,-50%) scale(' + (active ? 1 : 0.92) + ')';
+    place();
     if (active || Math.abs(tx - cx) > 0.5 || Math.abs(ty - cy) > 0.5) {
       raf = requestAnimationFrame(paint);
     } else {
@@ -1277,6 +1284,7 @@ body{margin:0;padding:0;background:#fff;overflow-x:hidden;}
       for (var n = 0; n < shots.length; n++) {
         shots[n].classList[n === i ? 'add' : 'remove']('eum_on');
       }
+      place();   /* 첫 프레임부터 커서 자리에 놓습니다 */
       if (!raf) raf = requestAnimationFrame(paint);
     });
     row.addEventListener('mousemove', onMove);
@@ -1284,6 +1292,11 @@ body{margin:0;padding:0;background:#fff;overflow-x:hidden;}
       active = false;
       peek.classList.remove('eum_on');
     });
+  });
+
+  /* 행 사이 여백에서도 자연스럽게 따라오도록 */
+  Array.prototype.forEach.call(root.querySelectorAll('.eum_rows'), function (list) {
+    list.addEventListener('mousemove', onMove);
   });
 })();
 </script>
