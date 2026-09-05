@@ -401,6 +401,37 @@
 #eumSub .eum_sum .eum_sumi svg{width:17px !important;height:17px !important;color:var(--eum-mint) !important;flex:none !important;margin-top:6px !important;}
 #eumSub .eum_sum strong{color:#fff !important;font-weight:800 !important;}
 
+
+/* ── 좌우 분할 (글 + 곁 카드) ── */
+#eumSub .eum_split{display:grid !important;grid-template-columns:minmax(0,1.25fr) minmax(0,.75fr) !important;gap:56px !important;align-items:start !important;}
+#eumSub .eum_pill{
+  display:inline-flex !important;align-items:center !important;height:34px !important;padding:0 16px !important;
+  border-radius:999px !important;background:var(--eum-mint-l) !important;color:var(--eum-mint-d) !important;
+  font-size:13px !important;font-weight:700 !important;letter-spacing:-.03em !important;margin:18px 0 6px !important;
+}
+#eumSub .eum_split p{display:block !important;margin-top:18px !important;font-size:15.5px !important;line-height:1.95 !important;color:var(--eum-body) !important;letter-spacing:-.035em !important;}
+#eumSub .eum_split p strong{font-weight:800 !important;color:var(--eum-teal) !important;}
+
+#eumSub .eum_sidecard{background:#fff !important;border:1px solid var(--eum-line) !important;border-radius:var(--eum-r) !important;padding:32px 28px !important;}
+#eumSub .eum_sidecard .eum_sct{display:block !important;font-size:16px !important;font-weight:800 !important;color:var(--eum-teal) !important;margin-bottom:16px !important;letter-spacing:-.04em !important;}
+#eumSub .eum_sci{display:flex !important;gap:11px !important;padding:12px 0 !important;border-top:1px solid var(--eum-line2) !important;font-size:14.5px !important;color:var(--eum-body) !important;line-height:1.8 !important;letter-spacing:-.035em !important;}
+#eumSub .eum_sci:first-of-type{border-top:0 !important;}
+#eumSub .eum_sci .eum_pt{display:block !important;width:5px !important;height:5px !important;border-radius:50% !important;background:var(--eum-mint) !important;margin-top:11px !important;flex:none !important;}
+
+#eumSub .eum_darkcard{background:var(--eum-teal) !important;color:#fff !important;border-radius:var(--eum-r) !important;padding:34px 30px !important;}
+#eumSub .eum_darkcard .eum_sct{display:block !important;font-size:16px !important;font-weight:800 !important;color:#fff !important;margin-bottom:16px !important;letter-spacing:-.04em !important;}
+#eumSub .eum_dci{display:flex !important;gap:12px !important;padding:12px 0 !important;border-top:1px solid rgba(255,255,255,.13) !important;font-size:14.5px !important;color:rgba(255,255,255,.8) !important;line-height:1.8 !important;letter-spacing:-.035em !important;}
+#eumSub .eum_dci:first-of-type{border-top:0 !important;}
+#eumSub .eum_dci svg{width:16px !important;height:16px !important;color:var(--eum-mint) !important;flex:none !important;margin-top:6px !important;}
+
+#eumSub .eum_iconlist .eum_ii{display:flex !important;gap:14px !important;padding:18px 0 !important;border-top:1px solid var(--eum-line) !important;font-size:15px !important;color:var(--eum-body) !important;line-height:1.88 !important;letter-spacing:-.035em !important;}
+#eumSub .eum_iconlist .eum_ii:first-of-type{border-top:0 !important;}
+#eumSub .eum_iconlist .eum_ii strong{font-weight:800 !important;color:var(--eum-teal) !important;}
+#eumSub .eum_iconlist .eum_ib{display:flex !important;width:30px !important;height:30px !important;border-radius:50% !important;background:var(--eum-mint-l) !important;align-items:center !important;justify-content:center !important;flex:none !important;margin-top:3px !important;}
+#eumSub .eum_iconlist .eum_ib svg{width:15px !important;height:15px !important;color:var(--eum-mint-d) !important;}
+
+#eumSub .eum_cnote{display:block !important;margin-top:30px !important;font-size:13px !important;color:rgba(255,255,255,.52) !important;line-height:1.9 !important;letter-spacing:-.03em !important;}
+
 /* ── 반응형 ── */
 @media (max-width:1180px){
   #eumSub{--eum-pad:26px;}
@@ -438,9 +469,13 @@
   #eumSub .eum_trts{grid-template-columns:1fr !important;}
   #eumSub .eum_trt{padding:30px 24px 26px !important;}
   #eumSub .eum_sum{padding:32px 24px !important;}
+
+  #eumSub .eum_split{grid-template-columns:1fr !important;gap:30px !important;}
+  #eumSub .eum_sidecard,#eumSub .eum_darkcard{padding:26px 22px !important;}
 }
 
 @media (max-width:1024px){
+  #eumSub .eum_split{grid-template-columns:1fr !important;gap:36px !important;}
   #eumSub .eum_hero.eum_img .eum_wrap{grid-template-columns:1fr !important;gap:36px !important;}
   #eumSub .eum_intro{grid-template-columns:1fr !important;gap:34px !important;}
 }
