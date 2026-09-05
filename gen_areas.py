@@ -1,0 +1,157 @@
+# -*- coding: utf-8 -*-
+"""일산·고양 오시는 길 페이지 본문을 만듭니다. 지역 데이터는 원문 그대로입니다."""
+import io, os, re, html
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+SRC = r'C:\Users\qkdgh\Downloads\홈페이지\이움내과_수정본\yium-board\src\lib\areas.ts'
+s = io.open(SRC, encoding='utf-8').read()
+
+FIELD = re.compile(r'(\w+):\s*(?:"((?:[^"\\]|\\.)*)"|(\d+))')
+
+def grab(const):
+    i = s.index('export const %s: Area[] = [' % const)
+    j = s.index('\n];', i)
+    body = s[i:j]
+    out = []
+    for blk in re.finditer(r'\{(.*?)\n  \}', body, re.S):
+        d = {}
+        for m in FIELD.finditer(blk.group(1)):
+            k, sv, nv = m.groups()
+            d[k] = (sv.replace('\\"', '"') if sv is not None else nv)
+        if 'name' in d:
+            out.append(d)
+    return out
+
+e = lambda t: html.escape(t or '', quote=False)
+
+def cards(areas):
+    rows = []
+    for n, a in enumerate(areas):
+        times = []
+        if a.get('subwayMinutes'):
+            stop = ' <em>(%s정거장)</em>' % e(a['stops']) if a.get('stops') else ''
+            times.append('<span class="eum_at"><em>지하철</em>%s%s</span>' % (e(a['subwayMinutes']), stop))
+        times.append('<span class="eum_at"><em>자가용</em>%s</span>' % e(a['carMinutes']))
+        rows.append(
+            '        <div class="eum_area eum_rv%s">\n'
+            '          <b>%s</b>\n'
+            '          <span class="eum_ad">%s</span>\n'
+            '          <div class="eum_ats">%s</div>\n'
+            '          <span class="eum_ar">%s</span>\n'
+            '        </div>' % (' eum_d%d' % min(n + 1, 4) if n else '',
+                                e(a['name']), e(a['district']), ''.join(times), e(a['route'])))
+    return '\n'.join(rows)
+
+ilsan, deok, near = grab('ILSAN_AREAS'), grab('DEOKYANG_AREAS'), grab('NEARBY_AREAS')
+
+CHK = ('<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" '
+       'stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>')
+ARROW = ('<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" '
+         'stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>')
+
+doc = '''<div id="eumSub">
+
+  <!-- ═══════════ 서브 히어로 ═══════════ -->
+  <section class="eum_hero">
+    <div class="eum_wrap">
+      <span class="eum_eyebrow eum_rv"><span class="eum_bar"></span>ACCESS GUIDE · 지역별 오시는 길</span>
+      <h1 class="eum_h1 eum_rv eum_d1">일산에서 지하철로<br><em>5분에서 14분</em></h1>
+      <p class="eum_hsub eum_rv eum_d2">이움내과의원은 고양시 덕양구 화정동에 있습니다.<br>지하철 3호선 화정역이 일산과 직결되어, 백석 2정거장·마두 3정거장·주엽 5정거장이면 도착합니다.</p>
+      <div class="eum_badges eum_rv eum_d3">
+        <span class="eum_badge"><span class="eum_dot"></span>3호선 화정역 도보 5분</span>
+        <span class="eum_badge"><span class="eum_dot"></span>환승 없이 일산 직결</span>
+        <span class="eum_badge"><span class="eum_dot"></span>주차 무료</span>
+        <span class="eum_badge"><span class="eum_dot"></span>야간투석 운영</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ 핵심 답변 ═══════════ -->
+  <section class="eum_sec">
+    <div class="eum_wrap">
+      <div class="eum_key eum_rv">
+        <span class="eum_q">Q. 일산에서 다닐 만한 내과·신장내과를 찾고 있습니다. 이움내과의원까지 얼마나 걸리나요?</span>
+        <p><strong>이움내과의원은 경기 고양시 덕양구 백양로 51 네이버타운 3층</strong>에 있으며, 행정구역상 일산동구·일산서구가 아닌 <strong>덕양구 화정동</strong>입니다. 다만 지하철 3호선 화정역이 일산과 직결되어 있어 실제 이동 시간은 짧습니다.</p>
+        <p>백석역에서 2정거장(약 5분), 마두역에서 3정거장(약 7분), 정발산역에서 4정거장(약 9분), 주엽역에서 5정거장(약 11분), 대화역에서 6정거장(약 14분)이며 <strong>모두 환승 없이</strong> 오실 수 있습니다. 화정역 1번 출구에서 병원까지는 도보 약 5분입니다.</p>
+        <div class="eum_facts">
+          <span class="eum_fact">%s3호선 화정역 1번 출구 도보 5분</span>
+          <span class="eum_fact">%s백석역 2정거장 · 마두역 3정거장</span>
+          <span class="eum_fact">%s주엽역 5정거장 · 대화역 6정거장</span>
+          <span class="eum_fact">%s네이버타운 주차장 무료</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ 일산 ═══════════ -->
+  <section class="eum_sec eum_alt">
+    <div class="eum_wrap">
+      <div class="eum_shead eum_rv">
+        <span class="eum_eyebrow"><span class="eum_bar"></span>FROM ILSAN</span>
+        <h2 class="eum_h2">일산에서 오시는 길</h2>
+        <p class="eum_lead">3호선 한 번으로 환승 없이 오실 수 있습니다.</p>
+      </div>
+      <div class="eum_areas">
+%s
+      </div>
+      <div class="eum_notebox eum_rv" style="margin-top:32px">
+        <p><strong>일산에서 특히 많이 찾으시는 이유</strong></p>
+        <p>고양시 일산 지역에는 <strong>야간 혈액투석을 운영하는 의원이 드뭅니다.</strong> 이움내과의원은 월·수·금 저녁 6시부터 밤 10시 30분까지 야간투석을 운영하고 있어, 낮에 일하시는 분들이 일산에서 3호선을 타고 오시는 경우가 많습니다.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ 덕양구 ═══════════ -->
+  <section class="eum_sec">
+    <div class="eum_wrap">
+      <div class="eum_shead eum_rv">
+        <span class="eum_eyebrow"><span class="eum_bar"></span>FROM DEOKYANG-GU</span>
+        <h2 class="eum_h2">덕양구에서 오시는 길</h2>
+        <p class="eum_lead">화정 생활권은 도보로, 그 외 지역은 3호선 한두 정거장입니다.</p>
+      </div>
+      <div class="eum_areas">
+%s
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ 인근 도시 ═══════════ -->
+  <section class="eum_sec eum_alt">
+    <div class="eum_wrap">
+      <div class="eum_shead eum_rv">
+        <span class="eum_eyebrow"><span class="eum_bar"></span>NEARBY CITIES</span>
+        <h2 class="eum_h2">파주 · 서울 은평에서 오시는 길</h2>
+      </div>
+      <div class="eum_areas">
+%s
+      </div>
+      <div class="eum_notebox eum_rv" style="margin-top:32px">
+        <p>소요시간은 지하철 승차역~화정역 기준이며, 집에서 역까지 가는 시간과 화정역에서 병원까지 도보 5분은 별도입니다. 실제 시간은 시간대와 교통 상황에 따라 달라질 수 있습니다.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ CTA ═══════════ -->
+  <section class="eum_cta">
+    <div class="eum_wrap">
+      <span class="eum_ctitle eum_rv">오시는 길이 헷갈리시면<br>전화 주세요</span>
+      <span class="eum_csub eum_rv eum_d1">출발 지역을 말씀해 주시면 가장 편한 경로를 안내해 드립니다.<br>네이버타운 지하 주차장(80면 이상) 무료 이용 가능합니다.</span>
+      <div class="eum_cbtns eum_rv eum_d2">
+        <a class="eum_cbtn eum_p" href="tel:031-979-0875">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.13.96.36 1.9.7 2.8a2 2 0 0 1-.45 2.11L8.1 9.9a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.9z"/></svg>
+          대표번호 031-979-0875
+        </a>
+        <a class="eum_cbtn eum_g" href="https://yium.kr/location">
+          지도로 보기%s
+        </a>
+      </div>
+    </div>
+  </section>
+
+</div>
+''' % (CHK, CHK, CHK, CHK, cards(ilsan), cards(deok), cards(near), ARROW)
+
+out = os.path.join(HERE, 'repo', 'sub', 'body-04-areas.part')
+io.open(out, 'w', encoding='utf-8', newline='\n').write(doc)
+print('areas body written: 일산 %d / 덕양 %d / 인근 %d = %d개'
+      % (len(ilsan), len(deok), len(near), len(ilsan) + len(deok) + len(near)))

@@ -544,6 +544,33 @@
 #eumSub .eum_tags{display:flex !important;flex-wrap:wrap !important;gap:8px !important;}
 #eumSub .eum_tag2{display:inline-flex !important;align-items:center !important;height:34px !important;padding:0 14px !important;border-radius:999px !important;background:var(--eum-mint-l) !important;color:var(--eum-teal) !important;font-size:13px !important;font-weight:700 !important;letter-spacing:-.035em !important;}
 
+
+/* ── 질문·답변 카드 (자주 묻는 질문 페이지) ── */
+#eumSub .eum_answers{display:grid !important;gap:16px !important;}
+#eumSub .eum_ans{background:#fff !important;border:1px solid var(--eum-line) !important;border-radius:var(--eum-r) !important;padding:32px 30px !important;}
+#eumSub .eum_ans h3{display:block !important;font-size:18px !important;font-weight:800 !important;color:var(--eum-teal) !important;letter-spacing:-.04em !important;line-height:1.62 !important;margin-bottom:14px !important;}
+#eumSub .eum_ans h3 em{font-style:normal !important;color:var(--eum-mint) !important;margin-right:9px !important;}
+#eumSub .eum_ans p{display:block !important;font-size:15px !important;line-height:1.95 !important;color:var(--eum-body) !important;letter-spacing:-.035em !important;}
+#eumSub .eum_ansmore{display:inline-flex !important;align-items:center !important;gap:7px !important;margin-top:20px !important;font-size:13.5px !important;font-weight:700 !important;color:var(--eum-mint-d) !important;letter-spacing:-.03em !important;transition:gap .25s var(--eum-ease) !important;}
+#eumSub .eum_ansmore:hover{gap:11px !important;}
+#eumSub .eum_ansmore svg{width:14px !important;height:14px !important;flex:none !important;}
+
+
+/* ── 지역별 오시는 길 카드 ── */
+#eumSub .eum_areas{display:grid !important;grid-template-columns:repeat(auto-fit,minmax(300px,1fr)) !important;gap:16px !important;}
+#eumSub .eum_area{background:#fff !important;border:1px solid var(--eum-line) !important;border-radius:var(--eum-r) !important;padding:28px 26px !important;}
+#eumSub .eum_area b{display:block !important;font-size:18px !important;font-weight:800 !important;color:var(--eum-teal) !important;letter-spacing:-.04em !important;}
+#eumSub .eum_area .eum_ad{display:block !important;margin-top:6px !important;font-size:12.5px !important;font-weight:600 !important;color:var(--eum-gray) !important;letter-spacing:-.03em !important;}
+#eumSub .eum_area .eum_ats{display:flex !important;flex-wrap:wrap !important;gap:8px !important;margin:18px 0 16px !important;}
+#eumSub .eum_area .eum_at{
+  display:inline-flex !important;align-items:center !important;gap:7px !important;
+  height:32px !important;padding:0 13px !important;border-radius:999px !important;
+  background:var(--eum-mint-l) !important;color:var(--eum-teal) !important;
+  font-size:13px !important;font-weight:700 !important;letter-spacing:-.03em !important;
+}
+#eumSub .eum_area .eum_at em{font-style:normal !important;font-size:11px !important;font-weight:700 !important;color:var(--eum-mint-d) !important;opacity:.85 !important;}
+#eumSub .eum_area .eum_ar{display:block !important;padding-top:16px !important;border-top:1px solid var(--eum-line2) !important;font-size:14px !important;color:var(--eum-body) !important;line-height:1.85 !important;letter-spacing:-.035em !important;}
+
 /* ── 반응형 ── */
 @media (max-width:1180px){
   #eumSub{--eum-pad:26px;}
@@ -596,6 +623,12 @@
   #eumSub .eum_qgrid{grid-template-columns:1fr !important;gap:32px !important;}
   #eumSub .eum_career{grid-template-columns:1fr !important;gap:38px !important;}
   #eumSub .eum_creds{grid-template-columns:1fr !important;}
+
+  #eumSub .eum_ans{padding:26px 22px !important;}
+  #eumSub .eum_ans h3{font-size:16.5px !important;}
+
+  #eumSub .eum_areas{grid-template-columns:1fr !important;}
+  #eumSub .eum_area{padding:24px 20px !important;}
 }
 
 @media (max-width:1024px){
