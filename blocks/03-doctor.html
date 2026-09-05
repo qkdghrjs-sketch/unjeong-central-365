@@ -1,0 +1,184 @@
+<!-- ══════════════════════════════════════════════════════════════
+     [이움내과] 03. 의료진 소개  (아임웹 코드 위젯용)
+     ══════════════════════════════════════════════════════════════ -->
+<style>
+@import url('https://cdn.jsdelivr.net/gh/sun-typeface/suit@2/fonts/variable/woff2/SUIT-Variable.css');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;500;600&display=swap');
+
+#eumDoc{
+  --eum-teal:#0C2D37; --eum-teal2:#12414F;
+  --eum-mint:#36B8A5; --eum-mint-d:#2A9B8B; --eum-mint-l:#E9F7F4;
+  --eum-body:#3F565F; --eum-gray:#7A8E96;
+  --eum-line:#E4EBED; --eum-line2:#F0F4F5;
+  --eum-ease:cubic-bezier(.16,1,.3,1);
+  line-height:1.85 !important;
+  --eum-maxw:1240px; --eum-pad:32px; --eum-r:6px;
+
+  display:block !important; position:relative !important;
+  float:none !important; clear:both !important;
+  width:100% !important; max-width:100% !important;
+  margin:0 !important; padding:150px 0 162px !important;
+  background:#fff !important; overflow:hidden !important;
+  box-sizing:border-box !important; z-index:auto !important;
+}
+#eumDoc,#eumDoc *,#eumDoc *::before,#eumDoc *::after{
+  box-sizing:border-box !important;
+  font-family:'SUIT Variable','SUIT',-apple-system,BlinkMacSystemFont,'Pretendard','Apple SD Gothic Neo',sans-serif !important;
+  word-break:keep-all !important;
+}
+#eumDoc ul,#eumDoc ol,#eumDoc li{list-style:none !important;margin:0 !important;padding:0 !important;background-image:none !important;}
+#eumDoc li::before,#eumDoc li::after{display:none !important;content:none !important;}
+#eumDoc p,#eumDoc h2,#eumDoc h3,#eumDoc span,#eumDoc a,#eumDoc blockquote,#eumDoc figure,#eumDoc figcaption,#eumDoc small,#eumDoc b,#eumDoc div{margin:0 !important;padding:0 !important;}
+#eumDoc a{text-decoration:none !important;color:inherit !important;}
+#eumDoc img{max-width:100% !important;display:block !important;}
+#eumDoc svg{display:inline-block !important;}
+
+#eumDoc::before{
+  content:'' !important;position:absolute !important;left:0 !important;top:130px !important;
+  width:44% !important;height:640px !important;
+  background:linear-gradient(160deg,var(--eum-mint-l) 0%,rgba(233,247,244,0) 78%) !important;
+  border-radius:0 240px 0 0 !important;pointer-events:none !important;
+}
+#eumDoc .eum_wrap{max-width:var(--eum-maxw) !important;margin:0 auto !important;padding:0 var(--eum-pad) !important;width:100% !important;position:relative !important;}
+#eumDoc .eum_grid{display:grid !important;grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr) !important;gap:88px !important;align-items:end !important;}
+
+#eumDoc .eum_rv{opacity:0 !important;transform:translateY(26px) !important;transition:opacity .9s var(--eum-ease),transform .9s var(--eum-ease) !important;}
+#eumDoc .eum_rv.eum_in{opacity:1 !important;transform:none !important;}
+#eumDoc .eum_d1{transition-delay:.08s !important;}
+#eumDoc .eum_d2{transition-delay:.16s !important;}
+#eumDoc .eum_d3{transition-delay:.24s !important;}
+#eumDoc .eum_d4{transition-delay:.32s !important;}
+#eumDoc .eum_d5{transition-delay:.40s !important;}
+
+#eumDoc .eum_photo{position:relative !important;align-self:end !important;}
+#eumDoc .eum_frame{position:relative !important;aspect-ratio:4/5 !important;background:#F6F9F9 !important;border-radius:var(--eum-r) var(--eum-r) 0 0 !important;overflow:hidden !important;}
+#eumDoc .eum_frame img{width:100% !important;height:100% !important;object-fit:cover !important;object-position:top center !important;transition:transform .8s var(--eum-ease) !important;}
+#eumDoc .eum_photo:hover .eum_frame img{transform:scale(1.035) !important;}
+#eumDoc .eum_rule{display:block !important;height:3px !important;background:var(--eum-teal) !important;}
+#eumDoc .eum_cap{display:flex !important;justify-content:space-between !important;align-items:baseline !important;padding-top:14px !important;font-size:12px !important;font-weight:600 !important;color:var(--eum-gray) !important;letter-spacing:.02em !important;}
+#eumDoc .eum_cap b{font-size:12px !important;font-weight:700 !important;color:var(--eum-mint) !important;letter-spacing:.14em !important;}
+
+#eumDoc .eum_text{padding-bottom:8px !important;}
+#eumDoc .eum_eyebrow{display:flex !important;align-items:center !important;gap:12px !important;font-size:12px !important;font-weight:700 !important;letter-spacing:.18em !important;color:var(--eum-mint) !important;}
+#eumDoc .eum_eyebrow .eum_num{color:var(--eum-gray) !important;letter-spacing:.1em !important;}
+#eumDoc .eum_eyebrow .eum_bar{display:block !important;width:26px !important;height:1px !important;background:var(--eum-mint) !important;flex:none !important;}
+#eumDoc .eum_name{display:block !important;margin:24px 0 0 !important;font-size:clamp(34px,4.6vw,54px) !important;font-weight:800 !important;letter-spacing:-.055em !important;line-height:1.26 !important;color:var(--eum-teal) !important;}
+#eumDoc .eum_name small{display:block !important;font-size:15px !important;font-weight:700 !important;letter-spacing:-.02em !important;color:var(--eum-mint-d) !important;margin-top:14px !important;}
+#eumDoc .eum_quote{
+  display:block !important;margin:36px 0 42px !important;padding:4px 0 4px 22px !important;
+  border-left:2px solid var(--eum-mint) !important;
+  font-family:'Noto Serif KR',serif !important;font-size:clamp(16px,1.8vw,20px) !important;font-weight:500 !important;
+  line-height:1.92 !important;color:var(--eum-teal) !important;letter-spacing:-.03em !important;
+}
+#eumDoc .eum_tags{display:flex !important;flex-wrap:wrap !important;gap:8px !important;margin-bottom:42px !important;}
+#eumDoc .eum_tag{
+  display:inline-flex !important;align-items:center !important;height:38px !important;padding:0 16px !important;border-radius:999px !important;
+  border:1px solid rgba(54,184,165,.36) !important;background:var(--eum-mint-l) !important;
+  font-size:13px !important;font-weight:700 !important;color:var(--eum-teal) !important;letter-spacing:-.03em !important;
+}
+#eumDoc .eum_tag.eum_solid{background:var(--eum-teal) !important;border-color:var(--eum-teal) !important;color:#fff !important;}
+#eumDoc .eum_career{border-top:1px solid var(--eum-line) !important;margin-bottom:44px !important;}
+#eumDoc .eum_career li{
+  display:flex !important;align-items:baseline !important;gap:16px !important;
+  padding:17px 2px !important;border-bottom:1px solid var(--eum-line2) !important;
+  font-size:15px !important;color:var(--eum-body) !important;font-weight:500 !important;letter-spacing:-.03em !important;
+}
+#eumDoc .eum_career li i{font-style:normal !important;font-size:10.5px !important;font-weight:700 !important;color:var(--eum-mint) !important;letter-spacing:.08em !important;flex:none !important;width:20px !important;}
+#eumDoc .eum_btn{
+  display:inline-flex !important;align-items:center !important;gap:10px !important;
+  height:52px !important;padding:0 28px !important;border-radius:999px !important;
+  background:var(--eum-teal) !important;color:#fff !important;font-size:14.5px !important;font-weight:700 !important;
+  transition:background .3s var(--eum-ease),transform .3s var(--eum-ease) !important;
+}
+#eumDoc .eum_btn:hover{background:var(--eum-teal2) !important;transform:translateY(-2px) !important;}
+#eumDoc .eum_btn svg{flex:none !important;transition:transform .3s var(--eum-ease) !important;}
+#eumDoc .eum_btn:hover svg{transform:translateX(4px) !important;}
+
+@media (max-width:1180px){#eumDoc{--eum-pad:26px;} #eumDoc .eum_grid{gap:52px !important;}}
+@media (max-width:1024px){
+  #eumDoc .eum_grid{grid-template-columns:1fr !important;gap:44px !important;}
+  #eumDoc::before{display:none !important;}
+  #eumDoc .eum_frame{aspect-ratio:3/3.2 !important;}
+}
+@media (max-width:860px){
+  #eumDoc{--eum-pad:20px;padding:100px 0 108px !important;}
+  #eumDoc .eum_quote{margin:24px 0 26px !important;}
+  #eumDoc .eum_career{margin-bottom:28px !important;}
+  #eumDoc .eum_career li{font-size:14px !important;padding:12px 2px !important;}
+  #eumDoc .eum_btn{width:100% !important;justify-content:center !important;}
+}
+@media (max-width:420px){#eumDoc .eum_name{font-size:31px !important;}}
+</style>
+
+<div id="eumDoc">
+  <div class="eum_wrap">
+    <div class="eum_grid">
+
+      <figure class="eum_photo eum_rv">
+        <div class="eum_frame">
+          <img src="https://cdn.imweb.me/upload/S20260108b9005a7eb2710/8b51b10af239b.png" alt="이움내과 조현경 원장" loading="lazy">
+        </div>
+        <span class="eum_rule"></span>
+        <figcaption class="eum_cap">
+          <span>이움내과의원 · 조현경 원장</span>
+          <b>YIUM</b>
+        </figcaption>
+      </figure>
+
+      <div class="eum_text">
+        <span class="eum_eyebrow eum_rv"><span class="eum_num">01</span><span class="eum_bar"></span>OUR DOCTOR</span>
+
+        <h2 class="eum_name eum_rv eum_d1">
+          조현경 원장
+          <small>내과 전문의 · 신장내과 분과전문의</small>
+        </h2>
+
+        <blockquote class="eum_quote eum_rv eum_d2">
+          “환자분의 일상이 편안해지는 것이<br>저희 진료의 목표입니다.”
+        </blockquote>
+
+        <div class="eum_tags eum_rv eum_d3">
+          <span class="eum_tag">내과전문의</span>
+          <span class="eum_tag">투석전문의</span>
+          <span class="eum_tag">신장내과 분과전문의</span>
+          <span class="eum_tag eum_solid">대한내과학회 평생교육 우수 내과전문의</span>
+        </div>
+
+        <ul class="eum_career eum_rv eum_d4">
+          <li><i>01</i>경북대학교 의과대학 졸업</li>
+          <li><i>02</i>아주대학교 내과 레지던트</li>
+          <li><i>03</i>아주대학교병원 베스트 레지던트 선정</li>
+          <li><i>04</i>아주대학교 병원 임상강사</li>
+          <li><i>05</i>가톨릭 관동의대 신장내과 교수 역임</li>
+          <li><i>06</i>대한신장학회 투석위원회 위원 역임</li>
+          <li><i>07</i>대한신장학회 평의원</li>
+        </ul>
+
+        <a class="eum_btn eum_rv eum_d5" href="https://yium.kr/doctors">의료진 자세히 보기
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script>
+(function () {
+  var root = document.getElementById('eumDoc');
+  if (!root || root.dataset.eumReady) return;
+  root.dataset.eumReady = '1';
+
+  var els = root.querySelectorAll('.eum_rv');
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || !window.IntersectionObserver) {
+    Array.prototype.forEach.call(els, function (el) { el.classList.add('eum_in'); });
+    return;
+  }
+  var obs = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) { e.target.classList.add('eum_in'); obs.unobserve(e.target); }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  Array.prototype.forEach.call(els, function (el) { obs.observe(el); });
+})();
+</script>

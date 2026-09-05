@@ -1,0 +1,234 @@
+<!-- ══════════════════════════════════════════════════════════════
+     [이움내과] 02. 메인 히어로 슬라이더  (아임웹 코드 위젯용)
+     ─────────────────────────────────────────────────────────────
+     ※ 아임웹에서 이 위젯이 들어가는 섹션을
+        '전체 너비 / 좌우 여백 0 / 상하 여백 0' 으로 두세요.
+     ══════════════════════════════════════════════════════════════ -->
+<style>
+@import url('https://cdn.jsdelivr.net/gh/sun-typeface/suit@2/fonts/variable/woff2/SUIT-Variable.css');
+
+#eumHero{
+  --eum-teal:#0C2D37; --eum-mint:#36B8A5; --eum-mint-d:#2A9B8B;
+  --eum-ease:cubic-bezier(.16,1,.3,1);
+  line-height:1.85 !important;
+  --eum-maxw:1240px; --eum-pad:32px;
+
+  display:block !important; position:relative !important;
+  float:none !important; clear:both !important;
+  width:100% !important; max-width:100% !important;
+  margin:0 !important; padding:0 !important;
+  background:var(--eum-teal) !important;
+  overflow:hidden !important; box-sizing:border-box !important; z-index:1 !important;
+}
+#eumHero,#eumHero *,#eumHero *::before,#eumHero *::after{
+  box-sizing:border-box !important;
+  font-family:'SUIT Variable','SUIT',-apple-system,BlinkMacSystemFont,'Pretendard','Apple SD Gothic Neo',sans-serif !important;
+  word-break:keep-all !important;
+}
+#eumHero p,#eumHero h1,#eumHero h2,#eumHero span,#eumHero div,#eumHero a,#eumHero article{margin:0 !important;padding:0 !important;}
+#eumHero a{text-decoration:none !important;color:inherit !important;}
+#eumHero button{font:inherit !important;color:inherit !important;background:none !important;border:0 !important;margin:0 !important;padding:0 !important;cursor:pointer !important;}
+#eumHero svg{display:inline-block !important;}
+
+#eumHero .eum_wrap{max-width:var(--eum-maxw) !important;margin:0 auto !important;padding:0 var(--eum-pad) !important;width:100% !important;}
+
+#eumHero .eum_stage{position:relative !important;height:100vh !important;height:100svh !important;min-height:640px !important;max-height:940px !important;}
+#eumHero .eum_slide{position:absolute !important;inset:0 !important;opacity:0 !important;visibility:hidden !important;transition:opacity .9s var(--eum-ease),visibility .9s !important;}
+#eumHero .eum_slide.eum_on{opacity:1 !important;visibility:visible !important;}
+#eumHero .eum_bg{
+  position:absolute !important;inset:0 !important;
+  background-size:cover !important;background-position:center !important;background-repeat:no-repeat !important;
+  transform:scale(1.08) !important;transition:transform 8s var(--eum-ease) !important;
+}
+#eumHero .eum_slide.eum_on .eum_bg{transform:scale(1) !important;}
+#eumHero .eum_scrim{
+  position:absolute !important;inset:0 !important;
+  background:
+    linear-gradient(100deg,rgba(9,34,42,.94) 0%,rgba(9,34,42,.78) 34%,rgba(9,34,42,.30) 66%,rgba(9,34,42,.12) 100%),
+    linear-gradient(to top,rgba(9,34,42,.72) 0%,rgba(9,34,42,0) 46%) !important;
+}
+#eumHero .eum_body{position:absolute !important;inset:0 !important;display:flex !important;align-items:center !important;padding-bottom:118px !important;}
+#eumHero .eum_copy{max-width:690px !important;}
+#eumHero .eum_badge{
+  display:inline-flex !important;align-items:center !important;gap:9px !important;
+  height:34px !important;padding:0 16px 0 13px !important;border-radius:999px !important;
+  background:rgba(255,255,255,.10) !important;border:1px solid rgba(255,255,255,.22) !important;
+  -webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);
+  font-size:11px !important;font-weight:700 !important;letter-spacing:.14em !important;color:#fff !important;
+  opacity:0 !important;transform:translateY(18px) !important;
+  transition:opacity .8s var(--eum-ease) .15s,transform .8s var(--eum-ease) .15s !important;
+}
+#eumHero .eum_badge .eum_dot{width:6px !important;height:6px !important;border-radius:50% !important;background:var(--eum-mint) !important;box-shadow:0 0 10px var(--eum-mint) !important;flex:none !important;}
+#eumHero .eum_h1{
+  display:block !important;margin:26px 0 20px !important;
+  font-size:clamp(33px,5.2vw,64px) !important;font-weight:800 !important;line-height:1.44 !important;
+  letter-spacing:-.05em !important;color:#fff !important;text-shadow:0 6px 30px rgba(0,0,0,.26) !important;
+  opacity:0 !important;transform:translateY(24px) !important;
+  transition:opacity .85s var(--eum-ease) .25s,transform .85s var(--eum-ease) .25s !important;
+}
+#eumHero .eum_h1 em{font-style:normal !important;color:var(--eum-mint) !important;}
+#eumHero .eum_sub{
+  display:block !important;font-size:clamp(15px,1.85vw,20px) !important;line-height:1.8 !important;font-weight:400 !important;
+  color:rgba(255,255,255,.86) !important;letter-spacing:-.025em !important;
+  opacity:0 !important;transform:translateY(20px) !important;
+  transition:opacity .85s var(--eum-ease) .35s,transform .85s var(--eum-ease) .35s !important;
+}
+#eumHero .eum_ctaBox{margin-top:34px !important;opacity:0 !important;transform:translateY(18px) !important;transition:opacity .85s var(--eum-ease) .45s,transform .85s var(--eum-ease) .45s !important;}
+#eumHero .eum_cta{
+  display:inline-flex !important;align-items:center !important;gap:10px !important;
+  height:52px !important;padding:0 28px !important;border-radius:999px !important;
+  background:var(--eum-mint) !important;color:#fff !important;
+  font-size:14.5px !important;font-weight:700 !important;
+  box-shadow:0 10px 26px -10px rgba(54,184,165,.75) !important;
+  transition:background .3s var(--eum-ease),transform .3s var(--eum-ease) !important;
+}
+#eumHero .eum_cta:hover{background:var(--eum-mint-d) !important;transform:translateY(-2px) !important;}
+#eumHero .eum_cta svg{flex:none !important;transition:transform .3s var(--eum-ease) !important;}
+#eumHero .eum_cta:hover svg{transform:translateX(4px) !important;}
+#eumHero .eum_slide.eum_on .eum_badge,
+#eumHero .eum_slide.eum_on .eum_h1,
+#eumHero .eum_slide.eum_on .eum_sub,
+#eumHero .eum_slide.eum_on .eum_ctaBox{opacity:1 !important;transform:none !important;}
+
+#eumHero .eum_tabs{
+  position:absolute !important;left:0 !important;right:0 !important;bottom:0 !important;z-index:5 !important;
+  border-top:1px solid rgba(255,255,255,.16) !important;
+  -webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);
+  background:linear-gradient(to top,rgba(9,34,42,.55),rgba(9,34,42,0)) !important;
+}
+#eumHero .eum_tabs .eum_wrap{display:grid !important;grid-template-columns:repeat(3,1fr) !important;}
+#eumHero .eum_tab{
+  position:relative !important;text-align:left !important;padding:24px 24px 26px 0 !important;
+  display:flex !important;align-items:flex-start !important;gap:12px !important;
+  color:rgba(255,255,255,.5) !important;transition:color .35s var(--eum-ease) !important;
+}
+#eumHero .eum_tab:hover{color:rgba(255,255,255,.88) !important;}
+#eumHero .eum_tab.eum_on{color:#fff !important;}
+#eumHero .eum_tab i{font-style:normal !important;font-size:11px !important;font-weight:700 !important;letter-spacing:.08em !important;padding-top:4px !important;opacity:.8 !important;}
+#eumHero .eum_tab b{font-size:15px !important;font-weight:700 !important;letter-spacing:-.03em !important;line-height:1.6 !important;}
+#eumHero .eum_tab .eum_sm{display:none !important;}
+#eumHero .eum_tab::before{content:'' !important;position:absolute !important;left:0 !important;top:-1px !important;height:2px !important;width:0 !important;background:var(--eum-mint) !important;}
+#eumHero .eum_tab.eum_on::before{width:100% !important;transition:width 7s linear !important;}
+
+
+@media (max-width:1180px){#eumHero{--eum-pad:26px;}}
+@media (max-width:860px){
+  #eumHero{--eum-pad:20px;}
+  #eumHero .eum_stage{height:88vh !important;height:88svh !important;min-height:560px !important;}
+  #eumHero .eum_body{padding-bottom:96px !important;align-items:flex-end !important;}
+  #eumHero .eum_body .eum_wrap{padding-bottom:26px !important;}
+  #eumHero .eum_h1{margin:18px 0 14px !important;}
+  #eumHero .eum_ctaBox{margin-top:32px !important;}
+  #eumHero .eum_cta{width:100% !important;justify-content:center !important;}
+  #eumHero .eum_tabs .eum_wrap{display:flex !important;padding:0 !important;}
+  #eumHero .eum_tab{padding:0 !important;flex:1 !important;justify-content:center !important;align-items:center !important;height:54px !important;gap:7px !important;}
+  #eumHero .eum_tab b{display:none !important;}
+  #eumHero .eum_tab .eum_sm{display:inline !important;font-size:12.5px !important;font-weight:700 !important;letter-spacing:-.04em !important;}
+  #eumHero .eum_tab i{padding:0 !important;font-size:11px !important;}
+  #eumHero .eum_tab::before{display:none !important;}
+  #eumHero .eum_tab.eum_on{background:rgba(54,184,165,.22) !important;}
+}
+@media (max-width:420px){
+  #eumHero .eum_h1{font-size:29px !important;}
+  #eumHero .eum_sub{font-size:14.5px !important;}
+}
+</style>
+
+<div id="eumHero">
+  <div class="eum_stage">
+
+    <article class="eum_slide eum_on">
+      <div class="eum_bg" style="background-image:url('https://cdn.imweb.me/upload/S20260108b9005a7eb2710/40b5166812a8f.png')" role="img" aria-label="이움내과 만성질환 진료"></div>
+      <div class="eum_scrim"></div>
+      <div class="eum_body"><div class="eum_wrap"><div class="eum_copy">
+        <span class="eum_badge"><span class="eum_dot"></span>CHRONIC DISEASE CLINIC</span>
+        <h2 class="eum_h1">만성질환,<br><em>제대로</em> 관리받아야 합니다</h2>
+        <span class="eum_sub">당뇨·고혈압·고지혈증 — 이움내과는<br>체계적인 관리 시스템으로 합병증을 예방합니다</span>
+        <div class="eum_ctaBox">
+          <a class="eum_cta" href="https://yium.kr/chronic-care">만성질환클리닉 알아보기
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div></div></div>
+    </article>
+
+    <article class="eum_slide">
+      <div class="eum_bg" style="background-image:url('https://cdn.imweb.me/upload/S20260108b9005a7eb2710/43bad5b9e974a.png')" role="img" aria-label="이움내과 인공신장센터"></div>
+      <div class="eum_scrim"></div>
+      <div class="eum_body"><div class="eum_wrap"><div class="eum_copy">
+        <span class="eum_badge"><span class="eum_dot"></span>ARTIFICIAL KIDNEY CENTER</span>
+        <h2 class="eum_h1">직장인도 투석받을 수<br>있어야 합니다</h2>
+        <span class="eum_sub">월·수·금 저녁 10시 30분까지 야간투석 운영 —<br>일과 치료를 함께할 수 있도록 이움내과가 함께합니다</span>
+        <div class="eum_ctaBox">
+          <a class="eum_cta" href="https://yium.kr/dialysis-center">인공신장센터 알아보기
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div></div></div>
+    </article>
+
+    <article class="eum_slide">
+      <div class="eum_bg" style="background-image:url('https://cdn.imweb.me/upload/S20260108b9005a7eb2710/596c085893c72.png')" role="img" aria-label="이움내과 진료 환경"></div>
+      <div class="eum_scrim"></div>
+      <div class="eum_body"><div class="eum_wrap"><div class="eum_copy">
+        <span class="eum_badge"><span class="eum_dot"></span>WARM &amp; CARING CLINIC</span>
+        <h2 class="eum_h1">처음 오셔도<br><em>편안한</em> 병원</h2>
+        <span class="eum_sub">설명 없이 끝나는 진료는 없습니다 —<br>궁금한 것을 모두 물어볼 수 있는 이움내과입니다</span>
+        <div class="eum_ctaBox">
+          <a class="eum_cta" href="https://yium.kr/about">이움내과 소개
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div></div></div>
+    </article>
+
+
+    <div class="eum_tabs"><div class="eum_wrap">
+      <button class="eum_tab eum_on" type="button" data-go="0"><i>01</i><b>만성질환클리닉</b><span class="eum_sm">만성질환</span></button>
+      <button class="eum_tab" type="button" data-go="1"><i>02</i><b>인공신장센터 · 야간투석</b><span class="eum_sm">야간투석</span></button>
+      <button class="eum_tab" type="button" data-go="2"><i>03</i><b>이움내과 소개</b><span class="eum_sm">병원소개</span></button>
+    </div></div>
+
+  </div>
+</div>
+
+<script>
+(function () {
+  var root = document.getElementById('eumHero');
+  if (!root || root.dataset.eumReady) return;
+  root.dataset.eumReady = '1';
+
+  var MS = 7000;
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var slides = root.querySelectorAll('.eum_slide');
+  var tabs = root.querySelectorAll('.eum_tab');
+  var idx = 0, timer = null;
+
+  function go(i) {
+    idx = (i + slides.length) % slides.length;
+    for (var n = 0; n < slides.length; n++) {
+      slides[n].classList[n === idx ? 'add' : 'remove']('eum_on');
+    }
+    for (var m = 0; m < tabs.length; m++) {
+      tabs[m].classList.remove('eum_on');
+      if (m === idx) { void tabs[m].offsetWidth; tabs[m].classList.add('eum_on'); }
+    }
+    if (timer) clearTimeout(timer);
+    if (!reduce) timer = setTimeout(function () { go(idx + 1); }, MS);
+  }
+
+  Array.prototype.forEach.call(tabs, function (t) {
+    t.addEventListener('click', function () { go(parseInt(t.getAttribute('data-go'), 10)); });
+  });
+
+  var stage = root.querySelector('.eum_stage');
+  var tx = 0;
+  stage.addEventListener('touchstart', function (e) { tx = e.changedTouches[0].screenX; }, { passive: true });
+  stage.addEventListener('touchend', function (e) {
+    var d = tx - e.changedTouches[0].screenX;
+    if (Math.abs(d) > 50) go(idx + (d > 0 ? 1 : -1));
+  }, { passive: true });
+
+  go(0);
+})();
+</script>
