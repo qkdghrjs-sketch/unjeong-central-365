@@ -496,6 +496,7 @@ body{margin:0;padding:0;background:#fff;overflow-x:hidden;}
 
 <style>
 @import url('https://cdn.jsdelivr.net/gh/sun-typeface/suit@2/fonts/variable/woff2/SUIT-Variable.css');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;500;600&display=swap');
 
 /* ══════════════════════════════════════════════════════════════
    이움내과 세부페이지 공통 스타일  (모든 세부페이지가 동일)
@@ -989,6 +990,46 @@ body{margin:0;padding:0;background:#fff;overflow-x:hidden;}
 #eumSub .eum_fnone{display:none !important;padding:44px 0 !important;text-align:center !important;font-size:15px !important;color:var(--eum-gray) !important;}
 #eumSub .eum_fnone.eum_on{display:block !important;}
 
+
+/* ── 의료진 : 자격 · 강점 · 경력 ── */
+#eumSub .eum_himg.eum_fit img{object-fit:contain !important;background:var(--eum-teal2) !important;}
+#eumSub .eum_creds{display:grid !important;grid-template-columns:repeat(auto-fit,minmax(232px,1fr)) !important;gap:14px !important;}
+#eumSub .eum_cred{display:flex !important;align-items:center !important;gap:14px !important;padding:24px 22px !important;background:#fff !important;border:1px solid var(--eum-line) !important;border-radius:var(--eum-r) !important;}
+#eumSub .eum_cred .eum_ci{display:flex !important;width:38px !important;height:38px !important;border-radius:10px !important;background:var(--eum-mint-l) !important;align-items:center !important;justify-content:center !important;flex:none !important;}
+#eumSub .eum_cred .eum_ci svg{width:18px !important;height:18px !important;color:var(--eum-mint-d) !important;}
+#eumSub .eum_cred em{display:block !important;font-style:normal !important;font-size:10px !important;font-weight:700 !important;letter-spacing:.14em !important;color:var(--eum-mint) !important;margin-bottom:6px !important;}
+#eumSub .eum_cred .eum_cv{display:block !important;font-size:14.5px !important;font-weight:700 !important;color:var(--eum-teal) !important;letter-spacing:-.035em !important;line-height:1.5 !important;}
+
+#eumSub .eum_qgrid{display:grid !important;grid-template-columns:minmax(0,1fr) minmax(0,1fr) !important;gap:56px !important;align-items:center !important;}
+#eumSub .eum_dqline{
+  display:block !important;font-family:'Noto Serif KR',serif !important;
+  font-size:clamp(20px,2.6vw,29px) !important;font-weight:600 !important;
+  color:var(--eum-teal) !important;line-height:1.72 !important;letter-spacing:-.04em !important;margin-top:22px !important;
+}
+#eumSub .eum_dqattr{display:block !important;margin-top:28px !important;font-size:14.5px !important;color:var(--eum-gray) !important;letter-spacing:-.035em !important;}
+#eumSub .eum_dqattr strong{display:block !important;font-size:18px !important;color:var(--eum-teal) !important;font-weight:800 !important;margin-bottom:6px !important;letter-spacing:-.04em !important;}
+#eumSub .eum_strs{display:flex !important;flex-direction:column !important;gap:12px !important;}
+#eumSub .eum_str{display:flex !important;gap:14px !important;padding:24px 22px !important;background:var(--eum-paper2) !important;border-radius:var(--eum-r) !important;}
+#eumSub .eum_str .eum_si{display:flex !important;width:36px !important;height:36px !important;border-radius:10px !important;background:#fff !important;border:1px solid var(--eum-line) !important;align-items:center !important;justify-content:center !important;flex:none !important;}
+#eumSub .eum_str .eum_si svg{width:17px !important;height:17px !important;color:var(--eum-mint-d) !important;}
+#eumSub .eum_str b{display:block !important;font-size:15.5px !important;font-weight:800 !important;color:var(--eum-teal) !important;letter-spacing:-.04em !important;margin-bottom:7px !important;line-height:1.5 !important;}
+#eumSub .eum_str .eum_sv{display:block !important;font-size:14px !important;color:var(--eum-body) !important;line-height:1.8 !important;letter-spacing:-.035em !important;}
+
+#eumSub .eum_career{display:grid !important;grid-template-columns:1fr 1fr !important;gap:52px !important;}
+#eumSub .eum_ccat{display:flex !important;align-items:center !important;gap:10px !important;margin-bottom:18px !important;}
+#eumSub .eum_ccat .eum_cd{display:block !important;width:7px !important;height:7px !important;border-radius:50% !important;background:var(--eum-teal) !important;flex:none !important;}
+#eumSub .eum_ccat b{font-size:14px !important;font-weight:800 !important;color:var(--eum-teal) !important;letter-spacing:-.03em !important;}
+#eumSub .eum_ccat.eum_m .eum_cd{background:var(--eum-mint) !important;}
+#eumSub .eum_ccat.eum_m b{color:var(--eum-mint-d) !important;}
+#eumSub .eum_tl{border-left:1.5px solid var(--eum-line) !important;padding-left:24px !important;}
+#eumSub .eum_tli{position:relative !important;padding:11px 0 !important;font-size:15px !important;color:var(--eum-body) !important;line-height:1.8 !important;letter-spacing:-.035em !important;}
+#eumSub .eum_tli::before{content:'' !important;position:absolute !important;left:-30px !important;top:19px !important;width:9px !important;height:9px !important;border-radius:50% !important;background:#fff !important;border:2px solid var(--eum-teal) !important;}
+#eumSub .eum_tl.eum_m{border-left-color:rgba(54,184,165,.4) !important;}
+#eumSub .eum_tl.eum_m .eum_tli::before{border-color:var(--eum-mint) !important;}
+#eumSub .eum_tagwrap{margin-top:36px !important;}
+#eumSub .eum_tags{display:flex !important;flex-wrap:wrap !important;gap:8px !important;}
+#eumSub .eum_tag2{display:inline-flex !important;align-items:center !important;height:34px !important;padding:0 14px !important;border-radius:999px !important;background:var(--eum-mint-l) !important;color:var(--eum-teal) !important;font-size:13px !important;font-weight:700 !important;letter-spacing:-.035em !important;}
+
 /* ── 반응형 ── */
 @media (max-width:1180px){
   #eumSub{--eum-pad:26px;}
@@ -1037,6 +1078,10 @@ body{margin:0;padding:0;background:#fff;overflow-x:hidden;}
   #eumSub .eum_frow{gap:12px !important;padding:14px 2px !important;}
   #eumSub .eum_fname{font-size:14.5px !important;}
   #eumSub .eum_fprice{font-size:14.5px !important;}
+
+  #eumSub .eum_qgrid{grid-template-columns:1fr !important;gap:32px !important;}
+  #eumSub .eum_career{grid-template-columns:1fr !important;gap:38px !important;}
+  #eumSub .eum_creds{grid-template-columns:1fr !important;}
 }
 
 @media (max-width:1024px){

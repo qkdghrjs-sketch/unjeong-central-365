@@ -1,0 +1,173 @@
+<div id="eumSub">
+
+  <!-- ═══════════ 서브 히어로 ═══════════ -->
+  <section class="eum_hero eum_img">
+    <div class="eum_wrap">
+      <div>
+        <span class="eum_eyebrow eum_rv"><span class="eum_bar"></span>ABOUT YIUM CLINIC</span>
+        <h1 class="eum_h1 eum_rv eum_d1">당신과 나, 우리 모두를 잇는<br><em>든든한 평생 주치의</em></h1>
+        <p class="eum_hsub eum_rv eum_d2">이움내과는 대한내과학회가 인증한 우수전문의가 감기나 위장병 같은 급성 질환부터 고혈압, 당뇨, 고지혈증 등 평생 관리가 필요한 만성질환까지 체계적인 진료를 제공합니다.<br>단순히 질병을 치료하는 것을 넘어, 환자분의 일상과 건강을 든든하게 &lsquo;이어주는&rsquo; 주치의가 되겠습니다.</p>
+      </div>
+      <div class="eum_himg eum_rv eum_d2">
+        <img src="https://cdn.imweb.me/upload/S20260108b9005a7eb2710/40b5166812a8f.png" alt="이움내과 진료 철학" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ 이움의 뜻 ═══════════ -->
+  <section class="eum_sec eum_alt">
+    <div class="eum_wrap">
+      <div class="eum_quote eum_rv">
+        <span class="eum_qtext">&lsquo;<strong>이움(YIUM)</strong>&rsquo;의 뜻</span>
+        <span class="eum_qsub">당신(<strong>Y</strong>OU)과 나(<strong>I</strong>), 그리고 우리 모두(<strong>U</strong>ri<strong>M</strong>odu)의 첫 번째 영문 이니셜들을 따서 만든 이름입니다.<br>지역 주민과 하나 되자는 이움내과의 철학이 담겨 있습니다.</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ 핵심 진료 과목 ═══════════ -->
+  <section class="eum_sec">
+    <div class="eum_wrap">
+      <div class="eum_shead eum_rv">
+        <span class="eum_eyebrow"><span class="eum_bar"></span>OUR SPECIALTIES</span>
+        <h2 class="eum_h2">이움내과는 어떤 진료를 잘하나요?</h2>
+      </div>
+      <div class="eum_feats">
+        <div class="eum_feat eum_rv">
+          <span class="eum_fno" aria-hidden="true">01</span>
+          <div>
+            <h3>급성 질환 치료<span style="display:block;margin-top:6px;font-size:12px;font-weight:700;letter-spacing:.06em;color:#2A9B8B">01. 내과학회 우수전문의 진료</span></h3>
+            <p>감기, 독감, 급성 장염, 위장병 등 일상에서 겪는 갑작스러운 불편함을 빠르고 정확하게 치료합니다.</p>
+          </div>
+        </div>
+        <div class="eum_feat eum_rv">
+          <span class="eum_fno" aria-hidden="true">02</span>
+          <div>
+            <h3>만성질환 관리<span style="display:block;margin-top:6px;font-size:12px;font-weight:700;letter-spacing:.06em;color:#2A9B8B">02. 일차의료 만성질환관리 사업</span></h3>
+            <p>건강보험심사평가원(HIRA) 고혈압·당뇨병 관리 우수 기관입니다. 맞춤형 관리계획 수립부터 정기 교육, 검사까지 체계적인 서비스를 제공합니다.</p>
+          </div>
+        </div>
+        <div class="eum_feat eum_rv">
+          <span class="eum_fno" aria-hidden="true">03</span>
+          <div>
+            <h3>비만 치료<span style="display:block;margin-top:6px;font-size:12px;font-weight:700;letter-spacing:.06em;color:#2A9B8B">03. 개인 맞춤형 체중 관리</span></h3>
+            <p>진료 상담 후 식습관 및 운동 등 생활습관 교정과 GLP-1 계열 주사 치료(전문의약품)를 병행합니다. 의사 처방에 따라 안전하게 진행됩니다.</p>
+          </div>
+        </div>
+        <div class="eum_feat eum_rv">
+          <span class="eum_fno" aria-hidden="true">04</span>
+          <div>
+            <h3>혈액투석 센터<span style="display:block;margin-top:6px;font-size:12px;font-weight:700;letter-spacing:.06em;color:#2A9B8B">04. 주간 및 직장인 야간 투석</span></h3>
+            <p>독일제 최신 장비 F5008S 30대를 갖춘 쾌적한 투석실을 운영하며, 혈액투석여과치료(HDF)가 가능합니다. 바쁜 분들을 위한 야간 투석도 운영합니다.</p>
+          </div>
+        </div>
+        <div class="eum_feat eum_rv">
+          <span class="eum_fno" aria-hidden="true">05</span>
+          <div>
+            <h3>일반건강검진<span style="display:block;margin-top:6px;font-size:12px;font-weight:700;letter-spacing:.06em;color:#2A9B8B">05. 국가 일반건강검진 지정 기관</span></h3>
+            <p>질병의 조기 발견과 예방을 위해, 국가 건강검진을 포함한 지역 주민의 정기적인 건강 관리를 세밀하게 돕습니다.</p>
+          </div>
+        </div>
+        <div class="eum_feat eum_rv">
+          <span class="eum_fno" aria-hidden="true">06</span>
+          <div>
+            <h3>예방접종<span style="display:block;margin-top:6px;font-size:12px;font-weight:700;letter-spacing:.06em;color:#2A9B8B">06. 국가필수예방접종 지정 기관</span></h3>
+            <p>영유아 국가필수예방접종부터 독감, 대상포진, 폐렴구균 등 성인 예방접종까지 다양하게 시행합니다.</p>
+          </div>
+        </div>
+        <div class="eum_feat eum_rv">
+          <span class="eum_fno" aria-hidden="true">07</span>
+          <div>
+            <h3>영양수액<span style="display:block;margin-top:6px;font-size:12px;font-weight:700;letter-spacing:.06em;color:#2A9B8B">07. 맞춤형 수액·주사 클리닉</span></h3>
+            <p>피로 회복, 간 기능 개선, 영양 보충 등 목적에 맞춰 내과 전문의가 처방하는 다양한 수액·주사를 받으실 수 있습니다.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ 자주 묻는 질문 ═══════════ -->
+  <section class="eum_sec eum_alt">
+    <div class="eum_narrow">
+      <div class="eum_shead eum_rv">
+        <span class="eum_eyebrow"><span class="eum_bar"></span>FAQ</span>
+        <h2 class="eum_h2">자주 묻는 질문</h2>
+      </div>
+      <div class="eum_group eum_on eum_rv eum_d1">
+        <div class="eum_qa">
+          <div class="eum_item">
+            <button class="eum_qbtn" type="button" aria-expanded="false"><span class="eum_qm">Q</span><span class="eum_qt">이움내과의원은 어디에 있나요?</span><span class="eum_sign"></span></button>
+            <div class="eum_abox"><div class="eum_ain"><p>경기도 고양시 덕양구 백양로 51, 네이버타운 3층(301호·305호)에 있으며, 지하철 3호선 화정역 1번 출구에서 백양로 방향으로 도보 약 5분 거리입니다. 근처에 화정동성당과 순복음원당교회가 있어 찾기 쉽고, 화정동·행신동·능곡동·성사동·원당에서도 접근이 편리합니다.</p></div></div>
+          </div>
+          <div class="eum_item">
+            <button class="eum_qbtn" type="button" aria-expanded="false"><span class="eum_qm">Q</span><span class="eum_qt">이움내과 전화번호는 무엇인가요?</span><span class="eum_sign"></span></button>
+            <div class="eum_abox"><div class="eum_ain"><p>대표전화는 031-979-0875이며, 혈액투석과 야간투석 관련 문의는 인공신장실 직통 031-979-0873으로 연결하시면 더 빠르게 안내받으실 수 있습니다.</p></div></div>
+          </div>
+          <div class="eum_item">
+            <button class="eum_qbtn" type="button" aria-expanded="false"><span class="eum_qm">Q</span><span class="eum_qt">이움내과 예약은 어떻게 하나요?</span><span class="eum_sign"></span></button>
+            <div class="eum_abox"><div class="eum_ain"><p>네이버 예약과 전화(031-979-0875)로 진료를 예약할 수 있으며, 예약 없이 방문하셔도 진료받으실 수 있습니다. 네이버 예약 링크는 홈페이지 상단에서 바로 연결됩니다. 혈액투석 신규 상담과 타 병원 전원 상담은 검사 기록 검토가 필요하므로 인공신장실 직통(031-979-0873)이나 대표전화로 사전 예약을 권합니다.</p></div></div>
+          </div>
+          <div class="eum_item">
+            <button class="eum_qbtn" type="button" aria-expanded="false"><span class="eum_qm">Q</span><span class="eum_qt">이움내과 진료시간은 어떻게 되나요?</span><span class="eum_sign"></span></button>
+            <div class="eum_abox"><div class="eum_ain">
+              <p>외래 진료시간은 다음과 같습니다.</p>
+              <div class="eum_atable">
+                <table>
+                  <tbody>
+                    <tr><th>평일</th><td>09:00 ~ 18:00</td></tr>
+                    <tr><th>목요일·토요일</th><td>09:00 ~ 12:30</td></tr>
+                    <tr><th>점심시간</th><td>12:30 ~ 14:00</td></tr>
+                    <tr><th>일요일·공휴일</th><td>휴진</td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <p>혈액투석은 월요일부터 토요일까지 운영되며, 야간투석은 월·수·금요일 저녁 6시부터 밤 10시 30분까지입니다.</p>
+            </div></div>
+          </div>
+          <div class="eum_item">
+            <button class="eum_qbtn" type="button" aria-expanded="false"><span class="eum_qm">Q</span><span class="eum_qt">이움내과 주차는 되나요?</span><span class="eum_sign"></span></button>
+            <div class="eum_abox"><div class="eum_ain"><p>지하 3개층, 80면 이상의 네이버타운 주차장 이용이 가능하며 주차비 지원으로 무료 주차가 가능합니다. 혈액투석 환자분에게도 주차비 지원이 되며, 대중교통 이용 시 지하철 3호선 화정역에서 도보 5분입니다.</p></div></div>
+          </div>
+          <div class="eum_item">
+            <button class="eum_qbtn" type="button" aria-expanded="false"><span class="eum_qm">Q</span><span class="eum_qt">이움내과 처음 방문할 때 무엇을 가져가야 하나요?</span><span class="eum_sign"></span></button>
+            <div class="eum_abox"><div class="eum_ain"><p>신분증과 복용 중인 약(또는 약봉투·처방전 사진)을 지참하시면 진료가 정확하고 빠릅니다. 타 병원에서 진료받던 분은 최근 혈액검사 결과지나 소견서를, 국가건강검진 이상 소견으로 오신 분은 검진 결과지를 함께 가져오시면 됩니다.</p></div></div>
+          </div>
+          <div class="eum_item">
+            <button class="eum_qbtn" type="button" aria-expanded="false"><span class="eum_qm">Q</span><span class="eum_qt">야간에도 혈액투석을 받을 수 있나요?</span><span class="eum_sign"></span></button>
+            <div class="eum_abox"><div class="eum_ain"><p>네. 이움내과는 직장인 등 바쁜 분들을 위해 화정동, 행신동, 토당동, 원당동, 능곡동 주민들을 아우르는 야간 혈액투석 시스템을 운영하고 있어 퇴근 후에도 치료를 이어갈 수 있습니다.</p></div></div>
+          </div>
+          <div class="eum_item">
+            <button class="eum_qbtn" type="button" aria-expanded="false"><span class="eum_qm">Q</span><span class="eum_qt">고혈압·당뇨병 관리를 잘하는 병원인가요?</span><span class="eum_sign"></span></button>
+            <div class="eum_abox"><div class="eum_ain"><p>네. 건강보험심사평가원(HIRA) 만성질환 관리 적정성 평가에서 고혈압·당뇨병 관리 우수 기관으로 선정되었으며, 국가 공식 일차의료 만성질환관리 사업에 참여하여 체계적인 서비스를 제공하고 있습니다.</p></div></div>
+          </div>
+          <div class="eum_item">
+            <button class="eum_qbtn" type="button" aria-expanded="false"><span class="eum_qm">Q</span><span class="eum_qt">혈액투석 장비는 어떤 것을 사용하나요?</span><span class="eum_sign"></span></button>
+            <div class="eum_abox"><div class="eum_ain"><p>안전하고 효율적인 투석을 위해 독일제 최신 장비 F5008S 30대를 보유하고 있으며, 혈액투석여과치료(HDF)가 가능합니다.</p></div></div>
+          </div>
+          <div class="eum_item">
+            <button class="eum_qbtn" type="button" aria-expanded="false"><span class="eum_qm">Q</span><span class="eum_qt">어떤 진료를 받을 수 있나요?</span><span class="eum_sign"></span></button>
+            <div class="eum_abox"><div class="eum_ain"><p>감기·장염 등 급성 질환부터 고혈압·당뇨병·고지혈증 등 만성질환 관리, 비만 치료, 국가예방접종을 포함한 예방접종, 영양수액, 혈액투석, 그리고 국가 일반건강검진까지 폭넓은 내과 진료를 받으실 수 있습니다.</p></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ CTA ═══════════ -->
+  <section class="eum_cta">
+    <div class="eum_wrap">
+      <span class="eum_ctitle eum_rv">이움내과의원</span>
+      <span class="eum_csub eum_rv eum_d1">경기도 고양시 덕양구 백양로 51 네이버타운 3층 301호, 305호<br>(지하철 3호선 화정역 인근)</span>
+      <div class="eum_cbtns eum_rv eum_d2">
+        <a class="eum_cbtn eum_p" href="tel:031-979-0875">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.13.96.36 1.9.7 2.8a2 2 0 0 1-.45 2.11L8.1 9.9a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.9z"/></svg>
+          대표번호 031-979-0875
+        </a>
+        <a class="eum_cbtn eum_g" href="https://yium.kr/location">
+          오시는 길 안내
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</div>

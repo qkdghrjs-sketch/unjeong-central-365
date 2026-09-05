@@ -1,0 +1,128 @@
+<div id="eumSub">
+
+  <!-- ═══════════ 서브 히어로 ═══════════ -->
+  <section class="eum_hero eum_img">
+    <div class="eum_wrap">
+      <div>
+        <span class="eum_eyebrow eum_rv"><span class="eum_bar"></span>OUR DOCTOR · 이움내과 의료진</span>
+        <h1 class="eum_h1 eum_rv eum_d1">내과 전문의 · 신장내과 분과전문의<br><em>조현경 원장</em>을<br>소개합니다</h1>
+        <p class="eum_hsub eum_rv eum_d2">내과 전문의이자 신장내과 분과전문의로서<br>만성질환 관리와 혈액투석 분야에서<br>깊은 경험을 쌓아온 이움내과 조현경 원장입니다.</p>
+      </div>
+      <div class="eum_himg eum_fit eum_rv eum_d2">
+        <img src="https://cdn.imweb.me/upload/S20260108b9005a7eb2710/8b51b10af239b.png" alt="이움내과 조현경 원장" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ 자격 ═══════════ -->
+  <section class="eum_sec eum_alt">
+    <div class="eum_wrap">
+      <div class="eum_creds eum_rv">
+        <div class="eum_cred">
+          <span class="eum_ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l3 8 4-16 3 8h4"/></svg></span>
+          <span><em>CERTIFIED</em><span class="eum_cv">내과 전문의</span></span>
+        </div>
+        <div class="eum_cred">
+          <span class="eum_ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 1 0-7.8 7.8l8.8 8.8 8.8-8.8a5.5 5.5 0 0 0 0-7.8z"/></svg></span>
+          <span><em>CERTIFIED</em><span class="eum_cv">투석 전문의</span></span>
+        </div>
+        <div class="eum_cred">
+          <span class="eum_ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.5 20.5a5 5 0 0 1-7-7l6-6a5 5 0 0 1 7 7z"/><path d="M8.5 8.5l7 7"/></svg></span>
+          <span><em>SUBSPECIALTY</em><span class="eum_cv">신장내과 분과전문의</span></span>
+        </div>
+        <div class="eum_cred">
+          <span class="eum_ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10L12 5 2 10l10 5 10-5z"/><path d="M6 12v5c0 1 3 3 6 3s6-2 6-3v-5"/></svg></span>
+          <span><em>ACADEMY CERTIFIED</em><span class="eum_cv">대한내과학회 평생교육 우수 내과전문의</span></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ 원장 메시지 · 강점 ═══════════ -->
+  <section class="eum_sec">
+    <div class="eum_wrap">
+      <div class="eum_qgrid">
+        <div>
+          <span class="eum_eyebrow eum_rv"><span class="eum_bar"></span>DOCTOR&apos;S MESSAGE</span>
+          <blockquote class="eum_dqline eum_rv eum_d1">&ldquo;환자분의 일상이 편안해지는 것이<br>저희 진료의 목표입니다.&rdquo;</blockquote>
+          <p class="eum_dqattr eum_rv eum_d2"><strong>조현경 원장</strong>내과 전문의 · 신장내과 분과전문의</p>
+        </div>
+
+        <div class="eum_strs">
+          <div class="eum_str eum_rv eum_d1">
+            <span class="eum_si"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l3 8 4-16 3 8h4"/></svg></span>
+            <div><b>신장내과 분과전문의 직접 진료</b><span class="eum_sv">투석부터 CKD 관리까지 분과전문의가 직접 담당합니다.</span></div>
+          </div>
+          <div class="eum_str eum_rv eum_d2">
+            <span class="eum_si"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>
+            <div><b>직장인을 위한 야간투석</b><span class="eum_sv">월·수·금 야간 22:30까지 운영, 일과 치료를 함께 할 수 있습니다.</span></div>
+          </div>
+          <div class="eum_str eum_rv eum_d3">
+            <span class="eum_si"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/></svg></span>
+            <div><b>대학병원급 경력 · 학회 활동</b><span class="eum_sv">아주대·관동대 교수 역임, 대한신장학회 투석위원 및 미국신장학회 정회원.</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ 학력 및 경력 ═══════════ -->
+  <section class="eum_sec eum_alt">
+    <div class="eum_wrap">
+      <div class="eum_shead eum_rv">
+        <span class="eum_eyebrow"><span class="eum_bar"></span>CAREER &amp; EDUCATION</span>
+        <h2 class="eum_h2">학력 및 경력</h2>
+      </div>
+      <div class="eum_career">
+        <div class="eum_rv eum_d1">
+          <div class="eum_ccat"><span class="eum_cd"></span><b>학력 · 수련</b></div>
+          <div class="eum_tl">
+            <div class="eum_tli">경북대학교 의과대학 졸업</div>
+            <div class="eum_tli">아주대학교 병원 내과 수련의</div>
+            <div class="eum_tli">아주대학교 병원 베스트 레지던트상 수상</div>
+            <div class="eum_tli">아주대학교 병원 임상강사 객원교수 역임</div>
+            <div class="eum_tli">가톨릭 관동대학교 신장내과장 및 교수 역임</div>
+          </div>
+        </div>
+
+        <div class="eum_rv eum_d2">
+          <div class="eum_ccat eum_m"><span class="eum_cd"></span><b>학회 · 자격</b></div>
+          <div class="eum_tl eum_m">
+            <div class="eum_tli">대한신장학회 투석위원회 투석위원 역임</div>
+            <div class="eum_tli">대한신장학회 평의원</div>
+          </div>
+
+          <div class="eum_tagwrap">
+            <div class="eum_ccat"><span class="eum_cd"></span><b>소속 학회</b></div>
+            <div class="eum_tags">
+              <span class="eum_tag2">대한내과학회</span>
+              <span class="eum_tag2">대한신장학회</span>
+              <span class="eum_tag2">대한고혈압학회</span>
+              <span class="eum_tag2">대한당뇨병학회</span>
+              <span class="eum_tag2">미국신장학회</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ CTA ═══════════ -->
+  <section class="eum_cta">
+    <div class="eum_wrap">
+      <span class="eum_ctitle eum_rv">이움내과 조현경 원장과<br>함께 건강을 지켜보세요</span>
+      <span class="eum_csub eum_rv eum_d1">만성질환 관리부터 신장 투석까지,<br>전문의가 직접 상담·진료합니다.</span>
+      <div class="eum_cbtns eum_rv eum_d2">
+        <a class="eum_cbtn eum_p" href="tel:031-979-0875">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.13.96.36 1.9.7 2.8a2 2 0 0 1-.45 2.11L8.1 9.9a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.9z"/></svg>
+          대표번호 031-979-0875
+        </a>
+        <a class="eum_cbtn eum_g" href="https://yium.kr/location">
+          진료시간 · 오시는 길
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</div>
