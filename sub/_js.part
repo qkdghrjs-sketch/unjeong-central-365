@@ -1,0 +1,60 @@
+<script>
+(function () {
+  var root = document.getElementById('eumSub');
+  if (!root || root.dataset.eumReady) return;
+  root.dataset.eumReady = '1';
+
+  /* ── 스크롤 등장 ── */
+  var rvs = root.querySelectorAll('.eum_rv');
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || !window.IntersectionObserver) {
+    Array.prototype.forEach.call(rvs, function (el) { el.classList.add('eum_in'); });
+  } else {
+    var obs = new IntersectionObserver(function (es) {
+      es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('eum_in'); obs.unobserve(e.target); } });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    Array.prototype.forEach.call(rvs, function (el) { obs.observe(el); });
+  }
+
+  /* ── 자주 묻는 질문 : 분류 탭 ── */
+  var tabs = root.querySelectorAll('.eum_tab');
+  var groups = root.querySelectorAll('.eum_group');
+  Array.prototype.forEach.call(tabs, function (tab, i) {
+    tab.addEventListener('click', function () {
+      Array.prototype.forEach.call(tabs, function (t, n) { t.classList[n === i ? 'add' : 'remove']('eum_on'); });
+      Array.prototype.forEach.call(groups, function (g, n) { g.classList[n === i ? 'add' : 'remove']('eum_on'); });
+      /* 분류를 바꾸면 열려 있던 답변은 닫습니다 */
+      Array.prototype.forEach.call(root.querySelectorAll('.eum_item.eum_open'), function (it) {
+        it.classList.remove('eum_open');
+        var box = it.querySelector('.eum_abox');
+        if (box) box.style.maxHeight = null;
+      });
+    });
+  });
+
+  /* ── 자주 묻는 질문 : 답변 펼치기 ── */
+  Array.prototype.forEach.call(root.querySelectorAll('.eum_item'), function (item) {
+    var btn = item.querySelector('.eum_qbtn');
+    var box = item.querySelector('.eum_abox');
+    if (!btn || !box) return;
+    btn.addEventListener('click', function () {
+      var open = item.classList.contains('eum_open');
+      if (open) {
+        item.classList.remove('eum_open');
+        box.style.maxHeight = null;
+        btn.setAttribute('aria-expanded', 'false');
+      } else {
+        item.classList.add('eum_open');
+        box.style.maxHeight = box.scrollHeight + 'px';
+        btn.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+
+  /* 글자 크기가 바뀌어도 열린 답변 높이가 맞도록 */
+  window.addEventListener('resize', function () {
+    Array.prototype.forEach.call(root.querySelectorAll('.eum_item.eum_open .eum_abox'), function (box) {
+      box.style.maxHeight = box.scrollHeight + 'px';
+    });
+  });
+})();
+</script>
