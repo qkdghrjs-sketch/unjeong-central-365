@@ -1,0 +1,186 @@
+<div id="eumSub">
+
+  <!-- ═══════════ 서브 히어로 ═══════════ -->
+  <section class="eum_hero eum_img">
+    <div class="eum_wrap">
+      <div>
+        <span class="eum_eyebrow eum_rv"><span class="eum_bar"></span>CHRONIC DISEASE CLINIC · 만성질환클리닉</span>
+        <h1 class="eum_h1 eum_rv eum_d1">고혈압<br><em>Hypertension</em></h1>
+        <p class="eum_hsub eum_rv eum_d2">혈압 모니터링부터 합병증 예방까지,<br>이움내과 내과 전문의가 체계적으로 함께합니다.</p>
+        <div class="eum_badges eum_rv eum_d3">
+          <span class="eum_badge"><span class="eum_dot"></span>혈압 모니터링</span>
+          <span class="eum_badge"><span class="eum_dot"></span>24시간 활동혈압</span>
+          <span class="eum_badge"><span class="eum_dot"></span>심혈관 합병증 예방</span>
+          <span class="eum_badge"><span class="eum_dot"></span>맞춤 약물 치료</span>
+        </div>
+      </div>
+      <div class="eum_himg eum_rv eum_d2">
+        <img src="https://cdn.imweb.me/thumbnail/20260312/22f549640d7ca.png" alt="고혈압 진료" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ 고혈압이란? ═══════════ -->
+  <section class="eum_sec">
+    <div class="eum_wrap">
+      <div class="eum_intro eum_rv">
+        <div class="eum_introimg">
+          <img src="https://cdn.imweb.me/thumbnail/20260308/d469ad239055b.png" alt="고혈압 소개" loading="lazy">
+        </div>
+        <div>
+          <h2>고혈압이란?</h2>
+          <span class="eum_en">Hypertension</span>
+          <p>고혈압은 혈관에 가해지는 압력이 정상 수치보다 높은 상태가 지속되는 질환으로, 뚜렷한 증상이 없어 '침묵의 살인자'라고도 불립니다.</p>
+          <p>대부분 초기에는 인지하지 못하지만, 방치할 경우 혈관에 지속적인 부담을 주어 심장·뇌·신장 등 주요 장기에 치명적인 손상을 유발합니다.</p>
+          <p>혈압이 상승하면 심장은 더 큰 무리로 혈액을 펌프질하게 되며, 이는 심부전·협심증·심근경색·뇌졸중의 강력한 원인이 됩니다.</p>
+          <p>정기적인 혈압 측정과 생활습관 관리, 전문의 진단에 따른 약물 치료가 반드시 필요한 만성질환입니다.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ 의심 증상 ═══════════ -->
+  <section class="eum_sec eum_alt">
+    <div class="eum_wrap">
+      <div class="eum_shead eum_rv">
+        <span class="eum_eyebrow"><span class="eum_bar"></span>SYMPTOMS</span>
+        <h2 class="eum_h2">고혈압 의심 증상</h2>
+      </div>
+
+      <div class="eum_cat eum_rv"><span class="eum_cline"></span><b>고혈압 의심 증상 (대부분 무증상)</b></div>
+      <div class="eum_symps">
+        <div class="eum_symp eum_rv"><i>01</i><b>두통·어지럼증</b><span>주로 아침에 발생하는 두통</span></div>
+        <div class="eum_symp eum_rv eum_d1"><i>02</i><b>뒷목 뻐근함</b><span>긴장 시 뒷목 당기는 느낌</span></div>
+        <div class="eum_symp eum_rv eum_d2"><i>03</i><b>가슴 두근거림</b><span>이유 없는 호흡 곤란</span></div>
+      </div>
+
+      <div class="eum_cat eum_c2 eum_rv"><span class="eum_cline"></span><b>방치 시 위험한 합병증</b></div>
+      <div class="eum_symps">
+        <div class="eum_symp eum_rv"><i>01</i><b>심뇌혈관 질환</b><span>협심증·심근경색·뇌졸중 위험</span></div>
+        <div class="eum_symp eum_rv eum_d1"><i>02</i><b>신장 기능 저하</b><span>만성 신부전증 유발</span></div>
+        <div class="eum_symp eum_rv eum_d2"><i>03</i><b>망막 혈관 손상</b><span>고혈압성 망막증 발생</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ 치료 방법 ═══════════ -->
+  <section class="eum_sec">
+    <div class="eum_wrap">
+      <div class="eum_shead eum_rv">
+        <span class="eum_eyebrow"><span class="eum_bar"></span>TREATMENT</span>
+        <h2 class="eum_h2">이움내과 고혈압 치료 방법</h2>
+        <p class="eum_lead">약물 치료와 함께 저염식·운동을 병행하는 것이 핵심입니다.</p>
+      </div>
+      <div class="eum_trts">
+        <div class="eum_trt eum_rv">
+          <span class="eum_tno">01</span>
+          <h3>생활습관 및 식이요법 개선</h3>
+          <div class="eum_ti"><span class="eum_pt"></span><span><strong>저염식 실천:</strong> 나트륨 섭취를 줄이고 칼륨 풍부한 채소·과일 섭취</span></div>
+          <div class="eum_ti"><span class="eum_pt"></span><span><strong>식단 관리:</strong> 포화지방·콜레스테롤 제한, 등푸른생선 섭취</span></div>
+          <div class="eum_ti"><span class="eum_pt"></span><span><strong>절주·금연:</strong> 과음·흡연은 혈압을 급격히 상승시킴</span></div>
+          <div class="eum_ti"><span class="eum_pt"></span><span><strong>스트레스 관리:</strong> 충분한 수면으로 교감신경 과흥분 방지</span></div>
+        </div>
+        <div class="eum_trt eum_rv eum_d1">
+          <span class="eum_tno">02</span>
+          <h3>규칙적인 운동을 통한 혈압 관리</h3>
+          <div class="eum_ti"><span class="eum_pt"></span><span><strong>유산소 운동:</strong> 걷기·조깅·수영 하루 30분 이상, 주 5회</span></div>
+          <div class="eum_ti"><span class="eum_pt"></span><span><strong>체중 조절:</strong> 비만은 혈압 상승의 주요 원인 — 적정 체중 유지</span></div>
+          <div class="eum_ti"><span class="eum_pt"></span><span><strong>근력 운동:</strong> 가벼운 근력 운동 병행, 무거운 중량은 주의</span></div>
+          <div class="eum_ti"><span class="eum_pt"></span><span><strong>안전한 운동:</strong> 겨울 이른 아침보다 기온 오른 낮 시간 권장</span></div>
+        </div>
+        <div class="eum_trt eum_rv eum_d2">
+          <span class="eum_tno">03</span>
+          <h3>전문의 진단에 따른 맞춤 약물 치료</h3>
+          <div class="eum_ti"><span class="eum_pt"></span><span><strong>치료 목적:</strong> 생활습관만으로 조절 어려울 때 강압제를 투여해 합병증 예방</span></div>
+          <div class="eum_ti"><span class="eum_pt"></span><span><strong>맞춤 처방:</strong> 나이·동반 질환(당뇨·신장 등)에 최적화된 약물 선택</span></div>
+          <div class="eum_ti"><span class="eum_pt"></span><span><strong>꾸준한 복용:</strong> 혈압이 정상이어도 임의 중단 시 반동성 고혈압 위험</span></div>
+          <div class="eum_ti"><span class="eum_pt"></span><span><strong>정기 관찰:</strong> 주기적 내원으로 혈압 변화 체크 및 용량 조절</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ 핵심 요약 ═══════════ -->
+  <section class="eum_sec eum_alt">
+    <div class="eum_wrap">
+      <div class="eum_sum eum_rv">
+        <div class="eum_sumt">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8.5 12.5l2.5 2.5 4.5-5"/></svg>
+          고혈압 치료 핵심 요약
+        </div>
+        <div class="eum_sumi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8.5 12.5l2.5 2.5 4.5-5"/></svg><span><strong>정기적인 혈압 측정 :</strong> 가정·병원에서 규칙적으로 측정해 수치 변화를 모니터링합니다.</span></div>
+        <div class="eum_sumi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8.5 12.5l2.5 2.5 4.5-5"/></svg><span><strong>저염식과 생활습관 교정 :</strong> 짜게 먹는 습관을 버리고 규칙적인 유산소 운동과 적정 체중 관리를 실천합니다.</span></div>
+        <div class="eum_sumi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8.5 12.5l2.5 2.5 4.5-5"/></svg><span><strong>꾸준한 약물 복용 :</strong> 전문의가 처방한 혈압약은 임의로 끊지 않고 매일 규칙적으로 복용합니다.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ 자주 묻는 질문 ═══════════ -->
+  <section class="eum_sec">
+    <div class="eum_narrow">
+      <div class="eum_shead eum_rv">
+        <span class="eum_eyebrow"><span class="eum_bar"></span>FAQ</span>
+        <h2 class="eum_h2">고혈압 자주 묻는 질문</h2>
+      </div>
+      <div class="eum_group eum_on eum_rv eum_d1">
+        <div class="eum_qa">
+          <div class="eum_item">
+            <button class="eum_qbtn" type="button" aria-expanded="false"><span class="eum_qm">Q</span><span class="eum_qt">혈압이 얼마부터 고혈압인가요?</span><span class="eum_sign"></span></button>
+            <div class="eum_abox"><div class="eum_ain"><p>진료실 혈압이 수축기 140mmHg 이상 또는 이완기 90mmHg 이상이면 고혈압으로 진단하며, 130~139/80~89mmHg는 고혈압 전단계입니다. 한 번의 측정으로 진단하지 않고 날을 달리해 반복 측정하거나 가정혈압·24시간 활동혈압으로 확인합니다.</p></div></div>
+          </div>
+          <div class="eum_item">
+            <button class="eum_qbtn" type="button" aria-expanded="false"><span class="eum_qm">Q</span><span class="eum_qt">집에서 혈압 재는 방법이 궁금합니다</span><span class="eum_sign"></span></button>
+            <div class="eum_abox"><div class="eum_ain"><p>가정혈압은 아침 기상 후 1시간 이내(소변을 본 뒤, 아침 약 복용 전)와 저녁 취침 전, 하루 2회 측정하는 것이 표준입니다. 등받이 있는 의자에 앉아 5분 안정 후 팔을 심장 높이에 두고 2회 측정해 평균을 기록합니다. 가정혈압의 고혈압 기준은 진료실보다 낮은 135/85mmHg입니다. 기록을 지참하시면 약 조절이 정확해집니다.</p></div></div>
+          </div>
+          <div class="eum_item">
+            <button class="eum_qbtn" type="button" aria-expanded="false"><span class="eum_qm">Q</span><span class="eum_qt">혈압약은 한번 먹으면 평생 먹어야 하나요?</span><span class="eum_sign"></span></button>
+            <div class="eum_abox"><div class="eum_ain"><p>반드시 그렇지는 않으며, 체중 감량·저염식·운동으로 혈압이 충분히 내려가면 의사와 상의해 감량하거나 중단할 수 있는 경우도 있습니다. 다만 자의로 중단하면 혈압이 다시 올라 뇌졸중·심근경색 위험이 커집니다. 목표는 약을 끊는 것이 아니라 약이 필요 없는 몸을 만드는 것입니다.</p></div></div>
+          </div>
+          <div class="eum_item">
+            <button class="eum_qbtn" type="button" aria-expanded="false"><span class="eum_qm">Q</span><span class="eum_qt">고혈압인데 증상이 없어도 치료해야 하나요?</span><span class="eum_sign"></span></button>
+            <div class="eum_abox"><div class="eum_ain"><p>네, 고혈압은 대부분 증상이 없지만 치료하지 않으면 심장·뇌·콩팥이 조용히 손상되므로 반드시 치료해야 합니다. 고혈압은 당뇨병 다음으로 흔한 투석의 원인 질환입니다. 증상이 아니라 수치로 관리하는 질환입니다.</p></div></div>
+          </div>
+          <div class="eum_item">
+            <button class="eum_qbtn" type="button" aria-expanded="false"><span class="eum_qm">Q</span><span class="eum_qt">이움내과 고혈압 진료 성적은 어떤가요?</span><span class="eum_sign"></span></button>
+            <div class="eum_abox"><div class="eum_ain"><p>이움내과의원은 건강보험심사평가원 고혈압 적정성평가에서 1등급을 받았습니다. 적정성평가는 처방 지속성과 검사 시행률 등을 심평원이 객관적으로 평가하는 제도입니다. 이움내과의원은 정부 일차의료 만성질환관리 사업 참여 기관으로, 등록 환자에게 케어플랜 수립과 정기 교육·상담을 제공합니다.</p></div></div>
+          </div>
+          <div class="eum_item">
+            <button class="eum_qbtn" type="button" aria-expanded="false"><span class="eum_qm">Q</span><span class="eum_qt">고혈압에는 어떤 음식을 피해야 하나요?</span><span class="eum_sign"></span></button>
+            <div class="eum_abox"><div class="eum_ain"><p>고혈압 환자는 하루 나트륨 2,000mg(소금 5g) 이하를 목표로 국물·찌개·라면·젓갈·가공육을 줄이는 것이 우선입니다. 한국인 나트륨 섭취의 가장 큰 급원은 국물이므로, 식사할 때 숟가락 대신 젓가락만 사용해 국물을 남기는 습관이 가장 효과적입니다.</p></div></div>
+          </div>
+          <div class="eum_item">
+            <button class="eum_qbtn" type="button" aria-expanded="false"><span class="eum_qm">Q</span><span class="eum_qt">저염소금(저나트륨 소금)은 써도 되나요?</span><span class="eum_sign"></span></button>
+            <div class="eum_abox"><div class="eum_ain"><p>신장 기능이 정상이고 ARB·ACE억제제 계열 혈압약이나 칼륨보존이뇨제를 복용하지 않는 분에게는 도움이 될 수 있으나, 만성콩팥병 환자·투석 환자·해당 약제 복용자에게는 권하지 않습니다. 저나트륨 소금의 염화칼륨이 고칼륨혈증을 유발할 수 있고, 고칼륨혈증은 증상 없이 부정맥을 일으킬 수 있기 때문입니다. 사용 전 최근 혈액검사의 칼륨 수치와 신기능을 확인하십시오.</p></div></div>
+          </div>
+          <div class="eum_item">
+            <button class="eum_qbtn" type="button" aria-expanded="false"><span class="eum_qm">Q</span><span class="eum_qt">고혈압 환자에게 좋은 운동은 무엇인가요?</span><span class="eum_sign"></span></button>
+            <div class="eum_abox"><div class="eum_ain"><p>고혈압 환자에게는 걷기·자전거·수영 같은 유산소 운동을 주 5회 이상, 회당 30분 이상, 약간 숨이 찰 정도의 강도로 하는 것이 권장됩니다. 규칙적인 유산소 운동은 수축기 혈압을 평균 5~8mmHg 낮춥니다. 근력 운동도 주 2~3회 병행하면 좋으나, 무거운 중량을 들며 숨을 참는 동작은 혈압을 급격히 올리므로 피하십시오.</p></div></div>
+          </div>
+          <div class="eum_item">
+            <button class="eum_qbtn" type="button" aria-expanded="false"><span class="eum_qm">Q</span><span class="eum_qt">혈압이 높은 날에도 운동해도 되나요?</span><span class="eum_sign"></span></button>
+            <div class="eum_abox"><div class="eum_ain"><p>수축기 180mmHg 또는 이완기 110mmHg 이상인 날은 운동을 미루고 혈압이 조절된 뒤에 하십시오. 조절되지 않은 고혈압 상태의 고강도 운동은 위험할 수 있습니다. 평소 약을 잘 복용하고 혈압이 안정적이라면 운동을 쉴 이유는 없으며, 꾸준한 운동이 오히려 약의 필요량을 줄입니다.</p></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ CTA ═══════════ -->
+  <section class="eum_cta">
+    <div class="eum_wrap">
+      <span class="eum_ctitle eum_rv">고혈압 관리,<br>이움내과와 함께 시작하세요</span>
+      <span class="eum_csub eum_rv eum_d1">정기적인 혈압 검사와 전문의 상담으로<br>심뇌혈관 합병증을 예방하고 건강한 일상을 지켜드립니다.</span>
+      <div class="eum_cbtns eum_rv eum_d2">
+        <a class="eum_cbtn eum_p" href="tel:031-979-0875">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.13.96.36 1.9.7 2.8a2 2 0 0 1-.45 2.11L8.1 9.9a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.9z"/></svg>
+          대표번호 031-979-0875
+        </a>
+        <a class="eum_cbtn eum_g" href="https://yium.kr/location">
+          진료시간 · 오시는 길
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</div>
