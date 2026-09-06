@@ -215,7 +215,7 @@
   display:block !important; position:relative !important;
   float:none !important; clear:both !important;
   width:100% !important; max-width:100% !important;
-  margin:0 !important; padding:150px 0 162px !important;
+  margin:0 !important; padding:140px 0 148px !important;
   background:#fff !important;
   overflow:visible !important; box-sizing:border-box !important; z-index:auto !important;
 }
@@ -271,16 +271,16 @@
 /* ── 사진 카드 그리드 ── */
 #eumCli .eum_grid{
   display:grid !important;grid-template-columns:repeat(2,minmax(0,1fr)) !important;
-  gap:20px !important;width:100% !important;
+  gap:18px !important;width:100% !important;
 }
 #eumCli .eum_card{
   position:relative !important;display:block !important;overflow:hidden !important;
   border-radius:var(--eum-r) !important;background:var(--eum-teal) !important;
-  aspect-ratio:16 / 11 !important;min-height:280px !important;
+  aspect-ratio:16 / 10 !important;min-height:260px !important;
   isolation:isolate !important;width:100% !important;
   transform:translateZ(0) !important;
 }
-#eumCli .eum_card.eum_wide{grid-column:1 / -1 !important;aspect-ratio:24 / 8 !important;min-height:240px !important;}
+#eumCli .eum_card.eum_wide{grid-column:1 / -1 !important;aspect-ratio:24 / 7 !important;min-height:230px !important;}
 
 #eumCli .eum_ph{position:absolute !important;inset:0 !important;display:block !important;overflow:hidden !important;}
 #eumCli .eum_ph img{
