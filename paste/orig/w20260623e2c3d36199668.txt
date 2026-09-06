@@ -1,0 +1,412 @@
+<!-- ============================================================== -->
+<!-- [이움내과] 병원 소개 세부페이지                                -->
+<!-- ============================================================== -->
+<style>
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+#eum_about_root {
+    display: block !important; width: 100% !important;
+    background: #ffffff !important;
+    position: static !important; float: none !important; clear: both !important;
+    z-index: auto !important;
+}
+#eum_about_root *, #eum_about_root *::before, #eum_about_root *::after {
+    box-sizing: border-box !important;
+    font-family: 'Pretendard', 'Noto Sans KR', sans-serif !important;
+    word-break: keep-all !important;
+}
+#eum_about_root ul, #eum_about_root li { list-style: none !important; margin: 0 !important; padding: 0 !important; background-image: none !important; }
+#eum_about_root li::before, #eum_about_root li::after { display: none !important; content: none !important; }
+#eum_about_root p, #eum_about_root h1, #eum_about_root h2, #eum_about_root h3,
+#eum_about_root h4, #eum_about_root span, #eum_about_root a { margin: 0 !important; padding: 0 !important; }
+#eum_about_root a { text-decoration: none !important; color: inherit !important; }
+/* 공통 애니메이션 */
+#eum_about_root .eum_rv {
+    opacity: 0 !important; transform: translateY(28px) !important;
+    transition: opacity 0.9s cubic-bezier(0.25,1,0.5,1), transform 0.9s cubic-bezier(0.25,1,0.5,1) !important;
+}
+#eum_about_root .eum_rv.on { opacity: 1 !important; transform: translateY(0) !important; }
+#eum_about_root .eum_rv.d1{transition-delay:0.06s!important} #eum_about_root .eum_rv.d2{transition-delay:0.14s!important}
+#eum_about_root .eum_rv.d3{transition-delay:0.22s!important} #eum_about_root .eum_rv.d4{transition-delay:0.30s!important}
+#eum_about_root .eum_rv.d5{transition-delay:0.38s!important}
+#eum_about_root .eum_inner { max-width: 1100px !important; margin: 0 auto !important; padding: 0 24px !important; }
+/* ══════════════════════
+   1. 히어로
+══════════════════════ */
+#eum_about_root .eum_hero {
+    display: block !important; width: 100% !important;
+    background: linear-gradient(135deg, #071828 0%, #1A3A6C 55%, #243f80 100%) !important;
+    padding: 100px 24px 88px !important; position: relative !important; overflow: hidden !important;
+}
+#eum_about_root .eum_hero_glow {
+    position: absolute !important; top: -100px !important; right: -100px !important;
+    width: 480px !important; height: 480px !important; border-radius: 50% !important;
+    background: radial-gradient(circle, rgba(74,144,217,0.14) 0%, transparent 70%) !important;
+    pointer-events: none !important;
+}
+#eum_about_root .eum_hero_inner {
+    max-width: 1100px !important; margin: 0 auto !important;
+    display: flex !important; align-items: center !important;
+    gap: 60px !important; position: relative !important; z-index: 1 !important;
+}
+#eum_about_root .eum_hero_text { flex: 1 !important; }
+#eum_about_root .eum_hero_eyebrow {
+    display: flex !important; align-items: center !important; gap: 10px !important;
+    font-size: 12px !important; font-weight: 700 !important;
+    letter-spacing: 0.18em !important; text-transform: uppercase !important;
+    color: #9BBFE8 !important; margin-bottom: 18px !important;
+}
+#eum_about_root .eum_hero_line {
+    display: block !important; width: 24px !important; height: 2px !important;
+    background: #4A90D9 !important; border-radius: 2px !important; flex-shrink: 0 !important;
+}
+#eum_about_root .eum_hero_title {
+    font-size: clamp(32px, 4vw, 48px) !important; font-weight: 800 !important;
+    color: #ffffff !important; line-height: 1.25 !important;
+    letter-spacing: -0.03em !important; margin-bottom: 20px !important;
+}
+#eum_about_root .eum_hero_title em { font-style: normal !important; color: #9BBFE8 !important; }
+#eum_about_root .eum_hero_sub {
+    font-size: clamp(15px, 1.6vw, 17px) !important; color: rgba(255,255,255,0.8) !important;
+    line-height: 1.8 !important; margin-bottom: 32px !important; max-width: 600px !important;
+}
+/* 이움 의미 박스 */
+#eum_about_root .eum_meaning_box {
+    background: rgba(255, 255, 255, 0.08) !important;
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+    border-radius: 20px !important;
+    padding: 24px !important;
+    max-width: 500px !important;
+    backdrop-filter: blur(10px) !important;
+}
+#eum_about_root .eum_meaning_title {
+    display: block !important; font-size: 14px !important; font-weight: 700 !important;
+    color: #9BBFE8 !important; margin-bottom: 8px !important; letter-spacing: 0.05em !important;
+}
+#eum_about_root .eum_meaning_text {
+    font-size: 14px !important; color: #ffffff !important; line-height: 1.6 !important;
+}
+#eum_about_root .eum_meaning_text strong { color: #4A90D9 !important; }
+#eum_about_root .eum_hero_img_col { flex: 0 0 400px !important; display: flex !important; justify-content: flex-end !important; }
+#eum_about_root .eum_hero_img_box {
+    width: 100% !important; height: 400px !important;
+    border-radius: 32px !important; overflow: hidden !important;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2) !important;
+}
+#eum_about_root .eum_hero_img_box img { width: 100% !important; height: 100% !important; object-fit: cover !important; display: block !important; }
+/* ══════════════════════
+   2. 핵심 진료 과목
+══════════════════════ */
+#eum_about_root .eum_strength_sec {
+    display: block !important; width: 100% !important;
+    background: #F4F7FB !important; padding: 100px 24px !important;
+}
+#eum_about_root .eum_sec_hd { text-align: center !important; margin-bottom: 56px !important; }
+#eum_about_root .eum_sec_eyebrow {
+    display: block !important; font-size: 12px !important; font-weight: 700 !important;
+    letter-spacing: 0.18em !important; text-transform: uppercase !important;
+    color: #4A90D9 !important; margin-bottom: 12px !important;
+}
+#eum_about_root .eum_sec_title {
+    font-size: clamp(26px, 3.2vw, 38px) !important; font-weight: 800 !important;
+    color: #1A3A6C !important; line-height: 1.3 !important;
+    letter-spacing: -0.03em !important; margin-bottom: 12px !important;
+}
+#eum_about_root .eum_strength_grid {
+    max-width: 1100px !important; margin: 0 auto !important;
+    display: flex !important; gap: 20px !important; flex-wrap: wrap !important;
+}
+#eum_about_root .eum_strength_card {
+    flex: 1 1 300px !important;
+    background: #ffffff !important; border: 1px solid #E2E8F0 !important;
+    border-radius: 20px !important; padding: 36px 30px !important;
+    position: relative !important; overflow: hidden !important;
+    transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+}
+#eum_about_root .eum_strength_card:hover { transform: translateY(-5px) !important; box-shadow: 0 14px 32px rgba(26,58,108,0.08) !important; }
+#eum_about_root .eum_strength_deco {
+    position: absolute !important; top: 0 !important; left: 0 !important; right: 0 !important;
+    height: 4px !important; background: linear-gradient(90deg, #1A3A6C 0%, #4A90D9 100%) !important;
+    border-radius: 20px 20px 0 0 !important;
+}
+#eum_about_root .eum_strength_num {
+    display: inline-block !important; font-size: 13px !important; font-weight: 800 !important;
+    color: #4A90D9 !important; margin-bottom: 12px !important;
+    background: rgba(74,144,217,0.1) !important; padding: 4px 12px !important; border-radius: 50px !important;
+}
+#eum_about_root .eum_strength_title {
+    display: block !important; font-size: 20px !important; font-weight: 800 !important;
+    color: #1A3A6C !important; margin-bottom: 14px !important; line-height: 1.4 !important;
+}
+#eum_about_root .eum_strength_desc {
+    display: block !important; font-size: 15px !important; color: #555 !important;
+    line-height: 1.7 !important;
+}
+/* ══════════════════════
+   3. 자주 묻는 질문 (FAQ)
+══════════════════════ */
+#eum_about_root .eum_faq_sec {
+    display: block !important; width: 100% !important;
+    background: #ffffff !important; padding: 100px 24px !important;
+}
+#eum_about_root .eum_faq_box {
+    max-width: 800px !important; margin: 0 auto !important;
+}
+#eum_about_root .eum_faq_item {
+    border-bottom: 1px solid #E2E8F0 !important;
+    padding: 28px 0 !important;
+}
+#eum_about_root .eum_faq_item:first-child { border-top: 1px solid #E2E8F0 !important; }
+#eum_about_root .eum_faq_q {
+    display: flex !important; align-items: flex-start !important; gap: 12px !important;
+    font-size: 18px !important; font-weight: 700 !important; color: #1A3A6C !important;
+    line-height: 1.4 !important; margin-bottom: 12px !important;
+}
+#eum_about_root .eum_faq_q::before {
+    content: 'Q.' !important; color: #4A90D9 !important; font-weight: 900 !important;
+}
+#eum_about_root .eum_faq_a {
+    display: flex !important; align-items: flex-start !important; gap: 12px !important;
+    font-size: 15px !important; color: #444 !important; line-height: 1.7 !important;
+}
+#eum_about_root .eum_faq_a::before {
+    content: 'A.' !important; color: #999 !important; font-weight: 800 !important;
+}
+#eum_about_root .eum_faq_table {
+    width: 100% !important;
+    border-collapse: collapse !important;
+    margin-top: 6px !important;
+    font-size: 14px !important;
+}
+#eum_about_root .eum_faq_table td {
+    padding: 8px 10px !important;
+    border-bottom: 1px solid #EEF1F5 !important;
+    color: #444 !important;
+    line-height: 1.6 !important;
+}
+#eum_about_root .eum_faq_table td:first-child {
+    font-weight: 700 !important; color: #1A3A6C !important;
+    width: 130px !important; white-space: nowrap !important;
+}
+/* ══════════════════════
+   4. CTA / Footer 안내
+══════════════════════ */
+#eum_about_root .eum_cta_sec {
+    display: block !important; width: 100% !important;
+    background: #1A3A6C !important; padding: 80px 24px !important; text-align: center !important;
+}
+#eum_about_root .eum_cta_inner { max-width: 720px !important; margin: 0 auto !important; }
+#eum_about_root .eum_cta_title {
+    font-size: clamp(22px, 2.8vw, 32px) !important; font-weight: 800 !important;
+    color: #ffffff !important; line-height: 1.35 !important;
+    letter-spacing: -0.03em !important; margin-bottom: 16px !important;
+}
+#eum_about_root .eum_cta_sub {
+    font-size: 16px !important; color: rgba(255,255,255,0.8) !important;
+    line-height: 1.8 !important; margin-bottom: 32px !important;
+}
+#eum_about_root .eum_cta_btns { display: flex !important; gap: 12px !important; justify-content: center !important; flex-wrap: wrap !important; }
+#eum_about_root .eum_btn_w { display: inline-flex !important; align-items: center !important; gap: 8px !important; padding: 14px 34px !important; background: #ffffff !important; color: #1A3A6C !important; font-size: 15px !important; font-weight: 700 !important; border-radius: 50px !important; text-decoration: none !important; transition: all 0.3s ease !important; }
+#eum_about_root .eum_btn_w:hover { background: #E8F0FA !important; transform: translateY(-2px) !important; }
+#eum_about_root .eum_btn_o { display: inline-flex !important; align-items: center !important; gap: 8px !important; padding: 14px 34px !important; background: transparent !important; color: #ffffff !important; font-size: 15px !important; font-weight: 600 !important; border: 1.5px solid rgba(255,255,255,0.4) !important; border-radius: 50px !important; text-decoration: none !important; transition: all 0.3s ease !important; }
+#eum_about_root .eum_btn_o:hover { background: rgba(255,255,255,0.1) !important; border-color: rgba(255,255,255,0.8) !important; transform: translateY(-2px) !important; }
+/* ── 모바일 ── */
+@media (max-width: 1024px) {
+    #eum_about_root .eum_hero_inner { flex-direction: column !important; gap: 40px !important; text-align: center !important; }
+    #eum_about_root .eum_hero_eyebrow { justify-content: center !important; }
+    #eum_about_root .eum_hero_sub { margin: 0 auto 32px !important; }
+    #eum_about_root .eum_meaning_box { margin: 0 auto !important; text-align: left !important; }
+    #eum_about_root .eum_hero_img_col { flex: none !important; width: 100% !important; height: 300px !important; justify-content: center !important; }
+}
+@media (max-width: 768px) {
+    #eum_about_root .eum_hero, #eum_about_root .eum_strength_sec, #eum_about_root .eum_faq_sec { padding-top: 72px !important; padding-bottom: 72px !important; }
+    #eum_about_root .eum_strength_card { flex: 1 1 100% !important; }
+    #eum_about_root .eum_cta_btns { flex-direction: column !important; }
+    #eum_about_root .eum_btn_w, #eum_about_root .eum_btn_o { width: 100% !important; justify-content: center !important; }
+    #eum_about_root .eum_faq_table td:first-child { width: 100px !important; }
+}
+</style>
+<div id="eum_about_root">
+<!-- ① 히어로 (이움내과 소개) -->
+<div class="eum_hero">
+    <div class="eum_hero_glow"></div>
+    <div class="eum_hero_inner">
+        <div class="eum_hero_text">
+            <div class="eum_rv d1 eum_hero_eyebrow">
+                <span class="eum_hero_line"></span>
+                ABOUT YIUM CLINIC
+            </div>
+            <h1 class="eum_rv d2 eum_hero_title">
+                당신과 나, 우리 모두를 잇는<br><em>든든한 평생 주치의</em>
+            </h1>
+            <p class="eum_rv d3 eum_hero_sub">
+                이움내과는 대한내과학회가 인증한 우수전문의가 감기나 위장병 같은 급성 질환부터 고혈압, 당뇨, 고지혈증 등 평생 관리가 필요한 만성질환까지 체계적인 진료를 제공합니다.<br>
+                단순히 질병을 치료하는 것을 넘어, 환자분의 일상과 건강을 든든하게 '이어주는' 주치의가 되겠습니다.
+            </p>
+            <div class="eum_rv d4 eum_meaning_box">
+                <span class="eum_meaning_title">💡 '이움(YIUM)'의 뜻</span>
+                <p class="eum_meaning_text">
+                    당신(<strong>Y</strong>OU)과 나(<strong>I</strong>), 그리고 우리 모두(<strong>U</strong>ri<strong>M</strong>odu)의 첫 번째 영문 이니셜들을 따서 만든 이름입니다. 지역 주민과 하나 되자는 이움내과의 철학이 담겨 있습니다.
+                </p>
+            </div>
+        </div>
+        <div class="eum_rv d3 eum_hero_img_col">
+            <div class="eum_hero_img_box">
+                <img src="https://cdn.imweb.me/upload/S20260108b9005a7eb2710/40b5166812a8f.png" alt="이움내과 진료 철학">
+            </div>
+        </div>
+    </div>
+</div>
+<!-- ② 핵심 진료 과목 -->
+<div class="eum_strength_sec">
+    <div class="eum_inner">
+        <div class="eum_rv d1 eum_sec_hd">
+            <span class="eum_sec_eyebrow">OUR SPECIALTIES</span>
+            <h2 class="eum_sec_title">이움내과는 어떤 진료를 잘하나요?</h2>
+        </div>
+        <div class="eum_strength_grid">
+            <div class="eum_rv d2 eum_strength_card">
+                <div class="eum_strength_deco"></div>
+                <span class="eum_strength_num">01. 내과학회 우수전문의 진료</span>
+                <span class="eum_strength_title">급성 질환 치료</span>
+                <span class="eum_strength_desc">감기, 독감, 급성 장염, 위장병 등 일상에서 겪는 갑작스러운 불편함을 빠르고 정확하게 치료합니다.</span>
+            </div>
+            <div class="eum_rv d3 eum_strength_card">
+                <div class="eum_strength_deco"></div>
+                <span class="eum_strength_num">02. 일차의료 만성질환관리 사업</span>
+                <span class="eum_strength_title">만성질환 관리</span>
+                <span class="eum_strength_desc">건강보험심사평가원(HIRA) 고혈압·당뇨병 관리 우수 기관입니다. 맞춤형 관리계획 수립부터 정기 교육, 검사까지 체계적인 서비스를 제공합니다.</span>
+            </div>
+            <div class="eum_rv d4 eum_strength_card">
+                <div class="eum_strength_deco"></div>
+                <span class="eum_strength_num">03. 개인 맞춤형 체중 관리</span>
+                <span class="eum_strength_title">비만 치료</span>
+                <span class="eum_strength_desc">진료 상담 후 식습관 및 운동 등 생활습관 교정과 GLP-1 계열 주사 치료(전문의약품)를 병행합니다. 의사 처방에 따라 안전하게 진행됩니다.</span>
+            </div>
+            <div class="eum_rv d5 eum_strength_card">
+                <div class="eum_strength_deco"></div>
+                <span class="eum_strength_num">04. 주간 및 직장인 야간 투석</span>
+                <span class="eum_strength_title">혈액투석 센터</span>
+                <span class="eum_strength_desc">독일제 최신 장비 F5008S 30대를 갖춘 쾌적한 투석실을 운영하며, 혈액투석여과치료(HDF)가 가능합니다. 바쁜 분들을 위한 야간 투석도 운영합니다.</span>
+            </div>
+            <div class="eum_rv d5 eum_strength_card">
+                <div class="eum_strength_deco"></div>
+                <span class="eum_strength_num">05. 국가 일반건강검진 지정 기관</span>
+                <span class="eum_strength_title">일반건강검진</span>
+                <span class="eum_strength_desc">질병의 조기 발견과 예방을 위해, 국가 건강검진을 포함한 지역 주민의 정기적인 건강 관리를 세밀하게 돕습니다.</span>
+            </div>
+            <div class="eum_rv d5 eum_strength_card">
+                <div class="eum_strength_deco"></div>
+                <span class="eum_strength_num">06. 국가필수예방접종 지정 기관</span>
+                <span class="eum_strength_title">예방접종</span>
+                <span class="eum_strength_desc">영유아 국가필수예방접종부터 독감, 대상포진, 폐렴구균 등 성인 예방접종까지 다양하게 시행합니다.</span>
+            </div>
+            <div class="eum_rv d5 eum_strength_card">
+                <div class="eum_strength_deco"></div>
+                <span class="eum_strength_num">07. 맞춤형 수액·주사 클리닉</span>
+                <span class="eum_strength_title">영양수액</span>
+                <span class="eum_strength_desc">피로 회복, 간 기능 개선, 영양 보충 등 목적에 맞춰 내과 전문의가 처방하는 다양한 수액·주사를 받으실 수 있습니다.</span>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- ③ 자주 묻는 질문 (FAQ) -->
+<div class="eum_faq_sec">
+    <div class="eum_inner">
+        <div class="eum_rv d1 eum_sec_hd">
+            <span class="eum_sec_eyebrow">FAQ</span>
+            <h2 class="eum_sec_title">자주 묻는 질문</h2>
+        </div>
+        <div class="eum_faq_box">
+            <!-- 1. 위치 -->
+            <div class="eum_rv d2 eum_faq_item">
+                <div class="eum_faq_q">이움내과의원은 어디에 있나요?</div>
+                <div class="eum_faq_a">경기도 고양시 덕양구 백양로 51, 네이버타운 3층(301호·305호)에 있으며, 지하철 3호선 화정역 1번 출구에서 백양로 방향으로 도보 약 5분 거리입니다. 근처에 화정동성당과 순복음원당교회가 있어 찾기 쉽고, 화정동·행신동·능곡동·성사동·원당에서도 접근이 편리합니다.</div>
+            </div>
+            <!-- 2. 대표전화 -->
+            <div class="eum_rv d3 eum_faq_item">
+                <div class="eum_faq_q">이움내과 전화번호는 무엇인가요?</div>
+                <div class="eum_faq_a">대표전화는 031-979-0875이며, 혈액투석과 야간투석 관련 문의는 인공신장실 직통 031-979-0873으로 연결하시면 더 빠르게 안내받으실 수 있습니다. 홈페이지는 https://yium01.imweb.me/ 입니다.</div>
+            </div>
+            <!-- 3. 예약 방법 -->
+            <div class="eum_rv d4 eum_faq_item">
+                <div class="eum_faq_q">이움내과 예약은 어떻게 하나요?</div>
+                <div class="eum_faq_a">네이버 예약과 전화(031-979-0875)로 진료를 예약할 수 있으며, 예약 없이 방문하셔도 진료받으실 수 있습니다. 네이버 예약 링크는 홈페이지 상단에서 바로 연결됩니다. 혈액투석 신규 상담과 타 병원 전원 상담은 검사 기록 검토가 필요하므로 인공신장실 직통(031-979-0873)이나 대표전화로 사전 예약을 권합니다.</div>
+            </div>
+            <!-- 4. 진료시간 -->
+            <div class="eum_rv d5 eum_faq_item">
+                <div class="eum_faq_q">이움내과 진료시간은 어떻게 되나요?</div>
+                <div class="eum_faq_a" style="flex-direction: column !important; align-items: stretch !important;">
+                    <span>외래 진료시간은 다음과 같습니다.</span>
+                    <table class="eum_faq_table">
+                        <tr><td>평일</td><td>09:00 ~ 18:00</td></tr>
+                        <tr><td>목요일·토요일</td><td>09:00 ~ 12:30</td></tr>
+                        <tr><td>점심시간</td><td>12:30 ~ 14:00</td></tr>
+                        <tr><td>일요일·공휴일</td><td>휴진</td></tr>
+                    </table>
+                    <span style="display:block; margin-top:10px;">혈액투석은 월요일부터 토요일까지 오전 6시 30분부터 운영되며, 야간투석은 월·수·금요일 저녁 6시부터 밤 10시 30분까지입니다.</span>
+                </div>
+            </div>
+            <!-- 5. 주차 -->
+            <div class="eum_rv d2 eum_faq_item">
+                <div class="eum_faq_q">이움내과 주차는 되나요?</div>
+                <div class="eum_faq_a">지하 3개층, 80면 이상의 네이버타운 주차장 이용이 가능하며 주차비 지원으로 무료 주차가 가능합니다. 혈액투석 환자분에게도 주차비 지원이 되며, 대중교통 이용 시 지하철 3호선 화정역에서 도보 5분입니다.</div>
+            </div>
+            <!-- 6. 처음 방문 준비물 -->
+            <div class="eum_rv d3 eum_faq_item">
+                <div class="eum_faq_q">이움내과 처음 방문할 때 무엇을 가져가야 하나요?</div>
+                <div class="eum_faq_a">신분증과 복용 중인 약(또는 약봉투·처방전 사진)을 지참하시면 진료가 정확하고 빠릅니다. 타 병원에서 진료받던 분은 최근 혈액검사 결과지나 소견서를, 국가건강검진 이상 소견으로 오신 분은 검진 결과지를 함께 가져오시면 됩니다.</div>
+            </div>
+            <!-- 7. 야간투석 -->
+            <div class="eum_rv d4 eum_faq_item">
+                <div class="eum_faq_q">야간에도 혈액투석을 받을 수 있나요?</div>
+                <div class="eum_faq_a">네. 이움내과는 직장인 등 바쁜 분들을 위해 화정동, 행신동, 토당동, 원당동, 능곡동 주민들을 아우르는 야간 혈액투석 시스템을 운영하고 있어 퇴근 후에도 치료를 이어갈 수 있습니다.</div>
+            </div>
+            <!-- 8. 만성질환 우수기관 -->
+            <div class="eum_rv d5 eum_faq_item">
+                <div class="eum_faq_q">고혈압·당뇨병 관리를 잘하는 병원인가요?</div>
+                <div class="eum_faq_a">네. 건강보험심사평가원(HIRA) 만성질환 관리 적정성 평가에서 고혈압·당뇨병 관리 우수 기관으로 선정되었으며, 국가 공식 일차의료 만성질환관리 사업에 참여하여 체계적인 서비스를 제공하고 있습니다.</div>
+            </div>
+            <!-- 9. 투석 장비 -->
+            <div class="eum_rv d2 eum_faq_item">
+                <div class="eum_faq_q">혈액투석 장비는 어떤 것을 사용하나요?</div>
+                <div class="eum_faq_a">안전하고 효율적인 투석을 위해 독일제 최신 장비 F5008S 30대를 보유하고 있으며, 혈액투석여과치료(HDF)가 가능합니다.</div>
+            </div>
+            <!-- 10. 진료 범위 -->
+            <div class="eum_rv d3 eum_faq_item">
+                <div class="eum_faq_q">어떤 진료를 받을 수 있나요?</div>
+                <div class="eum_faq_a">감기·장염 등 급성 질환부터 고혈압·당뇨병·고지혈증 등 만성질환 관리, 비만 치료, 국가예방접종을 포함한 예방접종, 영양수액, 혈액투석, 그리고 국가 일반건강검진까지 폭넓은 내과 진료를 받으실 수 있습니다.</div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- ④ CTA / 하단 안내 -->
+<div class="eum_cta_sec">
+    <div class="eum_cta_inner">
+        <h2 class="eum_rv d1 eum_cta_title">이움내과의원</h2>
+        <p class="eum_rv d2 eum_cta_sub">
+            경기도 고양시 덕양구 화정동 백양로 51, 네이버타운 3층<br>
+            (지하철 3호선 화정역 인근)
+        </p>
+        <div class="eum_rv d3 eum_cta_btns">
+            <a href="tel:031-979-0875" class="eum_btn_w">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.5 19.79 19.79 0 0 1 1.61 4.9C1.6 3.92 2.33 3.1 3.3 3h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 10.36a16 16 0 0 0 6 6l.74-.74a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
+                </svg>
+                031-979-0875 전화 문의
+            </a>
+            <a href="https://naver.me/FioxDV8Q" target="_blank" class="eum_btn_o">오시는 길 안내 →</a>
+        </div>
+    </div>
+</div>
+</div><!-- /#eum_about_root -->
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    var reveals = document.querySelectorAll('#eum_about_root .eum_rv');
+    var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+            if (e.isIntersecting) { e.target.classList.add('on'); io.unobserve(e.target); }
+        });
+    }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+    reveals.forEach(function (el) { io.observe(el); });
+});
+</script>

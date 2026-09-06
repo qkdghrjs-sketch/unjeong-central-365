@@ -1,0 +1,152 @@
+<!-- ══════════════════════════════════════════════════════════════
+     [이움내과] 06. 진료환경 갤러리  (아임웹 코드 위젯용)
+     ══════════════════════════════════════════════════════════════ -->
+<style>
+@import url('https://cdn.jsdelivr.net/gh/sun-typeface/suit@2/fonts/variable/woff2/SUIT-Variable.css');
+
+#eumEnv{
+  --eum-teal:#0C2D37; --eum-mint:#36B8A5; --eum-mint-d:#2A9B8B;
+  --eum-body:#3F565F; --eum-gray:#7A8E96; --eum-line:#E4EBED; --eum-line2:#F0F4F5;
+  --eum-ease:cubic-bezier(.16,1,.3,1);
+  line-height:1.85 !important;
+  --eum-maxw:1400px; --eum-pad:32px; --eum-r:6px;
+
+  display:block !important; position:relative !important;
+  float:none !important; clear:both !important;
+  width:100% !important; max-width:100% !important;
+  margin:0 !important; padding:140px 0 152px !important;
+  background:#fff !important; border-top:1px solid var(--eum-line) !important;
+  overflow:hidden !important; box-sizing:border-box !important; z-index:auto !important;
+}
+#eumEnv,#eumEnv *,#eumEnv *::before,#eumEnv *::after{
+  box-sizing:border-box !important;
+  font-family:'SUIT Variable','SUIT',-apple-system,BlinkMacSystemFont,'Pretendard','Apple SD Gothic Neo',sans-serif !important;
+  word-break:keep-all !important;
+}
+#eumEnv p,#eumEnv h2,#eumEnv span,#eumEnv a,#eumEnv div,#eumEnv figure{margin:0 !important;padding:0 !important;}
+#eumEnv a{text-decoration:none !important;color:inherit !important;}
+#eumEnv img{max-width:100% !important;display:block !important;}
+#eumEnv svg{display:inline-block !important;}
+
+#eumEnv .eum_wrap{max-width:var(--eum-maxw) !important;margin:0 auto !important;padding:0 var(--eum-pad) !important;width:100% !important;}
+
+#eumEnv .eum_rv{opacity:0 !important;transform:translateY(26px) !important;transition:opacity .9s var(--eum-ease),transform .9s var(--eum-ease) !important;}
+#eumEnv .eum_rv.eum_in{opacity:1 !important;transform:none !important;}
+#eumEnv .eum_d1{transition-delay:.08s !important;}
+#eumEnv .eum_d2{transition-delay:.16s !important;}
+#eumEnv .eum_d3{transition-delay:.24s !important;}
+
+#eumEnv .eum_head{display:flex !important;align-items:flex-end !important;justify-content:space-between !important;gap:40px !important;margin-bottom:56px !important;}
+#eumEnv .eum_eyebrow{display:flex !important;align-items:center !important;gap:12px !important;font-size:12px !important;font-weight:700 !important;letter-spacing:.18em !important;color:var(--eum-mint) !important;}
+#eumEnv .eum_eyebrow .eum_num{color:var(--eum-gray) !important;letter-spacing:.1em !important;}
+#eumEnv .eum_eyebrow .eum_bar{display:block !important;width:26px !important;height:1px !important;background:var(--eum-mint) !important;flex:none !important;}
+#eumEnv .eum_h2{display:block !important;margin:22px 0 20px !important;font-size:clamp(28px,4vw,46px) !important;font-weight:800 !important;line-height:1.42 !important;letter-spacing:-.035em !important;color:var(--eum-teal) !important;}
+#eumEnv .eum_lead{display:block !important;font-size:clamp(15px,1.6vw,17.5px) !important;line-height:1.92 !important;color:var(--eum-body) !important;font-weight:400 !important;}
+#eumEnv .eum_btn{
+  display:inline-flex !important;align-items:center !important;gap:10px !important;flex:none !important;
+  height:52px !important;padding:0 28px !important;border-radius:999px !important;
+  border:1.5px solid var(--eum-line) !important;background:#fff !important;color:var(--eum-teal) !important;
+  font-size:14.5px !important;font-weight:700 !important;
+  transition:border-color .3s var(--eum-ease),color .3s var(--eum-ease) !important;
+}
+#eumEnv .eum_btn:hover{border-color:var(--eum-mint) !important;color:var(--eum-mint-d) !important;}
+#eumEnv .eum_btn svg{flex:none !important;transition:transform .3s var(--eum-ease) !important;}
+#eumEnv .eum_btn:hover svg{transform:translateX(4px) !important;}
+
+#eumEnv .eum_rail{
+  display:flex !important;gap:20px !important;
+  overflow-x:auto !important;overflow-y:hidden !important;
+  -webkit-overflow-scrolling:touch !important;
+  scroll-snap-type:x mandatory !important;
+  padding:0 0 26px !important;margin:0 !important;
+  scrollbar-width:none !important;-ms-overflow-style:none !important;
+}
+#eumEnv .eum_rail::-webkit-scrollbar{display:none !important;width:0 !important;height:0 !important;}
+#eumEnv .eum_card{
+  flex:0 0 clamp(260px,32vw,410px) !important;scroll-snap-align:start !important;
+  aspect-ratio:4/3 !important;border-radius:var(--eum-r) !important;overflow:hidden !important;
+  background:var(--eum-line2) !important;position:relative !important;
+}
+#eumEnv .eum_card img{width:100% !important;height:100% !important;object-fit:cover !important;transition:transform .8s var(--eum-ease) !important;}
+#eumEnv .eum_card:hover img{transform:scale(1.06) !important;}
+#eumEnv .eum_card i{
+  position:absolute !important;left:16px !important;bottom:14px !important;font-style:normal !important;
+  font-size:11px !important;font-weight:700 !important;letter-spacing:.14em !important;color:#fff !important;
+  text-shadow:0 2px 10px rgba(0,0,0,.55) !important;
+}
+#eumEnv .eum_bar2{display:flex !important;align-items:center !important;gap:18px !important;margin-top:8px !important;}
+#eumEnv .eum_track{display:block !important;flex:1 !important;height:2px !important;background:var(--eum-line) !important;position:relative !important;overflow:hidden !important;}
+#eumEnv .eum_fill{position:absolute !important;left:0 !important;top:0 !important;height:100% !important;width:22% !important;background:var(--eum-mint) !important;transition:width .2s linear,left .2s linear !important;}
+#eumEnv .eum_hint{font-size:11.5px !important;font-weight:600 !important;letter-spacing:.06em !important;color:var(--eum-gray) !important;white-space:nowrap !important;}
+
+@media (max-width:1180px){#eumEnv{--eum-pad:26px;}}
+@media (max-width:860px){
+  #eumEnv{--eum-pad:20px;padding:96px 0 102px !important;}
+  #eumEnv .eum_head{flex-direction:column !important;align-items:flex-start !important;gap:18px !important;}
+  #eumEnv .eum_rail{margin:0 calc(-1 * var(--eum-pad)) !important;padding:0 var(--eum-pad) 22px !important;}
+  #eumEnv .eum_card{flex:0 0 78% !important;}
+}
+</style>
+
+<div id="eumEnv">
+  <div class="eum_wrap">
+    <div class="eum_head">
+      <div>
+        <span class="eum_eyebrow eum_rv"><span class="eum_num">04</span><span class="eum_bar"></span>OUR SPACE</span>
+        <h2 class="eum_h2 eum_rv eum_d1">따스함과 쾌적함이 머무는<br>이움내과 진료환경</h2>
+        <p class="eum_lead eum_rv eum_d2">환자분이 편안하게 치료받을 수 있도록 청결하고 아늑한 공간을 갖추고 있습니다.</p>
+      </div>
+      <a class="eum_btn eum_rv eum_d3" href="https://yium.kr/tour">둘러보기
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+
+    <div class="eum_rail">
+      <figure class="eum_card"><img src="https://cdn.imweb.me/upload/S20260108b9005a7eb2710/40b5166812a8f.png" alt="이움내과 진료환경 1" loading="lazy"><i>01</i></figure>
+      <figure class="eum_card"><img src="https://cdn.imweb.me/upload/S20260108b9005a7eb2710/ab24a3a212d20.png" alt="이움내과 진료환경 2" loading="lazy"><i>02</i></figure>
+      <figure class="eum_card"><img src="https://cdn.imweb.me/upload/S20260108b9005a7eb2710/fb2523207ac7f.png" alt="이움내과 진료환경 3" loading="lazy"><i>03</i></figure>
+      <figure class="eum_card"><img src="https://cdn.imweb.me/upload/S20260108b9005a7eb2710/68d3e3ff87332.png" alt="이움내과 진료환경 4" loading="lazy"><i>04</i></figure>
+      <figure class="eum_card"><img src="https://cdn.imweb.me/upload/S20260108b9005a7eb2710/596c085893c72.png" alt="이움내과 진료환경 5" loading="lazy"><i>05</i></figure>
+      <figure class="eum_card"><img src="https://cdn.imweb.me/upload/S20260108b9005a7eb2710/43bad5b9e974a.png" alt="이움내과 진료환경 6" loading="lazy"><i>06</i></figure>
+      <figure class="eum_card"><img src="https://cdn.imweb.me/upload/S20260108b9005a7eb2710/9f6e495afe683.png" alt="이움내과 진료환경 7" loading="lazy"><i>07</i></figure>
+      <figure class="eum_card"><img src="https://cdn.imweb.me/upload/S20260108b9005a7eb2710/11a6bd95ac11c.png" alt="이움내과 진료환경 8" loading="lazy"><i>08</i></figure>
+      <figure class="eum_card"><img src="https://cdn.imweb.me/upload/S20260108b9005a7eb2710/3cd774678d12f.png" alt="이움내과 진료환경 9" loading="lazy"><i>09</i></figure>
+    </div>
+
+    <div class="eum_bar2">
+      <span class="eum_track"><span class="eum_fill"></span></span>
+      <span class="eum_hint">옆으로 밀어서 더 보기</span>
+    </div>
+  </div>
+</div>
+
+<script>
+(function () {
+  var root = document.getElementById('eumEnv');
+  if (!root || root.dataset.eumReady) return;
+  root.dataset.eumReady = '1';
+
+  var els = root.querySelectorAll('.eum_rv');
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || !window.IntersectionObserver) {
+    Array.prototype.forEach.call(els, function (el) { el.classList.add('eum_in'); });
+  } else {
+    var obs = new IntersectionObserver(function (es) {
+      es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('eum_in'); obs.unobserve(e.target); } });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    Array.prototype.forEach.call(els, function (el) { obs.observe(el); });
+  }
+
+  var rail = root.querySelector('.eum_rail');
+  var fill = root.querySelector('.eum_fill');
+  function paint() {
+    var max = rail.scrollWidth - rail.clientWidth;
+    var w = Math.max((rail.clientWidth / rail.scrollWidth) * 100, 12);
+    var p = max > 0 ? rail.scrollLeft / max : 0;
+    fill.style.width = w + '%';
+    fill.style.left = (p * (100 - w)) + '%';
+  }
+  rail.addEventListener('scroll', paint, { passive: true });
+  window.addEventListener('resize', paint);
+  paint();
+})();
+</script>

@@ -1,0 +1,214 @@
+<!-- ============================================================== -->
+<!-- [이움내과] 페이지 상단 브레드크럼 헤더 (병원소개 - 이움내과 소개) -->
+<!-- ============================================================== -->
+<div id="eum_sub_header_root">
+<style>
+/* -------------------------------------------------------------
+   1. 변수 및 초기화
+------------------------------------------------------------- */
+#eum_sub_header_root {
+    --eum-navy: #1A3A6C;       /* 이움내과 메인 컬러 */
+    --eum-blue: #2B5BA8;       /* 보조 컬러 */
+    --eum-bg-custom: #F4F7FB;  /* 배경색 */
+    --eum-text-main: #111111;
+    --eum-text-sub: #555555;
+    --eum-border: #e2e8f0;
+
+    /* 상단 여백 및 비율 유지 */
+    width: 100% !important;
+    background-color: var(--eum-bg-custom) !important;
+    padding: 180px 20px 110px !important;
+    font-family: 'Pretendard', sans-serif !important;
+}
+#eum_sub_header_root * {
+    box-sizing: border-box !important;
+    margin: 0; padding: 0;
+    list-style: none; text-decoration: none;
+}
+.eum_sub_inner {
+    max-width: 1400px !important;
+    margin: 0 auto !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+}
+/* -------------------------------------------------------------
+   2. 브레드크럼 (홈 ㆍ 상위메뉴 ▼ ㆍ 현재메뉴 ▼)
+------------------------------------------------------------- */
+.eum_breadcrumb {
+    display: flex !important;
+    align-items: center !important;
+    margin-bottom: 45px !important;
+    font-size: 16px !important;
+    color: var(--eum-text-sub) !important;
+}
+.eum_bc_home {
+    display: flex !important;
+    align-items: center !important;
+    transition: transform 0.2s;
+}
+.eum_bc_home svg {
+    width: 20px; height: 20px; fill: #f9c000;
+}
+.eum_bc_home:hover { transform: scale(1.1); }
+.eum_bc_divider {
+    margin: 0 14px !important;
+    color: #cbd5e1 !important;
+    font-size: 14px !important;
+    font-weight: 300 !important;
+}
+/* 드롭다운 공통 */
+.eum_bc_dropdown {
+    position: relative !important;
+}
+.eum_bc_btn {
+    background: none !important;
+    border: none !important;
+    font-size: 16px !important;
+    font-weight: 500 !important;
+    color: #444444 !important;
+    cursor: pointer !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+    transition: color 0.2s;
+    outline: none !important;
+}
+.eum_bc_btn:hover { color: var(--eum-navy); }
+.eum_bc_btn .arrow {
+    font-size: 10px !important;
+    transition: transform 0.3s ease;
+    opacity: 0.6;
+    margin-left: 2px;
+}
+.eum_bc_dropdown.active .eum_bc_btn .arrow {
+    transform: rotate(180deg);
+}
+/* -------------------------------------------------------------
+   3. 드롭다운 박스 디자인
+------------------------------------------------------------- */
+.eum_drop_box {
+    position: absolute !important;
+    top: calc(100% + 15px) !important;
+    left: 0 !important;
+    min-width: 200px !important;
+    background-color: #ffffff !important;
+    border-radius: 10px !important;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1) !important;
+    border: 1px solid #eef2f6 !important;
+    padding: 10px 0 !important;
+    z-index: 1000 !important;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.eum_bc_dropdown.active .eum_drop_box {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+.eum_drop_box a {
+    display: block !important;
+    padding: 13px 24px !important;
+    font-size: 15px !important;
+    color: #555555 !important;
+    transition: all 0.2s;
+    font-weight: 400 !important;
+}
+.eum_drop_box a:hover {
+    background-color: #f8fafc !important;
+    color: var(--eum-navy) !important;
+    font-weight: 600 !important;
+}
+.eum_drop_box a.active_menu {
+    color: var(--eum-navy) !important;
+    font-weight: 700 !important;
+    background-color: #f1f5f9 !important;
+}
+/* -------------------------------------------------------------
+   4. 타이틀 영역 (크기 및 굵기 유지)
+------------------------------------------------------------- */
+.eum_title_area h1 {
+    font-size: clamp(38px, 5.4vw, 58px) !important;
+    font-weight: 850 !important;
+    color: var(--eum-navy) !important;
+    letter-spacing: -0.045em !important;
+    line-height: 1.1 !important;
+}
+/* -------------------------------------------------------------
+   5. 모바일 반응형
+------------------------------------------------------------- */
+@media (max-width: 768px) {
+    #eum_sub_header_root {
+        padding: 110px 20px 60px !important;
+    }
+    .eum_breadcrumb { font-size: 14px !important; margin-bottom: 25px !important; }
+    .eum_bc_btn { font-size: 14px !important; }
+    .eum_title_area h1 { font-size: 34px !important; }
+    .eum_drop_box { min-width: 170px !important; }
+}
+</style>
+<div class="eum_sub_inner">
+    <!-- 상단: 브레드크럼 -->
+    <nav class="eum_breadcrumb">
+        <!-- 홈 아이콘 -->
+        <a href="/" class="eum_bc_home">
+            <svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+        </a>
+        <span class="eum_bc_divider">ㆍ</span>
+        <!-- Depth 1: 상위 카테고리 (사이트 전체 7개 카테고리) -->
+        <div class="eum_bc_dropdown" id="eum_depth1">
+            <button class="eum_bc_btn">병원소개 <span class="arrow">▼</span></button>
+            <div class="eum_drop_box">
+                <a href="https://yium01.imweb.me/41" class="active_menu">병원소개</a>
+                <a href="https://yium01.imweb.me/127">내과진료</a>
+                <a href="https://yium01.imweb.me/40">만성질환</a>
+                <a href="https://yium01.imweb.me/132">인공신장센터</a>
+                <a href="https://yium01.imweb.me/128">비만/영양수액</a>
+                <a href="https://yium01.imweb.me/42">예방접종</a>
+                <a href="https://yium01.imweb.me/notice">공지사항</a>
+            </div>
+        </div>
+        <span class="eum_bc_divider">ㆍ</span>
+        <!-- Depth 2: 현재 메뉴 (병원소개 카테고리의 하위 4개 페이지) -->
+        <div class="eum_bc_dropdown" id="eum_depth2">
+            <button class="eum_bc_btn">이움내과 소개 <span class="arrow">▼</span></button>
+            <div class="eum_drop_box">
+                <a href="https://yium01.imweb.me/41" class="active_menu">이움내과 소개</a>
+                <a href="https://yium01.imweb.me/117">의료진 소개</a>
+                <a href="https://yium01.imweb.me/118">진료시간 · 오시는 길</a>
+                <a href="https://yium01.imweb.me/121">둘러보기</a>
+            </div>
+        </div>
+    </nav>
+    <!-- 하단: 페이지 큰 타이틀 -->
+    <div class="eum_title_area">
+        <h1>이움내과 소개</h1>
+    </div>
+</div>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const dropdowns = document.querySelectorAll('#eum_sub_header_root .eum_bc_dropdown');
+    dropdowns.forEach(dropdown => {
+        const btn = dropdown.querySelector('.eum_bc_btn');
+        btn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            dropdowns.forEach(other => {
+                if (other !== dropdown) other.classList.remove('active');
+            });
+            dropdown.classList.toggle('active');
+        });
+    });
+    document.addEventListener('click', function() {
+        dropdowns.forEach(dropdown => {
+            dropdown.classList.remove('active');
+        });
+    });
+    const boxes = document.querySelectorAll('#eum_sub_header_root .eum_drop_box');
+    boxes.forEach(box => {
+        box.addEventListener('click', (e) => e.stopPropagation());
+    });
+});
+</script>
+</div>

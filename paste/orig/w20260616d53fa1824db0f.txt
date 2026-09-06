@@ -1,0 +1,399 @@
+<!-- ============================================================== -->
+<!-- [이움내과] 오시는 길 및 진료시간 섹션                          -->
+<!-- ============================================================== -->
+<div id="eum_loc_box">
+<style>
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+
+#eum_loc_box {
+    --eum-navy:   #1A3A6C;
+    --eum-blue:   #2B5BA8;
+    --eum-teal:   #3BAE96;
+    --eum-black:  #111111;
+    --eum-gray:   #666666;
+    --eum-border: #eeeeee;
+    --eum-point:  #3BAE96;   /* 야간투석 배지 — teal */
+
+    display: block !important;
+    width: 100% !important;
+    background: #ffffff !important;
+    padding: 140px 20px !important;
+    font-family: 'Pretendard', 'Noto Sans KR', sans-serif !important;
+    position: relative !important;
+    z-index: 1 !important;
+}
+#eum_loc_box * {
+    box-sizing: border-box !important;
+    margin: 0; padding: 0;
+    font-family: 'Pretendard', 'Noto Sans KR', sans-serif !important;
+    word-break: keep-all !important;
+}
+
+/* ── 내부 레이아웃 ── */
+#eum_loc_box .eum_loc_inner {
+    max-width: 1400px !important;
+    margin: 0 auto !important;
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: flex-start !important;
+    gap: 80px !important;
+}
+
+/* ══════════════════════════════
+   좌측 — 진료시간
+══════════════════════════════ */
+#eum_loc_box .eum_loc_left {
+    flex: 0 0 520px !important;
+    width: 520px !important;
+    display: flex !important;
+    flex-direction: column !important;
+}
+
+/* 타이틀 */
+#eum_loc_box .eum_loc_subtitle {
+    display: block !important;
+    font-size: 20px !important;
+    font-weight: 700 !important;
+    color: var(--eum-black) !important;
+    margin-bottom: 8px !important;
+    letter-spacing: -0.02em !important;
+}
+#eum_loc_box .eum_loc_title {
+    display: block !important;
+    font-size: clamp(28px, 3.2vw, 40px) !important;
+    font-weight: 800 !important;
+    color: var(--eum-black) !important;
+    letter-spacing: -0.04em !important;
+    line-height: 1.2 !important;
+    margin-bottom: 8px !important;
+}
+#eum_loc_box .eum_loc_desc {
+    font-size: 15px !important;
+    color: var(--eum-gray) !important;
+    margin-bottom: 36px !important;
+    line-height: 1.6 !important;
+}
+
+/* ── 카테고리 구분 헤더 ── */
+#eum_loc_box .eum_time_cat {
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    font-size: 13px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.06em !important;
+    text-transform: uppercase !important;
+    margin-bottom: 10px !important;
+    margin-top: 28px !important;
+}
+#eum_loc_box .eum_time_cat:first-of-type { margin-top: 0 !important; }
+#eum_loc_box .eum_time_cat_dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+#eum_loc_box .eum_time_cat.outpatient   { color: var(--eum-navy); }
+#eum_loc_box .eum_time_cat.outpatient .eum_time_cat_dot { background: var(--eum-navy); }
+#eum_loc_box .eum_time_cat.dialysis     { color: var(--eum-teal); margin-top: 28px !important; }
+#eum_loc_box .eum_time_cat.dialysis .eum_time_cat_dot   { background: var(--eum-teal); }
+
+/* ── 진료시간 표 ── */
+#eum_loc_box .eum_time_list {
+    width: 100% !important;
+    border-top: 2px solid var(--eum-black) !important;
+    border-bottom: 1px solid var(--eum-border) !important;
+    padding: 12px 0 !important;
+    list-style: none !important;
+    margin-bottom: 4px !important;
+}
+#eum_loc_box .eum_time_row {
+    display: flex !important;
+    align-items: center !important;
+    padding: 9px 0 !important;
+    border: none !important;
+    background: none !important;
+}
+#eum_loc_box .eum_time_row .lbl {
+    width: 130px !important;
+    font-size: 15px !important;
+    font-weight: 700 !important;
+    color: var(--eum-black) !important;
+    flex-shrink: 0 !important;
+}
+#eum_loc_box .eum_time_row .val {
+    flex: 1 !important;
+    font-size: 15px !important;
+    font-weight: 500 !important;
+    color: var(--eum-black) !important;
+    line-height: 1.4 !important;
+    white-space: nowrap !important;
+}
+
+/* 야간투석 배지 */
+#eum_loc_box .eum_badge {
+    display: inline-block !important;
+    background: var(--eum-teal) !important;
+    color: #fff !important;
+    font-size: 10px !important;
+    font-weight: 800 !important;
+    padding: 3px 8px !important;
+    border-radius: 4px !important;
+    margin-left: 8px !important;
+    vertical-align: middle !important;
+    letter-spacing: 0.02em !important;
+}
+
+/* 안내 문구 */
+#eum_loc_box .eum_notice_list {
+    list-style: none !important;
+    margin-top: 8px !important;
+    padding: 0 !important;
+}
+#eum_loc_box .eum_notice_list li {
+    font-size: 13px !important;
+    font-weight: 300 !important;
+    color: #999 !important;
+    line-height: 1.8 !important;
+    padding-left: 0 !important;
+}
+#eum_loc_box .eum_notice_list li::before { display: none !important; content: none !important; }
+
+/* ══════════════════════════════
+   우측 — 지도
+══════════════════════════════ */
+#eum_loc_box .eum_loc_right {
+    flex: 0 1 680px !important;
+    margin-left: auto !important;
+    display: flex !important;
+    flex-direction: column !important;
+}
+#eum_loc_box .eum_addr_text {
+    font-size: 20px !important;
+    font-weight: 800 !important;
+    color: var(--eum-black) !important;
+    letter-spacing: -0.02em !important;
+    line-height: 1.3 !important;
+    margin-bottom: 6px !important;
+}
+#eum_loc_box .eum_addr_sub {
+    font-size: 15px !important;
+    color: var(--eum-gray) !important;
+    margin-bottom: 24px !important;
+}
+
+/* 지도 컨테이너 */
+#eum_loc_box .eum_map_wrap {
+    width: 100% !important;
+    height: 400px !important;
+    border-radius: 14px !important;
+    overflow: hidden !important;
+    margin-bottom: 20px !important;
+    position: relative !important;
+    background: #f0f0f0 !important;
+}
+#eum_loc_box .eum_map_wrap .eum_map_inner {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+}
+
+/* 카카오맵 내부 정보 박스 숨김 */
+#eum_loc_box .wrap_controllers,
+#eum_loc_box .info_box,
+#eum_loc_box .roughmap_lebel_layer,
+#eum_loc_box .wrap_info { display: none !important; }
+
+#eum_loc_box .root_daum_roughmap,
+#eum_loc_box .wrap_map {
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+    width: 100% !important;
+    height: 100% !important;
+}
+
+/* 지도 앱 링크 */
+#eum_loc_box .eum_app_links {
+    display: flex !important;
+    align-items: center !important;
+    border-top: 1px solid var(--eum-border) !important;
+    padding-top: 16px !important;
+}
+#eum_loc_box .eum_app_item {
+    flex: 1 !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+}
+#eum_loc_box .eum_app_item + .eum_app_item {
+    border-left: 1px solid #e5e5e5 !important;
+}
+#eum_loc_box .eum_app_links a {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 7px !important;
+    font-size: 14px !important;
+    font-weight: 700 !important;
+    color: var(--eum-black) !important;
+    text-decoration: none !important;
+    transition: color 0.25s ease !important;
+}
+#eum_loc_box .eum_icon {
+    display: inline-flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    width: 20px !important; height: 20px !important;
+    border-radius: 4px !important;
+    font-size: 11px !important;
+    font-weight: 900 !important;
+    color: #fff !important;
+    transition: transform 0.3s cubic-bezier(0.175,0.885,0.32,1.275) !important;
+}
+#eum_loc_box .eum_app_links a:hover .eum_icon { transform: translateY(-4px) !important; }
+#eum_loc_box .eum_icon_n { background: #03C75A !important; }
+#eum_loc_box .eum_icon_k { background: #FEE500 !important; color: #000 !important; }
+#eum_loc_box .eum_icon_t { background: #0054FF !important; }
+
+/* ── 반응형 ── */
+@media (max-width: 1100px) {
+    #eum_loc_box .eum_loc_inner { flex-direction: column !important; gap: 50px !important; }
+    #eum_loc_box .eum_loc_left,
+    #eum_loc_box .eum_loc_right { width: 100% !important; flex: auto !important; margin-left: 0 !important; }
+}
+@media (max-width: 768px) {
+    #eum_loc_box { padding: 70px 16px 80px !important; }
+    #eum_loc_box .eum_time_row .lbl { width: 90px !important; font-size: 13px !important; }
+    #eum_loc_box .eum_time_row .val { font-size: 12px !important; white-space: normal !important; }
+    #eum_loc_box .eum_map_wrap { height: 280px !important; border-radius: 10px !important; }
+    #eum_loc_box .eum_addr_text { font-size: 16px !important; }
+}
+</style>
+
+<section id="eum_location_section">
+<div class="eum_loc_inner">
+
+    <!-- 좌측: 진료시간 -->
+    <div class="eum_loc_left">
+        <div>
+            <span class="eum_loc_subtitle">건강한 삶을 위해</span>
+            <h2 class="eum_loc_title">이움내과 오시는 길</h2>
+            <p class="eum_loc_desc">쉽게 찾고 편하게 오실 수 있도록 안내드립니다.</p>
+        </div>
+
+        <!-- 외래 진료 -->
+        <div class="eum_time_cat outpatient">
+            <span class="eum_time_cat_dot"></span>외래 진료시간
+        </div>
+        <ul class="eum_time_list">
+            <li class="eum_time_row">
+                <span class="lbl">평일</span>
+                <span class="val">오전 9:00 ~ 오후 6:00</span>
+            </li>
+            <li class="eum_time_row">
+                <span class="lbl">목·토요일</span>
+                <span class="val">오전 9:00 ~ 오후 12:30</span>
+            </li>
+            <li class="eum_time_row">
+                <span class="lbl">점심시간</span>
+                <span class="val">오후 12:30 ~ 오후 2:00</span>
+            </li>
+        </ul>
+
+        <!-- 투석 -->
+        <div class="eum_time_cat dialysis">
+            <span class="eum_time_cat_dot"></span>투석실 운영시간
+        </div>
+        <ul class="eum_time_list">
+            <li class="eum_time_row">
+                <span class="lbl">월·수·금요일</span>
+                <span class="val">
+                    오전 6:30 ~ 오후 10:30
+                    <span class="eum_badge">야간투석 운영</span>
+                </span>
+            </li>
+            <li class="eum_time_row">
+                <span class="lbl">화·목·토요일</span>
+                <span class="val">오전 6:30 ~ 오후 5:00</span>
+            </li>
+        </ul>
+
+        <ul class="eum_notice_list">
+            <li>ㆍ일요일 및 공휴일은 휴진입니다.</li>
+            <li>ㆍ월·수·금 야간투석(~22:30)으로 직장인도 투석 가능합니다.</li>
+            <li>ㆍ진료 시간은 사정에 따라 변경될 수 있습니다.</li>
+        </ul>
+    </div>
+
+    <!-- 우측: 지도 -->
+    <div class="eum_loc_right">
+        <h3 class="eum_addr_text">경기 고양시 덕양구 백양로 51 네이버타운 3층 301,305호</h3>
+        <p class="eum_addr_sub">네이버타운 3층 301·305호</p>
+
+        <div class="eum_map_wrap">
+            <div class="eum_map_inner">
+                <div id="daumRoughmapContainer1781595868311"
+                     class="root_daum_roughmap root_daum_roughmap_landing"></div>
+            </div>
+        </div>
+
+        <div class="eum_app_links">
+            <div class="eum_app_item">
+                <a href="https://map.naver.com/v5/search/%EC%9D%B4%EC%9B%80%EB%82%B4%EA%B3%BC" target="_blank">
+                    <span class="eum_icon eum_icon_n">N</span> 네이버 지도
+                </a>
+            </div>
+            <div class="eum_app_item">
+                <a href="https://map.kakao.com/?q=%EC%9D%B4%EC%9B%80%EB%82%B4%EA%B3%BC" target="_blank">
+                    <span class="eum_icon eum_icon_k">K</span> 카카오 지도
+                </a>
+            </div>
+            <div class="eum_app_item">
+                <a href="https://tmap.life/search?keyword=%EC%9D%B4%EC%9B%80%EB%82%B4%EA%B3%BC" target="_blank">
+                    <span class="eum_icon eum_icon_t">T</span> TMAP
+                </a>
+            </div>
+        </div>
+    </div>
+
+</div>
+</section>
+
+<!-- 카카오맵 -->
+<script charset="UTF-8" class="daum_roughmap_loader_script"
+        src="https://ssl.daumcdn.net/dmaps/map_js_init/roughmapLoader.js"></script>
+<script charset="UTF-8">
+(function () {
+    var rendered = false;
+    function renderMap() {
+        if (rendered) return;
+        var container = document.getElementById('daumRoughmapContainer1781595868311');
+        if (!container) return;
+        try {
+            container.innerHTML = '';
+            new daum.roughmap.Lander({
+                "timestamp" : "1781595868311",
+                "key"       : "pmuctu7j989",
+                "mapWidth"  : "100%",
+                "mapHeight" : "100%"
+            }).render();
+            rendered = true;
+            setTimeout(function () { window.dispatchEvent(new Event('resize')); }, 300);
+            setTimeout(function () { window.dispatchEvent(new Event('resize')); }, 1000);
+        } catch (e) { console.warn('Map render error:', e); }
+    }
+    if (document.readyState === 'complete') { setTimeout(renderMap, 500); }
+    else { window.addEventListener('load', function () { setTimeout(renderMap, 500); }); }
+
+    var rt;
+    window.addEventListener('resize', function () {
+        clearTimeout(rt);
+        rt = setTimeout(function () {
+            var mw = document.querySelector('#eum_loc_box .wrap_map');
+            if (mw) mw.style.width = '100%';
+        }, 200);
+    });
+})();
+</script>
+
+</div><!-- /#eum_loc_box -->

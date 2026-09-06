@@ -1,0 +1,981 @@
+<!-- ============================================================== -->
+<!-- [이움내과] 하단 푸터 (공지사항 = 바로가기 버튼만)              -->
+<!-- ============================================================== -->
+<style>
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+/* -------------------------------------------------------------
+   1. 푸터 전용 변수 및 초기화
+------------------------------------------------------------- */
+.eum_footer_wrap {
+    --eum-navy: #1A3A6C;
+    --eum-black: #111111;
+    --eum-sub: #666666;
+    --eum-light: #888888;
+    --eum-bg: #F8F9FA;
+    --eum-border: #E0E0E0;
+    display: block !important;
+    position: relative !important;
+    width: 100% !important;
+    padding: 80px 20px 60px !important;
+    border: 0 !important;
+    background: var(--eum-bg) !important;
+    box-sizing: border-box !important;
+    font-family: 'Pretendard', sans-serif !important;
+}
+.eum_footer_wrap *,
+.eum_footer_wrap *::before,
+.eum_footer_wrap *::after {
+    box-sizing: border-box !important;
+}
+.eum_footer_wrap p,
+.eum_footer_wrap h3,
+.eum_footer_wrap h4,
+.eum_footer_wrap ul,
+.eum_footer_wrap li,
+.eum_footer_wrap a,
+.eum_footer_wrap span,
+.eum_footer_wrap strong,
+.eum_footer_wrap button {
+    margin: 0;
+    padding: 0;
+    word-break: keep-all;
+    text-decoration: none;
+}
+.eum_footer_wrap button {
+    border: 0;
+    background: none;
+    font: inherit;
+    cursor: pointer;
+}
+.eum_footer_inner {
+    width: 100% !important;
+    max-width: 1400px !important;
+    margin: 0 auto !important;
+}
+/* -------------------------------------------------------------
+   2. 상단: 공지사항 + 대표전화
+------------------------------------------------------------- */
+.eum_footer_top {
+    display: flex !important;
+    align-items: stretch !important;
+    justify-content: space-between !important;
+    gap: 120px !important;
+    margin-bottom: 80px !important;
+}
+.eum_footer_notice,
+.eum_footer_contact {
+    display: flex !important;
+    flex: 1 1 0 !important;
+    flex-direction: column !important;
+    min-width: 0 !important;
+}
+.eum_top_header {
+    display: flex !important;
+    align-items: flex-end !important;
+    justify-content: space-between !important;
+    gap: 20px !important;
+    min-height: 70px !important;
+    margin-bottom: 30px !important;
+}
+.eum_top_titles {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 15px !important;
+    min-width: 0 !important;
+}
+.eum_top_titles h3 {
+    color: var(--eum-black) !important;
+    font-size: 28px !important;
+    font-weight: 900 !important;
+    line-height: 1 !important;
+    letter-spacing: -0.04em !important;
+}
+.eum_top_titles p {
+    color: var(--eum-sub) !important;
+    font-size: 15px !important;
+    font-weight: 400 !important;
+    line-height: 1.45 !important;
+    letter-spacing: -0.02em !important;
+}
+.eum_btn_round {
+    display: inline-flex !important;
+    flex: 0 0 auto !important;
+    align-items: center !important;
+    justify-content: center !important;
+    min-height: 38px !important;
+    padding: 10px 24px !important;
+    border: 1px solid #CCCCCC !important;
+    border-radius: 50px !important;
+    background: transparent !important;
+    color: var(--eum-black) !important;
+    font-size: 13.5px !important;
+    font-weight: 600 !important;
+    line-height: 1 !important;
+    cursor: pointer !important;
+    transition: background-color .2s ease, border-color .2s ease, color .2s ease !important;
+}
+.eum_btn_round:hover {
+    border-color: var(--eum-black) !important;
+    background: var(--eum-black) !important;
+    color: #FFFFFF !important;
+}
+/* -------------------------------------------------------------
+   3. 공지사항 / 의학정보 바로가기 카드 (목록 없이 버튼형)
+------------------------------------------------------------- */
+.eum_notice_cta_list {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 14px !important;
+    width: 100% !important;
+}
+.eum_notice_cta {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 20px !important;
+    width: 100% !important;
+    padding: 30px 28px !important;
+    border-top: 2px solid var(--eum-black) !important;
+    border-bottom: 2px solid var(--eum-border) !important;
+    background: #FFFFFF !important;
+    border-radius: 0 !important;
+    color: var(--eum-black) !important;
+    transition: background-color .3s ease, box-shadow .3s ease, transform .3s ease !important;
+}
+.eum_notice_cta:hover {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, .05) !important;
+    transform: translateX(5px) !important;
+}
+.eum_notice_cta_text {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 4px !important;
+    min-width: 0 !important;
+}
+.eum_notice_cta_title {
+    font-size: 16px !important;
+    font-weight: 700 !important;
+    color: var(--eum-black) !important;
+    line-height: 1.4 !important;
+}
+.eum_notice_cta_sub {
+    font-size: 13.5px !important;
+    font-weight: 400 !important;
+    color: var(--eum-sub) !important;
+    line-height: 1.4 !important;
+}
+.eum_notice_cta_arrow {
+    flex: 0 0 auto !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 42px !important;
+    height: 42px !important;
+    border-radius: 50% !important;
+    background: var(--eum-bg) !important;
+    color: var(--eum-black) !important;
+    font-size: 18px !important;
+    font-weight: 800 !important;
+    transition: background-color .3s ease, transform .3s cubic-bezier(.25, 1, .5, 1) !important;
+}
+.eum_notice_cta:hover .eum_notice_cta_arrow {
+    background: var(--eum-black) !important;
+    color: #FFFFFF !important;
+    transform: translateX(4px) !important;
+}
+/* -------------------------------------------------------------
+   4. 대표전화 및 바로가기 버튼
+------------------------------------------------------------- */
+.eum_contact_content {
+    display: flex !important;
+    flex: 1 !important;
+    flex-direction: column !important;
+    justify-content: flex-start !important;
+}
+.eum_tel_number {
+    display: flex !important;
+    align-items: center !important;
+    gap: 11px !important;
+    margin-bottom: 30px !important;
+    color: var(--eum-black) !important;
+    font-size: 40px !important;
+    font-weight: 900 !important;
+    line-height: 1 !important;
+    letter-spacing: -0.035em !important;
+}
+.eum_tel_number svg {
+    flex: 0 0 auto !important;
+    width: 26px !important;
+    height: 26px !important;
+    fill: var(--eum-black) !important;
+}
+.eum_contact_btns {
+    display: flex !important;
+    width: 100% !important;
+    gap: 15px !important;
+}
+.eum_action_btn {
+    display: flex !important;
+    position: relative !important;
+    flex: 1 1 0 !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    min-width: 0 !important;
+    height: 64px !important;
+    padding: 16px 20px !important;
+    overflow: hidden !important;
+    border-radius: 8px !important;
+    color: #FFFFFF !important;
+    transition: transform .3s ease, box-shadow .3s ease !important;
+}
+.eum_action_btn:hover {
+    box-shadow: 0 9px 24px rgba(0, 0, 0, .1) !important;
+    transform: translateY(-4px) !important;
+}
+.eum_action_btn span {
+    z-index: 2 !important;
+    min-width: 0 !important;
+    margin-right: 10px !important;
+    overflow: hidden !important;
+    color: #FFFFFF !important;
+    font-size: 14.5px !important;
+    font-weight: 700 !important;
+    line-height: 1.3 !important;
+    white-space: nowrap !important;
+    text-overflow: ellipsis !important;
+}
+.eum_logo_symbol {
+    z-index: 2 !important;
+    flex: 0 0 auto !important;
+    color: #FFFFFF !important;
+    font-family: Arial, sans-serif !important;
+    font-size: 26px !important;
+    font-weight: 900 !important;
+    line-height: 1 !important;
+    opacity: .95 !important;
+}
+.eum_btn_naver {
+    background: linear-gradient(135deg, #03C75A 0%, #029B46 100%) !important;
+}
+.eum_btn_blog {
+    background: linear-gradient(135deg, #1A3A6C 0%, #285A9D 100%) !important;
+}
+/* -------------------------------------------------------------
+   5. 푸터 하단
+------------------------------------------------------------- */
+.eum_fb_top {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    margin-bottom: 24px !important;
+    padding-top: 10px !important;
+}
+.eum_footer_logo {
+    display: block !important;
+    width: auto !important;
+    height: 40px !important;
+    object-fit: contain !important;
+}
+.eum_fb_info_row {
+    display: flex !important;
+    align-items: flex-end !important;
+    justify-content: space-between !important;
+    gap: 40px !important;
+}
+.eum_company_info {
+    display: flex !important;
+    flex: 1 1 auto !important;
+    flex-direction: column !important;
+    gap: 8px !important;
+    min-width: 0 !important;
+}
+.eum_addr {
+    color: var(--eum-sub) !important;
+    font-size: 13.5px !important;
+    font-weight: 400 !important;
+    line-height: 1.5 !important;
+}
+.eum_info_wrapper {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
+    gap: 4px 0 !important;
+    color: var(--eum-light) !important;
+    font-size: 13.5px !important;
+    line-height: 1.5 !important;
+}
+.eum_info_black_group {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
+}
+.eum_info_item {
+    white-space: nowrap !important;
+}
+.eum_label {
+    color: var(--eum-black) !important;
+    font-weight: 600 !important;
+}
+.eum_val,
+.eum_copyright {
+    color: var(--eum-light) !important;
+    font-weight: 400 !important;
+}
+.eum_divider {
+    margin: 0 8px !important;
+    color: #CCCCCC !important;
+    font-weight: 400 !important;
+}
+.eum_pc_only {
+    display: inline-block !important;
+}
+.eum_policy_links {
+    display: flex !important;
+    flex: 0 0 auto !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
+    gap: 10px 16px !important;
+}
+.eum_policy_links a,
+.eum_policy_links button {
+    display: inline-block !important;
+    color: var(--eum-light) !important;
+    font-family: 'Pretendard', sans-serif !important;
+    font-size: 13px !important;
+    font-weight: 500 !important;
+    line-height: 1.4 !important;
+    white-space: nowrap !important;
+    transition: color .2s ease !important;
+}
+.eum_policy_links a:hover,
+.eum_policy_links button:hover {
+    color: var(--eum-black) !important;
+    text-decoration: underline !important;
+}
+.eum_policy_links .eum_privacy {
+    color: var(--eum-black) !important;
+    font-weight: 700 !important;
+}
+/* -------------------------------------------------------------
+   6. 모달
+------------------------------------------------------------- */
+.eum_modal_overlay {
+    display: flex;
+    position: fixed;
+    z-index: 999999;
+    top: 0;
+    left: 0;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+    padding: 20px;
+    visibility: hidden;
+    background: rgba(0, 0, 0, .62);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .25s ease, visibility .25s ease;
+    box-sizing: border-box;
+    font-family: 'Pretendard', sans-serif;
+}
+.eum_modal_overlay.eum_modal_active {
+    visibility: visible;
+    opacity: 1;
+    pointer-events: auto;
+}
+.eum_modal_box {
+    display: flex;
+    width: 100%;
+    max-width: 760px;
+    max-height: 84vh;
+    overflow: hidden;
+    flex-direction: column;
+    border-radius: 16px;
+    background: #FFFFFF;
+    box-shadow: 0 24px 70px rgba(0, 0, 0, .25);
+    opacity: 0;
+    transform: translateY(20px) scale(.98);
+    transition: opacity .25s ease, transform .25s ease;
+}
+.eum_modal_overlay.eum_modal_active .eum_modal_box {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+.eum_modal_header {
+    display: flex;
+    flex: 0 0 auto;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 22px;
+    border-bottom: 1px solid #EEEEEE;
+}
+.eum_modal_title {
+    margin: 0;
+    color: #111111;
+    font-size: 19px;
+    font-weight: 800;
+    line-height: 1.4;
+}
+.eum_modal_close {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background: #F4F5F7;
+    color: #111111;
+    font-size: 19px;
+    cursor: pointer;
+}
+.eum_modal_body {
+    flex: 1 1 auto;
+    padding: 24px;
+    overflow-y: auto;
+    color: #555555;
+    font-size: 14px;
+    line-height: 1.75;
+    word-break: keep-all;
+}
+.eum_modal_body h5 {
+    margin: 26px 0 8px;
+    color: #111111;
+    font-size: 15px;
+    font-weight: 800;
+    line-height: 1.5;
+}
+.eum_modal_body h5:first-child {
+    margin-top: 0;
+}
+.eum_modal_body p {
+    margin: 0 0 12px;
+}
+.eum_modal_body ul,
+.eum_modal_body ol {
+    margin: 6px 0 16px;
+    padding-left: 21px;
+}
+.eum_modal_body li {
+    margin-bottom: 5px;
+}
+body.eum_modal_body_locked {
+    overflow: hidden !important;
+}
+/* -------------------------------------------------------------
+   7. 반응형
+------------------------------------------------------------- */
+@media (max-width: 992px) {
+    .eum_footer_wrap {
+        padding: 50px 15px 40px !important;
+    }
+    .eum_footer_top {
+        flex-direction: column !important;
+        gap: 50px !important;
+        margin-bottom: 50px !important;
+    }
+    .eum_top_header {
+        align-items: flex-start !important;
+        min-height: auto !important;
+    }
+    .eum_top_titles h3 {
+        font-size: 24px !important;
+    }
+    .eum_top_titles p {
+        font-size: 13px !important;
+    }
+    .eum_notice_cta {
+        padding: 24px 20px !important;
+    }
+    .eum_notice_cta_title {
+        font-size: 15px !important;
+    }
+    .eum_notice_cta_arrow {
+        width: 38px !important;
+        height: 38px !important;
+        font-size: 16px !important;
+    }
+    .eum_tel_number {
+        margin-bottom: 24px !important;
+        font-size: 32px !important;
+    }
+    .eum_tel_number svg {
+        width: 22px !important;
+        height: 22px !important;
+    }
+    .eum_contact_btns {
+        flex-direction: column !important;
+        gap: 10px !important;
+    }
+    .eum_action_btn {
+        height: auto !important;
+        min-height: 62px !important;
+        padding: 18px 20px !important;
+        border-radius: 12px !important;
+    }
+    .eum_fb_top {
+        margin-bottom: 20px !important;
+        padding-top: 20px !important;
+    }
+    .eum_footer_logo {
+        height: 34px !important;
+    }
+    .eum_fb_info_row {
+        align-items: flex-start !important;
+        flex-direction: column !important;
+        gap: 24px !important;
+    }
+    .eum_addr {
+        font-size: 13px !important;
+    }
+    .eum_pc_only,
+    .eum_divider {
+        display: none !important;
+    }
+    .eum_info_wrapper {
+        align-items: flex-start !important;
+        flex-direction: column !important;
+        gap: 6px !important;
+        font-size: 13px !important;
+    }
+    .eum_info_black_group {
+        gap: 4px 12px !important;
+    }
+    .eum_policy_links {
+        justify-content: flex-start !important;
+        gap: 8px 12px !important;
+    }
+    .eum_policy_links a,
+    .eum_policy_links button {
+        font-size: 11.5px !important;
+    }
+}
+@media (max-width: 560px) {
+    .eum_top_header {
+        gap: 12px !important;
+    }
+    .eum_btn_round {
+        min-height: 35px !important;
+        padding: 9px 15px !important;
+        font-size: 12px !important;
+    }
+    .eum_notice_cta {
+        padding: 20px 16px !important;
+        gap: 12px !important;
+    }
+    .eum_notice_cta_title {
+        font-size: 14.5px !important;
+    }
+    .eum_notice_cta_sub {
+        font-size: 12.5px !important;
+    }
+    .eum_tel_number {
+        font-size: 29px !important;
+    }
+    .eum_modal_overlay {
+        align-items: flex-end;
+        padding: 10px;
+    }
+    .eum_modal_box {
+        max-height: 90vh;
+        border-radius: 16px 16px 8px 8px;
+    }
+    .eum_modal_header {
+        padding: 17px 18px;
+    }
+    .eum_modal_body {
+        padding: 20px 18px;
+        font-size: 13.5px;
+    }
+}
+</style>
+<section class="eum_footer_wrap">
+    <div class="eum_footer_inner">
+        <!-- 상단: 공지사항 + 대표전화 -->
+        <div class="eum_footer_top">
+            <!-- 공지사항 / 의학정보 (목록 없이 바로가기 버튼만) -->
+            <div class="eum_footer_notice">
+                <div class="eum_top_header">
+                    <div class="eum_top_titles">
+                        <h3>공지사항</h3>
+                        <p>중요한 소식 놓치지 않도록 안내드립니다.</p>
+                    </div>
+                </div>
+                <div class="eum_notice_cta_list">
+                    <a
+                        href="https://yium.kr/notice"
+                        target="_top"
+                        class="eum_notice_cta"
+                        data-eum-nav="notice-more"
+                    >
+                        <span class="eum_notice_cta_text">
+                            <span class="eum_notice_cta_title">이움내과 공지사항 전체보기</span>
+                            <span class="eum_notice_cta_sub">새로운 소식과 안내사항을 확인해 보세요.</span>
+                        </span>
+                        <span class="eum_notice_cta_arrow">&rarr;</span>
+                    </a>
+                    <a
+                        href="https://yium.kr/health-info"
+                        target="_top"
+                        class="eum_notice_cta"
+                        data-eum-nav="medinfo-more"
+                    >
+                        <span class="eum_notice_cta_text">
+                            <span class="eum_notice_cta_title">이움내과 의학정보 바로가기</span>
+                            <span class="eum_notice_cta_sub">질환별 건강정보를 확인해 보세요.</span>
+                        </span>
+                        <span class="eum_notice_cta_arrow">&rarr;</span>
+                    </a>
+                </div>
+            </div>
+            <!-- 대표전화 -->
+            <div class="eum_footer_contact">
+                <div class="eum_top_header">
+                    <div class="eum_top_titles">
+                        <h3>대표전화</h3>
+                        <p>전화번호를 누르면 대표전화로 연결됩니다.</p>
+                    </div>
+                </div>
+                <div class="eum_contact_content">
+                    <a
+                        href="tel:031-979-0875"
+                        class="eum_tel_number"
+                        aria-label="이움내과 대표전화 031-979-0875"
+                    >
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1C10.61 21 3 13.39 3 4c0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"></path>
+                        </svg>
+                        031.979.0875
+                    </a>
+                    <div class="eum_contact_btns">
+                        <a
+                            href="https://naver.me/FioxDV8Q"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="eum_action_btn eum_btn_naver"
+                        >
+                            <span>네이버 바로가기 &gt;</span>
+                            <strong class="eum_logo_symbol">N</strong>
+                        </a>
+                        <a
+                            href="https://blog.naver.com/medchk"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="eum_action_btn eum_btn_blog"
+                        >
+                            <span>이움내과 공식 블로그 &gt;</span>
+                            <strong class="eum_logo_symbol">b</strong>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 하단 병원 정보 -->
+        <div class="eum_footer_bottom">
+            <div class="eum_fb_top">
+                <img
+                    src="https://cdn.imweb.me/upload/S20260108b9005a7eb2710/9f85a9eebaa26.png"
+                    alt="이움내과"
+                    class="eum_footer_logo"
+                >
+            </div>
+            <div class="eum_fb_info_row">
+                <div class="eum_company_info">
+                    <span class="eum_addr">
+                        경기 고양시 덕양구 백양로 51 네이버타운 3층 301·305호 이움내과의원
+                    </span>
+                    <div class="eum_info_wrapper">
+                        <div class="eum_info_black_group">
+                            <span class="eum_info_item">
+                                <span class="eum_label">대표자명:</span>
+                                <span class="eum_val">조현경</span>
+                            </span>
+                            <span class="eum_divider eum_pc_only">|</span>
+                            <span class="eum_info_item">
+                                <span class="eum_label">사업자번호:</span>
+                                <span class="eum_val">128-91-94371</span>
+                            </span>
+                            <span class="eum_divider eum_pc_only">|</span>
+                            <span class="eum_info_item">
+                                <span class="eum_label">TEL:</span>
+                                <span class="eum_val">031-979-0875</span>
+                            </span>
+                            <span class="eum_divider eum_pc_only">|</span>
+                            <span class="eum_info_item">
+                                <span class="eum_label">투석실:</span>
+                                <span class="eum_val">031-979-0873</span>
+                            </span>
+                        </div>
+                        <span class="eum_divider eum_pc_only">|</span>
+                        <span class="eum_info_item eum_copyright">
+                            ⓒ 2026 이움내과의원 All Rights Reserved.
+                        </span>
+                    </div>
+                </div>
+                <div class="eum_policy_links">
+                    <button type="button" class="eum_privacy" data-eum-modal="privacy">
+                        개인정보처리방침
+                    </button>
+                    <button type="button" data-eum-modal="terms">
+                        이용약관
+                    </button>
+                    <button type="button" data-eum-modal="rights">
+                        환자의 권리와 의무
+                    </button>
+                    <a
+                        href="https://yium.kr/fees"
+                        target="_top"
+                        rel="noopener noreferrer"
+                    >
+                        비급여안내
+                    </a>
+                    <a
+                        href="https://naver.me/FioxDV8Q"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        오시는 길
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- 정책 안내 모달 -->
+<div
+    id="eum_modal_overlay"
+    class="eum_modal_overlay"
+    role="dialog"
+    aria-modal="true"
+    aria-hidden="true"
+    aria-labelledby="eum_modal_title"
+>
+    <div class="eum_modal_box">
+        <div class="eum_modal_header">
+            <h4 id="eum_modal_title" class="eum_modal_title">안내</h4>
+            <button type="button" id="eum_modal_close" class="eum_modal_close" aria-label="팝업 닫기">✕</button>
+        </div>
+        <div id="eum_modal_body" class="eum_modal_body"></div>
+    </div>
+</div>
+<script>
+(function () {
+    'use strict';
+    /* =========================================================
+       1. 공지사항 / 의학정보 바로가기 (외부 URL로 이동)
+       - 아임웹 위젯이 iframe 안에서 렌더링되는 경우를 대비해
+         window.top으로 이동시키는 헬퍼만 유지합니다.
+    ========================================================= */
+    const EUM_NOTICE_URL = 'https://yium01.imweb.me/notice';
+    let eumPreviousFocus = null;
+    function eumReady(callback) {
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', callback, { once: true });
+        } else {
+            callback();
+        }
+    }
+    function eumMoveTopPage(url) {
+        const destination = url || EUM_NOTICE_URL;
+        try {
+            if (window.top) {
+                window.top.location.href = destination;
+                return;
+            }
+        } catch (error) {
+            /* iframe 상위 접근 제한 시 새 창으로 재시도 */
+        }
+        try {
+            const openedWindow = window.open(destination, '_top');
+            if (openedWindow) {
+                return;
+            }
+        } catch (error) {
+            /* 현재 창 이동으로 재시도 */
+        }
+        window.location.href = destination;
+    }
+    function eumIsNormalLeftClick(event) {
+        return (
+            event.button === 0 &&
+            !event.ctrlKey &&
+            !event.metaKey &&
+            !event.shiftKey &&
+            !event.altKey
+        );
+    }
+    function eumInitNoticeNavigation() {
+        document.addEventListener('click', function (event) {
+            if (!eumIsNormalLeftClick(event)) {
+                return;
+            }
+            /* 공지사항(notice-more), 의학정보(medinfo-more) 등 data-eum-nav가 있는 링크를 모두 처리 */
+            const link = event.target.closest('.eum_footer_wrap [data-eum-nav]');
+            if (!link) {
+                return;
+            }
+            event.preventDefault();
+            event.stopImmediatePropagation();
+            eumMoveTopPage(link.getAttribute('href') || EUM_NOTICE_URL);
+        }, true);
+    }
+    /* =========================================================
+       2. 모달 내용
+    ========================================================= */
+    const eumModalData = {
+        privacy: {
+            title: '개인정보처리방침',
+            content: `
+                <p>이움내과의원(이하 “병원”)은 개인정보 보호법, 의료법 등 관련 법령을 준수하며 이용자의 개인정보를 안전하게 관리합니다.</p>
+                <h5>1. 개인정보의 처리 목적</h5>
+                <ul>
+                    <li>진료예약, 온라인 문의 및 상담 접수</li>
+                    <li>진료서비스 제공과 환자 본인 확인</li>
+                    <li>문의사항과 민원 처리 및 결과 안내</li>
+                    <li>홈페이지 서비스 운영과 보안 관리</li>
+                    <li>관련 법령에 따른 진료기록 관리</li>
+                </ul>
+                <h5>2. 처리하는 개인정보 항목</h5>
+                <ul>
+                    <li>온라인 문의·예약: 이름, 연락처, 문의내용, 예약 관련 정보</li>
+                    <li>홈페이지 이용 과정: 접속기록, IP 주소, 브라우저 및 기기 정보, 쿠키</li>
+                    <li>진료 과정: 진료기록, 처방, 검사결과 등 관계 법령상 진료정보</li>
+                </ul>
+                <h5>3. 개인정보의 보유기간</h5>
+                <p>개인정보는 처리 목적이 달성되면 지체 없이 파기합니다. 관계 법령에 따라 보존 의무가 있는 정보는 법령에서 정한 기간 동안 보관합니다.</p>
+                <h5>4. 개인정보의 제3자 제공</h5>
+                <p>병원은 정보주체의 동의가 있거나 관계 법령에 특별한 규정이 있는 경우를 제외하고 개인정보를 제3자에게 제공하지 않습니다.</p>
+                <h5>5. 개인정보 처리업무의 위탁</h5>
+                <p>홈페이지 운영 등 개인정보 처리업무를 위탁하는 경우 수탁자와 위탁업무의 내용을 공개하고 관계 법령에 따라 관리·감독합니다.</p>
+                <h5>6. 개인정보의 파기</h5>
+                <ul>
+                    <li>전자적 파일: 복구 또는 재생할 수 없는 방법으로 삭제</li>
+                    <li>종이 문서: 분쇄 또는 소각 등의 방법으로 파기</li>
+                </ul>
+                <h5>7. 정보주체의 권리</h5>
+                <p>정보주체는 자신의 개인정보에 대한 열람, 정정, 삭제 및 처리정지를 요청할 수 있습니다. 의료법 등 관계 법령상 보존 의무가 있는 진료정보는 삭제가 제한될 수 있습니다.</p>
+                <h5>8. 개인정보 보호책임자</h5>
+                <ul>
+                    <li>개인정보 보호책임자: 조현경</li>
+                    <li>소속: 이움내과의원</li>
+                    <li>대표전화: 031-979-0875</li>
+                </ul>
+            `
+        },
+        terms: {
+            title: '이용약관',
+            content: `
+                <h5>제1조 목적</h5>
+                <p>이 약관은 이움내과의원이 홈페이지를 통해 제공하는 서비스의 이용조건과 병원 및 이용자의 권리·의무를 규정함을 목적으로 합니다.</p>
+                <h5>제2조 서비스의 내용</h5>
+                <ul>
+                    <li>병원, 의료진 및 진료시간 안내</li>
+                    <li>진료과목과 의료서비스 관련 정보 제공</li>
+                    <li>공지사항 및 건강정보 제공</li>
+                    <li>온라인 문의와 예약 관련 서비스</li>
+                </ul>
+                <h5>제3조 서비스의 변경 및 중단</h5>
+                <p>병원은 시스템 점검, 통신장애, 서비스 개선 및 불가피한 운영상 사유가 발생한 경우 서비스의 전부 또는 일부를 변경하거나 일시 중단할 수 있습니다.</p>
+                <h5>제4조 이용자의 의무</h5>
+                <ul>
+                    <li>허위정보 또는 타인의 정보를 입력하지 않아야 합니다.</li>
+                    <li>홈페이지의 정상적인 운영을 방해해서는 안 됩니다.</li>
+                    <li>병원 또는 제3자의 권리를 침해해서는 안 됩니다.</li>
+                    <li>관계 법령과 공공질서에 위반되는 행위를 해서는 안 됩니다.</li>
+                </ul>
+                <h5>제5조 의료정보 이용에 관한 사항</h5>
+                <p>홈페이지에서 제공하는 건강정보는 일반적인 정보 제공을 목적으로 하며 개별 환자에 대한 진단이나 치료를 대신하지 않습니다.</p>
+                <h5>제6조 저작권</h5>
+                <p>홈페이지에 게시된 글, 이미지, 디자인 등 콘텐츠의 저작권은 별도의 표시가 없는 한 이움내과의원에 있습니다.</p>
+            `
+        },
+        rights: {
+            title: '환자의 권리와 의무',
+            content: `
+                <h5>환자의 권리</h5>
+                <p><strong>1. 진료받을 권리</strong><br>환자는 차별받지 않고 자신의 건강을 보호하기 위한 적절한 보건의료서비스를 받을 권리가 있습니다.</p>
+                <p><strong>2. 알 권리와 자기결정권</strong><br>환자는 질병 상태, 치료방법, 예상 결과, 부작용 및 진료비용 등에 관해 충분한 설명을 듣고 치료방법에 대한 동의 여부를 결정할 권리가 있습니다.</p>
+                <p><strong>3. 비밀을 보호받을 권리</strong><br>환자는 진료와 관련된 신체 및 건강상의 비밀과 사생활을 보호받을 권리가 있습니다.</p>
+                <p><strong>4. 상담과 조정을 신청할 권리</strong><br>환자는 의료서비스와 관련한 분쟁이 발생한 경우 관계 기관에 상담 및 조정을 신청할 수 있습니다.</p>
+                <h5>환자의 의무</h5>
+                <p><strong>1. 의료진을 신뢰하고 존중할 의무</strong><br>환자는 자신의 건강 상태와 증상을 정확하게 알리고 의료진의 치료방침에 협조해야 합니다.</p>
+                <p><strong>2. 부정한 방법으로 진료받지 않을 의무</strong><br>환자는 타인의 명의를 사용하거나 허위정보를 제공하는 등 부정한 방법으로 진료받아서는 안 됩니다.</p>
+                <p><strong>3. 병원 규정을 준수할 의무</strong><br>환자는 병원의 진료질서와 안전수칙을 준수하고 다른 환자와 의료진의 진료를 방해해서는 안 됩니다.</p>
+            `
+        }
+    };
+    /* =========================================================
+       3. 모달 제어
+    ========================================================= */
+    function eumOpenModal(type) {
+        const data = eumModalData[type];
+        const overlay = document.getElementById('eum_modal_overlay');
+        const title = document.getElementById('eum_modal_title');
+        const body = document.getElementById('eum_modal_body');
+        const closeButton = document.getElementById('eum_modal_close');
+        if (!data || !overlay || !title || !body) {
+            return;
+        }
+        eumPreviousFocus = document.activeElement;
+        title.textContent = data.title;
+        body.innerHTML = data.content;
+        body.scrollTop = 0;
+        overlay.classList.add('eum_modal_active');
+        overlay.setAttribute('aria-hidden', 'false');
+        document.body.classList.add('eum_modal_body_locked');
+        window.setTimeout(function () {
+            if (closeButton) {
+                closeButton.focus();
+            }
+        }, 30);
+    }
+    function eumCloseModal() {
+        const overlay = document.getElementById('eum_modal_overlay');
+        if (!overlay) {
+            return;
+        }
+        overlay.classList.remove('eum_modal_active');
+        overlay.setAttribute('aria-hidden', 'true');
+        document.body.classList.remove('eum_modal_body_locked');
+        if (eumPreviousFocus && typeof eumPreviousFocus.focus === 'function') {
+            eumPreviousFocus.focus();
+        }
+    }
+    function eumInitModal() {
+        const overlay = document.getElementById('eum_modal_overlay');
+        const closeButton = document.getElementById('eum_modal_close');
+        document.querySelectorAll('[data-eum-modal]').forEach(function (button) {
+            button.addEventListener('click', function () {
+                eumOpenModal(button.getAttribute('data-eum-modal'));
+            });
+        });
+        if (closeButton) {
+            closeButton.addEventListener('click', eumCloseModal);
+        }
+        if (overlay) {
+            overlay.addEventListener('click', function (event) {
+                if (event.target === overlay) {
+                    eumCloseModal();
+                }
+            });
+        }
+        document.addEventListener('keydown', function (event) {
+            if (event.key === 'Escape' && overlay && overlay.classList.contains('eum_modal_active')) {
+                eumCloseModal();
+            }
+        });
+        window.eumOpenModal = eumOpenModal;
+        window.eumCloseModal = eumCloseModal;
+    }
+    /* =========================================================
+       4. 실행
+    ========================================================= */
+    eumReady(function () {
+        eumInitNoticeNavigation();
+        eumInitModal();
+    });
+})();
+</script>
