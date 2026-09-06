@@ -55,7 +55,15 @@
 
 #eumLoc .eum_main{display:grid !important;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr) !important;gap:22px !important;}
 #eumLoc .eum_map{border-radius:var(--eum-r) !important;overflow:hidden !important;border:1px solid var(--eum-line) !important;min-height:372px !important;background:var(--eum-paper2) !important;}
-#eumLoc .eum_map iframe{width:100% !important;height:100% !important;min-height:372px !important;filter:grayscale(.15) !important;}
+#eumLoc .eum_map iframe{width:100% !important;height:100% !important;min-height:372px !important;}
+#eumLoc .root_daum_roughmap{width:100% !important;height:100% !important;min-height:372px !important;margin:0 !important;padding:0 !important;float:none !important;}
+#eumLoc .root_daum_roughmap .wrap_map{height:372px !important;width:100% !important;}
+#eumLoc .root_daum_roughmap .wrap_map iframe{min-height:0 !important;height:372px !important;}
+#eumLoc .root_daum_roughmap .map_border{display:none !important;}
+#eumLoc .root_daum_roughmap .wrap_controllers{
+  border:0 !important;border-top:1px solid var(--eum-line) !important;
+  background:var(--eum-paper2) !important;font-family:inherit !important;
+}
 #eumLoc .eum_side{display:flex !important;flex-direction:column !important;gap:12px !important;}
 #eumLoc .eum_card{background:var(--eum-teal) !important;color:#fff !important;border-radius:var(--eum-r) !important;padding:28px 26px 26px !important;flex:1 1 auto !important;display:flex !important;flex-direction:column !important;justify-content:space-between !important;}
 #eumLoc .eum_card .eum_k{display:block !important;font-size:10.5px !important;font-weight:700 !important;letter-spacing:.15em !important;color:var(--eum-mint) !important;margin-bottom:12px !important;}
@@ -107,6 +115,9 @@
 @media (max-width:1024px){
   #eumLoc .eum_main{grid-template-columns:1fr !important;}
   #eumLoc .eum_map,#eumLoc .eum_map iframe{min-height:300px !important;}
+  #eumLoc .root_daum_roughmap{min-height:300px !important;}
+  #eumLoc .root_daum_roughmap .wrap_map,
+  #eumLoc .root_daum_roughmap .wrap_map iframe{height:300px !important;}
   #eumLoc .eum_hours{grid-template-columns:1fr !important;}
   #eumLoc .eum_head{flex-direction:column !important;align-items:flex-start !important;}
   #eumLoc .eum_badges{justify-content:flex-start !important;max-width:none !important;}
@@ -143,8 +154,7 @@
 
     <div class="eum_main eum_rv eum_d1">
       <div class="eum_map">
-        <iframe title="이움내과의원 위치" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
-          src="https://maps.google.com/maps?q=%EA%B2%BD%EA%B8%B0%EB%8F%84%20%EA%B3%A0%EC%96%91%EC%8B%9C%20%EB%8D%95%EC%96%91%EA%B5%AC%20%EB%B0%B1%EC%96%91%EB%A1%9C%2051&amp;z=17&amp;hl=ko&amp;output=embed"></iframe>
+        <div id="daumRoughmapContainer1788679680956" class="root_daum_roughmap root_daum_roughmap_landing"></div>
       </div>
 
       <div class="eum_side">
@@ -202,6 +212,36 @@
   var root = document.getElementById('eumLoc');
   if (!root || root.dataset.eumReady) return;
   root.dataset.eumReady = '1';
+
+  /* ── 카카오맵(다음 약도) ── */
+  (function () {
+    var box = root.querySelector('#daumRoughmapContainer1788679680956');
+    if (!box) return;
+    var tries = 0;
+    function render() {
+      try {
+        new daum.roughmap.Lander({
+          'timestamp': '1788679680956',
+          'key': 'u9hvyz25xsb',
+          'mapWidth': '100%',
+          'mapHeight': '372'
+        }).render();
+      } catch (e) {}
+    }
+    function wait() {
+      if (window.daum && window.daum.roughmap && window.daum.roughmap.Lander) { render(); return; }
+      if (++tries > 100) return;
+      setTimeout(wait, 150);
+    }
+    if (!document.querySelector('script.daum_roughmap_loader_script')) {
+      var s = document.createElement('script');
+      s.charset = 'UTF-8';
+      s.className = 'daum_roughmap_loader_script';
+      s.src = 'https://ssl.daumcdn.net/dmaps/map_js_init/roughmapLoader.js';
+      document.head.appendChild(s);
+    }
+    wait();
+  })();
 
   var els = root.querySelectorAll('.eum_rv');
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || !window.IntersectionObserver) {
