@@ -539,7 +539,7 @@
   width:100% !important; max-width:100% !important;
   margin:0 !important; padding:150px 0 156px !important;
   background:var(--eum-teal) !important; color:#fff !important;
-  overflow:hidden !important; box-sizing:border-box !important; z-index:auto !important;
+  overflow:visible !important; box-sizing:border-box !important; z-index:auto !important;
 }
 #eumPhi,#eumPhi *,#eumPhi *::before,#eumPhi *::after{
   box-sizing:border-box !important;
@@ -554,15 +554,19 @@
 #eumPhi svg{display:inline-block !important;}
 #eumPhi i,#eumPhi em{font-style:normal !important;}
 
-#eumPhi::before{
+#eumPhi .eum_bg{
+  position:absolute !important;inset:0 !important;overflow:hidden !important;
+  pointer-events:none !important;z-index:0 !important;
+}
+#eumPhi .eum_bg::before{
   content:'' !important;position:absolute !important;right:-180px !important;top:-180px !important;
   width:680px !important;height:680px !important;border-radius:50% !important;
-  background:radial-gradient(circle,rgba(54,184,165,.18),rgba(54,184,165,0) 68%) !important;pointer-events:none !important;
+  background:radial-gradient(circle,rgba(54,184,165,.18),rgba(54,184,165,0) 68%) !important;
 }
-#eumPhi::after{
+#eumPhi .eum_bg::after{
   content:'' !important;position:absolute !important;left:-220px !important;bottom:-240px !important;
   width:760px !important;height:760px !important;border-radius:50% !important;
-  background:radial-gradient(circle,rgba(54,184,165,.10),rgba(54,184,165,0) 66%) !important;pointer-events:none !important;
+  background:radial-gradient(circle,rgba(54,184,165,.10),rgba(54,184,165,0) 66%) !important;
 }
 #eumPhi .eum_wrap{max-width:var(--eum-maxw) !important;margin:0 auto !important;padding:0 var(--eum-pad) !important;width:100% !important;position:relative !important;z-index:1 !important;}
 
@@ -698,6 +702,7 @@
 </style>
 
 <div id="eumPhi">
+  <span class="eum_bg" aria-hidden="true"></span>
   <div class="eum_wrap">
 
     <div class="eum_head">
