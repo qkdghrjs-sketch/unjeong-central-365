@@ -247,7 +247,7 @@
 <div id="eumHd">
   <header class="eum_bar">
     <div class="eum_wrap">
-      <a class="eum_logo" href="https://yium.kr/">
+      <a class="eum_logo" href="/">
         <span class="eum_mark"><img src="https://cdn.imweb.me/upload/S20260108b9005a7eb2710/9f85a9eebaa26.png" alt="이움내과의원 로고"></span>
         <span class="eum_wm">
           <b>이움내과의원</b>
@@ -257,13 +257,13 @@
 
       <nav aria-label="주요 메뉴">
         <ul class="eum_gnb">
-          <li data-g="0"><a href="https://yium.kr/about">병원소개</a></li>
-          <li data-g="1"><a href="https://yium.kr/internal-medicine">내과진료</a></li>
-          <li data-g="2"><a href="https://yium.kr/chronic-care">만성질환</a></li>
-          <li data-g="3"><a href="https://yium.kr/dialysis-center">인공신장센터</a></li>
-          <li data-g="4"><a href="https://yium.kr/obesity">비만·영양수액</a></li>
-          <li data-g="5"><a href="https://yium.kr/vaccination">예방접종</a></li>
-          <li data-g="6"><a href="https://yium.kr/notice">공지사항</a></li>
+          <li data-g="0"><a href="/about">병원소개</a></li>
+          <li data-g="1"><a href="/internal-medicine">내과진료</a></li>
+          <li data-g="2"><a href="/chronic-care">만성질환</a></li>
+          <li data-g="3"><a href="/dialysis-center">인공신장센터</a></li>
+          <li data-g="4"><a href="/obesity">비만·영양수액</a></li>
+          <li data-g="5"><a href="/vaccination">예방접종</a></li>
+          <li data-g="6"><a href="/notice">공지사항</a></li>
         </ul>
       </nav>
 
@@ -295,44 +295,44 @@
       <div class="eum_mcols">
         <div class="eum_mcol" data-g="0">
           <b>병원소개</b>
-          <a href="https://yium.kr/about">이움내과 소개</a>
-          <a href="https://yium.kr/doctors">의료진 소개</a>
-          <a href="https://yium.kr/location">진료시간 · 오시는 길</a>
-          <a href="https://yium.kr/areas">일산 · 고양 오시는 길</a>
-          <a href="https://yium.kr/tour">둘러보기</a>
+          <a href="/about">이움내과 소개</a>
+          <a href="/doctors">의료진 소개</a>
+          <a href="/location">진료시간 · 오시는 길</a>
+          <a href="/areas">일산 · 고양 오시는 길</a>
+          <a href="/tour">둘러보기</a>
         </div>
         <div class="eum_mcol" data-g="1">
           <b>내과진료</b>
-          <a href="https://yium.kr/internal-medicine">일반 내과 진료<br>(감기, 장염, 위장병 등)</a>
+          <a href="/internal-medicine">일반 내과 진료<br>(감기, 장염, 위장병 등)</a>
         </div>
         <div class="eum_mcol" data-g="2">
           <b>만성질환</b>
-          <a href="https://yium.kr/chronic-care">일차의료 만성질환관리</a>
-          <a href="https://yium.kr/diabetes">당뇨</a>
-          <a href="https://yium.kr/hypertension">고혈압</a>
-          <a href="https://yium.kr/dyslipidemia">고지혈증</a>
+          <a href="/chronic-care">일차의료 만성질환관리</a>
+          <a href="/diabetes">당뇨</a>
+          <a href="/hypertension">고혈압</a>
+          <a href="/dyslipidemia">고지혈증</a>
         </div>
         <div class="eum_mcol" data-g="3">
           <b>인공신장센터</b>
-          <a href="https://yium.kr/dialysis-center">센터 안내</a>
-          <a href="https://yium.kr/hemodialysis">혈액 투석</a>
-          <a href="https://yium.kr/night-dialysis">야간 투석</a>
+          <a href="/dialysis-center">센터 안내</a>
+          <a href="/hemodialysis">혈액 투석</a>
+          <a href="/night-dialysis">야간 투석</a>
         </div>
         <div class="eum_mcol" data-g="4">
           <b>비만 · 영양수액</b>
-          <a href="https://yium.kr/iv-therapy">영양수액</a>
-          <a href="https://yium.kr/obesity">비만</a>
+          <a href="/iv-therapy">영양수액</a>
+          <a href="/obesity">비만</a>
         </div>
         <div class="eum_mcol" data-g="5">
           <b>예방접종</b>
-          <a href="https://yium.kr/vaccination">예방접종</a>
+          <a href="/vaccination">예방접종</a>
         </div>
         <div class="eum_mcol" data-g="6">
           <b>공지사항</b>
-          <a href="https://yium.kr/notice">공지사항</a>
-          <a href="https://yium.kr/health-info">의학정보</a>
-          <a href="https://yium.kr/faq">자주 묻는 질문</a>
-          <a href="https://yium.kr/fees">비급여진료비 안내</a>
+          <a href="/notice">공지사항</a>
+          <a href="/health-info">의학정보</a>
+          <a href="/faq">자주 묻는 질문</a>
+          <a href="/fees">비급여진료비 안내</a>
         </div>
       </div>
     </div>
@@ -342,52 +342,52 @@
     <div class="eum_mg">
       <button class="eum_mh" type="button">병원소개<svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></button>
       <div class="eum_mc">
-        <a href="https://yium.kr/about">이움내과 소개</a>
-        <a href="https://yium.kr/doctors">의료진 소개</a>
-        <a href="https://yium.kr/location">진료시간 · 오시는 길</a>
-        <a href="https://yium.kr/areas">일산 · 고양 오시는 길</a>
-        <a href="https://yium.kr/tour">둘러보기</a>
+        <a href="/about">이움내과 소개</a>
+        <a href="/doctors">의료진 소개</a>
+        <a href="/location">진료시간 · 오시는 길</a>
+        <a href="/areas">일산 · 고양 오시는 길</a>
+        <a href="/tour">둘러보기</a>
       </div>
     </div>
     <div class="eum_mg">
       <button class="eum_mh" type="button">내과진료<svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></button>
-      <div class="eum_mc"><a href="https://yium.kr/internal-medicine">일반 내과 진료 (감기, 장염, 위장병 등)</a></div>
+      <div class="eum_mc"><a href="/internal-medicine">일반 내과 진료 (감기, 장염, 위장병 등)</a></div>
     </div>
     <div class="eum_mg">
       <button class="eum_mh" type="button">만성질환<svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></button>
       <div class="eum_mc">
-        <a href="https://yium.kr/chronic-care">일차의료 만성질환관리</a>
-        <a href="https://yium.kr/diabetes">당뇨</a>
-        <a href="https://yium.kr/hypertension">고혈압</a>
-        <a href="https://yium.kr/dyslipidemia">고지혈증</a>
+        <a href="/chronic-care">일차의료 만성질환관리</a>
+        <a href="/diabetes">당뇨</a>
+        <a href="/hypertension">고혈압</a>
+        <a href="/dyslipidemia">고지혈증</a>
       </div>
     </div>
     <div class="eum_mg">
       <button class="eum_mh" type="button">인공신장센터<svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></button>
       <div class="eum_mc">
-        <a href="https://yium.kr/dialysis-center">센터 안내</a>
-        <a href="https://yium.kr/hemodialysis">혈액 투석</a>
-        <a href="https://yium.kr/night-dialysis">야간 투석</a>
+        <a href="/dialysis-center">센터 안내</a>
+        <a href="/hemodialysis">혈액 투석</a>
+        <a href="/night-dialysis">야간 투석</a>
       </div>
     </div>
     <div class="eum_mg">
       <button class="eum_mh" type="button">비만 · 영양수액<svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></button>
       <div class="eum_mc">
-        <a href="https://yium.kr/iv-therapy">영양수액</a>
-        <a href="https://yium.kr/obesity">비만</a>
+        <a href="/iv-therapy">영양수액</a>
+        <a href="/obesity">비만</a>
       </div>
     </div>
     <div class="eum_mg">
       <button class="eum_mh" type="button">예방접종<svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></button>
-      <div class="eum_mc"><a href="https://yium.kr/vaccination">예방접종</a></div>
+      <div class="eum_mc"><a href="/vaccination">예방접종</a></div>
     </div>
     <div class="eum_mg">
       <button class="eum_mh" type="button">공지사항<svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></button>
       <div class="eum_mc">
-        <a href="https://yium.kr/notice">공지사항</a>
-        <a href="https://yium.kr/health-info">의학정보</a>
-        <a href="https://yium.kr/faq">자주 묻는 질문</a>
-        <a href="https://yium.kr/fees">비급여진료비 안내</a>
+        <a href="/notice">공지사항</a>
+        <a href="/health-info">의학정보</a>
+        <a href="/faq">자주 묻는 질문</a>
+        <a href="/fees">비급여진료비 안내</a>
       </div>
     </div>
     <div class="eum_mtel">

@@ -207,7 +207,7 @@
       <div class="eum_gt"><b>만성질환클리닉</b><em>CHRONIC DISEASE CARE</em><i>01 — 04</i></div>
       <div class="eum_rows">
 
-        <a class="eum_row" href="https://yium.kr/diabetes" data-i="0">
+        <a class="eum_row" href="/diabetes" data-i="0">
           <span class="eum_thumb"><img src="https://cdn.imweb.me/upload/S20260108b9005a7eb2710/0096ae636476f.jpeg" alt="당뇨 클리닉" loading="lazy"></span>
           <span class="eum_no">01</span>
           <span class="eum_txt"><span class="eum_nm">당뇨</span><span class="eum_kw eum_mo">혈당 관리 · 당화혈색소 검사 · 합병증 예방</span></span>
@@ -215,7 +215,7 @@
           <span class="eum_go"><svg width="17" height="17" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
         </a>
 
-        <a class="eum_row" href="https://yium.kr/hypertension" data-i="1">
+        <a class="eum_row" href="/hypertension" data-i="1">
           <span class="eum_thumb"><img src="https://cdn.imweb.me/upload/S20260108b9005a7eb2710/d09582650d23a.jpeg" alt="고혈압 클리닉" loading="lazy"></span>
           <span class="eum_no">02</span>
           <span class="eum_txt"><span class="eum_nm">고혈압</span><span class="eum_kw eum_mo">혈압 모니터링 · 24시간 활동혈압 · 심혈관 합병증 예방</span></span>
@@ -223,7 +223,7 @@
           <span class="eum_go"><svg width="17" height="17" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
         </a>
 
-        <a class="eum_row" href="https://yium.kr/dyslipidemia" data-i="2">
+        <a class="eum_row" href="/dyslipidemia" data-i="2">
           <span class="eum_thumb"><img src="https://cdn.imweb.me/upload/S20260108b9005a7eb2710/d288b11769fdf.jpeg" alt="고지혈증 클리닉" loading="lazy"></span>
           <span class="eum_no">03</span>
           <span class="eum_txt"><span class="eum_nm">고지혈증</span><span class="eum_kw eum_mo">지질 검사 · 콜레스테롤 관리 · 동맥경화 예방</span></span>
@@ -231,7 +231,7 @@
           <span class="eum_go"><svg width="17" height="17" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
         </a>
 
-        <a class="eum_row" href="https://yium.kr/chronic-care" data-i="3">
+        <a class="eum_row" href="/chronic-care" data-i="3">
           <span class="eum_thumb"><img src="https://cdn.imweb.me/upload/S20260108b9005a7eb2710/ba80d7b2a1e30.jpeg" alt="일차의료 만성질환관리 본사업" loading="lazy"></span>
           <span class="eum_no">04</span>
           <span class="eum_txt"><span class="eum_nm">일차의료 만성질환관리 본사업</span><span class="eum_kw eum_mo">본사업 지정기관 · 맞춤형 케어플랜 · 자기관리 교육</span></span>
@@ -246,7 +246,7 @@
       <div class="eum_gt"><b>인공신장센터</b><em>ARTIFICIAL KIDNEY CENTER</em><i>05 — 07</i></div>
       <div class="eum_rows">
 
-        <a class="eum_row" href="https://yium.kr/dialysis-center" data-i="4">
+        <a class="eum_row" href="/dialysis-center" data-i="4">
           <span class="eum_thumb"><img src="https://cdn.imweb.me/upload/S20260108b9005a7eb2710/83b782ece6616.jpeg" alt="인공신장센터 안내" loading="lazy"></span>
           <span class="eum_no">05</span>
           <span class="eum_txt"><span class="eum_nm">센터 안내</span><span class="eum_kw eum_mo">FMC 5008S 투석기 · 야간투석 운영 · 개인 맞춤 관리</span></span>
@@ -254,7 +254,7 @@
           <span class="eum_go"><svg width="17" height="17" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
         </a>
 
-        <a class="eum_row" href="https://yium.kr/hemodialysis" data-i="5">
+        <a class="eum_row" href="/hemodialysis" data-i="5">
           <span class="eum_thumb"><img src="https://cdn.imweb.me/upload/S20260108b9005a7eb2710/2b1277cce5597.jpeg" alt="혈액투석 안내" loading="lazy"></span>
           <span class="eum_no">06</span>
           <span class="eum_txt"><span class="eum_nm">혈액투석 안내</span><span class="eum_kw eum_mo">투석 과정 안내 · 직장인 야간투석 · 투석 스케줄 상담</span></span>
@@ -262,7 +262,7 @@
           <span class="eum_go"><svg width="17" height="17" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
         </a>
 
-        <a class="eum_row" href="https://yium.kr/hemodialysis" data-i="6">
+        <a class="eum_row" href="/hemodialysis" data-i="6">
           <span class="eum_thumb"><img src="https://cdn.imweb.me/upload/S20260108b9005a7eb2710/2c0c5ad591567.jpeg" alt="투석 전 관리" loading="lazy"></span>
           <span class="eum_no">07</span>
           <span class="eum_txt"><span class="eum_nm">투석 전 관리</span><span class="eum_kw eum_mo">신장 기능 검사 · CKD 단계 관리 · 투석 준비 상담</span></span>

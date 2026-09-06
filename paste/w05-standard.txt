@@ -127,7 +127,7 @@
           <div class="eum_a"><div class="eum_inner">
             <img class="eum_moimg" src="https://cdn.imweb.me/upload/S20260108b9005a7eb2710/ad11e19d578cf.jpeg" alt="신장내과 분과전문의 진료" loading="lazy">
             <div class="eum_tags"><span class="eum_tag">교수 출신 신장내과 전문의</span><span class="eum_tag">1:1 맞춤 주치의</span></div>
-            <a class="eum_link" href="https://yium.kr/doctors">의료진 소개 보기
+            <a class="eum_link" href="/doctors">의료진 소개 보기
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
             </a>
           </div></div>
@@ -138,7 +138,7 @@
           <div class="eum_a"><div class="eum_inner">
             <img class="eum_moimg" src="https://cdn.imweb.me/upload/S20260108b9005a7eb2710/fdc2e19cf0ebf.jpeg" alt="만성질환 케어" loading="lazy">
             <div class="eum_tags"><span class="eum_tag">당뇨·고혈압·고지혈증</span><span class="eum_tag">합병증 선제 예방</span></div>
-            <a class="eum_link" href="https://yium.kr/chronic-care">만성질환클리닉 안내
+            <a class="eum_link" href="/chronic-care">만성질환클리닉 안내
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
             </a>
           </div></div>
@@ -149,7 +149,7 @@
           <div class="eum_a"><div class="eum_inner">
             <img class="eum_moimg" src="https://cdn.imweb.me/upload/S20260108b9005a7eb2710/78a2fc5f55b63.jpeg" alt="인공신장센터" loading="lazy">
             <div class="eum_tags"><span class="eum_tag">FMC 5008S 투석기</span><span class="eum_tag">대한신장학회 인증 인공신장실</span></div>
-            <a class="eum_link" href="https://yium.kr/dialysis-center">인공신장센터 둘러보기
+            <a class="eum_link" href="/dialysis-center">인공신장센터 둘러보기
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
             </a>
           </div></div>
@@ -160,7 +160,7 @@
           <div class="eum_a"><div class="eum_inner">
             <img class="eum_moimg" src="https://cdn.imweb.me/upload/S20260108b9005a7eb2710/35a0923007d7b.jpeg" alt="야간투석" loading="lazy">
             <div class="eum_tags"><span class="eum_tag">월·수·금 저녁 10시 30분까지</span><span class="eum_tag">생업과 치료의 병행</span></div>
-            <a class="eum_link" href="https://yium.kr/night-dialysis">야간투석 스케줄 확인
+            <a class="eum_link" href="/night-dialysis">야간투석 스케줄 확인
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
             </a>
           </div></div>
@@ -171,7 +171,7 @@
           <div class="eum_a"><div class="eum_inner">
             <img class="eum_moimg" src="https://cdn.imweb.me/upload/S20260108b9005a7eb2710/75e7a0379a144.jpeg" alt="영양수액·체중 관리" loading="lazy">
             <div class="eum_tags"><span class="eum_tag">1:1 맞춤 영양수액</span><span class="eum_tag">체중 관리 상담</span></div>
-            <a class="eum_link" href="https://yium.kr/obesity">비만·영양수액 안내
+            <a class="eum_link" href="/obesity">비만·영양수액 안내
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
             </a>
           </div></div>

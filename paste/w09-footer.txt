@@ -82,14 +82,14 @@
         <small>YIUM INTERNAL MEDICINE</small>
       </div>
       <nav class="eum_nav" aria-label="푸터 메뉴">
-        <a href="https://yium.kr/about">병원소개</a>
-        <a href="https://yium.kr/doctors">의료진</a>
-        <a href="https://yium.kr/chronic-care">만성질환</a>
-        <a href="https://yium.kr/dialysis-center">인공신장센터</a>
-        <a href="https://yium.kr/night-dialysis">야간투석</a>
-        <a href="https://yium.kr/fees">비급여진료비</a>
-        <a href="https://yium.kr/notice">공지사항</a>
-        <a href="https://yium.kr/location">오시는 길</a>
+        <a href="/about">병원소개</a>
+        <a href="/doctors">의료진</a>
+        <a href="/chronic-care">만성질환</a>
+        <a href="/dialysis-center">인공신장센터</a>
+        <a href="/night-dialysis">야간투석</a>
+        <a href="/fees">비급여진료비</a>
+        <a href="/notice">공지사항</a>
+        <a href="/location">오시는 길</a>
       </nav>
     </div>
 
