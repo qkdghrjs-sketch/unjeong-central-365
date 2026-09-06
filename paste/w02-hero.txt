@@ -38,7 +38,7 @@
 #eumHero .eum_bg{
   position:absolute !important;inset:0 !important;
   background-size:cover !important;background-position:center !important;background-repeat:no-repeat !important;
-  transform:scale(1.08) !important;transition:transform 8s var(--eum-ease) !important;
+  transform:scale(1.08) !important;transition:transform 5s var(--eum-ease) !important;
 }
 #eumHero .eum_slide.eum_on .eum_bg{transform:scale(1) !important;}
 #eumHero .eum_scrim{
@@ -108,7 +108,7 @@
 #eumHero .eum_tab b{font-size:15px !important;font-weight:700 !important;letter-spacing:-.03em !important;line-height:1.6 !important;}
 #eumHero .eum_tab .eum_sm{display:none !important;}
 #eumHero .eum_tab::before{content:'' !important;position:absolute !important;left:0 !important;top:-1px !important;height:2px !important;width:0 !important;background:var(--eum-mint) !important;}
-#eumHero .eum_tab.eum_on::before{width:100% !important;transition:width 7s linear !important;}
+#eumHero .eum_tab.eum_on::before{width:100% !important;transition:width 4s linear !important;}
 
 
 @media (max-width:1180px){#eumHero{--eum-pad:26px;}}
@@ -198,7 +198,7 @@
   if (!root || root.dataset.eumReady) return;
   root.dataset.eumReady = '1';
 
-  var MS = 7000;
+  var MS = 4000;
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var slides = root.querySelectorAll('.eum_slide');
   var tabs = root.querySelectorAll('.eum_tab');
