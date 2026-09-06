@@ -192,14 +192,13 @@
 })();
 </script>
 
-
 <!-- ══════════════════════════════════════════════════════════════
      [이움내과] 04. 진료클리닉  (아임웹 코드 위젯용)
      ─────────────────────────────────────────────────────────────
-     PC     : 번호가 매겨진 진료 목록.
-              마우스를 올리면 딥틸 배경이 왼쪽에서 차오르고,
-              커서를 따라 해당 진료 사진이 떠오릅니다.
-     모바일 : 사진이 항상 보이는 카드 목록으로 자동 전환됩니다.
+     사진이 항상 크게 보이는 카드 그리드.
+     PC     : 만성질환클리닉 2열 × 2줄, 인공신장센터는 첫 칸이 와이드.
+     모바일 : 한 장씩 꽉 차게 세로로.
+     마우스를 올리면 사진이 천천히 확대되고 딥틸이 짙어집니다.
      ══════════════════════════════════════════════════════════════ -->
 <style>
 @import url('https://cdn.jsdelivr.net/gh/sun-typeface/suit@2/fonts/variable/woff2/SUIT-Variable.css');
@@ -238,6 +237,8 @@
 #eumCli .eum_rv.eum_in{opacity:1 !important;transform:none !important;}
 #eumCli .eum_d1{transition-delay:.08s !important;}
 #eumCli .eum_d2{transition-delay:.16s !important;}
+#eumCli .eum_d3{transition-delay:.24s !important;}
+#eumCli .eum_d4{transition-delay:.32s !important;}
 
 /* ── 섹션 헤드 ── */
 #eumCli .eum_head{
@@ -261,123 +262,114 @@
 #eumCli .eum_chip.eum_b .eum_dot{background:var(--eum-mint) !important;}
 
 /* ── 그룹 헤더 ── */
-#eumCli .eum_group + .eum_group{margin-top:78px !important;}
-#eumCli .eum_gt{display:flex !important;align-items:baseline !important;gap:16px !important;padding-bottom:16px !important;}
+#eumCli .eum_group + .eum_group{margin-top:74px !important;}
+#eumCli .eum_gt{display:flex !important;align-items:baseline !important;gap:16px !important;padding-bottom:18px !important;margin-bottom:22px !important;border-bottom:1.5px solid var(--eum-teal) !important;}
 #eumCli .eum_gt b{font-size:15px !important;font-weight:800 !important;color:var(--eum-teal) !important;letter-spacing:-.035em !important;}
 #eumCli .eum_gt em{font-style:normal !important;font-size:11px !important;font-weight:700 !important;color:var(--eum-mint) !important;letter-spacing:.16em !important;}
 #eumCli .eum_gt i{font-style:normal !important;margin-left:auto !important;font-size:12px !important;font-weight:700 !important;color:var(--eum-gray) !important;letter-spacing:.08em !important;}
 
-/* ── 진료 목록 ── */
-#eumCli .eum_rows{border-top:1.5px solid var(--eum-teal) !important;}
-#eumCli .eum_row{
-  position:relative !important;isolation:isolate !important;overflow:hidden !important;
-  display:grid !important;grid-template-columns:74px minmax(0,1fr) auto 52px !important;
-  gap:0 28px !important;align-items:center !important;
-  padding:30px 26px !important;border-bottom:1px solid var(--eum-line) !important;
+/* ── 사진 카드 그리드 ── */
+#eumCli .eum_grid{
+  display:grid !important;grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+  gap:20px !important;width:100% !important;
 }
-/* 왼쪽에서 차오르는 딥틸 배경 */
-#eumCli .eum_row::before{
-  content:'' !important;position:absolute !important;inset:0 !important;z-index:-1 !important;
-  background:var(--eum-teal) !important;
+#eumCli .eum_card{
+  position:relative !important;display:block !important;overflow:hidden !important;
+  border-radius:var(--eum-r) !important;background:var(--eum-teal) !important;
+  aspect-ratio:16 / 11 !important;min-height:280px !important;
+  isolation:isolate !important;width:100% !important;
+  transform:translateZ(0) !important;
+}
+#eumCli .eum_card.eum_wide{grid-column:1 / -1 !important;aspect-ratio:24 / 8 !important;min-height:240px !important;}
+
+#eumCli .eum_ph{position:absolute !important;inset:0 !important;display:block !important;overflow:hidden !important;}
+#eumCli .eum_ph img{
+  width:100% !important;height:100% !important;object-fit:cover !important;
+  transform:scale(1.04) !important;transition:transform 1.3s var(--eum-ease) !important;
+}
+#eumCli .eum_veil{
+  position:absolute !important;inset:0 !important;display:block !important;pointer-events:none !important;
+  background:linear-gradient(180deg,rgba(12,45,55,.12) 0%,rgba(12,45,55,.30) 44%,rgba(12,45,55,.90) 100%) !important;
+}
+#eumCli .eum_glow{
+  position:absolute !important;inset:0 !important;display:block !important;pointer-events:none !important;
+  background:linear-gradient(180deg,rgba(12,45,55,.40) 0%,rgba(12,45,55,.58) 50%,rgba(12,45,55,.94) 100%) !important;
+  opacity:0 !important;transition:opacity .6s var(--eum-ease) !important;
+}
+#eumCli .eum_card::after{
+  content:'' !important;position:absolute !important;left:0 !important;right:0 !important;bottom:0 !important;
+  height:3px !important;background:var(--eum-mint) !important;
   transform:scaleX(0) !important;transform-origin:left center !important;
-  transition:transform .5s var(--eum-ease) !important;
+  transition:transform .7s var(--eum-ease) !important;z-index:3 !important;
 }
-#eumCli .eum_row:hover::before{transform:scaleX(1) !important;}
 
-#eumCli .eum_no{font-size:13px !important;font-weight:700 !important;letter-spacing:.12em !important;color:var(--eum-gray) !important;transition:color .35s var(--eum-ease) !important;}
-#eumCli .eum_row:hover .eum_no{color:var(--eum-mint) !important;}
+#eumCli .eum_no{
+  position:absolute !important;top:24px !important;left:26px !important;z-index:3 !important;
+  display:inline-flex !important;align-items:center !important;gap:10px !important;
+  font-size:12px !important;font-weight:800 !important;letter-spacing:.16em !important;color:#fff !important;
+}
+#eumCli .eum_no::before{content:'' !important;display:block !important;width:20px !important;height:1.5px !important;background:var(--eum-mint) !important;flex:none !important;}
 
-#eumCli .eum_txt{display:block !important;}
+#eumCli .eum_body{
+  position:absolute !important;left:0 !important;right:0 !important;bottom:0 !important;z-index:3 !important;
+  display:flex !important;flex-direction:column !important;align-items:flex-start !important;gap:14px !important;
+  padding:0 28px 26px !important;
+}
+#eumCli .eum_tx{display:flex !important;flex-direction:column !important;gap:7px !important;min-width:0 !important;}
 #eumCli .eum_nm{
-  display:block !important;font-size:clamp(22px,2.1vw,29px) !important;font-weight:800 !important;
-  letter-spacing:-.05em !important;line-height:1.36 !important;color:var(--eum-teal) !important;
-  transition:color .35s var(--eum-ease),transform .45s var(--eum-ease) !important;
+  display:block !important;font-size:clamp(20px,2.1vw,27px) !important;font-weight:800 !important;
+  letter-spacing:-.045em !important;line-height:1.4 !important;color:#fff !important;
 }
-#eumCli .eum_row:hover .eum_nm{color:#fff !important;transform:translateX(10px) !important;}
-
 #eumCli .eum_kw{
-  display:block !important;font-size:14px !important;font-weight:500 !important;
-  letter-spacing:-.03em !important;color:var(--eum-gray) !important;text-align:right !important;
-  transition:color .35s var(--eum-ease),transform .45s var(--eum-ease) !important;
+  display:block !important;font-size:14px !important;line-height:1.78 !important;
+  color:rgba(255,255,255,.76) !important;font-weight:400 !important;letter-spacing:-.02em !important;
 }
-#eumCli .eum_kw.eum_mo{display:none !important;}
-#eumCli .eum_row:hover .eum_kw{color:rgba(255,255,255,.68) !important;transform:translateX(-6px) !important;}
-
 #eumCli .eum_go{
-  display:flex !important;width:48px !important;height:48px !important;border-radius:50% !important;
-  border:1px solid var(--eum-line) !important;background:transparent !important;
-  align-items:center !important;justify-content:center !important;flex:none !important;
-  transition:background .35s var(--eum-ease),border-color .35s var(--eum-ease) !important;
+  display:inline-flex !important;align-items:center !important;gap:8px !important;flex:none !important;
+  font-size:13px !important;font-weight:700 !important;letter-spacing:-.02em !important;color:var(--eum-mint) !important;
+  transition:gap .4s var(--eum-ease) !important;
 }
-#eumCli .eum_go svg{stroke:var(--eum-teal) !important;fill:none !important;transition:stroke .35s var(--eum-ease),transform .35s var(--eum-ease) !important;}
-#eumCli .eum_row:hover .eum_go{background:var(--eum-mint) !important;border-color:var(--eum-mint) !important;}
-#eumCli .eum_row:hover .eum_go svg{stroke:#fff !important;transform:translateX(3px) !important;}
+#eumCli .eum_go svg{width:16px !important;height:16px !important;stroke:currentColor !important;fill:none !important;flex:none !important;}
 
-/* 모바일 전용 썸네일 (PC 에서는 숨김) */
-#eumCli .eum_thumb{display:none !important;}
+/* 와이드 카드는 이름과 버튼을 좌우로 */
+#eumCli .eum_card.eum_wide .eum_body{flex-direction:row !important;align-items:flex-end !important;justify-content:space-between !important;gap:32px !important;padding:0 34px 30px !important;}
 
-/* ── 커서를 따라오는 사진 프리뷰 (PC 전용) ── */
-#eumCli .eum_peek{
-  position:fixed !important;top:0 !important;left:0 !important;
-  width:300px !important;height:206px !important;
-  border-radius:var(--eum-r) !important;overflow:hidden !important;
-  pointer-events:none !important;z-index:60 !important;
-  opacity:0 !important;transform:translate(-50%,-50%) scale(.92) !important;
-  box-shadow:0 28px 60px -20px rgba(12,45,55,.45) !important;
-  transition:opacity .3s var(--eum-ease) !important;
-  will-change:transform !important;
+/* ── 마우스 올렸을 때 ── */
+@media (hover:hover) and (pointer:fine){
+  #eumCli .eum_card:hover .eum_ph img{transform:scale(1.11) !important;}
+  #eumCli .eum_card:hover .eum_glow{opacity:1 !important;}
+  #eumCli .eum_card:hover::after{transform:scaleX(1) !important;}
+  #eumCli .eum_card:hover .eum_go{gap:14px !important;}
 }
-#eumCli .eum_peek.eum_on{opacity:1 !important;}
-#eumCli .eum_peek img{
-  position:absolute !important;inset:0 !important;width:100% !important;height:100% !important;
-  object-fit:cover !important;opacity:0 !important;transition:opacity .35s var(--eum-ease) !important;
-}
-#eumCli .eum_peek img.eum_on{opacity:1 !important;}
+#eumCli .eum_card:focus-visible{outline:3px solid var(--eum-mint) !important;outline-offset:3px !important;}
 
 /* ── 반응형 ── */
 @media (max-width:1180px){
-  #eumCli{--eum-pad:26px;}
-  #eumCli .eum_head{gap:36px !important;}
-  #eumCli .eum_row{grid-template-columns:64px minmax(0,1fr) auto 48px !important;gap:0 20px !important;padding:26px 18px !important;}
-}
-@media (max-width:1024px){
-  #eumCli .eum_head{grid-template-columns:1fr !important;gap:26px !important;align-items:start !important;}
-  #eumCli .eum_lead{padding-bottom:0 !important;}
-  #eumCli .eum_kw.eum_pc{display:none !important;}
-  #eumCli .eum_row{grid-template-columns:64px minmax(0,1fr) 48px !important;}
+  #eumCli{--eum-pad:26px;padding:120px 0 130px !important;}
+  #eumCli .eum_head{grid-template-columns:1fr !important;gap:26px !important;align-items:start !important;margin-bottom:48px !important;}
+  #eumCli .eum_card{min-height:250px !important;}
+  #eumCli .eum_card.eum_wide{aspect-ratio:21 / 9 !important;min-height:220px !important;}
 }
 @media (max-width:860px){
   #eumCli{--eum-pad:20px;padding:100px 0 108px !important;}
-  #eumCli .eum_head{margin-bottom:44px !important;}
+  #eumCli .eum_grid{grid-template-columns:1fr !important;gap:14px !important;}
+  #eumCli .eum_card,#eumCli .eum_card.eum_wide{aspect-ratio:16 / 10 !important;min-height:0 !important;}
+  #eumCli .eum_card.eum_wide{grid-column:auto !important;}
+  #eumCli .eum_card.eum_wide .eum_body{flex-direction:column !important;align-items:flex-start !important;gap:14px !important;padding:0 22px 22px !important;}
+  #eumCli .eum_body{padding:0 22px 22px !important;gap:12px !important;}
+  #eumCli .eum_no{top:18px !important;left:20px !important;}
+  #eumCli .eum_nm{font-size:21px !important;}
+  #eumCli .eum_kw{font-size:13.5px !important;line-height:1.72 !important;}
   #eumCli .eum_group + .eum_group{margin-top:52px !important;}
-  #eumCli .eum_peek{display:none !important;}
-
-  /* 카드 목록으로 전환 */
-  #eumCli .eum_rows{border-top:0 !important;display:grid !important;gap:16px !important;}
-  #eumCli .eum_row{
-    display:block !important;padding:0 !important;border-bottom:0 !important;
-    border:1px solid var(--eum-line) !important;border-radius:var(--eum-r) !important;overflow:hidden !important;
-  }
-  #eumCli .eum_row::before{display:none !important;}
-  #eumCli .eum_thumb{
-    display:block !important;position:relative !important;
-    aspect-ratio:16/9 !important;overflow:hidden !important;background:var(--eum-line2) !important;
-  }
-  #eumCli .eum_thumb img{width:100% !important;height:100% !important;object-fit:cover !important;}
-  #eumCli .eum_thumb::after{content:'' !important;position:absolute !important;inset:0 !important;background:linear-gradient(to top,rgba(12,45,55,.42),rgba(12,45,55,0) 58%) !important;}
-  #eumCli .eum_no{
-    position:absolute !important;left:12px !important;top:12px !important;z-index:2 !important;
-    background:var(--eum-teal) !important;color:#fff !important;
-    padding:5px 10px !important;border-radius:999px !important;font-size:11px !important;
-  }
-  #eumCli .eum_txt{display:block !important;padding:20px 18px 22px !important;}
-  #eumCli .eum_nm{font-size:20px !important;}
-  #eumCli .eum_kw.eum_mo{
-    display:block !important;text-align:left !important;margin-top:9px !important;
-    font-size:13.5px !important;line-height:1.75 !important;
-  }
-  #eumCli .eum_go{display:none !important;}
-  #eumCli .eum_gt{padding-bottom:14px !important;}
+  #eumCli .eum_gt{padding-bottom:14px !important;margin-bottom:16px !important;}
+  #eumCli .eum_gt em{display:none !important;}
+}
+@media (max-width:420px){
+  #eumCli .eum_card,#eumCli .eum_card.eum_wide{aspect-ratio:4 / 3 !important;}
+}
+@media (prefers-reduced-motion:reduce){
+  #eumCli .eum_rv{opacity:1 !important;transform:none !important;transition:none !important;}
+  #eumCli .eum_ph img,#eumCli .eum_glow,#eumCli .eum_card::after{transition:none !important;}
 }
 </style>
 
@@ -398,86 +390,111 @@
       </div>
     </div>
 
-    <div class="eum_group eum_rv eum_d1">
-      <div class="eum_gt"><b>만성질환클리닉</b><em>CHRONIC DISEASE CARE</em><i>01 — 04</i></div>
-      <div class="eum_rows">
+    <div class="eum_group">
+      <div class="eum_gt eum_rv"><b>만성질환클리닉</b><em>CHRONIC DISEASE CARE</em><i>01 — 04</i></div>
+      <div class="eum_grid">
 
-        <a class="eum_row" href="/diabetes" data-i="0">
-          <span class="eum_thumb"><img src="https://cdn.imweb.me/upload/S20260108b9005a7eb2710/0096ae636476f.jpeg" alt="당뇨 클리닉" loading="lazy"></span>
+        <a class="eum_card eum_rv" href="/diabetes">
+          <span class="eum_ph"><img src="https://cdn.imweb.me/upload/S20260108b9005a7eb2710/0096ae636476f.jpeg" alt="당뇨 클리닉" loading="lazy"></span>
+          <span class="eum_veil"></span><span class="eum_glow"></span>
           <span class="eum_no">01</span>
-          <span class="eum_txt"><span class="eum_nm">당뇨</span><span class="eum_kw eum_mo">혈당 관리 · 당화혈색소 검사 · 합병증 예방</span></span>
-          <span class="eum_kw eum_pc">혈당 관리 · 당화혈색소 검사 · 합병증 예방</span>
-          <span class="eum_go"><svg width="17" height="17" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+          <span class="eum_body">
+            <span class="eum_tx">
+              <span class="eum_nm">당뇨</span>
+              <span class="eum_kw">혈당 관리 · 당화혈색소 검사 · 합병증 예방</span>
+            </span>
+            <span class="eum_go">자세히 보기<svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+          </span>
         </a>
 
-        <a class="eum_row" href="/hypertension" data-i="1">
-          <span class="eum_thumb"><img src="https://cdn.imweb.me/upload/S20260108b9005a7eb2710/d09582650d23a.jpeg" alt="고혈압 클리닉" loading="lazy"></span>
+        <a class="eum_card eum_rv eum_d1" href="/hypertension">
+          <span class="eum_ph"><img src="https://cdn.imweb.me/upload/S20260108b9005a7eb2710/d09582650d23a.jpeg" alt="고혈압 클리닉" loading="lazy"></span>
+          <span class="eum_veil"></span><span class="eum_glow"></span>
           <span class="eum_no">02</span>
-          <span class="eum_txt"><span class="eum_nm">고혈압</span><span class="eum_kw eum_mo">혈압 모니터링 · 24시간 활동혈압 · 심혈관 합병증 예방</span></span>
-          <span class="eum_kw eum_pc">혈압 모니터링 · 24시간 활동혈압 · 심혈관 합병증 예방</span>
-          <span class="eum_go"><svg width="17" height="17" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+          <span class="eum_body">
+            <span class="eum_tx">
+              <span class="eum_nm">고혈압</span>
+              <span class="eum_kw">혈압 모니터링 · 24시간 활동혈압 · 심혈관 합병증 예방</span>
+            </span>
+            <span class="eum_go">자세히 보기<svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+          </span>
         </a>
 
-        <a class="eum_row" href="/dyslipidemia" data-i="2">
-          <span class="eum_thumb"><img src="https://cdn.imweb.me/upload/S20260108b9005a7eb2710/d288b11769fdf.jpeg" alt="고지혈증 클리닉" loading="lazy"></span>
+        <a class="eum_card eum_rv eum_d2" href="/dyslipidemia">
+          <span class="eum_ph"><img src="https://cdn.imweb.me/upload/S20260108b9005a7eb2710/d288b11769fdf.jpeg" alt="고지혈증 클리닉" loading="lazy"></span>
+          <span class="eum_veil"></span><span class="eum_glow"></span>
           <span class="eum_no">03</span>
-          <span class="eum_txt"><span class="eum_nm">고지혈증</span><span class="eum_kw eum_mo">지질 검사 · 콜레스테롤 관리 · 동맥경화 예방</span></span>
-          <span class="eum_kw eum_pc">지질 검사 · 콜레스테롤 관리 · 동맥경화 예방</span>
-          <span class="eum_go"><svg width="17" height="17" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+          <span class="eum_body">
+            <span class="eum_tx">
+              <span class="eum_nm">고지혈증</span>
+              <span class="eum_kw">지질 검사 · 콜레스테롤 관리 · 동맥경화 예방</span>
+            </span>
+            <span class="eum_go">자세히 보기<svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+          </span>
         </a>
 
-        <a class="eum_row" href="/chronic-care" data-i="3">
-          <span class="eum_thumb"><img src="https://cdn.imweb.me/upload/S20260108b9005a7eb2710/ba80d7b2a1e30.jpeg" alt="일차의료 만성질환관리 본사업" loading="lazy"></span>
+        <a class="eum_card eum_rv eum_d3" href="/chronic-care">
+          <span class="eum_ph"><img src="https://cdn.imweb.me/upload/S20260108b9005a7eb2710/ba80d7b2a1e30.jpeg" alt="일차의료 만성질환관리 본사업" loading="lazy"></span>
+          <span class="eum_veil"></span><span class="eum_glow"></span>
           <span class="eum_no">04</span>
-          <span class="eum_txt"><span class="eum_nm">일차의료 만성질환관리 본사업</span><span class="eum_kw eum_mo">본사업 지정기관 · 맞춤형 케어플랜 · 자기관리 교육</span></span>
-          <span class="eum_kw eum_pc">본사업 지정기관 · 맞춤형 케어플랜 · 자기관리 교육</span>
-          <span class="eum_go"><svg width="17" height="17" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+          <span class="eum_body">
+            <span class="eum_tx">
+              <span class="eum_nm">일차의료 만성질환관리 본사업</span>
+              <span class="eum_kw">본사업 지정기관 · 맞춤형 케어플랜 · 자기관리 교육</span>
+            </span>
+            <span class="eum_go">자세히 보기<svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+          </span>
         </a>
 
       </div>
     </div>
 
-    <div class="eum_group eum_rv eum_d1">
-      <div class="eum_gt"><b>인공신장센터</b><em>ARTIFICIAL KIDNEY CENTER</em><i>05 — 07</i></div>
-      <div class="eum_rows">
+    <div class="eum_group">
+      <div class="eum_gt eum_rv"><b>인공신장센터</b><em>ARTIFICIAL KIDNEY CENTER</em><i>05 — 07</i></div>
+      <div class="eum_grid">
 
-        <a class="eum_row" href="/dialysis-center" data-i="4">
-          <span class="eum_thumb"><img src="https://cdn.imweb.me/upload/S20260108b9005a7eb2710/83b782ece6616.jpeg" alt="인공신장센터 안내" loading="lazy"></span>
+        <a class="eum_card eum_wide eum_rv" href="/dialysis-center">
+          <span class="eum_ph"><img src="https://cdn.imweb.me/upload/S20260108b9005a7eb2710/83b782ece6616.jpeg" alt="인공신장센터 안내" loading="lazy"></span>
+          <span class="eum_veil"></span><span class="eum_glow"></span>
           <span class="eum_no">05</span>
-          <span class="eum_txt"><span class="eum_nm">센터 안내</span><span class="eum_kw eum_mo">FMC 5008S 투석기 · 야간투석 운영 · 개인 맞춤 관리</span></span>
-          <span class="eum_kw eum_pc">FMC 5008S 투석기 · 야간투석 운영 · 개인 맞춤 관리</span>
-          <span class="eum_go"><svg width="17" height="17" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+          <span class="eum_body">
+            <span class="eum_tx">
+              <span class="eum_nm">센터 안내</span>
+              <span class="eum_kw">FMC 5008S 투석기 · 야간투석 운영 · 개인 맞춤 관리</span>
+            </span>
+            <span class="eum_go">자세히 보기<svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+          </span>
         </a>
 
-        <a class="eum_row" href="/hemodialysis" data-i="5">
-          <span class="eum_thumb"><img src="https://cdn.imweb.me/upload/S20260108b9005a7eb2710/2b1277cce5597.jpeg" alt="혈액투석 안내" loading="lazy"></span>
+        <a class="eum_card eum_rv eum_d1" href="/hemodialysis">
+          <span class="eum_ph"><img src="https://cdn.imweb.me/upload/S20260108b9005a7eb2710/2b1277cce5597.jpeg" alt="혈액투석 안내" loading="lazy"></span>
+          <span class="eum_veil"></span><span class="eum_glow"></span>
           <span class="eum_no">06</span>
-          <span class="eum_txt"><span class="eum_nm">혈액투석 안내</span><span class="eum_kw eum_mo">투석 과정 안내 · 직장인 야간투석 · 투석 스케줄 상담</span></span>
-          <span class="eum_kw eum_pc">투석 과정 안내 · 직장인 야간투석 · 투석 스케줄 상담</span>
-          <span class="eum_go"><svg width="17" height="17" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+          <span class="eum_body">
+            <span class="eum_tx">
+              <span class="eum_nm">혈액투석 안내</span>
+              <span class="eum_kw">투석 과정 안내 · 직장인 야간투석 · 투석 스케줄 상담</span>
+            </span>
+            <span class="eum_go">자세히 보기<svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+          </span>
         </a>
 
-        <a class="eum_row" href="/hemodialysis" data-i="6">
-          <span class="eum_thumb"><img src="https://cdn.imweb.me/upload/S20260108b9005a7eb2710/2c0c5ad591567.jpeg" alt="투석 전 관리" loading="lazy"></span>
+        <a class="eum_card eum_rv eum_d2" href="/hemodialysis">
+          <span class="eum_ph"><img src="https://cdn.imweb.me/upload/S20260108b9005a7eb2710/2c0c5ad591567.jpeg" alt="투석 전 관리" loading="lazy"></span>
+          <span class="eum_veil"></span><span class="eum_glow"></span>
           <span class="eum_no">07</span>
-          <span class="eum_txt"><span class="eum_nm">투석 전 관리</span><span class="eum_kw eum_mo">신장 기능 검사 · CKD 단계 관리 · 투석 준비 상담</span></span>
-          <span class="eum_kw eum_pc">신장 기능 검사 · CKD 단계 관리 · 투석 준비 상담</span>
-          <span class="eum_go"><svg width="17" height="17" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+          <span class="eum_body">
+            <span class="eum_tx">
+              <span class="eum_nm">투석 전 관리</span>
+              <span class="eum_kw">신장 기능 검사 · CKD 단계 관리 · 투석 준비 상담</span>
+            </span>
+            <span class="eum_go">자세히 보기<svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+          </span>
         </a>
 
       </div>
     </div>
-  </div>
 
-  <!-- 커서를 따라오는 사진 프리뷰 -->
-  <div class="eum_peek" aria-hidden="true">
-    <img src="https://cdn.imweb.me/upload/S20260108b9005a7eb2710/0096ae636476f.jpeg" alt="">
-    <img src="https://cdn.imweb.me/upload/S20260108b9005a7eb2710/d09582650d23a.jpeg" alt="">
-    <img src="https://cdn.imweb.me/upload/S20260108b9005a7eb2710/d288b11769fdf.jpeg" alt="">
-    <img src="https://cdn.imweb.me/upload/S20260108b9005a7eb2710/ba80d7b2a1e30.jpeg" alt="">
-    <img src="https://cdn.imweb.me/upload/S20260108b9005a7eb2710/83b782ece6616.jpeg" alt="">
-    <img src="https://cdn.imweb.me/upload/S20260108b9005a7eb2710/2b1277cce5597.jpeg" alt="">
-    <img src="https://cdn.imweb.me/upload/S20260108b9005a7eb2710/2c0c5ad591567.jpeg" alt="">
   </div>
 </div>
 
@@ -487,82 +504,17 @@
   if (!root || root.dataset.eumReady) return;
   root.dataset.eumReady = '1';
 
-  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  /* 등장 */
   var rvs = root.querySelectorAll('.eum_rv');
-  if (reduce || !window.IntersectionObserver) {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || !window.IntersectionObserver) {
     Array.prototype.forEach.call(rvs, function (el) { el.classList.add('eum_in'); });
-  } else {
-    var obs = new IntersectionObserver(function (es) {
-      es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('eum_in'); obs.unobserve(e.target); } });
-    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-    Array.prototype.forEach.call(rvs, function (el) { obs.observe(el); });
+    return;
   }
-
-  /* 커서를 따라오는 사진 — 마우스가 있는 넓은 화면에서만 */
-  var peek = root.querySelector('.eum_peek');
-  var shots = peek ? peek.querySelectorAll('img') : [];
-  var rows = root.querySelectorAll('.eum_row');
-  if (!peek || !rows.length) return;
-  if (reduce || !window.matchMedia('(hover:hover) and (pointer:fine)').matches) return;
-
-  var tx = 0, ty = 0, cx = 0, cy = 0, active = false, raf = null;
-
-  function place() {
-    peek.style.setProperty(
-      'transform',
-      'translate(' + Math.round(cx) + 'px,' + Math.round(cy) + 'px) translate(-50%,-50%) scale(' + (active ? 1 : 0.92) + ')',
-      'important'
-    );
-  }
-
-  function paint() {
-    /* 커서 쪽으로 조금씩 좁혀가며 부드럽게 따라옵니다 */
-    cx += (tx - cx) * 0.14;
-    cy += (ty - cy) * 0.14;
-    place();
-    if (active || Math.abs(tx - cx) > 0.5 || Math.abs(ty - cy) > 0.5) {
-      raf = requestAnimationFrame(paint);
-    } else {
-      raf = null;
-    }
-  }
-
-  function onMove(e) {
-    tx = e.clientX;
-    ty = e.clientY;
-    if (!raf) raf = requestAnimationFrame(paint);
-  }
-
-  Array.prototype.forEach.call(rows, function (row) {
-    var i = parseInt(row.getAttribute('data-i'), 10);
-    row.addEventListener('mouseenter', function (e) {
-      if (window.innerWidth <= 860) return;
-      tx = e.clientX; ty = e.clientY;
-      if (!active) { cx = tx; cy = ty; }
-      active = true;
-      peek.classList.add('eum_on');
-      for (var n = 0; n < shots.length; n++) {
-        shots[n].classList[n === i ? 'add' : 'remove']('eum_on');
-      }
-      place();   /* 첫 프레임부터 커서 자리에 놓습니다 */
-      if (!raf) raf = requestAnimationFrame(paint);
-    });
-    row.addEventListener('mousemove', onMove);
-    row.addEventListener('mouseleave', function () {
-      active = false;
-      peek.classList.remove('eum_on');
-    });
-  });
-
-  /* 행 사이 여백에서도 자연스럽게 따라오도록 */
-  Array.prototype.forEach.call(root.querySelectorAll('.eum_rows'), function (list) {
-    list.addEventListener('mousemove', onMove);
-  });
+  var obs = new IntersectionObserver(function (es) {
+    es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('eum_in'); obs.unobserve(e.target); } });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  Array.prototype.forEach.call(rvs, function (el) { obs.observe(el); });
 })();
 </script>
-
 
 <!-- ══════════════════════════════════════════════════════════════
      [이움내과] 05. 진료 철학 — 5가지 약속  (아임웹 코드 위젯용)
@@ -804,7 +756,6 @@
 })();
 </script>
 
-
 <!-- ══════════════════════════════════════════════════════════════
      [이움내과] 06. 진료환경 갤러리  (아임웹 코드 위젯용)
      ══════════════════════════════════════════════════════════════ -->
@@ -957,7 +908,6 @@
   paint();
 })();
 </script>
-
 
 <!-- ══════════════════════════════════════════════════════════════
      [이움내과] 07. 공지사항 · 의학정보  (아임웹 코드 위젯용)
@@ -1116,5 +1066,3 @@
   Array.prototype.forEach.call(els, function (el) { obs.observe(el); });
 })();
 </script>
-
-
