@@ -221,12 +221,26 @@
   if (!root || root.dataset.eumReady) return;
   root.dataset.eumReady = '1';
 
-  /* ── 카카오맵(다음 약도) ── */
+  /* ── 카카오맵(다음 약도) ──
+     roughmapLoader.js 는 document.write 로 Lander 를 불러오는데,
+     아임웹 코드 위젯은 페이지 로드 후 삽입되어 document.write 가 무시됩니다.
+     그래서 로더가 넣어 준 설정값(cdn/phase)으로 Lander 를 직접 붙입니다. */
   (function () {
     var box = root.querySelector('#daumRoughmapContainer1788679680956');
     if (!box) return;
-    var tries = 0;
+
+    function add(src, cls) {
+      if (document.querySelector('script[data-eum-km="' + cls + '"]')) return;
+      var s = document.createElement('script');
+      s.charset = 'UTF-8';
+      s.src = src;
+      s.setAttribute('data-eum-km', cls);
+      if (cls === 'loader') s.className = 'daum_roughmap_loader_script';
+      document.head.appendChild(s);
+    }
+
     function render() {
+      if (box.children.length) return;
       try {
         new daum.roughmap.Lander({
           'timestamp': '1788679680956',
@@ -236,19 +250,21 @@
         }).render();
       } catch (e) {}
     }
-    function wait() {
-      if (window.daum && window.daum.roughmap && window.daum.roughmap.Lander) { render(); return; }
-      if (++tries > 100) return;
-      setTimeout(wait, 150);
+
+    var n = 0;
+    function tick() {
+      var rm = window.daum && window.daum.roughmap;
+      if (rm && rm.Lander) { render(); return; }
+      if (rm && rm.cdn && rm.phase) {
+        add((rm.url_protocal || 'https:') + '//t1.kakaocdn.net/kakaomapweb/roughmap/place/'
+            + rm.phase + '/' + rm.cdn + '/roughmapLander.js', 'lander');
+      }
+      if (++n > 120) return;
+      setTimeout(tick, 150);
     }
-    if (!document.querySelector('script.daum_roughmap_loader_script')) {
-      var s = document.createElement('script');
-      s.charset = 'UTF-8';
-      s.className = 'daum_roughmap_loader_script';
-      s.src = 'https://ssl.daumcdn.net/dmaps/map_js_init/roughmapLoader.js';
-      document.head.appendChild(s);
-    }
-    wait();
+
+    add('https://ssl.daumcdn.net/dmaps/map_js_init/roughmapLoader.js', 'loader');
+    tick();
   })();
 
   var els = root.querySelectorAll('.eum_rv');
