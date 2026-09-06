@@ -1,0 +1,94 @@
+{
+ "home-1-topmenu.txt": [
+  "1-상단메뉴.html",
+  26516
+ ],
+ "home-2-hero.txt": [
+  "2-헤더.html",
+  13802
+ ],
+ "home-3-main.txt": [
+  "3-이움내과.html",
+  64773
+ ],
+ "home-4-location.txt": [
+  "4-진료시간·오시는길.html",
+  15938
+ ],
+ "home-5-footer.txt": [
+  "5-푸터.html",
+  16806
+ ],
+ "sub-01-about.txt": [
+  "01-병원소개.html",
+  64496
+ ],
+ "sub-02-doctors.txt": [
+  "02-의료진 소개.html",
+  60754
+ ],
+ "sub-03-location.txt": [
+  "03-진료시간 · 오시는 길.html",
+  56969
+ ],
+ "sub-04-areas.txt": [
+  "04-일산 · 고양 오시는 길.html",
+  63911
+ ],
+ "sub-05-tour.txt": [
+  "05-둘러보기.html",
+  59108
+ ],
+ "sub-06-internal-medicine.txt": [
+  "06-일반 내과 진료.html",
+  71034
+ ],
+ "sub-07-chronic-care.txt": [
+  "07-일차의료 만성질환관리.html",
+  62266
+ ],
+ "sub-08-diabetes.txt": [
+  "08-당뇨.html",
+  65506
+ ],
+ "sub-09-hypertension.txt": [
+  "09-고혈압.html",
+  66402
+ ],
+ "sub-10-dyslipidemia.txt": [
+  "10-고지혈증.html",
+  61878
+ ],
+ "sub-11-dialysis-center.txt": [
+  "11-인공신장센터 안내.html",
+  75191
+ ],
+ "sub-12-hemodialysis.txt": [
+  "12-혈액투석.html",
+  83091
+ ],
+ "sub-13-night-dialysis.txt": [
+  "13-야간투석.html",
+  73137
+ ],
+ "sub-14-iv-therapy.txt": [
+  "14-영양수액.html",
+  65374
+ ],
+ "sub-15-obesity.txt": [
+  "15-비만.html",
+  68726
+ ],
+ "sub-16-vaccination.txt": [
+  "16-예방접종.html",
+  75189
+ ],
+ "sub-17-faq.txt": [
+  "17-자주 묻는 질문.html",
+  68679
+ ],
+ "sub-18-fees.txt": [
+  "18-비급여진료비.html",
+  61426
+ ]
+}

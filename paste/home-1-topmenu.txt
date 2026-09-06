@@ -1,0 +1,486 @@
+<!-- ══════════════════════════════════════════════════════════════
+     이움내과 메인페이지 — 아임웹 [상단메뉴(고정)] 섹션에 붙여넣는 코드
+     ─────────────────────────────────────────────────────────────
+     아임웹 편집기 > 해당 섹션의 코드 위젯 > 위젯 설정 > 코드
+     기존 내용을 전부 지우고 이 파일 내용을 통째로 붙여넣으세요.
+     포함된 블록 : 01-header.html
+     ※ 아임웹 기본 헤더는 [디자인 > 헤더] 에서 사용 안 함으로 두세요.
+     ══════════════════════════════════════════════════════════════ -->
+
+<!-- ══════════════════════════════════════════════════════════════
+     [이움내과] 01. 헤더 · 전체메뉴  (아임웹 코드 위젯용)
+     ─────────────────────────────────────────────────────────────
+     ※ 이 블록은 "선택" 입니다.
+        아임웹 기본 헤더를 그대로 쓰실 거면 이 블록은 넣지 마세요.
+        넣으실 거면 아임웹 [디자인 > 헤더] 를 '사용 안 함' 으로 두세요.
+     ※ 모든 스타일은 #eumHd 안에서만 적용됩니다.
+     ══════════════════════════════════════════════════════════════ -->
+<style>
+@import url('https://cdn.jsdelivr.net/gh/sun-typeface/suit@2/fonts/variable/woff2/SUIT-Variable.css');
+
+/* ── 아임웹 간섭 차단 ── */
+#eumHd{
+  --eum-teal:#0C2D37; --eum-mint:#36B8A5; --eum-mint-d:#2A9B8B; --eum-mint-l:#E9F7F4;
+  --eum-body:#3F565F; --eum-gray:#7A8E96; --eum-line:#E4EBED;
+  --eum-ease:cubic-bezier(.16,1,.3,1);
+  line-height:1.85 !important;
+  --eum-maxw:1400px; --eum-pad:32px; --eum-h:84px;
+
+  position:fixed !important;
+  top:0 !important; left:0 !important; right:0 !important;
+  display:block !important; float:none !important; clear:both !important;
+  width:100% !important; max-width:100% !important;
+  margin:0 !important; padding:0 !important;
+  z-index:9000 !important; overflow:visible !important;
+  box-sizing:border-box !important;
+}
+#eumHd,#eumHd *,#eumHd *::before,#eumHd *::after{
+  box-sizing:border-box !important;
+  font-family:'SUIT Variable','SUIT',-apple-system,BlinkMacSystemFont,'Pretendard','Apple SD Gothic Neo',sans-serif !important;
+  word-break:keep-all !important;
+}
+#eumHd ul,#eumHd ol,#eumHd li{list-style:none !important;margin:0 !important;padding:0 !important;background-image:none !important;}
+#eumHd li::before,#eumHd li::after{display:none !important;content:none !important;}
+#eumHd p,#eumHd b,#eumHd small,#eumHd span,#eumHd a,#eumHd nav,#eumHd div{margin:0 !important;padding:0 !important;}
+#eumHd a{text-decoration:none !important;color:inherit !important;}
+#eumHd button{font:inherit !important;color:inherit !important;background:none !important;border:0 !important;margin:0 !important;padding:0 !important;cursor:pointer !important;}
+#eumHd svg{display:block !important;}
+#eumHd img{max-width:none !important;display:block !important;}
+
+#eumHd .eum_wrap{
+  max-width:var(--eum-maxw) !important; margin:0 auto !important;
+  padding:0 var(--eum-pad) !important; width:100% !important;
+}
+
+/* ── 헤더 바 ── */
+#eumHd .eum_bar{
+  position:relative !important; height:var(--eum-h) !important;
+  display:flex !important; align-items:center !important;
+  transition:height .35s var(--eum-ease) !important;
+}
+#eumHd .eum_bar::after{
+  content:'' !important; position:absolute !important; inset:0 !important;
+  z-index:-1 !important; background:#fff !important;
+  opacity:0 !important; transition:opacity .3s var(--eum-ease) !important;
+}
+#eumHd.eum_solid .eum_bar{height:70px !important;}
+#eumHd.eum_solid .eum_bar::after,#eumHd.eum_open .eum_bar::after{opacity:1 !important;}
+#eumHd.eum_solid:not(.eum_open) .eum_bar{box-shadow:0 1px 0 var(--eum-line) !important;}
+#eumHd .eum_bar .eum_wrap{display:flex !important;align-items:center !important;gap:24px !important;}
+
+/* 로고 : 심볼(이미지) + 워드마크(텍스트)
+   ─ 원본 로고가 세로형이라, 위쪽 심볼 부분만 잘라 씁니다.
+     (아래 width/left/top 숫자는 잘라낼 위치라 임의로 바꾸지 마세요) */
+#eumHd .eum_logo{display:flex !important;flex-direction:row !important;align-items:center !important;gap:11px !important;line-height:1 !important;flex:none !important;}
+#eumHd .eum_mark{
+  display:block !important;position:relative !important;flex:none !important;
+  width:40px !important;height:31px !important;overflow:hidden !important;
+}
+#eumHd .eum_mark img{
+  position:absolute !important;width:105px !important;height:auto !important;
+  left:-32px !important;top:-21px !important;
+  filter:brightness(0) invert(1) !important;   /* 어두운 배경 위에서는 흰색 실루엣 */
+  transition:filter .3s var(--eum-ease) !important;
+}
+#eumHd.eum_solid .eum_mark img,#eumHd.eum_open .eum_mark img{filter:none !important;}
+#eumHd.eum_mo .eum_mark img{filter:brightness(0) invert(1) !important;}
+#eumHd .eum_wm{display:flex !important;flex-direction:column !important;line-height:1 !important;}
+#eumHd .eum_logo b{font-size:22px !important;font-weight:800 !important;letter-spacing:-.045em !important;color:#fff !important;transition:color .3s var(--eum-ease) !important;}
+#eumHd .eum_logo small{font-size:9.5px !important;font-weight:700 !important;letter-spacing:.2em !important;color:rgba(255,255,255,.55) !important;margin-top:6px !important;transition:color .3s var(--eum-ease) !important;}
+#eumHd.eum_solid .eum_logo b,#eumHd.eum_open .eum_logo b{color:var(--eum-teal) !important;}
+#eumHd.eum_solid .eum_logo small,#eumHd.eum_open .eum_logo small{color:var(--eum-mint) !important;}
+#eumHd.eum_mo .eum_logo b{color:#fff !important;}
+#eumHd.eum_mo .eum_logo small{color:var(--eum-mint) !important;}
+
+#eumHd .eum_gnb{display:flex !important;gap:2px !important;margin-left:auto !important;}
+#eumHd .eum_gnb > li > a{
+  display:block !important; padding:10px 14px !important; border-radius:999px !important;
+  font-size:15px !important; font-weight:600 !important; color:rgba(255,255,255,.86) !important;
+  transition:background .25s var(--eum-ease),color .25s var(--eum-ease) !important;
+}
+#eumHd .eum_gnb > li > a:hover,#eumHd .eum_gnb > li.eum_hot > a{background:rgba(255,255,255,.14) !important;color:#fff !important;}
+#eumHd.eum_solid .eum_gnb > li > a,#eumHd.eum_open .eum_gnb > li > a{color:var(--eum-body) !important;}
+#eumHd.eum_solid .eum_gnb > li > a:hover,
+#eumHd.eum_open .eum_gnb > li > a:hover,
+#eumHd.eum_open .eum_gnb > li.eum_hot > a{background:var(--eum-mint-l) !important;color:var(--eum-teal) !important;}
+
+/* ── 우측 버튼 4종 (블로그 / 네이버 예약 / 닥터나우 / 전화) ── */
+#eumHd .eum_act{display:flex !important;align-items:center !important;gap:7px !important;flex:none !important;}
+#eumHd .eum_btn{
+  display:inline-flex !important;align-items:center !important;justify-content:center !important;gap:6px !important;
+  height:40px !important;padding:0 14px !important;border-radius:999px !important;
+  font-size:12.5px !important;font-weight:700 !important;letter-spacing:-.035em !important;white-space:nowrap !important;
+  transition:background .25s var(--eum-ease),border-color .25s var(--eum-ease),color .25s var(--eum-ease),transform .25s var(--eum-ease),box-shadow .25s var(--eum-ease) !important;
+}
+#eumHd .eum_btn svg{width:13px !important;height:13px !important;flex:none !important;}
+#eumHd .eum_btn:hover{transform:translateY(-2px) !important;}
+
+/* 블로그 — 보조 버튼(선) */
+#eumHd .eum_bBlog{border:1px solid rgba(255,255,255,.3) !important;color:#fff !important;background:transparent !important;}
+#eumHd .eum_bBlog:hover{background:#03C75A !important;border-color:#03C75A !important;color:#fff !important;box-shadow:0 8px 18px -8px rgba(3,199,90,.8) !important;}
+#eumHd.eum_solid .eum_bBlog,#eumHd.eum_open .eum_bBlog{border-color:var(--eum-line) !important;color:var(--eum-body) !important;}
+#eumHd.eum_solid .eum_bBlog:hover,#eumHd.eum_open .eum_bBlog:hover{color:#fff !important;}
+
+/* 네이버 예약 */
+#eumHd .eum_bNaver{background:#03C75A !important;color:#fff !important;}
+#eumHd .eum_bNaver:hover{background:#02B150 !important;box-shadow:0 8px 18px -8px rgba(3,199,90,.85) !important;}
+
+/* 닥터나우 */
+#eumHd .eum_bDn{background:#FF6B35 !important;color:#fff !important;}
+#eumHd .eum_bDn:hover{background:#F05A22 !important;box-shadow:0 8px 18px -8px rgba(255,107,53,.85) !important;}
+
+/* 전화 — 어두운 배경에선 민트, 흰 헤더에선 딥틸 */
+#eumHd .eum_bTel{background:var(--eum-mint) !important;color:#fff !important;padding:0 16px !important;font-size:13px !important;}
+#eumHd .eum_bTel:hover{background:var(--eum-mint-d) !important;box-shadow:0 8px 20px -8px rgba(54,184,165,.9) !important;}
+#eumHd.eum_solid .eum_bTel,#eumHd.eum_open .eum_bTel{background:var(--eum-teal) !important;}
+#eumHd.eum_solid .eum_bTel:hover,#eumHd.eum_open .eum_bTel:hover{background:var(--eum-mint) !important;}
+
+/* ── 전체메뉴 패널 ── */
+#eumHd .eum_mega{
+  background:#fff !important; border-top:1px solid var(--eum-line) !important;
+  max-height:0 !important; overflow:hidden !important; opacity:0 !important;
+  box-shadow:0 26px 40px -32px rgba(12,45,55,.5) !important;
+  transition:max-height .42s var(--eum-ease),opacity .3s var(--eum-ease) !important;
+}
+#eumHd.eum_open .eum_mega{max-height:440px !important;opacity:1 !important;}
+#eumHd .eum_mcols{display:grid !important;grid-template-columns:repeat(7,minmax(0,1fr)) !important;gap:8px 18px !important;padding:30px 0 38px !important;}
+#eumHd .eum_mcol > b{
+  display:block !important;font-size:14.5px !important;font-weight:800 !important;
+  color:var(--eum-teal) !important;letter-spacing:-.035em !important;
+  padding-bottom:12px !important;margin-bottom:8px !important;
+  border-bottom:1px solid var(--eum-line) !important;
+  transition:color .25s var(--eum-ease),border-color .25s var(--eum-ease) !important;
+}
+#eumHd .eum_mcol.eum_hot > b{color:var(--eum-mint-d) !important;border-color:var(--eum-mint) !important;}
+#eumHd .eum_mcol a{
+  display:block !important;padding:7px 0 !important;font-size:13.5px !important;font-weight:500 !important;
+  color:var(--eum-body) !important;letter-spacing:-.035em !important;line-height:1.66 !important;
+  transition:color .2s var(--eum-ease),padding-left .2s var(--eum-ease) !important;
+}
+#eumHd .eum_mcol a:hover{color:var(--eum-mint-d) !important;padding-left:4px !important;}
+
+/* ── 햄버거 ── */
+#eumHd .eum_burger{display:none !important;width:44px !important;height:44px !important;margin-left:auto !important;position:relative !important;flex:none !important;}
+#eumHd .eum_burger i{position:absolute !important;left:11px !important;width:22px !important;height:1.8px !important;background:#fff !important;border-radius:2px !important;transition:all .3s var(--eum-ease) !important;}
+#eumHd .eum_burger i:nth-child(1){top:16px !important;}
+#eumHd .eum_burger i:nth-child(2){top:22px !important;}
+#eumHd .eum_burger i:nth-child(3){top:28px !important;}
+#eumHd.eum_solid .eum_burger i{background:var(--eum-teal) !important;}
+#eumHd.eum_mo .eum_burger i{background:#fff !important;}
+#eumHd.eum_mo .eum_burger i:nth-child(1){top:22px !important;transform:rotate(45deg) !important;}
+#eumHd.eum_mo .eum_burger i:nth-child(2){opacity:0 !important;}
+#eumHd.eum_mo .eum_burger i:nth-child(3){top:22px !important;transform:rotate(-45deg) !important;}
+/* 모바일 메뉴가 열리면 헤더 바탕을 투명하게 (틸 화면이 비치도록) */
+#eumHd.eum_mo .eum_bar::after{opacity:0 !important;}
+#eumHd.eum_mo .eum_bar{box-shadow:none !important;}
+#eumHd.eum_mo .eum_logo b{color:#fff !important;}
+#eumHd.eum_mo .eum_logo small{color:var(--eum-mint) !important;}
+
+/* ── 모바일 전체메뉴 ── */
+#eumHd .eum_mm{
+  position:fixed !important;top:0 !important;left:0 !important;right:0 !important;bottom:0 !important;
+  z-index:-2 !important;background:var(--eum-teal) !important;
+  padding:78px 20px 48px !important;overflow-y:auto !important;-webkit-overflow-scrolling:touch !important;
+  opacity:0 !important;visibility:hidden !important;transform:translateY(-10px) !important;
+  transition:opacity .35s var(--eum-ease),visibility .35s,transform .35s var(--eum-ease) !important;
+}
+#eumHd.eum_mo .eum_mm{opacity:1 !important;visibility:visible !important;transform:none !important;}
+#eumHd .eum_mg{border-bottom:1px solid rgba(255,255,255,.12) !important;}
+#eumHd .eum_mh{
+  display:flex !important;width:100% !important;align-items:center !important;justify-content:space-between !important;
+  padding:18px 4px !important;font-size:18px !important;font-weight:700 !important;color:#fff !important;letter-spacing:-.04em !important;
+}
+#eumHd .eum_mh svg{width:18px !important;height:18px !important;stroke:var(--eum-mint) !important;stroke-width:2.4 !important;fill:none !important;flex:none !important;transition:transform .3s var(--eum-ease) !important;}
+#eumHd .eum_mg.eum_on .eum_mh svg{transform:rotate(180deg) !important;}
+#eumHd .eum_mc{max-height:0 !important;overflow:hidden !important;transition:max-height .4s var(--eum-ease) !important;}
+#eumHd .eum_mg.eum_on .eum_mc{max-height:340px !important;}
+#eumHd .eum_mc a{
+  display:block !important;margin-left:3px !important;padding:11px 4px 11px 15px !important;
+  border-left:1px solid rgba(255,255,255,.2) !important;
+  font-size:15px !important;font-weight:500 !important;color:rgba(255,255,255,.72) !important;letter-spacing:-.035em !important;
+}
+#eumHd .eum_mc a:last-child{padding-bottom:18px !important;}
+#eumHd .eum_mtel{margin-top:34px !important;display:grid !important;grid-template-columns:1fr 1fr !important;gap:9px !important;}
+#eumHd .eum_mtel a{
+  display:inline-flex !important;align-items:center !important;justify-content:center !important;gap:7px !important;
+  height:52px !important;border-radius:10px !important;
+  font-size:14px !important;font-weight:700 !important;letter-spacing:-.035em !important;
+}
+#eumHd .eum_mtel a svg{width:14px !important;height:14px !important;flex:none !important;}
+#eumHd .eum_mtel .eum_p{background:var(--eum-mint) !important;color:#fff !important;}
+#eumHd .eum_mtel .eum_n{background:#03C75A !important;color:#fff !important;}
+#eumHd .eum_mtel .eum_dn{background:#FF6B35 !important;color:#fff !important;}
+#eumHd .eum_mtel .eum_g{border:1px solid rgba(255,255,255,.32) !important;color:#fff !important;}
+
+/* ── 반응형 ── */
+/* 폭이 줄면 보조 버튼부터 차례로 감춥니다 (필수 = 네이버 예약 · 전화) */
+@media (max-width:1399px){
+  #eumHd{--eum-pad:26px;}
+  #eumHd .eum_bBlog{display:none !important;}
+  #eumHd .eum_gnb > li > a{padding:10px 11px !important;font-size:14.5px !important;}
+}
+@media (max-width:1240px){
+  #eumHd .eum_bDn{display:none !important;}
+  #eumHd .eum_gnb > li > a{padding:10px 9px !important;font-size:14px !important;}
+  #eumHd .eum_bar .eum_wrap{gap:16px !important;}
+  #eumHd .eum_btn{height:38px !important;padding:0 12px !important;font-size:12px !important;}
+}
+@media (max-width:1180px){
+  #eumHd .eum_mcols{gap:8px 12px !important;}
+  #eumHd .eum_mcol > b{font-size:13.5px !important;}
+  #eumHd .eum_mcol a{font-size:12.5px !important;}
+}
+@media (max-width:1024px){
+  #eumHd .eum_gnb,#eumHd .eum_act,#eumHd .eum_mega{display:none !important;}
+  #eumHd .eum_burger{display:block !important;}
+}
+@media (max-width:860px){
+  #eumHd{--eum-pad:20px;--eum-h:64px;}
+  #eumHd.eum_solid .eum_bar{height:60px !important;}
+  #eumHd .eum_logo{gap:9px !important;}
+  #eumHd .eum_logo b{font-size:19px !important;}
+  #eumHd .eum_mark{width:34px !important;height:26px !important;}
+  #eumHd .eum_mark img{width:89px !important;left:-27px !important;top:-18px !important;}
+}
+</style>
+
+<div id="eumHd">
+  <header class="eum_bar">
+    <div class="eum_wrap">
+      <a class="eum_logo" href="https://yium.kr/">
+        <span class="eum_mark"><img src="https://cdn.imweb.me/upload/S20260108b9005a7eb2710/9f85a9eebaa26.png" alt="이움내과의원 로고"></span>
+        <span class="eum_wm">
+          <b>이움내과의원</b>
+          <small>YIUM INTERNAL MEDICINE</small>
+        </span>
+      </a>
+
+      <nav aria-label="주요 메뉴">
+        <ul class="eum_gnb">
+          <li data-g="0"><a href="https://yium.kr/about">병원소개</a></li>
+          <li data-g="1"><a href="https://yium.kr/internal-medicine">내과진료</a></li>
+          <li data-g="2"><a href="https://yium.kr/chronic-care">만성질환</a></li>
+          <li data-g="3"><a href="https://yium.kr/dialysis-center">인공신장센터</a></li>
+          <li data-g="4"><a href="https://yium.kr/obesity">비만·영양수액</a></li>
+          <li data-g="5"><a href="https://yium.kr/vaccination">예방접종</a></li>
+          <li data-g="6"><a href="https://yium.kr/notice">공지사항</a></li>
+        </ul>
+      </nav>
+
+      <div class="eum_act">
+        <a class="eum_btn eum_bBlog" href="https://blog.naver.com/medchk" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.27 4.3v6.52L7.74 4.3H3v15.4h4.72v-6.52l8.53 6.52H21V4.3z"/></svg>
+          블로그
+        </a>
+        <a class="eum_btn eum_bNaver" href="https://m.booking.naver.com/booking/16/bizes/1656667?theme=place&amp;entry=pll&amp;lang=ko&amp;area=pll" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.53 12.53L7.5 3H3v18h6.47V11.47L15.5 21H20V3h-6.47z"/></svg>
+          네이버 예약
+        </a>
+        <a class="eum_btn eum_bDn" href="https://doctornow.co.kr/doctors/GEBKL8" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 8v8M8 12h8"/></svg>
+          닥터나우
+        </a>
+        <a class="eum_btn eum_bTel" href="tel:031-979-0875">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.13.96.36 1.9.7 2.8a2 2 0 0 1-.45 2.11L8.1 9.9a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.9z"/></svg>
+          031-979-0875
+        </a>
+      </div>
+
+      <button class="eum_burger" type="button" aria-label="메뉴 열기" aria-expanded="false"><i></i><i></i><i></i></button>
+    </div>
+  </header>
+
+  <div class="eum_mega">
+    <div class="eum_wrap">
+      <div class="eum_mcols">
+        <div class="eum_mcol" data-g="0">
+          <b>병원소개</b>
+          <a href="https://yium.kr/about">이움내과 소개</a>
+          <a href="https://yium.kr/doctors">의료진 소개</a>
+          <a href="https://yium.kr/location">진료시간 · 오시는 길</a>
+          <a href="https://yium.kr/areas">일산 · 고양 오시는 길</a>
+          <a href="https://yium.kr/tour">둘러보기</a>
+        </div>
+        <div class="eum_mcol" data-g="1">
+          <b>내과진료</b>
+          <a href="https://yium.kr/internal-medicine">일반 내과 진료<br>(감기, 장염, 위장병 등)</a>
+        </div>
+        <div class="eum_mcol" data-g="2">
+          <b>만성질환</b>
+          <a href="https://yium.kr/chronic-care">일차의료 만성질환관리</a>
+          <a href="https://yium.kr/diabetes">당뇨</a>
+          <a href="https://yium.kr/hypertension">고혈압</a>
+          <a href="https://yium.kr/dyslipidemia">고지혈증</a>
+        </div>
+        <div class="eum_mcol" data-g="3">
+          <b>인공신장센터</b>
+          <a href="https://yium.kr/dialysis-center">센터 안내</a>
+          <a href="https://yium.kr/hemodialysis">혈액 투석</a>
+          <a href="https://yium.kr/night-dialysis">야간 투석</a>
+        </div>
+        <div class="eum_mcol" data-g="4">
+          <b>비만 · 영양수액</b>
+          <a href="https://yium.kr/iv-therapy">영양수액</a>
+          <a href="https://yium.kr/obesity">비만</a>
+        </div>
+        <div class="eum_mcol" data-g="5">
+          <b>예방접종</b>
+          <a href="https://yium.kr/vaccination">예방접종</a>
+        </div>
+        <div class="eum_mcol" data-g="6">
+          <b>공지사항</b>
+          <a href="https://yium.kr/notice">공지사항</a>
+          <a href="https://yium.kr/health-info">의학정보</a>
+          <a href="https://yium.kr/faq">자주 묻는 질문</a>
+          <a href="https://yium.kr/fees">비급여진료비 안내</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="eum_mm">
+    <div class="eum_mg">
+      <button class="eum_mh" type="button">병원소개<svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></button>
+      <div class="eum_mc">
+        <a href="https://yium.kr/about">이움내과 소개</a>
+        <a href="https://yium.kr/doctors">의료진 소개</a>
+        <a href="https://yium.kr/location">진료시간 · 오시는 길</a>
+        <a href="https://yium.kr/areas">일산 · 고양 오시는 길</a>
+        <a href="https://yium.kr/tour">둘러보기</a>
+      </div>
+    </div>
+    <div class="eum_mg">
+      <button class="eum_mh" type="button">내과진료<svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></button>
+      <div class="eum_mc"><a href="https://yium.kr/internal-medicine">일반 내과 진료 (감기, 장염, 위장병 등)</a></div>
+    </div>
+    <div class="eum_mg">
+      <button class="eum_mh" type="button">만성질환<svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></button>
+      <div class="eum_mc">
+        <a href="https://yium.kr/chronic-care">일차의료 만성질환관리</a>
+        <a href="https://yium.kr/diabetes">당뇨</a>
+        <a href="https://yium.kr/hypertension">고혈압</a>
+        <a href="https://yium.kr/dyslipidemia">고지혈증</a>
+      </div>
+    </div>
+    <div class="eum_mg">
+      <button class="eum_mh" type="button">인공신장센터<svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></button>
+      <div class="eum_mc">
+        <a href="https://yium.kr/dialysis-center">센터 안내</a>
+        <a href="https://yium.kr/hemodialysis">혈액 투석</a>
+        <a href="https://yium.kr/night-dialysis">야간 투석</a>
+      </div>
+    </div>
+    <div class="eum_mg">
+      <button class="eum_mh" type="button">비만 · 영양수액<svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></button>
+      <div class="eum_mc">
+        <a href="https://yium.kr/iv-therapy">영양수액</a>
+        <a href="https://yium.kr/obesity">비만</a>
+      </div>
+    </div>
+    <div class="eum_mg">
+      <button class="eum_mh" type="button">예방접종<svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></button>
+      <div class="eum_mc"><a href="https://yium.kr/vaccination">예방접종</a></div>
+    </div>
+    <div class="eum_mg">
+      <button class="eum_mh" type="button">공지사항<svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></button>
+      <div class="eum_mc">
+        <a href="https://yium.kr/notice">공지사항</a>
+        <a href="https://yium.kr/health-info">의학정보</a>
+        <a href="https://yium.kr/faq">자주 묻는 질문</a>
+        <a href="https://yium.kr/fees">비급여진료비 안내</a>
+      </div>
+    </div>
+    <div class="eum_mtel">
+      <a class="eum_p" href="tel:031-979-0875"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.13.96.36 1.9.7 2.8a2 2 0 0 1-.45 2.11L8.1 9.9a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.9z"/></svg>전화 상담</a>
+      <a class="eum_n" href="https://m.booking.naver.com/booking/16/bizes/1656667?theme=place&amp;entry=pll&amp;lang=ko&amp;area=pll" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.53 12.53L7.5 3H3v18h6.47V11.47L15.5 21H20V3h-6.47z"/></svg>네이버 예약</a>
+      <a class="eum_dn" href="https://doctornow.co.kr/doctors/GEBKL8" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 8v8M8 12h8"/></svg>닥터나우</a>
+      <a class="eum_g" href="https://blog.naver.com/medchk" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.27 4.3v6.52L7.74 4.3H3v15.4h4.72v-6.52l8.53 6.52H21V4.3z"/></svg>블로그</a>
+    </div>
+  </div>
+</div>
+
+<script>
+(function () {
+  var root = document.getElementById('eumHd');
+  if (!root || root.dataset.eumReady) return;   /* 아임웹에서 두 번 실행되는 것 방지 */
+  root.dataset.eumReady = '1';
+
+  /* 스크롤하면 흰 배경 */
+  function onScroll() {
+    if (window.pageYOffset > 40) root.classList.add('eum_solid');
+    else root.classList.remove('eum_solid');
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  /* PC 전체메뉴 — 마우스를 올리면 세부 페이지가 펼쳐집니다 */
+  var gnbItems = root.querySelectorAll('.eum_gnb > li');
+  var cols = root.querySelectorAll('.eum_mcol');
+  var timer = null;
+
+  function hot(g) {
+    for (var i = 0; i < gnbItems.length; i++) {
+      gnbItems[i].classList[gnbItems[i].getAttribute('data-g') === g ? 'add' : 'remove']('eum_hot');
+    }
+    for (var j = 0; j < cols.length; j++) {
+      cols[j].classList[cols[j].getAttribute('data-g') === g ? 'add' : 'remove']('eum_hot');
+    }
+  }
+  function open(g) {
+    if (window.innerWidth <= 1024) return;
+    clearTimeout(timer);
+    root.classList.add('eum_open');
+    hot(g);
+  }
+  function close(delay) {
+    clearTimeout(timer);
+    timer = setTimeout(function () {
+      root.classList.remove('eum_open');
+      hot(null);
+    }, delay === undefined ? 140 : delay);
+  }
+
+  Array.prototype.forEach.call(gnbItems, function (li) {
+    var g = li.getAttribute('data-g');
+    li.addEventListener('mouseenter', function () { open(g); });
+    var a = li.querySelector('a');
+    if (a) a.addEventListener('focus', function () { open(g); });
+  });
+  Array.prototype.forEach.call(cols, function (c) {
+    c.addEventListener('mouseenter', function () { open(c.getAttribute('data-g')); });
+  });
+  root.addEventListener('mouseenter', function () { clearTimeout(timer); });
+  root.addEventListener('mouseleave', function () { close(); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(0); });
+
+  /* 모바일 메뉴 + 아코디언 */
+  var burger = root.querySelector('.eum_burger');
+  var groups = root.querySelectorAll('.eum_mg');
+
+  burger.addEventListener('click', function () {
+    var on = root.classList.toggle('eum_mo');
+    burger.setAttribute('aria-expanded', on ? 'true' : 'false');
+    burger.setAttribute('aria-label', on ? '메뉴 닫기' : '메뉴 열기');
+    document.documentElement.style.overflow = on ? 'hidden' : '';
+    if (on && groups.length && !root.querySelector('.eum_mg.eum_on')) groups[0].classList.add('eum_on');
+  });
+
+  Array.prototype.forEach.call(groups, function (g) {
+    g.querySelector('.eum_mh').addEventListener('click', function () {
+      var was = g.classList.contains('eum_on');
+      Array.prototype.forEach.call(groups, function (x) { x.classList.remove('eum_on'); });
+      if (!was) g.classList.add('eum_on');
+    });
+  });
+
+  Array.prototype.forEach.call(root.querySelectorAll('.eum_mm a'), function (a) {
+    a.addEventListener('click', function () {
+      root.classList.remove('eum_mo');
+      document.documentElement.style.overflow = '';
+      burger.setAttribute('aria-expanded', 'false');
+    });
+  });
+})();
+</script>
+
+
