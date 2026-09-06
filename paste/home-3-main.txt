@@ -822,17 +822,28 @@
     if (fill) fill.style.setProperty('width', ((i + 1) / items.length * 100) + '%', 'important');
   }
 
-  if (!window.IntersectionObserver) { setActive(0); return; }
-
-  /* 화면 한가운데를 지나는 항목이 활성화됩니다 */
-  var seen = {};
-  var spy = new IntersectionObserver(function (es) {
-    es.forEach(function (e) { seen[e.target.getAttribute('data-i')] = e.isIntersecting; });
+  /* 화면 한가운데에 가장 가까운 항목이 활성화됩니다 */
+  var ticking = false;
+  function update() {
+    ticking = false;
+    var mid = window.innerHeight * 0.5;
+    var best = 0, bestDist = Infinity;
     for (var i = 0; i < items.length; i++) {
-      if (seen[String(i)]) { setActive(i); break; }
+      var r = items[i].getBoundingClientRect();
+      var d = Math.abs(r.top + r.height / 2 - mid);
+      if (d < bestDist) { bestDist = d; best = i; }
     }
-  }, { rootMargin: '-46% 0px -46% 0px', threshold: 0 });
-  Array.prototype.forEach.call(items, function (el) { spy.observe(el); });
+    setActive(best);
+  }
+  function onScroll() {
+    if (ticking) return;
+    ticking = true;
+    if (window.requestAnimationFrame) requestAnimationFrame(update);
+    else setTimeout(update, 60);
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll);
+  update();
 })();
 </script>
 
