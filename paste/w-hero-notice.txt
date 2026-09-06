@@ -6,7 +6,6 @@
      ══════════════════════════════════════════════════════════════ -->
 
 <style>
-<style>
 @import url('https://cdn.jsdelivr.net/gh/sun-typeface/suit@2/fonts/variable/woff2/SUIT-Variable.css');
 @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;500;600&display=swap');
 
@@ -672,7 +671,6 @@
 }
 
 </style>
-</style>
 
 <div id="eumSub">
 
@@ -686,7 +684,6 @@
 
 </div>
 
-<script>
 <script>
 (function () {
   var root = document.getElementById('eumSub');
@@ -771,5 +768,4 @@
     });
   });
 })();
-</script>
 </script>
